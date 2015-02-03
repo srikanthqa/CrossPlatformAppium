@@ -2,7 +2,10 @@ package com.qa.shopkick.tests;
 
 import com.qa.shopkick.pages.*;
 import com.qa.shopkick.utils.AbstractTest;
+
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+
+import org.junit.After;
 import org.junit.Test;
 import org.openqa.selenium.support.PageFactory;
 
@@ -24,6 +27,12 @@ public class LaunchTest extends AbstractTest {
         FirstUseRegistrationIntroPage.clickNoThanksButton();
         MicrophonePermissionPage.clickOKButton();
 
+    }
+    
+    @After
+    public void teardown(){
+    	//Call all testlodge methods to update the test run result
+    	
     }
 
 }

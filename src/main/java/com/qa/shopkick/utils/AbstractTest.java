@@ -54,6 +54,7 @@ public class AbstractTest {
         }
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         PageFactory.initElements(new AppiumFieldDecorator(driver), new FirstUseDealsEducationPage());
+        
     }
 
     @AfterClass
