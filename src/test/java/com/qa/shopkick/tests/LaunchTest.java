@@ -6,6 +6,7 @@ import org.junit.After;
 import org.junit.Test;
 
 import com.qa.shopkick.pages.CountryPickerPage;
+import com.qa.shopkick.pages.FirstUseAlternateScreen;
 import com.qa.shopkick.pages.FirstUseDealsEducationPage;
 import com.qa.shopkick.pages.FirstUseRegistrationIntroPage;
 import com.qa.shopkick.pages.FirstUseRewardsEducationPage;
@@ -40,7 +41,7 @@ public class LaunchTest extends AbstractTest {
 		//Logic to determine which first use flow we run into
 		if(FirstUseRegistrationIntroPage.firstUseFlowLessScreen()==true)
 		{
-			FirstUseRegistrationIntroPage.clickOnContinueAsGuestButton();
+			FirstUseAlternateScreen.clickOnContinueAsGuestButton();
 		}
 
 		else

@@ -16,16 +16,12 @@ public class FirstUseRegistrationIntroPage extends AbstractPage{
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"NO, THANKS\")")
 	private static WebElement noThanksButton;
 
-	@AndroidFindBy(uiAutomator = "new UiSelector().resourceID(\"com.shopkick.app:id/button_text\").text(\"CONTINUE AS GUEST\")")
-	private static WebElement continueAsGuestButton;
-
-
 	@iOSFindBy(uiAutomator = ".buttons()[\"Sign Up/Sign In\"]")
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"SIGN UP/SIGN IN\")")
 	private static WebElement signUpOrSignInButton;
 
 	public static boolean firstUseFlowLessScreen(){
-		if(continueAsGuestButton.isDisplayed()){
+		if(FirstUseAlternateScreen.continueAsGuestButton.isDisplayed()){
 			return true;
 		}
 		else{
@@ -40,11 +36,6 @@ public class FirstUseRegistrationIntroPage extends AbstractPage{
 		PageFactory.initElements(new AppiumFieldDecorator(driver),new LeftNavBar());
 	}
 
-	public static void clickOnContinueAsGuestButton(){
-		continueAsGuestButton.click();
-		PageFactory.initElements(new AppiumFieldDecorator(driver),new MicrophonePermissionPage());
-		PageFactory.initElements(new AppiumFieldDecorator(driver),new LeftNavBar());
-	}
 
 	public static void clickSignUpOrSignInButton(){
 		signUpOrSignInButton.click();

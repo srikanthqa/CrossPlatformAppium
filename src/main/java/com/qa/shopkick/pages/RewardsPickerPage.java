@@ -19,6 +19,7 @@ public class RewardsPickerPage extends AbstractPage{
     public static void clickNextButton(){
         nextButton.click();
         PageFactory.initElements(new AppiumFieldDecorator(driver), new FirstUseRegistrationIntroPage());
+        PageFactory.initElements(new AppiumFieldDecorator(driver), new FirstUseAlternateScreen());
     }
 
 }
