@@ -38,13 +38,15 @@ public class LaunchTest extends AbstractTest {
 		//Pick
 		RewardsPickerPage.clickNextButton();
 
+		
+		
 		//Logic to determine which first use flow we run into
 		if(FirstUseRegistrationIntroPage.firstUseFlowLessScreen()==true)
 		{
 			FirstUseRegistrationIntroPage.clickNoThanksButton();
 		}
 
-		else
+		if(FirstUseAlternateScreen.firstUseFlowLessScreen()==true)
 		{
 			FirstUseAlternateScreen.clickOnContinueAsGuestButton();
 		}
