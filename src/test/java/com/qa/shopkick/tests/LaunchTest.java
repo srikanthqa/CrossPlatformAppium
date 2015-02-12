@@ -62,13 +62,13 @@ public class LaunchTest extends AbstractTest {
 		if(PlatformType.equals("IOS")){
 			MicrophonePermissionPage.clickOKButton();
 		}
-
+*/
 		try {
 			driver.wait(500000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();}
-		*/
+		
 
 		//tap on the 'Guest' button to open left nav bar
 		LeftNavBar.clickGuestUserButton();
