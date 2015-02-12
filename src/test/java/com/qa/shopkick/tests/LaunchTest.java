@@ -64,7 +64,7 @@ public class LaunchTest extends AbstractTest {
 		}
 */
 		try {
-			driver.wait(500000);
+			driver.wait(50000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();}
