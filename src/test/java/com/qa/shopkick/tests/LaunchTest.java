@@ -38,9 +38,14 @@ public class LaunchTest extends AbstractTest {
 		//Pick
 		RewardsPickerPage.clickNextButton();
 
+		if(driver.findElementByLinkText("NO THANKS").isDisplayed()){
+			FirstUseRegistrationIntroPage.clickNoThanksButton();
+		}
+		else{
+			FirstUseAlternateScreen.clickOnContinueAsGuestButton();
+		}
 		
-		
-		//Logic to determine which first use flow we run into
+/*		//Logic to determine which first use flow we run into
 		if(FirstUseRegistrationIntroPage.firstUseFlowLessScreen()==true)
 		{
 			FirstUseRegistrationIntroPage.clickNoThanksButton();
@@ -55,13 +60,13 @@ public class LaunchTest extends AbstractTest {
 		if(PlatformType.equals("IOS")){
 			MicrophonePermissionPage.clickOKButton();
 		}
-//
-//		try {
-//			driver.wait(500000);
-//		} catch (InterruptedException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+
+		try {
+			driver.wait(500000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();}
+		*/
 
 		//tap on the 'Guest' button to open left nav bar
 		LeftNavBar.clickGuestUserButton();

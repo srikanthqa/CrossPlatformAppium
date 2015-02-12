@@ -27,7 +27,6 @@ public class FirstUseRegistrationIntroPage extends AbstractPage{
 		else{
 			return false;
 		}
-
 	}
 
 	public static void clickNoThanksButton(){
@@ -36,10 +35,8 @@ public class FirstUseRegistrationIntroPage extends AbstractPage{
 		PageFactory.initElements(new AppiumFieldDecorator(driver),new LeftNavBar());
 	}
 
-
 	public static void clickSignUpOrSignInButton(){
 		signUpOrSignInButton.click();
 	}
-
 
 }
