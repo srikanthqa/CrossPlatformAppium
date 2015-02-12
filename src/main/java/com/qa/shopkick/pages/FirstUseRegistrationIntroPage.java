@@ -21,7 +21,7 @@ public class FirstUseRegistrationIntroPage extends AbstractPage{
 	private static WebElement signUpOrSignInButton;
 
 	public static boolean firstUseFlowLessScreen(){
-		if(FirstUseAlternateScreen.continueAsGuestButton.isDisplayed()){
+		if(noThanksButton.isDisplayed()){
 			return true;
 		}
 		else{

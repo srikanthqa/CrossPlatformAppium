@@ -44,17 +44,17 @@ public class LaunchTest extends AbstractTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
+
+
 		//Logic to determine which first use flow we run into
 		if(FirstUseRegistrationIntroPage.firstUseFlowLessScreen()==true)
 		{
-			FirstUseAlternateScreen.clickOnContinueAsGuestButton();
+			FirstUseRegistrationIntroPage.clickNoThanksButton();
 		}
 
 		else
 		{
-			FirstUseRegistrationIntroPage.clickNoThanksButton();
+			FirstUseAlternateScreen.clickOnContinueAsGuestButton();
 		}
 
 		//if iOS and if mic permission is asked, give the permission
