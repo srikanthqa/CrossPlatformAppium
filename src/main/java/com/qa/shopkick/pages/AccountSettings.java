@@ -28,5 +28,4 @@ public class AccountSettings extends AbstractPage {
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"DELETE ACCOUNT\")")
 	private static WebElement AccountSettingsDeleteAccount;
 	
-	
 }

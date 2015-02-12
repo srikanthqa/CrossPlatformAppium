@@ -14,7 +14,7 @@ public class LeftNavBar extends AbstractPage{
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"GUEST\")")
 	private static WebElement guestLeftNavBar;
 
-	public static void clickGuestUserBUtton(){
+	public static void clickGuestUserButton(){
 
 		guestLeftNavBar.click();
 		PageFactory.initElements(new AppiumFieldDecorator(driver), new LeftNavBar());
@@ -25,6 +25,11 @@ public class LeftNavBar extends AbstractPage{
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"SIGN IN WITH FACEBOOK\")")
 	private static WebElement signInWithFacebookLeftNav;
+	
+	public static void clickOnFaceBookSignIn(){
+		signInManuallyLeftNav.click();
+
+	}
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"SIGN IN WITH GOOGLE\")")
 	private static WebElement signInWithGoogleLeftNav;
