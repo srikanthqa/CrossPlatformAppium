@@ -27,7 +27,7 @@ public class LeftNavBar extends AbstractPage{
 	private static WebElement signInWithFacebookLeftNav;
 	
 	public static void clickOnFaceBookSignIn(){
-		signInManuallyLeftNav.click();
+		signInWithFacebookLeftNav.click();
 
 	}
 

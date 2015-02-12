@@ -21,6 +21,7 @@ public class FirstUseRegistrationIntroPage extends AbstractPage{
 	private static WebElement signUpOrSignInButton;
 
 	public static boolean firstUseFlowLessScreen(){
+		
 		if(noThanksButton.isEnabled()){
 			return true;
 		}

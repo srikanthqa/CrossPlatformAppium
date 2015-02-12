@@ -39,6 +39,7 @@ public class LaunchTest extends AbstractTest {
 		RewardsPickerPage.clickNextButton();
 		
 		FirstUseRegistrationIntroPage.clickNoThanksButton();
+		
 /*
 		if(driver.findElementByPartialLinkText("NO THANKS").isDisplayed()){
 			FirstUseRegistrationIntroPage.clickNoThanksButton();
