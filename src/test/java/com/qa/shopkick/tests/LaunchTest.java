@@ -37,8 +37,16 @@ public class LaunchTest extends AbstractTest {
 		//Pick
 		RewardsPickerPage.clickNextButton();
 
-		//Pick default reward
-		FirstUseRegistrationIntroPage.clickNoThanksButton();
+		//Logic to determine which first use flow we run into
+		if(FirstUseRegistrationIntroPage.firstUseFlowLessScreen()==true)
+		{
+			FirstUseRegistrationIntroPage.clickOnContinueAsGuestButton();
+		}
+
+		else
+		{
+			FirstUseRegistrationIntroPage.clickNoThanksButton();
+		}
 
 		//if iOS and if mic permission is asked, give the permission
 		if(PlatformType.equals("IOS")){
@@ -51,7 +59,7 @@ public class LaunchTest extends AbstractTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		//tap on the 'Guest' button to open left nav bar
 		LeftNavBar.clickGuestUserButton();
 
@@ -86,12 +94,12 @@ public class LaunchTest extends AbstractTest {
 		}
 		else{
 			//Go to browse rewards
-			
+
 			//Scroll down
-			
+
 			//Redeem reward
 		}
-		
+
 		//verify rewards was redeemed
 		//Go to settings > Logout
 		//From settings > email register a new account

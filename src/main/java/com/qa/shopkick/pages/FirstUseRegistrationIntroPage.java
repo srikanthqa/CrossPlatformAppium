@@ -12,23 +12,43 @@ import org.openqa.selenium.support.PageFactory;
  */
 public class FirstUseRegistrationIntroPage extends AbstractPage{
 
-    @iOSFindBy(uiAutomator = ".buttons()[\"No, thanks\"]")
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"NO, THANKS\")")
-    private static WebElement noThanksButton;
+	@iOSFindBy(uiAutomator = ".buttons()[\"No, thanks\"]")
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"NO, THANKS\")")
+	private static WebElement noThanksButton;
 
-    @iOSFindBy(uiAutomator = ".buttons()[\"Sign Up/Sign In\"]")
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"SIGN UP/SIGN IN\")")
-    private static WebElement signUpOrSignInButton;
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceID(\"com.shopkick.app:id/button_text\").text(\"CONTINUE AS GUEST\")")
+	private static WebElement continueAsGuestButton;
 
-    public static void clickNoThanksButton(){
-        noThanksButton.click();
-        PageFactory.initElements(new AppiumFieldDecorator(driver),new MicrophonePermissionPage());
-        PageFactory.initElements(new AppiumFieldDecorator(driver),new LeftNavBar());
-    }
 
-    public static void clickSignUpOrSignInButton(){
-        signUpOrSignInButton.click();
-    }
+	@iOSFindBy(uiAutomator = ".buttons()[\"Sign Up/Sign In\"]")
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"SIGN UP/SIGN IN\")")
+	private static WebElement signUpOrSignInButton;
+
+	public static boolean firstUseFlowLessScreen(){
+		if(continueAsGuestButton.isDisplayed()){
+			return true;
+		}
+		else{
+			return false;
+		}
+
+	}
+
+	public static void clickNoThanksButton(){
+		noThanksButton.click();
+		PageFactory.initElements(new AppiumFieldDecorator(driver),new MicrophonePermissionPage());
+		PageFactory.initElements(new AppiumFieldDecorator(driver),new LeftNavBar());
+	}
+
+	public static void clickOnContinueAsGuestButton(){
+		continueAsGuestButton.click();
+		PageFactory.initElements(new AppiumFieldDecorator(driver),new MicrophonePermissionPage());
+		PageFactory.initElements(new AppiumFieldDecorator(driver),new LeftNavBar());
+	}
+
+	public static void clickSignUpOrSignInButton(){
+		signUpOrSignInButton.click();
+	}
 
 
 }
