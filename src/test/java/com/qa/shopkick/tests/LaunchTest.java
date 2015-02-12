@@ -37,15 +37,17 @@ public class LaunchTest extends AbstractTest {
 
 		//Pick
 		RewardsPickerPage.clickNextButton();
-
-		if(driver.findElementByLinkText("NO THANKS").isDisplayed()){
+		
+		FirstUseRegistrationIntroPage.clickNoThanksButton();
+/*
+		if(driver.findElementByPartialLinkText("NO THANKS").isDisplayed()){
 			FirstUseRegistrationIntroPage.clickNoThanksButton();
 		}
 		else{
 			FirstUseAlternateScreen.clickOnContinueAsGuestButton();
 		}
 		
-/*		//Logic to determine which first use flow we run into
+		//Logic to determine which first use flow we run into
 		if(FirstUseRegistrationIntroPage.firstUseFlowLessScreen()==true)
 		{
 			FirstUseRegistrationIntroPage.clickNoThanksButton();

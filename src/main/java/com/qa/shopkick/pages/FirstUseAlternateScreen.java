@@ -21,7 +21,7 @@ public class FirstUseAlternateScreen extends AbstractPage {
 	}
 	
 	public static boolean firstUseFlowLessScreen(){
-		if(continueAsGuestButton.isDisplayed()){
+		if(continueAsGuestButton.isEnabled()){
 			return true;
 		}
 		else{
