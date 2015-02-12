@@ -71,7 +71,7 @@ public class LaunchTest extends AbstractTest {
 
 		currentKicksBeforeLogin = LeftNavBar.getCurrentKicksCount();
 
-		//Ensure user is not signed in
+/*		//Ensure user is not signed in
 		if(LeftNavBar.verifyNotSignedIn() == true)
 		{
 			//Tap on sign in with facebook
@@ -80,7 +80,9 @@ public class LaunchTest extends AbstractTest {
 		else{
 			//If a user is signed in on fresh install, Fail the test 
 			fail();
-		}
+		}*/
+		
+		LeftNavBar.clickOnFaceBookSignIn();
 
 		//Verify kicks have been updated
 		currentKicksAfterLogin = LeftNavBar.getCurrentKicksCount();
