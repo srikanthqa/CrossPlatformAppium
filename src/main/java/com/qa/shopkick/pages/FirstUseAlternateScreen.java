@@ -12,7 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 public class FirstUseAlternateScreen extends AbstractPage {
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceID(\"com.shopkick.app:id/button_text\").text(\"CONTINUE AS GUEST\")")
-	static WebElement continueAsGuestButton;
+	public static WebElement continueAsGuestButton;
 
 	public static void clickOnContinueAsGuestButton(){
 		continueAsGuestButton.click();

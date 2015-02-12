@@ -38,6 +38,14 @@ public class LaunchTest extends AbstractTest {
 		//Pick
 		RewardsPickerPage.clickNextButton();
 
+		try {
+			driver.wait(500000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 		//Logic to determine which first use flow we run into
 		if(FirstUseRegistrationIntroPage.firstUseFlowLessScreen()==true)
 		{
