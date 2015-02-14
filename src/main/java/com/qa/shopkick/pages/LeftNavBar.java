@@ -25,7 +25,7 @@ public class LeftNavBar extends AbstractPage{
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"SIGN IN WITH FACEBOOK\")")
 	private static WebElement signInWithFacebookLeftNav;
-	
+
 	public static void clickOnFaceBookSignIn(){
 		signInWithFacebookLeftNav.click();
 
@@ -62,11 +62,13 @@ public class LeftNavBar extends AbstractPage{
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/row_text\").text(\"My saves\")")
 	private static WebElement mySavesLeftNav;
 
-	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/row_text\").text(\"Browse rewards\")")
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/row_text\").text(\"Rewards\")")
 	private static WebElement browseRewardsLeftNav;
-
-	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/row_text\").text(\"My redeemed rewards\")")
-	private static WebElement myRedeemedRewardsLeftNav;
+	
+	public static void clickOnRewardsButtonLeftNav(){
+		browseRewardsLeftNav.click();
+		PageFactory.initElements(new AppiumFieldDecorator(driver), new BrowseRewadsPage());
+	}
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/row_text\").text(\"Invite & get kicks\")")
 	private static WebElement inviteAndGetKicksLeftNav;
@@ -91,7 +93,7 @@ public class LeftNavBar extends AbstractPage{
 		String currentKicksCount = currentKicksCountLeftNav.getText(); 
 		return currentKicksCount;
 	}
-	
+
 	//Method to read All time kicks
 	public static String getAllTimeKicksCount(){
 		String allTimeKicksCount = allTimeKicksCountLeftNav.getText(); 

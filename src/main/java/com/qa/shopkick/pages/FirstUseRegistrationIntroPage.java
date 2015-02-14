@@ -12,32 +12,21 @@ import org.openqa.selenium.support.PageFactory;
  */
 public class FirstUseRegistrationIntroPage extends AbstractPage{
 
-	@iOSFindBy(uiAutomator = ".buttons()[\"No, thanks\"]")
-	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"NO, THANKS\")")
-	private static WebElement noThanksButton;
+    @iOSFindBy(uiAutomator = ".buttons()[\"No, thanks\"]")
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"NO, THANKS\")")
+    private static WebElement noThanksButton;
 
-	@iOSFindBy(uiAutomator = ".buttons()[\"Sign Up/Sign In\"]")
-	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"SIGN UP/SIGN IN\")")
-	private static WebElement signUpOrSignInButton;
+    @iOSFindBy(uiAutomator = ".buttons()[\"Sign Up/Sign In\"]")
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"SIGN UP/SIGN IN\")")
+    private static WebElement signUpOrSignInButton;
 
-	public static boolean firstUseFlowLessScreen(){
-		
-		if(noThanksButton.isEnabled()){
-			return true;
-		}
-		else{
-			return false;
-		}
-	}
+    public static void clickNoThanksButton(){
+        noThanksButton.click();
+        PageFactory.initElements(new AppiumFieldDecorator(driver),new MicrophonePermissionPage());
+    }
 
-	public static void clickNoThanksButton(){
-		noThanksButton.click();
-		PageFactory.initElements(new AppiumFieldDecorator(driver),new MicrophonePermissionPage());
-		PageFactory.initElements(new AppiumFieldDecorator(driver),new LeftNavBar());
-	}
-
-	public static void clickSignUpOrSignInButton(){
-		signUpOrSignInButton.click();
-	}
+    public static void clickSignUpOrSignInButton(){
+        signUpOrSignInButton.click();
+    }
 
 }

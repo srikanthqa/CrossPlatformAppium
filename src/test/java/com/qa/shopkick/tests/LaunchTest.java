@@ -37,17 +37,18 @@ public class LaunchTest extends AbstractTest {
 
 		//Pick
 		RewardsPickerPage.clickNextButton();
-		
+
 		FirstUseRegistrationIntroPage.clickNoThanksButton();
-		
-/*
+
+		/* TODO: Figure out more effective way to verify which page is going to be displayed
+		 * 
 		if(driver.findElementByPartialLinkText("NO THANKS").isDisplayed()){
 			FirstUseRegistrationIntroPage.clickNoThanksButton();
 		}
 		else{
 			FirstUseAlternateScreen.clickOnContinueAsGuestButton();
 		}
-		
+
 		//Logic to determine which first use flow we run into
 		if(FirstUseRegistrationIntroPage.firstUseFlowLessScreen()==true)
 		{
@@ -63,7 +64,7 @@ public class LaunchTest extends AbstractTest {
 		if(PlatformType.equals("IOS")){
 			MicrophonePermissionPage.clickOKButton();
 		}
-*/
+		 */
 
 		//tap on the 'Guest' button to open left nav bar
 		LeftNavBar.clickGuestUserButton();
@@ -72,7 +73,8 @@ public class LaunchTest extends AbstractTest {
 
 		currentKicksBeforeLogin = LeftNavBar.getCurrentKicksCount();
 
-/*		//Ensure user is not signed in
+		/*	TODO: Figure out a betetr way to verify all elements	
+		 * //Ensure user is not signed in
 		if(LeftNavBar.verifyNotSignedIn() == true)
 		{
 			//Tap on sign in with facebook
@@ -82,7 +84,7 @@ public class LaunchTest extends AbstractTest {
 			//If a user is signed in on fresh install, Fail the test 
 			fail();
 		}*/
-		
+
 		LeftNavBar.clickOnFaceBookSignIn();
 
 		//Verify kicks have been updated
