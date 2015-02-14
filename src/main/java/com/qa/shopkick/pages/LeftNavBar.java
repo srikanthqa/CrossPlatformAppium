@@ -67,7 +67,7 @@ public class LeftNavBar extends AbstractPage{
 	
 	public static void clickOnRewardsButtonLeftNav(){
 		browseRewardsLeftNav.click();
-		PageFactory.initElements(new AppiumFieldDecorator(driver), new BrowseRewadsPage());
+		PageFactory.initElements(new AppiumFieldDecorator(driver), new KicksCenterRewadsPage());
 	}
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/row_text\").text(\"Invite & get kicks\")")

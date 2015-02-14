@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.qa.shopkick.utils.AbstractPage;
 
-public class BrowseRewadsPage extends AbstractPage{
+public class KicksCenterRewadsPage extends AbstractPage{
 
 	//Declaring all static texts in page first, parts we wont click
 
