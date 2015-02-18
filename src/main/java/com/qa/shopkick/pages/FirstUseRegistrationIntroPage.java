@@ -23,6 +23,7 @@ public class FirstUseRegistrationIntroPage extends AbstractPage{
     public static void clickNoThanksButton(){
         noThanksButton.click();
         PageFactory.initElements(new AppiumFieldDecorator(driver),new MicrophonePermissionPage());
+        PageFactory.initElements(new AppiumFieldDecorator(driver),new LeftNavBar());
     }
 
     public static void clickSignUpOrSignInButton(){

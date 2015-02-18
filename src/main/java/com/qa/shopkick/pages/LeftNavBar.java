@@ -72,6 +72,11 @@ public class LeftNavBar extends AbstractPage{
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/row_text\").text(\"Invite & get kicks\")")
 	private static WebElement inviteAndGetKicksLeftNav;
+	
+	public static void clickOnInviteLeftNav(){
+		inviteAndGetKicksLeftNav.click();
+		PageFactory.initElements(new AppiumFieldDecorator(driver), new InviteAndGetKicksPage());
+	}
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/row_text\").text(\"My friends\")")
 	private static WebElement myFriendsLeftNav;

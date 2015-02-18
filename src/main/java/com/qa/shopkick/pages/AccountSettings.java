@@ -6,53 +6,53 @@ import org.openqa.selenium.WebElement;
 import com.qa.shopkick.utils.AbstractPage;
 
 public class AccountSettings extends AbstractPage {
-	
+
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/user_email_text\")")
-	private static WebElement AccountSettingsEmail;
-	
+	private static WebElement accountSettingsEmail;
+
 	public static void clickAccountSettingsEmail(){
-		AccountSettingsEmail.click();
+		accountSettingsEmail.click();
 	}
-	
+
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/update_phone_num_text\")")
-	private static WebElement AccountSettingsPhoneNumber;
-	
+	private static WebElement accountSettingsPhoneNumber;
+
 	public static void clickUpdatePhoneNumber(){
-		AccountSettingsEmail.click();
+		accountSettingsEmail.click();
 	}
-	
+
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/update_zip_text\")")
-	private static WebElement AccountSettingsZipCode;
-	
+	private static WebElement accountSettingsZipCode;
+
 	public static void clickAccountSettingsZipCode(){
-		AccountSettingsZipCode.click();
+		accountSettingsZipCode.click();
 	}
-	
+
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"VERIFY YOUR PHONE NUMBER\")")
-	private static WebElement AccountSettingsVerifyPhoneNumber;
-	
+	private static WebElement accountSettingsVerifyPhoneNumber;
+
 	public static void clickAccountSettingsVerifyPhoneNumber(){
-		AccountSettingsVerifyPhoneNumber.click();
+		accountSettingsVerifyPhoneNumber.click();
 	}
-	
+
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"CHANGE PASSWORD\")")
-	private static WebElement AccountSettingsChangePassword;
-	
+	private static WebElement accountSettingsChangePassword;
+
 	public static void clickAccountSettingsChangePassword(){
-		AccountSettingsChangePassword.click();
+		accountSettingsChangePassword.click();
 	}
-	
+
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"LOG OUT\")")
-	private static WebElement AccountSettingsLogOut;
-	
+	private static WebElement accountSettingsLogOut;
+
 	public static void clickAccountSettingsLogOut(){
-		AccountSettingsLogOut.click();
+		accountSettingsLogOut.click();
 	}
-	
+
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"DELETE ACCOUNT\")")
-	private static WebElement AccountSettingsDeleteAccount;
-	
+	private static WebElement accountSettingsDeleteAccount;
+
 	public static void clickAccountSettingsDeleteAccount(){
-		AccountSettingsDeleteAccount.click();
+		accountSettingsDeleteAccount.click();
 	}
 }

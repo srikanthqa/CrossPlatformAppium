@@ -42,6 +42,8 @@ public class LaunchTest extends AbstractTest {
 
 		/* TODO: Figure out more effective way to verify which page is going to be displayed
 		 * 
+		 * use the method if(!findByElement)
+		 * 
 		if(driver.findElementByPartialLinkText("NO THANKS").isDisplayed()){
 			FirstUseRegistrationIntroPage.clickNoThanksButton();
 		}
@@ -59,12 +61,12 @@ public class LaunchTest extends AbstractTest {
 		{
 			FirstUseAlternateScreen.clickOnContinueAsGuestButton();
 		}
-
+		 */
+		
 		//if iOS and if mic permission is asked, give the permission
 		if(PlatformType.equals("IOS")){
 			MicrophonePermissionPage.clickOKButton();
 		}
-		 */
 
 		//tap on the 'Guest' button to open left nav bar
 		LeftNavBar.clickGuestUserButton();
@@ -73,7 +75,7 @@ public class LaunchTest extends AbstractTest {
 
 		currentKicksBeforeLogin = LeftNavBar.getCurrentKicksCount();
 
-		/*	TODO: Figure out a betetr way to verify all elements	
+		/*	TODO: Figure out a better way to verify all elements	
 		 * //Ensure user is not signed in
 		if(LeftNavBar.verifyNotSignedIn() == true)
 		{
@@ -102,11 +104,12 @@ public class LaunchTest extends AbstractTest {
 			fail();
 		}
 		else{
-			//Go to browse rewards
 
-			//Scroll down
-
-			//Redeem reward
+			/* Go to account settings > Logout
+			 * Go to Account > create account with email
+			 * Verify new account is made
+			 * Delete new account
+			 * */
 		}
 
 		//verify rewards was redeemed

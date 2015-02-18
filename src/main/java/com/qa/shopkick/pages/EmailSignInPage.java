@@ -18,12 +18,19 @@ public class EmailSignInPage extends AbstractPage {
 	public static void clickemailsigninEmailAddress(){
 		emailsigninEmailAddress.click();
 	}
+	public static void enterNewEmailAddress(){
+		emailsigninEmailAddress.sendKeys("a@b.com");
+	}
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/password\").text(\"Password.\")")
 	private static WebElement emailsigninPassword;
 	
 	public static void clickemailsigninPassword(){
 		emailsigninPassword.click();
+	}
+	
+	public static void enterPassword(){
+		emailsigninPassword.sendKeys("sktest123");
 	}
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"SIGN IN OR SIGN UP\")")
