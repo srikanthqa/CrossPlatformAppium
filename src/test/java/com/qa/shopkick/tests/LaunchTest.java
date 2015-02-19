@@ -5,6 +5,7 @@ import static org.junit.Assert.fail;
 import org.junit.After;
 import org.junit.Test;
 
+import com.qa.shopkick.pages.AccountSettings;
 import com.qa.shopkick.pages.CountryPickerPage;
 import com.qa.shopkick.pages.FirstUseAlternateScreen;
 import com.qa.shopkick.pages.FirstUseDealsEducationPage;
@@ -12,8 +13,10 @@ import com.qa.shopkick.pages.FirstUseRegistrationIntroPage;
 import com.qa.shopkick.pages.FirstUseRewardsEducationPage;
 import com.qa.shopkick.pages.FirstUseWalkinEducationPage;
 import com.qa.shopkick.pages.LeftNavBar;
+import com.qa.shopkick.pages.LeftNavSettings;
 import com.qa.shopkick.pages.MicrophonePermissionPage;
 import com.qa.shopkick.pages.RewardsPickerPage;
+import com.qa.shopkick.pages.SignInPage;
 import com.qa.shopkick.utils.AbstractTest;
 
 /**
@@ -104,18 +107,40 @@ public class LaunchTest extends AbstractTest {
 			fail();
 		}
 		else{
-
-			/* Go to account settings > Logout
-			 * Go to Account > create account with email
-			 * Verify new account is made
-			 * Delete new account
-			 * */
+			//Go to Settings
+			LeftNavBar.clickOnSettingsLeftNav();
 		}
+		
+		//Go to Account settings
+		LeftNavSettings.clicksettingsAccountSettings();
 
-		//verify rewards was redeemed
-		//Go to settings > Logout
-		//From settings > email register a new account
-		//Delete account
+		//perform a logout
+		AccountSettings.clickAccountSettingsLogOut();
+		
+		//From logout screen hit on email to create an account
+		SignInPage.clicksignInEmailSignIn();
+		
+		//CREATE ACCOUNT
+		//add email
+		//add password
+		//confirm password
+		//Add first and last name
+		//Hit sign up
+		
+		//Phone number screen
+		//add phone number
+		//Add zipcode
+		//hit continue
+		
+		//Hit Not right now in verify phone number page
+		
+		//From landing page [stores tab]
+		//Go to left nav bar
+		//Verify user is signed in
+		//Go to settings
+		//Go to Account settings
+		//Tap on delete account
+		
 	}
 
 	@After

@@ -58,6 +58,9 @@ public class LeftNavBar extends AbstractPage{
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/row_text\").text(\"My profile\")")
 	private static WebElement myProfileLeftNav;
+	
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/row_text\").text(\"'s profile\")")
+	private static WebElement signedInProfileLeftNav;
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/row_text\").text(\"My saves\")")
 	private static WebElement mySavesLeftNav;
@@ -86,6 +89,11 @@ public class LeftNavBar extends AbstractPage{
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/row_text\").text(\"Settings\")")
 	private static WebElement settingsLeftNav;
+	
+	public static void clickOnSettingsLeftNav(){
+		settingsLeftNav.click();
+		PageFactory.initElements(new AppiumFieldDecorator(driver),new LeftNavSettings());
+	}
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/current_kicks_count\")")
 	private static WebElement currentKicksCountLeftNav;
