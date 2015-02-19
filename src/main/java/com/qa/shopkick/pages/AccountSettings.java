@@ -59,5 +59,6 @@ public class AccountSettings extends AbstractPage {
 
 	public static void clickAccountSettingsDeleteAccount(){
 		accountSettingsDeleteAccount.click();
+		PageFactory.initElements(new AppiumFieldDecorator(driver),new DeleteAccountPage());
 	}
 }
