@@ -1,9 +1,13 @@
 package com.qa.shopkick.pages;
 
 import com.qa.shopkick.utils.AbstractPage;
+
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
@@ -52,6 +56,11 @@ public class EmailSignUp extends AbstractPage {
 	
 	public static void clickEmailSignUpButton(){
 		emailsigninSignUpButton.click();
+	}
+	
+	public static void clickOnSignUpButton(){
+		MobileElement signUpSubmitButton = (MobileElement) driver.findElement(By.id("com.shopkick.app:id/submit"));
+		signUpSubmitButton.click();
 	}
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/forgot_password\").text(\"Forgot your password?\")")
