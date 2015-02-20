@@ -85,6 +85,7 @@ public class EmailSignInPage extends AbstractPage {
 	}
 	
 	public static void clickOnSignUpButton(){
+		driver.hideKeyboard();
 		MobileElement signUpSubmitButton = (MobileElement) driver.findElement(By.id("com.shopkick.app:id/submit"));
 		signUpSubmitButton.click();
 	}
