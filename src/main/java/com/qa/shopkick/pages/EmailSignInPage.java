@@ -15,14 +15,15 @@ public class EmailSignInPage extends AbstractPage {
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/title_text\").text(\"Create your login information.\")")
 	private static WebElement emailsigninCreateYourLoginInformation;
 
-	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/email\").text(\"Email Address.\")")
-	private static WebElement emailsigninEmailAddress;
+	//@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/email\").text(\"Email Address.\")")
+	private static WebElement emailsigninEmailAddress = driver.findElementById("com.shopkick.app:id/email");
 
 	public static void clickEmailAddress(){
+		
 		emailsigninEmailAddress.click();
 	}
 	public static void enterNewEmailAddress(){
-		driver.findElements(By.tagName("emailsigninEmailAddress")).get(1).sendKeys("trest1@sk.com");
+		
 		emailsigninEmailAddress.sendKeys("trest1@sk.com");
 	}
 
