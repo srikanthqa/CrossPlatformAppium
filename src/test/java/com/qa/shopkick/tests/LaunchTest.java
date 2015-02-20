@@ -79,8 +79,8 @@ public class LaunchTest extends AbstractTest {
 		EmailSignInPage.clickOnEmailAdrressMobileElements();
 		
 		//add email
-		EmailSignInPage.clickEmailAddress();
-		EmailSignInPage.enterNewEmailAddress();
+/*		EmailSignInPage.clickEmailAddress();
+		EmailSignInPage.enterNewEmailAddress();*/
 		
 		//add password
 		EmailSignInPage.clickPassword();

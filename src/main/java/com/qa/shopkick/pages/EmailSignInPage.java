@@ -12,30 +12,39 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 public class EmailSignInPage extends AbstractPage {
-
+/*
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/title_text\").text(\"Create your login information.\")")
 	private static WebElement emailsigninCreateYourLoginInformation;
 
 	//@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/email\").className(\"android.widget.EditText\").text(\"Email Address.\")")
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/email\").className(\"android.widget.EditText\")")
-	private static WebElement emailsigninEmailAddress;
+	private static WebElement emailsigninEmailAddress;*/
 
 	public static void clickOnEmailAdrressMobileElements(){
 		MobileElement emailAddress = (MobileElement) driver.findElement(By.id("com.shopkick.app:id/email"));
 		emailAddress.click();
 		emailAddress.clear();
-		emailAddress.setValue("trest1@sk.com");
+		emailAddress.sendKeys("trest1@sk.com");
+		//emailAddress.setValue("trest1@sk.com");
+	}
+	
+	public static void clickOnPasswordMobileElement(){
+		MobileElement passwordField = (MobileElement) driver.findElement(By.id("com.shopkick.app:id/password"));
+		passwordField.click();
+		passwordField.clear();
+		passwordField.sendKeys("sktest123");
+		
 	}
 
-	public static void clickEmailAddress(){
+/*	public static void clickEmailAddress(){
 
 		emailsigninEmailAddress.click();
 	}
 	public static void enterNewEmailAddress(){
 
 		emailsigninEmailAddress.sendKeys("trest1@sk.com");
-	}
+	}*/
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/password\").text(\"Password.\")")
 	private static WebElement emailsigninPassword;
