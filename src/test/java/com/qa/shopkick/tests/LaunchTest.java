@@ -8,6 +8,7 @@ import org.junit.Test;
 import com.qa.shopkick.pages.AccountSettings;
 import com.qa.shopkick.pages.CountryPickerPage;
 import com.qa.shopkick.pages.EmailSignInPage;
+import com.qa.shopkick.pages.EmailSignUp;
 import com.qa.shopkick.pages.FirstUseAlternateScreen;
 import com.qa.shopkick.pages.FirstUseDealsEducationPage;
 import com.qa.shopkick.pages.FirstUseRegistrationIntroPage;
@@ -93,7 +94,7 @@ public class LaunchTest extends AbstractTest {
 		EmailSignInPage.clickAndEnterLastName();
 		
 		//Hit sign up
-		EmailSignInPage.clickSignInOrSignUpButton();
+		EmailSignUp.clickEmailSignUpButton();
 		
 	/*	//Phone number screen
 		
