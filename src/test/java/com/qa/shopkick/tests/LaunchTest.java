@@ -94,7 +94,7 @@ public class LaunchTest extends AbstractTest {
 		EmailSignInPage.clickAndEnterLastName();
 		
 		//Hit sign up
-		EmailSignUp.clickOnSignUpButton();
+		EmailSignInPage.clickOnSignUpButton();
 		
 	/*	//Phone number screen
 		

@@ -83,6 +83,11 @@ public class EmailSignInPage extends AbstractPage {
 		emailSignUpFirstName.click();
 		emailSignUpFirstName.sendKeys("Name");
 	}
+	
+	public static void clickOnSignUpButton(){
+		MobileElement signUpSubmitButton = (MobileElement) driver.findElement(By.id("com.shopkick.app:id/submit"));
+		signUpSubmitButton.click();
+	}
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/last_name\").text(\"Last name\")")
 	private static WebElement emailSignUpLastName;
