@@ -60,6 +60,8 @@ public class LaunchTest extends AbstractTest {
 		//Verify kicks have been updated
 		currentKicksAfterLogin = LeftNavBar.getCurrentKicksCount();
 
+		LeftNavBar.clickOnSettingsLeftNav();
+		
 		//Go to Account settings
 		LeftNavSettings.clicksettingsAccountSettings();
 
