@@ -93,7 +93,7 @@ public class LaunchTest extends AbstractTest {
 		//Hit sign up
 		EmailSignInPage.clickSignInOrSignUpButton();
 		
-		//Phone number screen
+	/*	//Phone number screen
 		
 		//add phone number
 		LinkPhonePage.clickAndEnterPhoneNumber();
@@ -107,7 +107,7 @@ public class LaunchTest extends AbstractTest {
 		
 		//Hit Not right now in verify phone number page
 		VerifyMobileNumber.clickyNotNowForVerifyPhone();
-		
+		*/
 		
 		//From landing page [stores tab]
 		//Go to left nav bar

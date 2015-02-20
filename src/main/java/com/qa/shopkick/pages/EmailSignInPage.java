@@ -15,9 +15,8 @@ public class EmailSignInPage extends AbstractPage {
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/title_text\").text(\"Create your login information.\")")
 	private static WebElement emailsigninCreateYourLoginInformation;
 
-	//@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/email\").text(\"Email Address.\")")
-	
-	private static WebElement emailsigninEmailAddress = driver.findElements(By.className("android.widget.EditText").id("com.shopkick.app:id/email")).get(1);
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/email\").className(\"android.widget.EditText\").text(\"Email Address.\")")
+	private static WebElement emailsigninEmailAddress;
 
 	public static void clickEmailAddress(){
 		
