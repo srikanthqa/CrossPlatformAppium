@@ -38,33 +38,10 @@ public class LaunchTest extends AbstractTest {
 		FirstUseWalkinEducationPage.clickNextButton();
 		FirstUseRewardsEducationPage.clickNextButton();
 
-		//Pick
+		//Pick default reward
 		RewardsPickerPage.clickNextButton();
 
 		FirstUseRegistrationIntroPage.clickNoThanksButton();
-
-		/* TODO: Figure out more effective way to verify which page is going to be displayed
-		 * 
-		 * use the method if(!findByElement)
-		 * 
-		if(driver.findElementByPartialLinkText("NO THANKS").isDisplayed()){
-			FirstUseRegistrationIntroPage.clickNoThanksButton();
-		}
-		else{
-			FirstUseAlternateScreen.clickOnContinueAsGuestButton();
-		}
-
-		//Logic to determine which first use flow we run into
-		if(FirstUseRegistrationIntroPage.firstUseFlowLessScreen()==true)
-		{
-			FirstUseRegistrationIntroPage.clickNoThanksButton();
-		}
-
-		if(FirstUseAlternateScreen.firstUseFlowLessScreen()==true)
-		{
-			FirstUseAlternateScreen.clickOnContinueAsGuestButton();
-		}
-		 */
 		
 		//if iOS and if mic permission is asked, give the permission
 		if(PlatformType.equals("IOS")){
@@ -78,18 +55,6 @@ public class LaunchTest extends AbstractTest {
 
 		currentKicksBeforeLogin = LeftNavBar.getCurrentKicksCount();
 
-		/*	TODO: Figure out a better way to verify all elements	
-		 * //Ensure user is not signed in
-		if(LeftNavBar.verifyNotSignedIn() == true)
-		{
-			//Tap on sign in with facebook
-			LeftNavBar.clickOnFaceBookSignIn();			
-		}
-		else{
-			//If a user is signed in on fresh install, Fail the test 
-			fail();
-		}*/
-
 		LeftNavBar.clickOnFaceBookSignIn();
 
 		//Verify kicks have been updated
@@ -102,7 +67,7 @@ public class LaunchTest extends AbstractTest {
 		}
 
 		//verify that we don't see the login mechanisms on the left nav bar
-		else if (LeftNavBar.verifyNotSignedIn() == true)
+/*		else if (LeftNavBar.verifyNotSignedIn() == true)
 		{
 			fail();
 		}
@@ -110,7 +75,7 @@ public class LaunchTest extends AbstractTest {
 			//Go to Settings
 			LeftNavBar.clickOnSettingsLeftNav();
 		}
-		
+		*/
 		//Go to Account settings
 		LeftNavSettings.clicksettingsAccountSettings();
 
