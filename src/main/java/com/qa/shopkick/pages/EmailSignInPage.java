@@ -17,17 +17,17 @@ public class EmailSignInPage extends AbstractPage {
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/email\").text(\"Email Address.\")")
 	private static WebElement emailsigninEmailAddress;
 
-	public static void clickemailsigninEmailAddress(){
+	public static void clickEmailAddress(){
 		emailsigninEmailAddress.click();
 	}
 	public static void enterNewEmailAddress(){
-		emailsigninEmailAddress.sendKeys("trest@sk.com");
+		emailsigninEmailAddress.sendKeys("trest1@sk.com");
 	}
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/password\").text(\"Password.\")")
 	private static WebElement emailsigninPassword;
 
-	public static void clickemailsigninPassword(){
+	public static void clickPassword(){
 		emailsigninPassword.click();
 	}
 
@@ -39,10 +39,17 @@ public class EmailSignInPage extends AbstractPage {
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/password_confirmation\")")
 	private static WebElement emailConfirmPassword;
 
+	public static void enterConfirmPassword(){
+		emailConfirmPassword.click();
+		emailConfirmPassword.sendKeys("sktest123");
+		PageFactory.initElements(new AppiumFieldDecorator(driver),new EmailSignInPage());
+	}
+
+
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"SIGN IN OR SIGN UP\")")
 	private static WebElement emailsigninSignInOrSignUpButton;
 
-	public static void clickemailsigninSignInOrSignUpButton(){
+	public static void clickSignInOrSignUpButton(){
 		emailsigninSignInOrSignUpButton.click();
 		PageFactory.initElements(new AppiumFieldDecorator(driver),new LinkPhonePage());
 	}
@@ -62,7 +69,7 @@ public class EmailSignInPage extends AbstractPage {
 		emailSignUpLastName.click();
 		emailSignUpLastName.sendKeys("Laster");
 	}
-	
+
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/forgot_password\").text(\"Forgot your password?\")")
 	private static WebElement emailsigninForgotYourPassword;
 

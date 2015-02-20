@@ -19,7 +19,7 @@ public class VerifyMobileNumber extends AbstractPage{
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/verify_not_now_button\").text(\"Not right now\")")
 	private static WebElement verifyPhoneNotRightNow;
 
-	public static void clickAndEnterZipcode(){
+	public static void clickyNotNowForVerifyPhone(){
 		verifyPhoneNotRightNow.click();
 		//TODO: Initialize home page from this click
 		PageFactory.initElements(new AppiumFieldDecorator(driver),new LandingPage());

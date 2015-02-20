@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import com.qa.shopkick.pages.AccountSettings;
 import com.qa.shopkick.pages.CountryPickerPage;
+import com.qa.shopkick.pages.EmailSignInPage;
 import com.qa.shopkick.pages.FirstUseAlternateScreen;
 import com.qa.shopkick.pages.FirstUseDealsEducationPage;
 import com.qa.shopkick.pages.FirstUseRegistrationIntroPage;
@@ -14,9 +15,11 @@ import com.qa.shopkick.pages.FirstUseRewardsEducationPage;
 import com.qa.shopkick.pages.FirstUseWalkinEducationPage;
 import com.qa.shopkick.pages.LeftNavBar;
 import com.qa.shopkick.pages.LeftNavSettings;
+import com.qa.shopkick.pages.LinkPhonePage;
 import com.qa.shopkick.pages.MicrophonePermissionPage;
 import com.qa.shopkick.pages.RewardsPickerPage;
 import com.qa.shopkick.pages.SignInPage;
+import com.qa.shopkick.pages.VerifyMobileNumber;
 import com.qa.shopkick.utils.AbstractTest;
 
 /**
@@ -73,17 +76,38 @@ public class LaunchTest extends AbstractTest {
 		
 		//CREATE ACCOUNT
 		//add email
+		EmailSignInPage.clickEmailAddress();
+		EmailSignInPage.enterNewEmailAddress();
+		
 		//add password
+		EmailSignInPage.clickPassword();
+		EmailSignInPage.enterPassword();
+		
 		//confirm password
+		EmailSignInPage.enterConfirmPassword();
+		
 		//Add first and last name
+		EmailSignInPage.clickAndEnterFirstName();
+		EmailSignInPage.clickAndEnterLastName();
+		
 		//Hit sign up
+		EmailSignInPage.clickSignInOrSignUpButton();
 		
 		//Phone number screen
+		
 		//add phone number
+		LinkPhonePage.clickAndEnterPhoneNumber();
+		
 		//Add zipcode
+		LinkPhonePage.clickAndEnterZipcode();
+		
 		//hit continue
+		LinkPhonePage.clickOnCompleteRegistration();
+		
 		
 		//Hit Not right now in verify phone number page
+		VerifyMobileNumber.clickyNotNowForVerifyPhone();
+		
 		
 		//From landing page [stores tab]
 		//Go to left nav bar
