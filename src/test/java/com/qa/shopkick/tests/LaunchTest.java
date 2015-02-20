@@ -60,22 +60,6 @@ public class LaunchTest extends AbstractTest {
 		//Verify kicks have been updated
 		currentKicksAfterLogin = LeftNavBar.getCurrentKicksCount();
 
-		if(currentKicksAfterLogin == currentKicksBeforeLogin)
-		{
-			//if kicks seems the same, then fail the test
-			fail();
-		}
-
-		//verify that we don't see the login mechanisms on the left nav bar
-/*		else if (LeftNavBar.verifyNotSignedIn() == true)
-		{
-			fail();
-		}
-		else{
-			//Go to Settings
-			LeftNavBar.clickOnSettingsLeftNav();
-		}
-		*/
 		//Go to Account settings
 		LeftNavSettings.clicksettingsAccountSettings();
 
