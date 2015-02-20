@@ -2,6 +2,7 @@ package com.qa.shopkick.pages;
 
 import com.qa.shopkick.utils.AbstractPage;
 
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
@@ -15,16 +16,22 @@ public class EmailSignInPage extends AbstractPage {
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/title_text\").text(\"Create your login information.\")")
 	private static WebElement emailsigninCreateYourLoginInformation;
 
-	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/email\").className(\"android.widget.EditText\").text(\"Email Address.\")")
+	//@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/email\").className(\"android.widget.EditText\").text(\"Email Address.\")")
+	
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/email\").className(\"android.widget.EditText\")")
 	private static WebElement emailsigninEmailAddress;
-
+	
+	private static MobileElement emailAddress = (MobileElement) driver.findElement(By.id("com.shopkick.app:id/email"));
+			
 	public static void clickEmailAddress(){
-		
-		emailsigninEmailAddress.click();
+		emailAddress.click();
+		emailAddress.clear();
+		//emailsigninEmailAddress.click();
 	}
 	public static void enterNewEmailAddress(){
 		
-		emailsigninEmailAddress.sendKeys("trest1@sk.com");
+		emailAddress.sendKeys("trest1@sk.com");
+		//emailsigninEmailAddress.sendKeys("trest1@sk.com");
 	}
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/password\").text(\"Password.\")")
