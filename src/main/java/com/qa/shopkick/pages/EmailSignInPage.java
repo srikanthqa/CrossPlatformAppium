@@ -17,21 +17,24 @@ public class EmailSignInPage extends AbstractPage {
 	private static WebElement emailsigninCreateYourLoginInformation;
 
 	//@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/email\").className(\"android.widget.EditText\").text(\"Email Address.\")")
-	
+
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/email\").className(\"android.widget.EditText\")")
 	private static WebElement emailsigninEmailAddress;
-	
-	private static MobileElement emailAddress = (MobileElement) driver.findElement(By.id("com.shopkick.app:id/email"));
-			
-	public static void clickEmailAddress(){
+
+	public static void clickOnEmailAdrressMobileElements(){
+		MobileElement emailAddress = (MobileElement) driver.findElement(By.id("com.shopkick.app:id/email"));
 		emailAddress.click();
 		emailAddress.clear();
-		//emailsigninEmailAddress.click();
+		emailAddress.setValue("trest1@sk.com");
+	}
+
+	public static void clickEmailAddress(){
+
+		emailsigninEmailAddress.click();
 	}
 	public static void enterNewEmailAddress(){
-		
-		emailAddress.sendKeys("trest1@sk.com");
-		//emailsigninEmailAddress.sendKeys("trest1@sk.com");
+
+		emailsigninEmailAddress.sendKeys("trest1@sk.com");
 	}
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/password\").text(\"Password.\")")

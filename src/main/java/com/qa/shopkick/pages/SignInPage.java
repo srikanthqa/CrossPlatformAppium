@@ -34,6 +34,7 @@ public class SignInPage extends AbstractPage {
 	public static void clicksignInEmailSignIn(){
 		signInEmailSignIn.click();
 		PageFactory.initElements(new AppiumFieldDecorator(driver),new EmailSignInPage());
+		PageFactory.initElements(new AppiumFieldDecorator(driver),new EmailSignUp());
 	}
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/facebook_flow_text\").text(\"We will never post anything without your permission.\")")
