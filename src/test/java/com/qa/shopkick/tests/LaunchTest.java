@@ -83,8 +83,7 @@ public class LaunchTest extends AbstractTest {
 		EmailSignInPage.enterNewEmailAddress();*/
 		
 		//add password
-		EmailSignInPage.clickPassword();
-		EmailSignInPage.enterPassword();
+		EmailSignInPage.clickOnPasswordMobileElement();
 		
 		//confirm password
 		EmailSignInPage.enterConfirmPassword();
