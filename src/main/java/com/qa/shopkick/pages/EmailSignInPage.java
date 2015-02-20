@@ -6,6 +6,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
@@ -21,6 +22,7 @@ public class EmailSignInPage extends AbstractPage {
 		emailsigninEmailAddress.click();
 	}
 	public static void enterNewEmailAddress(){
+		driver.findElements(By.tagName("emailsigninEmailAddress")).get(1).sendKeys("trest1@sk.com");
 		emailsigninEmailAddress.sendKeys("trest1@sk.com");
 	}
 
