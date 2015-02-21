@@ -124,6 +124,7 @@ public class LaunchTest extends AbstractTest {
 	@After
 	public void teardown(){
 		//Call all testlodge methods to update the test run result
+		driver.resetApp();
 
 	}
 
