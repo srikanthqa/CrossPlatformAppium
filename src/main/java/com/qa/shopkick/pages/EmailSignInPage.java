@@ -71,11 +71,6 @@ public class EmailSignInPage extends AbstractPage {
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"SIGN IN OR SIGN UP\")")
 	private static WebElement emailsigninSignInOrSignUpButton;
 
-	public static void clickSignInOrSignUpButton(){
-		emailsigninSignInOrSignUpButton.click();
-		PageFactory.initElements(new AppiumFieldDecorator(driver),new LinkPhonePage());
-	}
-
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/first_name\").text(\"First name\")")
 	private static WebElement emailSignUpFirstName;
 
@@ -88,6 +83,7 @@ public class EmailSignInPage extends AbstractPage {
 		driver.hideKeyboard();
 		MobileElement signUpSubmitButton = (MobileElement) driver.findElement(By.id("com.shopkick.app:id/submit"));
 		signUpSubmitButton.click();
+		PageFactory.initElements(new AppiumFieldDecorator(driver),new LinkPhonePage());
 	}
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/last_name\").text(\"Last name\")")
