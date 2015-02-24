@@ -116,6 +116,12 @@ public class LaunchTest extends AbstractTest {
 		//hit continue
 		LinkPhonePage.clickOnCompleteRegistration();
 
+		try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		//Hit Not right now in verify phone number page
 		VerifyMobileNumber.clickNotNowForVerifyPhone();
