@@ -10,8 +10,8 @@ import com.qa.shopkick.utils.AbstractPage;
 
 public class VerifyMobileNumber extends AbstractPage{
 
-	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/verify_title_text\").text(\"Verify your mobile number to redeem rewards!\")")
-	private static WebElement linkPhoneTitleText;
+/*	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/verify_title_text\").text(\"Verify your mobile number to redeem rewards!\")")
+	private static WebElement linkPhoneTitleText;*/
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/verify_edit_phone_button\")")
 	private static WebElement verifyPhoneToLink;
@@ -21,7 +21,6 @@ public class VerifyMobileNumber extends AbstractPage{
 
 	public static void clickNotNowForVerifyPhone(){
 		verifyPhoneNotRightNow.click();
-		//TODO: Initialize home page from this click
 		PageFactory.initElements(new AppiumFieldDecorator(driver),new LandingPage());
 		PageFactory.initElements(new AppiumFieldDecorator(driver),new LeftNavSettings());
 	}
