@@ -146,8 +146,21 @@ public class LaunchTest extends AbstractTest {
 		//In delete account tap on confirm delete account
 		DeleteAccountPage.clickAndDeleteAccountWithPassword();
 		
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		//Tap on top left corner to proceed with delete
 		DeleteAccountPage.clickToProceedDelete();
+		
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		//Comfirm delete account
 		ConfirmDeleteAccountPage.clickOnDeleteAccountConfirm();
