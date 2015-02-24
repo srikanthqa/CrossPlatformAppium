@@ -36,6 +36,7 @@ public class LinkPhonePage extends AbstractPage{
 	
 	public static void clickOnCompleteRegistration(){
 		completeRegistration.click();
+		PageFactory.initElements(new AppiumFieldDecorator(driver),new VerifyMobileNumber());
 	}
 
 }

@@ -59,7 +59,6 @@ public class LaunchTest extends AbstractTest {
 		//tap on the 'Guest' button to open left nav bar
 		LeftNavBar.clickGuestUserButton();
 
-
 		//Read current kicks so you can compare if the user has signed in and the kicks have been updated
 
 		currentKicksBeforeLogin = LeftNavBar.getCurrentKicksCount();
