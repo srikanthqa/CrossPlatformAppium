@@ -19,6 +19,7 @@ public class DeleteAccountPage extends AbstractPage{
 		
 	public static void clickAndDeleteAccountWithPassword(){
 		deleteConfirmWithPassword.click();
+		deleteConfirmWithPassword.clear();
 		deleteConfirmWithPassword.sendKeys("sktest123");
 	}
 	

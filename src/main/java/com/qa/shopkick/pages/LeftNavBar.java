@@ -4,6 +4,7 @@ import static junit.framework.TestCase.assertTrue;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
@@ -58,7 +59,7 @@ public class LeftNavBar extends AbstractPage{
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/row_text\").text(\"My profile\")")
 	private static WebElement myProfileLeftNav;
-	
+
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/row_text\").text(\"'s profile\")")
 	private static WebElement signedInProfileLeftNav;
 
@@ -67,7 +68,7 @@ public class LeftNavBar extends AbstractPage{
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/row_text\").text(\"Rewards\")")
 	private static WebElement browseRewardsLeftNav;
-	
+
 	public static void clickOnRewardsButtonLeftNav(){
 		browseRewardsLeftNav.click();
 		PageFactory.initElements(new AppiumFieldDecorator(driver), new KicksCenterRewadsPage());
@@ -75,7 +76,7 @@ public class LeftNavBar extends AbstractPage{
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/row_text\").text(\"Invite & get kicks\")")
 	private static WebElement inviteAndGetKicksLeftNav;
-	
+
 	public static void clickOnInviteLeftNav(){
 		inviteAndGetKicksLeftNav.click();
 		PageFactory.initElements(new AppiumFieldDecorator(driver), new InviteAndGetKicksPage());
@@ -89,7 +90,7 @@ public class LeftNavBar extends AbstractPage{
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/row_text\").text(\"Settings\")")
 	private static WebElement settingsLeftNav;
-	
+
 	public static void clickOnSettingsLeftNav(){
 		settingsLeftNav.click();
 		PageFactory.initElements(new AppiumFieldDecorator(driver),new LeftNavSettings());
