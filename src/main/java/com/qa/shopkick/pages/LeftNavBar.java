@@ -37,6 +37,10 @@ public class LeftNavBar extends AbstractPage{
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"ENTER MANUALLY\")")
 	private static WebElement signInManuallyLeftNav;
+	
+	/*
+	 * modifying left nav
+	 * */
 
 	//Method TO VERIFY USER IS NOT SIGNED IN
 	public static boolean verifyNotSignedIn(){

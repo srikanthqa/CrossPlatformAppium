@@ -26,6 +26,7 @@ import com.qa.shopkick.pages.RewardsPickerPage;
 import com.qa.shopkick.pages.SignInPage;
 import com.qa.shopkick.pages.VerifyMobileNumber;
 import com.qa.shopkick.utils.AbstractTest;
+import com.qa.shopkick.utils.CustomHooks;
 
 /**
  * Created by Srikanth on 12/16/14.
@@ -164,11 +165,15 @@ public class LaunchTest extends AbstractTest {
 		
 		//Comfirm delete account
 		ConfirmDeleteAccountPage.clickOnDeleteAccountConfirm();
+		
+		CustomHooks.pressBack();
 
 	}
 
 	@After
 	public void teardown(){
+		
+		
 	}
 
 }
