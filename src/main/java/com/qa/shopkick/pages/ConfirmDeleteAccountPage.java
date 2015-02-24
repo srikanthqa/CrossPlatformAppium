@@ -1,8 +1,10 @@
 package com.qa.shopkick.pages;
 
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
@@ -17,7 +19,8 @@ public class ConfirmDeleteAccountPage extends AbstractPage{
 	private static WebElement deleteAccountButton;
 	
 	public static void clickOnDeleteAccountConfirm(){
-		deleteAccountButton.click();
+		MobileElement confirmDelete = (MobileElement) driver.findElement(By.name("DELETE"));
+		confirmDelete.click();
 		PageFactory.initElements(new AppiumFieldDecorator(driver),new SignInPage());
 	}
 	
