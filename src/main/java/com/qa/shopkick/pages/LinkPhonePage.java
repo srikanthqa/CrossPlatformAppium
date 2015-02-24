@@ -14,7 +14,7 @@ public class LinkPhonePage extends AbstractPage{
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/title_text\").text(\"Link your phone to your account\")")
 	private static WebElement linkPhoneTitleText;
 	
-	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/phone_number\").text(\"Link your phone to your account\")")
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/phone_number\")")
 	private static WebElement enterPhoneToLink;
 	
 	public static void clickAndEnterPhoneNumber(){
