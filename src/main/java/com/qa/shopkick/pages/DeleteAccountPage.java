@@ -28,7 +28,6 @@ public class DeleteAccountPage extends AbstractPage{
 	
 	public static void clickToProceedDelete(){
 		deleteAccountButton.click();
-		//init next page
 		PageFactory.initElements(new AppiumFieldDecorator(driver),new ConfirmDeleteAccountPage());
 	}
 	
