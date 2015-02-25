@@ -97,7 +97,7 @@ public class LaunchTest extends AbstractTest {
 
 		//Hit sign up
 		EmailSignInPage.clickOnSignUpButton();
-		
+
 		try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
@@ -143,10 +143,10 @@ public class LaunchTest extends AbstractTest {
 
 		//Tap on delete account
 		AccountSettings.clickAccountSettingsDeleteAccount();
-		
+
 		//In delete account tap on confirm delete account
 		DeleteAccountPage.clickAndDeleteAccountWithPassword();
-		
+
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
@@ -155,25 +155,25 @@ public class LaunchTest extends AbstractTest {
 		}
 		//Tap on top left corner to proceed with delete
 		DeleteAccountPage.clickToProceedDelete();
-		
+
 		try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		//Comfirm delete account
 		ConfirmDeleteAccountPage.clickOnDeleteAccountConfirm();
-		
+
 		CustomHooks.pressBack();
 
 	}
 
 	@After
 	public void teardown(){
-		
-		
+
+
 	}
 
 }

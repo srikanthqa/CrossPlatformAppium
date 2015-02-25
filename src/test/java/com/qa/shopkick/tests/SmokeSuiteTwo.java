@@ -54,6 +54,15 @@ public class SmokeSuiteTwo extends AbstractTest{
 		
 		////Verify tool tips and store elements
 		
+		/*
+		 * CustomHooks.waitFor(5);
+		 * 
+		 * if( (driver.findElement(By.name("WALK-INS")).isDisplayed()) &&
+		 * scans
+		 * purchases
+		 * 
+		 * */
+		
 		//Close tool tips
 		ToolTipsPage.clickToolTipCloseButton();
 		
