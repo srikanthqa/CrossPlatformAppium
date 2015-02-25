@@ -10,10 +10,10 @@ import org.openqa.selenium.support.PageFactory;
 public class ToolTipsPage extends AbstractPage {
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/tooltip_close_button\")")
-	private static WebElement ToolTipsPageToolTipCloseButton;
+	private static WebElement ToolTipCloseButton;
 	
-	public static void clickToolTipsPageToolTipCloseButton(){
-		ToolTipsPageToolTipCloseButton.click();
+	public static void clickToolTipCloseButton(){
+		ToolTipCloseButton.click();
 	}
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/tooltip_main_text\").text(\"There are three ways you can earn kicks at stores:\")")

@@ -27,4 +27,8 @@ public class LandingPage extends AbstractPage{
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/tab_title\").text(\"DEALS\")")
 	private static WebElement tabTitleDeals;
+	
+	public static void clicktabTitleDeals(){
+		tabTitleDeals.click();
+	}
 }

@@ -1,9 +1,11 @@
 package com.qa.shopkick.pages;
 
 import com.qa.shopkick.utils.AbstractPage;
+
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
@@ -44,6 +46,20 @@ public class StoresPage extends AbstractPage {
 		StoresPageNameAndKickInformation.click();
 	}
 	
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/group_header_see_all_field\")")
+	private static WebElement StoresPageDealsAndSalesSeeAll;
+	
+	public static void clickStoresPageDealsAndSalesSeeAll(){
+		StoresPageDealsAndSalesSeeAll.click();
+	}
+	
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/offer_cell_left\")")
+	private static WebElement StoresPageOfferCellLeft;
+	
+	public static void clickStoresPageOfferCellLeft(){
+		StoresPageOfferCellLeft.click();
+		PageFactory.initElements(new AppiumFieldDecorator(driver),new RelatedOfferPage());
+	}
 	
 
 }
