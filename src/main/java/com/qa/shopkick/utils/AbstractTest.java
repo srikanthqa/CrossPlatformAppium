@@ -59,6 +59,6 @@ public class AbstractTest {
 
     @AfterClass
     public static void tearEnvironment(){
-        driver.quit();
+        //driver.quit();
     }
 }
