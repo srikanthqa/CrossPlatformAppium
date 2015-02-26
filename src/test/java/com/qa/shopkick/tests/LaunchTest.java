@@ -170,7 +170,7 @@ public class LaunchTest extends AbstractTest {
 		//Comfirm delete account
 		ConfirmDeleteAccountPage.clickOnDeleteAccountConfirm();
 
-		CustomHooks.pressBack();
+		//CustomHooks.pressBack();
 
 	}
 
