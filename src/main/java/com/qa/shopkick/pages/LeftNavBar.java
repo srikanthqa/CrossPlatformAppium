@@ -29,20 +29,19 @@ public class LeftNavBar extends AbstractPage{
 
 	public static void clickOnFaceBookSignIn(){
 		signInWithFacebookLeftNav.click();
-
+		PageFactory.initElements(new AppiumFieldDecorator(driver), new DidYouKnowPage());
 	}
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"SIGN IN WITH GOOGLE\")")
 	private static WebElement signInWithGoogleLeftNav;
-	
+
 	public static void clickOnGooglePlusSignIn(){
 		signInWithGoogleLeftNav.click();
-
 	}
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"ENTER MANUALLY\")")
 	private static WebElement signInManuallyLeftNav;
-	
+
 	/*
 	 * modifying left nav
 	 * */

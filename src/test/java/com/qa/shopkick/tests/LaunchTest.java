@@ -10,6 +10,7 @@ import com.qa.shopkick.pages.AccountSettings;
 import com.qa.shopkick.pages.ConfirmDeleteAccountPage;
 import com.qa.shopkick.pages.CountryPickerPage;
 import com.qa.shopkick.pages.DeleteAccountPage;
+import com.qa.shopkick.pages.DidYouKnowPage;
 import com.qa.shopkick.pages.EmailSignInPage;
 import com.qa.shopkick.pages.EmailSignUp;
 import com.qa.shopkick.pages.FirstUseAlternateScreen;
@@ -65,6 +66,11 @@ public class LaunchTest extends AbstractTest {
 		currentKicksBeforeLogin = LeftNavBar.getCurrentKicksCount();
 
 		LeftNavBar.clickOnFaceBookSignIn();
+
+		//in case of multi user login
+		if(!driver.findElement(By.name("Did you know?")).isDisplayed()){
+			DidYouKnowPage.tapOnDidYouKnow();
+		}
 
 		//Verify kicks have been updated
 		currentKicksAfterLogin = LeftNavBar.getCurrentKicksCount();
