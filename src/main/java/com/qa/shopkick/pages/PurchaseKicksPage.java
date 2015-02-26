@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 
 import com.qa.shopkick.utils.AbstractPage;
 
-public class PurschasKicksPage extends AbstractPage{
+public class PurchaseKicksPage extends AbstractPage{
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/app_screen_header\").text(\"Kicks When You Buy\")")
 	private static WebElement purchaseTutorialHeader;

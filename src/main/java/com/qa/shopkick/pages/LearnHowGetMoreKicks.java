@@ -37,7 +37,7 @@ public class LearnHowGetMoreKicks extends AbstractPage{
 	
 	public static void clickOnPurchaseTutorial(){
 		purchasesTutorialButton.click();
-		PageFactory.initElements(new AppiumFieldDecorator(driver),new PurschasKicksPage());
+		PageFactory.initElements(new AppiumFieldDecorator(driver),new PurchaseKicksPage());
 	}
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/tutorial_button_invite\")")

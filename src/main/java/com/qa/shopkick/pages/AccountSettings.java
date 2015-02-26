@@ -21,7 +21,7 @@ public class AccountSettings extends AbstractPage {
 	private static WebElement accountSettingsPhoneNumber;
 
 	public static void clickUpdatePhoneNumber(){
-		accountSettingsEmail.click();
+		accountSettingsPhoneNumber.click();
 	}
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/update_zip_text\")")
