@@ -67,13 +67,11 @@ public class LaunchTest extends AbstractTest {
 
 		LeftNavBar.clickOnFaceBookSignIn();
 
+		CustomHooks.waitFor(3);
 		//in case of multi user login
 		if(!driver.findElement(By.name("Did you know?")).isDisplayed()){
 			DidYouKnowPage.tapOnDidYouKnow();
 		}
-
-		//Verify kicks have been updated
-		currentKicksAfterLogin = LeftNavBar.getCurrentKicksCount();
 
 		//click on settings
 		LeftNavBar.clickOnSettingsLeftNav();
