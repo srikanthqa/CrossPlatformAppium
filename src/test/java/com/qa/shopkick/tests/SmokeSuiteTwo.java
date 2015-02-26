@@ -2,39 +2,33 @@ package com.qa.shopkick.tests;
 
 import org.junit.Test;
 
+import com.qa.shopkick.pages.AccountSettings;
 import com.qa.shopkick.pages.CountryPickerPage;
+import com.qa.shopkick.pages.DealAggregationPage;
+import com.qa.shopkick.pages.DealsPage;
 import com.qa.shopkick.pages.FirstUseDealsEducationPage;
 import com.qa.shopkick.pages.FirstUseRegistrationIntroPage;
 import com.qa.shopkick.pages.FirstUseRewardsEducationPage;
 import com.qa.shopkick.pages.FirstUseWalkinEducationPage;
 import com.qa.shopkick.pages.LandingPage;
 import com.qa.shopkick.pages.LeftNavBar;
+import com.qa.shopkick.pages.LeftNavSettings;
+import com.qa.shopkick.pages.LookbookPage;
 import com.qa.shopkick.pages.MicrophonePermissionPage;
+import com.qa.shopkick.pages.OfferPage;
+import com.qa.shopkick.pages.ProductsPage;
 import com.qa.shopkick.pages.RelatedOfferPage;
 import com.qa.shopkick.pages.RewardsPickerPage;
 import com.qa.shopkick.pages.StoreViewPage;
 import com.qa.shopkick.pages.StoresPage;
 import com.qa.shopkick.pages.ToolTipsPage;
 import com.qa.shopkick.utils.AbstractTest;
+import com.qa.shopkick.utils.CustomHooks;
 
 public class SmokeSuiteTwo extends AbstractTest{
 	
 	@Test
 	public void GooglePlusFlow(){
-		
-		//Go through the first use flow
-		FirstUseDealsEducationPage.clickNextButton();
-		if(PlatformType.equals("IOS")){
-			CountryPickerPage.clickCountryUSA();
-			CountryPickerPage.clickNextButton();
-		}
-		FirstUseWalkinEducationPage.clickNextButton();
-		FirstUseRewardsEducationPage.clickNextButton();
-		
-		//Pick default reward
-		RewardsPickerPage.clickNextButton();
-
-		FirstUseRegistrationIntroPage.clickNoThanksButton();
 				
 		//if iOS and if mic permission is asked, give the permission
 		if(PlatformType.equals("IOS")){
@@ -72,18 +66,66 @@ public class SmokeSuiteTwo extends AbstractTest{
 		//Save product
 		RelatedOfferPage.clickRelatedOfferSaveOffer();
 	
-		////Does this need to be RelatedOfferPage?
-		StoreViewPage.clickStoreViewPageAppScreenBack();
+		//Go back to store view
+		CustomHooks.pressBack();
 		
-		StoreViewPage.clickStoreViewPageAppScreenBack();
+		//Go back to store tab
+		CustomHooks.pressBack();
 		
 		//Go to Deals Tab
 		LandingPage.clicktabTitleDeals();
 		
-		
 		//Tap aggregate deals
+		DealsPage.clickDealsPageChainName();
 		
-
+		//Save deal
+		DealAggregationPage.clickDealAggregationSaveHeart();
+		
+		//Back to Deals Tab
+		CustomHooks.pressBack();
+		
+		//Go to Products Tab
+		LandingPage.clicktabTitleProducts();
+		
+		//Open lookbook
+		ProductsPage.clickProductsPageLookbookCover();
+		
+		//Save offer in lookbook
+		LookbookPage.clickLookbookPageLookbookOfferSaveHeart();
+		
+		//Back to Products Tab
+		CustomHooks.pressBack();
+		
+		//Tap My Saves
+		ProductsPage.clickProductsPageMySaves();
+		
+		////Verify all Saved Products
+		
+		//Unsave Product Page
+		OfferPage.clickOfferPageOfferSaveButton();
+		
+		//Back to My Saves
+		CustomHooks.pressBack();
+		
+		//Back to Products
+		CustomHooks.pressBack();
+		
+		//Back to My Saves
+		ProductsPage.clickProductsPageMySaves();
+		
+		////Verify Product has been removed
+		
+		//Back to Products
+		CustomHooks.pressBack();
+		
+		//Logout
+		LeftNavBar.clickGuestUserButton();
+		
+		LeftNavBar.clickOnSettingsLeftNav();
+		
+		LeftNavSettings.clicksettingsAccountSettings();
+		
+		AccountSettings.clickAccountSettingsLogOut();
 		
 	    }
 	

@@ -22,8 +22,16 @@ public class LandingPage extends AbstractPage{
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/tab_title\").text(\"PRODUCTS\")")
 	private static WebElement tabTitleProducts;
 	
+	public static void clicktabTitleProducts(){
+		tabTitleProducts.click();
+	}
+	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/tab_title\").text(\"STORES\")")
 	private static WebElement tabTitleStores;
+	
+	public static void clicktabTitleStores(){
+		tabTitleStores.click();
+	}
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/tab_title\").text(\"DEALS\")")
 	private static WebElement tabTitleDeals;

@@ -1,6 +1,7 @@
 package com.qa.shopkick.pages;
 
 import com.qa.shopkick.utils.AbstractPage;
+
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
@@ -20,6 +21,7 @@ public class DealsPage extends AbstractPage {
 	
 	public static void clickDealsPageChainName(){
 		DealsPageChainName.click();
+		PageFactory.initElements(new AppiumFieldDecorator(driver), new DealAggregationPage());
 	}
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/deals_count\")")
