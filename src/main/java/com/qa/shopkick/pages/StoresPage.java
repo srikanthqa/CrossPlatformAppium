@@ -44,6 +44,7 @@ public class StoresPage extends AbstractPage {
 	
 	public static void clickStoresPageNameAndKickInformation(){
 		StoresPageNameAndKickInformation.click();
+		PageFactory.initElements(new AppiumFieldDecorator(driver),new ToolTipsPage());
 	}
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/group_header_see_all_field\")")

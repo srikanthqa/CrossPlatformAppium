@@ -200,7 +200,7 @@ public class LaunchTest extends AbstractTest {
 		StoresPage.clickStoresPageNameAndKickInformation();
 
 		//wait for tool tips to load
-		CustomHooks.waitFor(7);
+		CustomHooks.waitFor(10);
 
 		//Close tool tips
 		ToolTipsPage.clickToolTipCloseButton();
