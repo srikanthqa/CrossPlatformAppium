@@ -74,7 +74,7 @@ public class LaunchTest extends AbstractTest {
 		LeftNavBar.clickOnFaceBookSignIn();
 
 		CustomHooks.waitFor(3);
-		
+
 		//in case of multi-user login
 
 		if(driver.findElement(By.name("Did you know?")).isDisplayed()){
@@ -204,7 +204,7 @@ public class LaunchTest extends AbstractTest {
 
 		//Close tool tips
 		ToolTipsPage.clickToolTipCloseButton();
-		
+
 		driver.scrollTo("Trending on shopkick");
 
 		//Go to product
@@ -222,17 +222,27 @@ public class LaunchTest extends AbstractTest {
 		//Go to Deals Tab
 		LandingPage.clicktabTitleDeals();
 
-		//Tap aggregate deals
-		DealsPage.clickDealsPageChainName();
-		
+		//Look for Michaels
+		if(driver.findElement(By.name("Michaels")).isDisplayed())
+		{
+			driver.scrollTo("Michaels");
+			//Tap aggregate deals
+			DealsPage.clickDealsPageMichales();
+		}
+		else
+		{	//Scroll to carters
+			driver.scrollTo("Carter's");
+			DealsPage.clickDealsPageCarters();
+		}
+
 		//Tap to open the deal use deal titile and index
 		DealAggregationPage.clickOnDealTile();
-		
+
 		//Save deal
 		DealDetailpage.clickOnSaveDeal();
-		
-//		//Save deal
-//		DealAggregationPage.clickDealAggregationSaveHeart();
+
+		//		//Save deal
+		//		DealAggregationPage.clickDealAggregationSaveHeart();
 
 		//Back to Deals Tab
 		CustomHooks.pressBack();
@@ -252,7 +262,7 @@ public class LaunchTest extends AbstractTest {
 
 		//Tap My Saves
 		ProductsPage.clickProductsPageMySaves();
-		
+
 		//Back to Products Tab
 		CustomHooks.pressBack();
 
@@ -291,8 +301,7 @@ public class LaunchTest extends AbstractTest {
 
 	@After
 	public void teardown(){
-
-
+		driver.resetApp();
 	}
 
 }

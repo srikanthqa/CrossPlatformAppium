@@ -16,11 +16,19 @@ public class DealsPage extends AbstractPage {
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/chain_logo_image\")")
 	private static WebElement DealsPageChainLogoImage;
 	
-	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/chain_name\").index(2)")
-	private static WebElement DealsPageChainName;
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/chain_name\").text(\"Michaels\")")
+	private static WebElement DealsPageChainMichales;
 	
-	public static void clickDealsPageChainName(){
-		DealsPageChainName.click();
+	public static void clickDealsPageMichales(){
+		DealsPageChainMichales.click();
+		PageFactory.initElements(new AppiumFieldDecorator(driver), new DealAggregationPage());
+	}
+	
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/chain_name\").text(\"Carter's\")")
+	private static WebElement DealsPageChainCarters;
+	
+	public static void clickDealsPageCarters(){
+		DealsPageChainCarters.click();
 		PageFactory.initElements(new AppiumFieldDecorator(driver), new DealAggregationPage());
 	}
 	
