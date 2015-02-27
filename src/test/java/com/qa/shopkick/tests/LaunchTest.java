@@ -301,7 +301,7 @@ public class LaunchTest extends AbstractTest {
 
 	@After
 	public void teardown(){
-		driver.resetApp();
+		//driver.resetApp();
 	}
 
 }
