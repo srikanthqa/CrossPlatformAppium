@@ -18,6 +18,7 @@ public class ConfirmDeleteAccountPage extends AbstractPage{
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\")text(\"DELETE\")")
 	private static WebElement deleteAccountButton;
 	
+	//used mobile element since its a hybrid view
 	public static void clickOnDeleteAccountConfirm(){
 		MobileElement confirmDelete = (MobileElement) driver.findElement(By.name("DELETE"));
 		confirmDelete.click();

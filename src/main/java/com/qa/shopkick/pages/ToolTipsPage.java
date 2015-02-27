@@ -1,9 +1,11 @@
 package com.qa.shopkick.pages;
 
 import com.qa.shopkick.utils.AbstractPage;
+
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
@@ -14,6 +16,7 @@ public class ToolTipsPage extends AbstractPage {
 	
 	public static void clickToolTipCloseButton(){
 		ToolTipCloseButton.click();
+		PageFactory.initElements(new AppiumFieldDecorator(driver),new StoreViewPage());
 	}
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/tooltip_main_text\").text(\"There are three ways you can earn kicks at stores:\")")

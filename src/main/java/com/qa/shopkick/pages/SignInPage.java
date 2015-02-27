@@ -11,7 +11,8 @@ import org.openqa.selenium.support.PageFactory;
 
 public class SignInPage extends AbstractPage {
 
-	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/title_text\").text(\"Sign in or sign up\")")
+	//@iOSFindBy()
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/title_text\").text(\"Sign in or sign up\").className(\"android.widget.TextView\")")
 	private static WebElement signInOrSignUp;
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"FACEBOOK\")")
@@ -26,6 +27,7 @@ public class SignInPage extends AbstractPage {
 
 	public static void clicksignInGooglePlusSignIn(){
 		signInGooglePlusSignIn.click();
+		PageFactory.initElements(new AppiumFieldDecorator(driver),new LandingPage());
 	}
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"EMAIL\")")

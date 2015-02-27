@@ -31,6 +31,7 @@ public class LandingPage extends AbstractPage{
 	
 	public static void clicktabTitleStores(){
 		tabTitleStores.click();
+		PageFactory.initElements(new AppiumFieldDecorator(driver),new StoresPage());
 	}
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/tab_title\").text(\"DEALS\")")

@@ -9,6 +9,8 @@ import org.openqa.selenium.By;
 import com.qa.shopkick.pages.AccountSettings;
 import com.qa.shopkick.pages.ConfirmDeleteAccountPage;
 import com.qa.shopkick.pages.CountryPickerPage;
+import com.qa.shopkick.pages.DealAggregationPage;
+import com.qa.shopkick.pages.DealsPage;
 import com.qa.shopkick.pages.DeleteAccountPage;
 import com.qa.shopkick.pages.DidYouKnowPage;
 import com.qa.shopkick.pages.EmailSignInPage;
@@ -22,16 +24,19 @@ import com.qa.shopkick.pages.LandingPage;
 import com.qa.shopkick.pages.LeftNavBar;
 import com.qa.shopkick.pages.LeftNavSettings;
 import com.qa.shopkick.pages.LinkPhonePage;
+import com.qa.shopkick.pages.LookbookPage;
 import com.qa.shopkick.pages.MicrophonePermissionPage;
+import com.qa.shopkick.pages.OfferPage;
+import com.qa.shopkick.pages.ProductsPage;
+import com.qa.shopkick.pages.RelatedOfferPage;
 import com.qa.shopkick.pages.RewardsPickerPage;
 import com.qa.shopkick.pages.SignInPage;
+import com.qa.shopkick.pages.StoresPage;
+import com.qa.shopkick.pages.ToolTipsPage;
 import com.qa.shopkick.pages.VerifyMobileNumber;
 import com.qa.shopkick.utils.AbstractTest;
 import com.qa.shopkick.utils.CustomHooks;
 
-/**
- * Created by Srikanth on 12/16/14.
- */
 public class LaunchTest extends AbstractTest {
 
 	public static String currentKicksBeforeLogin, currentKicksAfterLogin;
@@ -68,7 +73,9 @@ public class LaunchTest extends AbstractTest {
 		LeftNavBar.clickOnFaceBookSignIn();
 
 		CustomHooks.waitFor(3);
-		//in case of multi user login
+		
+		//in case of multi-user login
+
 		if(driver.findElement(By.name("Did you know?")).isDisplayed()){
 			DidYouKnowPage.tapOnDidYouKnow();
 		}
@@ -105,7 +112,6 @@ public class LaunchTest extends AbstractTest {
 		try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -123,7 +129,6 @@ public class LaunchTest extends AbstractTest {
 		try {
 			Thread.sleep(10000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -171,6 +176,100 @@ public class LaunchTest extends AbstractTest {
 		ConfirmDeleteAccountPage.clickOnDeleteAccountConfirm();
 
 		//CustomHooks.pressBack();
+
+	}
+
+	@Test
+	public void GooglePlusFlow(){
+
+		//tap on the 'Guest' button to open left nav bar
+		SignInPage.clicksignInGooglePlusSignIn();		
+
+		CustomHooks.waitFor(3);
+
+		//in case of multi user login
+		if(driver.findElement(By.name("Did you know?")).isDisplayed()){
+			DidYouKnowPage.tapOnDidYouKnow();
+		}
+
+		//Go to Stores
+		LandingPage.clicktabTitleStores();
+
+		//Open a store
+		StoresPage.clickStoresPageNameAndKickInformation();
+
+		//wait for tool tips to load
+		CustomHooks.waitFor(7);
+
+		//Close tool tips
+		ToolTipsPage.clickToolTipCloseButton();
+
+		//Go to product
+		StoresPage.clickStoresPageOfferCellLeft();
+
+		//Save product
+		RelatedOfferPage.clickRelatedOfferSaveOffer();
+
+		//Go back to store view
+		CustomHooks.pressBack();
+
+		//Go back to store tab
+		CustomHooks.pressBack();
+
+		//Go to Deals Tab
+		LandingPage.clicktabTitleDeals();
+
+		//Tap aggregate deals
+		DealsPage.clickDealsPageChainName();
+
+		//Save deal
+		DealAggregationPage.clickDealAggregationSaveHeart();
+
+		//Back to Deals Tab
+		CustomHooks.pressBack();
+
+		//Go to Products Tab
+		LandingPage.clicktabTitleProducts();
+
+		//Open lookbook
+		ProductsPage.clickProductsPageLookbookCover();
+
+		//Save offer in lookbook
+		LookbookPage.clickLookbookPageLookbookOfferSaveHeart();
+
+		//Back to Products Tab
+		CustomHooks.pressBack();
+
+		//Tap My Saves
+		ProductsPage.clickProductsPageMySaves();
+
+		////Verify all Saved Products
+
+		//Unsave Product Page
+		OfferPage.clickOfferPageOfferSaveButton();
+
+		//Back to My Saves
+		CustomHooks.pressBack();
+
+		//Back to Products
+		CustomHooks.pressBack();
+
+		//Back to My Saves
+		ProductsPage.clickProductsPageMySaves();
+
+		////Verify Product has been removed
+
+		//Back to Products
+		CustomHooks.pressBack();
+
+		//Logout
+		LeftNavBar.clickGuestUserButton();
+
+		LeftNavBar.clickOnSettingsLeftNav();
+
+		LeftNavSettings.clicksettingsAccountSettings();
+
+		AccountSettings.clickAccountSettingsLogOut();
 
 	}
 

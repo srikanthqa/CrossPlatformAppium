@@ -39,7 +39,7 @@ public class StoresPage extends AbstractPage {
 		StoresPageStoreSearch.click();
 	}
 	
-	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/name_and_kick_information\")")
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/chain_name\").text(\"Old Navy\")")
 	private static WebElement StoresPageNameAndKickInformation;
 	
 	public static void clickStoresPageNameAndKickInformation(){
