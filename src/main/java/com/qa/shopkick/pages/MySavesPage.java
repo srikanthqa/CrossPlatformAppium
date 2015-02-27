@@ -36,11 +36,12 @@ public class MySavesPage extends AbstractPage {
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/tab_caption\")")
 	private static WebElement MySavesTabDealTabCaption;
 	
-	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/tile_main_image\")")
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/list_view\")")
 	private static WebElement MySavesOfferTile;
 	
-	public static void clickMySavesOfferTile(){
+	public static void clickMySavesANYOfferTile(){
 		MySavesOfferTile.click();
+		PageFactory.initElements(new AppiumFieldDecorator(driver),new OfferPage());
 	}
 	
 	

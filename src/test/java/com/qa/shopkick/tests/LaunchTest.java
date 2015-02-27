@@ -27,6 +27,7 @@ import com.qa.shopkick.pages.LeftNavSettings;
 import com.qa.shopkick.pages.LinkPhonePage;
 import com.qa.shopkick.pages.LookbookPage;
 import com.qa.shopkick.pages.MicrophonePermissionPage;
+import com.qa.shopkick.pages.MySavesPage;
 import com.qa.shopkick.pages.OfferPage;
 import com.qa.shopkick.pages.ProductsPage;
 import com.qa.shopkick.pages.RelatedOfferPage;
@@ -257,14 +258,9 @@ public class LaunchTest extends AbstractTest {
 		//Tap My Saves
 		ProductsPage.clickProductsPageMySaves();
 
-		//Back to Products Tab
-		CustomHooks.pressBack();
-
-		//Tap My Saves
-		ProductsPage.clickProductsPageMySaves();
-
-		////Verify all Saved Products
-
+		//Tap on a product
+		MySavesPage.clickMySavesANYOfferTile();
+		
 		//Unsave Product Page
 		OfferPage.clickOfferPageOfferSaveButton();
 
@@ -274,13 +270,14 @@ public class LaunchTest extends AbstractTest {
 		//Back to Products
 		CustomHooks.pressBack();
 
+//		TODO: Add verification
 		//Back to My Saves
-		ProductsPage.clickProductsPageMySaves();
-
-		////Verify Product has been removed
-
-		//Back to Products
-		CustomHooks.pressBack();
+//		ProductsPage.clickProductsPageMySaves();
+//
+//		////Verify Product has been removed
+//
+//		//Back to Products
+//		CustomHooks.pressBack();
 
 		//Logout
 		LeftNavBar.clickGuestUserButton();
