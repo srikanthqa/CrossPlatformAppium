@@ -7,6 +7,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
@@ -18,11 +19,12 @@ public class DealsPage extends AbstractPage {
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/chain_logo_image\")")
 	private static WebElement DealsPageChainLogoImage;
 	
-	@AndroidFindBy(uiAutomator = "new UiSelector().text(\"Michaels\")")
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/chain_name\").text(\"Michaels\")")
 	private static MobileElement DealsPageChainMichales;
 	
 	public static void clickDealsPageMichales(){
-		DealsPageChainMichales.click();
+		MobileElement michaelsDealTile = (MobileElement) driver.findElement(By.name("Michaels"));
+		michaelsDealTile.click();
 		PageFactory.initElements(new AppiumFieldDecorator(driver), new DealAggregationPage());
 	}
 	
