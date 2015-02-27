@@ -18,7 +18,7 @@ public class DealsPage extends AbstractPage {
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/chain_logo_image\")")
 	private static WebElement DealsPageChainLogoImage;
 	
-	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/chain_name\").text(\"Michaels\")")
+	@AndroidFindBy(uiAutomator = "new UiSelector().text(\"Michaels\")")
 	private static MobileElement DealsPageChainMichales;
 	
 	public static void clickDealsPageMichales(){
