@@ -279,7 +279,9 @@ public class LaunchTest extends AbstractTest {
 //		CustomHooks.pressBack();
 
 		//Logout
-		LeftNavBar.clickGuestUserButton();
+		LandingPage.openLeftNavSignedIn();
+		
+		driver.scrollTo("Settings");
 
 		LeftNavBar.clickOnSettingsLeftNav();
 
