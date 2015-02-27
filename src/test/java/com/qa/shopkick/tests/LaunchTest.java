@@ -41,7 +41,7 @@ import com.qa.shopkick.utils.CustomHooks;
 public class LaunchTest extends AbstractTest {
 
 	public static String currentKicksBeforeLogin, currentKicksAfterLogin;
-
+/*
 	@Test
 	public void RegistrationFlow(){
 
@@ -73,7 +73,7 @@ public class LaunchTest extends AbstractTest {
 
 		LeftNavBar.clickOnFaceBookSignIn();
 
-		CustomHooks.waitFor(3);
+		CustomHooks.waitFor(5);
 
 		//in case of multi-user login
 
@@ -81,6 +81,7 @@ public class LaunchTest extends AbstractTest {
 			DidYouKnowPage.tapOnDidYouKnow();
 		}
 
+		driver.scrollTo("Settings");
 		//click on settings
 		LeftNavBar.clickOnSettingsLeftNav();
 
@@ -110,11 +111,7 @@ public class LaunchTest extends AbstractTest {
 		//Hit sign up
 		EmailSignInPage.clickOnSignUpButton();
 
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		CustomHooks.waitFor(5);
 
 		//Phone number screen
 
@@ -127,11 +124,7 @@ public class LaunchTest extends AbstractTest {
 		//hit continue
 		LinkPhonePage.clickOnCompleteRegistration();
 
-		try {
-			Thread.sleep(10000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		CustomHooks.waitFor(10);
 
 		//Hit Not right now in verify phone number page
 		VerifyMobileNumber.clickNotNowForVerifyPhone();
@@ -180,7 +173,7 @@ public class LaunchTest extends AbstractTest {
 
 	}
 
-	@Test
+*/	@Test
 	public void GooglePlusFlow(){
 
 		//tap on the 'Guest' button to open left nav bar
@@ -225,7 +218,8 @@ public class LaunchTest extends AbstractTest {
 		//Look for Michaels
 		if(driver.findElement(By.name("Michaels")).isDisplayed())
 		{
-			driver.scrollTo("Michaels");
+			//driver.scrollTo("Michaels");
+			
 			//Tap aggregate deals
 			DealsPage.clickDealsPageMichales();
 		}
