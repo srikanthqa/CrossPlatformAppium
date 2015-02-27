@@ -22,9 +22,12 @@ public class DealsPage extends AbstractPage {
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/chain_name\").text(\"Michaels\")")
 	private static MobileElement DealsPageChainMichales;
 	
+	@AndroidFindBy(name="Michaels")
+	private static MobileElement DealsPageChainMichalesMobile;
+	
 	public static void clickDealsPageMichales(){
-		MobileElement michaelsDealTile = (MobileElement) driver.findElement(By.name("Michaels"));
-		michaelsDealTile.click();
+		//MobileElement michaelsDealTile = (MobileElement) driver.findElement(By.name("Michaels"));
+		DealsPageChainMichalesMobile.click();
 		PageFactory.initElements(new AppiumFieldDecorator(driver), new DealAggregationPage());
 	}
 	
