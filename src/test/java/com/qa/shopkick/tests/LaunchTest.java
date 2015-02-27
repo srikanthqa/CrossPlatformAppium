@@ -214,12 +214,12 @@ public class LaunchTest extends AbstractTest {
 
 		//Go to Deals Tab
 		LandingPage.clicktabTitleDeals();
+		
+		CustomHooks.waitFor(3);
 
 		//Look for Michaels
 		if(driver.findElement(By.name("Michaels")).isDisplayed())
 		{
-			//driver.scrollTo("Michaels");
-			
 			//Tap aggregate deals
 			DealsPage.clickDealsPageMichales();
 		}

@@ -2,9 +2,11 @@ package com.qa.shopkick.pages;
 
 import com.qa.shopkick.utils.AbstractPage;
 
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
@@ -17,7 +19,7 @@ public class DealsPage extends AbstractPage {
 	private static WebElement DealsPageChainLogoImage;
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/chain_name\").text(\"Michaels\")")
-	private static WebElement DealsPageChainMichales;
+	private static MobileElement DealsPageChainMichales;
 	
 	public static void clickDealsPageMichales(){
 		DealsPageChainMichales.click();
