@@ -38,12 +38,12 @@ public class ProductsPage extends AbstractPage {
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/title_text\").text(\"Unlock up to 5000 kicks toward your first FREE reward!\")")
 	private static WebElement ProductsPageNewUserScanBonus;
 	
-	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/lookbook_cover\")")
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/lookbook_title\")")
 	private static WebElement ProductsPageLookbookCover;
 	
 	public static void clickProductsPageLookbookCover(){
 		ProductsPageLookbookCover.click();
-		PageFactory.initElements(new AppiumFieldDecorator(driver), new DealAggregationPage());
+		PageFactory.initElements(new AppiumFieldDecorator(driver), new LookbookPage());
 	}
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/unread_label\").text(\"new\")")

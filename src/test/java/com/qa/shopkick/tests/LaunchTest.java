@@ -10,6 +10,7 @@ import com.qa.shopkick.pages.AccountSettings;
 import com.qa.shopkick.pages.ConfirmDeleteAccountPage;
 import com.qa.shopkick.pages.CountryPickerPage;
 import com.qa.shopkick.pages.DealAggregationPage;
+import com.qa.shopkick.pages.DealDetailpage;
 import com.qa.shopkick.pages.DealsPage;
 import com.qa.shopkick.pages.DeleteAccountPage;
 import com.qa.shopkick.pages.DidYouKnowPage;
@@ -201,8 +202,6 @@ public class LaunchTest extends AbstractTest {
 		//wait for tool tips to load
 		CustomHooks.waitFor(7);
 
-		//Close tool tips
-		ToolTipsPage.clickToolTipCloseButton();
 
 		//Go to product
 		StoresPage.clickStoresPageOfferCellLeft();
@@ -221,11 +220,18 @@ public class LaunchTest extends AbstractTest {
 
 		//Tap aggregate deals
 		DealsPage.clickDealsPageChainName();
-
+		
+		//Tap to open the deal use deal titile and index
+		DealAggregationPage.clickOnDealTile();
+		
 		//Save deal
-		DealAggregationPage.clickDealAggregationSaveHeart();
+		DealDetailpage.clickOnSaveDeal();
+		
+//		//Save deal
+//		DealAggregationPage.clickDealAggregationSaveHeart();
 
 		//Back to Deals Tab
+		CustomHooks.pressBack();
 		CustomHooks.pressBack();
 
 		//Go to Products Tab
@@ -237,6 +243,12 @@ public class LaunchTest extends AbstractTest {
 		//Save offer in lookbook
 		LookbookPage.clickLookbookPageLookbookOfferSaveHeart();
 
+		//Back to Products Tab
+		CustomHooks.pressBack();
+
+		//Tap My Saves
+		ProductsPage.clickProductsPageMySaves();
+		
 		//Back to Products Tab
 		CustomHooks.pressBack();
 

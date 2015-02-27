@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import com.qa.shopkick.pages.AccountSettings;
 import com.qa.shopkick.pages.CountryPickerPage;
 import com.qa.shopkick.pages.DealAggregationPage;
+import com.qa.shopkick.pages.DealDetailpage;
 import com.qa.shopkick.pages.DealsPage;
 import com.qa.shopkick.pages.DidYouKnowPage;
 import com.qa.shopkick.pages.FirstUseDealsEducationPage;
@@ -73,11 +74,18 @@ public class SmokeSuiteTwo extends AbstractTest{
 
 		//Tap aggregate deals
 		DealsPage.clickDealsPageChainName();
-
+		
+		//Tap to open the deal use deal titile and index
+		DealAggregationPage.clickOnDealTile();
+		
 		//Save deal
-		DealAggregationPage.clickDealAggregationSaveHeart();
+		DealDetailpage.clickOnSaveDeal();
+		
+//		//Save deal
+//		DealAggregationPage.clickDealAggregationSaveHeart();
 
 		//Back to Deals Tab
+		CustomHooks.pressBack();
 		CustomHooks.pressBack();
 
 		//Go to Products Tab
