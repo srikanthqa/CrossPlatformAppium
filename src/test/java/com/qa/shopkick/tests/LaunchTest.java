@@ -44,7 +44,7 @@ public class LaunchTest extends AbstractTest {
 	public static String currentKicksBeforeLogin, currentKicksAfterLogin;
 
 	@Test
-	public void RegistrationFlow(){
+	public void FirstUseFlow(){
 
 		//Go through the first use flow
 		FirstUseDealsEducationPage.clickNextButton();
@@ -64,6 +64,10 @@ public class LaunchTest extends AbstractTest {
 		if(PlatformType.equals("IOS")){
 			MicrophonePermissionPage.clickOKButton();
 		}
+	}
+
+	@Test
+	public void LoginAndLogoutWithFacebook(){
 
 		//tap on the 'Guest' button to open left nav bar
 		LeftNavBar.clickGuestUserButton();
@@ -91,7 +95,11 @@ public class LaunchTest extends AbstractTest {
 
 		//perform a logout
 		AccountSettings.clickAccountSettingsLogOut();
+	}
 
+	@Test
+	public void EmailSignUp()
+	{
 		//From logout screen hit on email to create an account
 		SignInPage.clicksignInEmailSignIn();
 
@@ -144,6 +152,11 @@ public class LaunchTest extends AbstractTest {
 
 		//Go to Account settings
 		LeftNavSettings.clicksettingsAccountSettings();
+	}
+
+	@Test
+	public void DeleteAccountTest() 
+	{
 
 		//Tap on delete account
 		AccountSettings.clickAccountSettingsDeleteAccount();
@@ -169,14 +182,11 @@ public class LaunchTest extends AbstractTest {
 
 		//Comfirm delete account
 		ConfirmDeleteAccountPage.clickOnDeleteAccountConfirm();
-
-		//CustomHooks.pressBack();
-
 	}
 
 	@Test
-	public void GooglePlusFlow(){
-
+	public void GooglePlusFlow()
+	{
 		//tap on the 'Guest' button to open left nav bar
 		SignInPage.clicksignInGooglePlusSignIn();		
 
@@ -186,7 +196,11 @@ public class LaunchTest extends AbstractTest {
 		if(driver.findElement(By.name("Did you know?")).isDisplayed()){
 			DidYouKnowPage.tapOnDidYouKnow();
 		}
+	}
 
+	@Test
+	public void StoresPageSave()
+	{
 		//Go to Stores
 		LandingPage.clicktabTitleStores();
 
@@ -212,10 +226,14 @@ public class LaunchTest extends AbstractTest {
 
 		//Go back to store tab
 		CustomHooks.pressBack();
+	}
 
+	@Test
+	public void SaveDeal()
+	{
 		//Go to Deals Tab
 		LandingPage.clicktabTitleDeals();
-		
+
 		CustomHooks.waitFor(3);
 
 		//Look for Michaels
@@ -235,11 +253,15 @@ public class LaunchTest extends AbstractTest {
 
 		//Save deal
 		DealDetailpage.clickOnSaveDeal();
-		
+
 		//Back to Deals Tab
 		CustomHooks.pressBack();
 		CustomHooks.pressBack();
+	}
 
+	@Test
+	public void ProductsPage()
+	{
 		//Go to Products Tab
 		LandingPage.clicktabTitleProducts();
 
@@ -257,7 +279,7 @@ public class LaunchTest extends AbstractTest {
 
 		//Tap on a product
 		MySavesPage.clickMySavesANYOfferTile();
-		
+
 		//Unsave Product Page
 		OfferPage.clickOfferPageOfferSaveButton();
 
@@ -266,21 +288,20 @@ public class LaunchTest extends AbstractTest {
 
 		//Back to Products
 		CustomHooks.pressBack();
-		
+
 		CustomHooks.pressBack();
+	}
 
-//		TODO: Add verification
-		//Back to My Saves
-//		ProductsPage.clickProductsPageMySaves();
-//
-//		////Verify Product has been removed
-//
-//		//Back to Products
-//		CustomHooks.pressBack();
+	//TODO: Add verification
+	//Back to My Saves
+	//ProductsPage.clickProductsPageMySaves();
 
+	@Test
+	public void LogoutGooglePlus()
+	{
 		//Logout
 		LandingPage.openLeftNavSignedIn();
-		
+
 		driver.scrollTo("Settings");
 
 		LeftNavBar.clickOnSettingsLeftNav();
