@@ -41,7 +41,7 @@ import com.qa.shopkick.utils.CustomHooks;
 public class LaunchTest extends AbstractTest {
 
 	public static String currentKicksBeforeLogin, currentKicksAfterLogin;
-/*
+
 	@Test
 	public void RegistrationFlow(){
 
@@ -173,7 +173,7 @@ public class LaunchTest extends AbstractTest {
 
 	}
 
-*/	@Test
+	@Test
 	public void GooglePlusFlow(){
 
 		//tap on the 'Guest' button to open left nav bar
