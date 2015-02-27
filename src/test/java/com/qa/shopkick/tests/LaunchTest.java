@@ -235,10 +235,7 @@ public class LaunchTest extends AbstractTest {
 
 		//Save deal
 		DealDetailpage.clickOnSaveDeal();
-
-		//		//Save deal
-		//		DealAggregationPage.clickDealAggregationSaveHeart();
-
+		
 		//Back to Deals Tab
 		CustomHooks.pressBack();
 		CustomHooks.pressBack();
@@ -268,6 +265,8 @@ public class LaunchTest extends AbstractTest {
 		CustomHooks.pressBack();
 
 		//Back to Products
+		CustomHooks.pressBack();
+		
 		CustomHooks.pressBack();
 
 //		TODO: Add verification
