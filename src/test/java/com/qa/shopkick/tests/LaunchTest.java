@@ -202,6 +202,10 @@ public class LaunchTest extends AbstractTest {
 		//wait for tool tips to load
 		CustomHooks.waitFor(7);
 
+		//Close tool tips
+		ToolTipsPage.clickToolTipCloseButton();
+		
+		driver.scrollTo("Trending on shopkick");
 
 		//Go to product
 		StoresPage.clickStoresPageOfferCellLeft();
