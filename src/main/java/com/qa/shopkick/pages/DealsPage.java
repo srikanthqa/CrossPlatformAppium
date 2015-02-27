@@ -19,22 +19,21 @@ public class DealsPage extends AbstractPage {
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/chain_logo_image\")")
 	private static WebElement DealsPageChainLogoImage;
 	
-	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/chain_name\").text(\"Michaels\")")
-	private static MobileElement DealsPageChainMichales;
-	
-	@AndroidFindBy(name="Michaels")
-	private static MobileElement DealsPageChainMichalesMobile;
+	//TODO: Find a better way than a local element
+//	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/chain_name\").text(\"Michaels\")")
+//	private static MobileElement DealsPageChainMichales;
 	
 	public static void clickDealsPageMichales(){
-		//MobileElement michaelsDealTile = (MobileElement) driver.findElement(By.name("Michaels"));
-		DealsPageChainMichalesMobile.click();
+		MobileElement michaelsDealTile = (MobileElement) driver.findElement(By.name("Michaels"));
+		michaelsDealTile.click();
 		PageFactory.initElements(new AppiumFieldDecorator(driver), new DealAggregationPage());
 	}
 	
-	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/chain_name\").text(\"Carter's\")")
-	private static WebElement DealsPageChainCarters;
+//	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/chain_name\").text(\"Carter's\")")
+//	private static WebElement DealsPageChainCarters;
 	
 	public static void clickDealsPageCarters(){
+		MobileElement DealsPageChainCarters = (MobileElement) driver.findElement(By.name("Carter's"));
 		DealsPageChainCarters.click();
 		PageFactory.initElements(new AppiumFieldDecorator(driver), new DealAggregationPage());
 	}

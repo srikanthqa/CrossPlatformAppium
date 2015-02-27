@@ -2,6 +2,7 @@ package com.qa.shopkick.pages;
 
 import com.qa.shopkick.utils.AbstractPage;
 
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
@@ -26,10 +27,11 @@ public class DealAggregationPage extends AbstractPage{
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/heart\")")
 	private static WebElement DealAggregationSaveHeart;
 	
-	@AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.FrameLayout\").index(0).clickable(\"true\")")
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/list_view\")")
 	private static WebElement dealTileView;
 	
 	public static void clickOnDealTile(){
+		//MobileElement dealTileDealDetails = (MobileElement)driver.findElement(By.)
 		dealTileView.click();
 		PageFactory.initElements(new AppiumFieldDecorator(driver),new DealDetailpage());
 	}
