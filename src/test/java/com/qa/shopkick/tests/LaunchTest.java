@@ -3,6 +3,7 @@ package com.qa.shopkick.tests;
 import static org.junit.Assert.fail;
 
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
@@ -183,7 +184,9 @@ public class LaunchTest extends AbstractTest {
 		//Comfirm delete account
 		ConfirmDeleteAccountPage.clickOnDeleteAccountConfirm();
 	}
-
+	
+	/**** SUITE TWO****/
+	
 	@Test
 	public void GooglePlusFlow()
 	{
@@ -312,7 +315,8 @@ public class LaunchTest extends AbstractTest {
 
 	}
 
-	@After
+	/***** SUITE THREE ****/
+	//@After
 	public void teardown(){
 		//driver.resetApp();
 	}
