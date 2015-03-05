@@ -25,8 +25,8 @@ public class SmokeSuiteThree extends AbstractTest{
 	public void SuiteThree(){
 	//User logs in via email
 	SignInPage.clicksignInEmailSignIn();
-	EmailSignInPage.clickOnEmailAdrressMobileElements();
-	EmailSignInPage.clickOnPasswordMobileElement();
+	EmailSignInPage.clickOnEmailAdrressMobileElements("a@b.com");
+	EmailSignInPage.clickOnPasswordMobileElement("aaaaaa");
 	EmailSignInPage.clickOnSignUpButton();
 	
 	//Goes to kick center
@@ -36,27 +36,32 @@ public class SmokeSuiteThree extends AbstractTest{
 	KicksCenterRewadsPage.clickOnLearnHowToGetKicks();
 	
 	//verify all items are displayed
+	//TODO: Figure out elements to verify in this flow
 	
 	//Go back
 	CustomHooks.pressBack();
 	
 	//Verify change rewards
 	KicksCenterRewadsPage.clickOnChangeReward();
+	driver.scrollTo("3400");
 	RewardsPickerPage.clickGasReward();
 	
 	//Verify rewards displayed
 	CustomHooks.pressBack();
+	
 	KicksCenterRewadsPage.clickOnseeAllRewardsFullWidth();
 	
 	//Rewards Mall 
 	//Scroll to bottom
 	driver.scrollTo("1875000");
+	//Scroll back to top
 	driver.scrollTo("You earned");
 	
 	//Go back
 	CustomHooks.pressBack();
 	
 	//Redeem a reward (from kick center)
+	//TODO: Redeem reward flow
 	
 	//Go back
 	CustomHooks.pressBack();

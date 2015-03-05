@@ -1,8 +1,10 @@
 package com.qa.shopkick.pages;
 
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 
 import com.qa.shopkick.utils.AbstractPage;
 
@@ -22,6 +24,9 @@ public class InviteAndGetKicksPage extends AbstractPage{
 	
 	public static void clickOninviteFrendsButton(){
 		inviteFriendsButton.click();
+		/* TODO: Should go to contact picker page from here
+		 * PageFactory.initElements(new AppiumFieldDecorator(driver),new FirstUseWalkinEducationPage());
+		 * */
 	}
 	
 }

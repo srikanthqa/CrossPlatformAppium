@@ -22,6 +22,8 @@ import com.qa.shopkick.pages.FirstUseDealsEducationPage;
 import com.qa.shopkick.pages.FirstUseRegistrationIntroPage;
 import com.qa.shopkick.pages.FirstUseRewardsEducationPage;
 import com.qa.shopkick.pages.FirstUseWalkinEducationPage;
+import com.qa.shopkick.pages.InviteAndGetKicksPage;
+import com.qa.shopkick.pages.KicksCenterRewadsPage;
 import com.qa.shopkick.pages.LandingPage;
 import com.qa.shopkick.pages.LeftNavBar;
 import com.qa.shopkick.pages.LeftNavSettings;
@@ -43,7 +45,7 @@ import com.qa.shopkick.utils.CustomHooks;
 public class LaunchTest extends AbstractTest {
 
 	public static String currentKicksBeforeLogin, currentKicksAfterLogin;
-
+	/******* SUITE ONE *********/ 
 	@Test
 	public void FirstUseFlow(){
 
@@ -58,8 +60,12 @@ public class LaunchTest extends AbstractTest {
 
 		//Pick default reward
 		RewardsPickerPage.clickNextButton();
-
+		if(driver.findElement(By.name("CONTINUE AS GUEST")).isDisplayed()){
+			FirstUseAlternateScreen.clickOnContinueAsGuestButton();			
+		}
+		else{
 		FirstUseRegistrationIntroPage.clickNoThanksButton();
+		}
 
 		//if iOS and if mic permission is asked, give the permission
 		if(PlatformType.equals("IOS")){
@@ -106,10 +112,10 @@ public class LaunchTest extends AbstractTest {
 
 		//CREATE ACCOUNT
 		//add email address
-		EmailSignInPage.clickOnEmailAdrressMobileElements();
+		EmailSignInPage.clickOnEmailAdrressMobileElements("trest2@sk.com");
 
 		//add password
-		EmailSignInPage.clickOnPasswordMobileElement();
+		EmailSignInPage.clickOnPasswordMobileElement("sktest123");
 
 		//confirm password
 		EmailSignInPage.enterConfirmPassword();
@@ -184,9 +190,9 @@ public class LaunchTest extends AbstractTest {
 		//Comfirm delete account
 		ConfirmDeleteAccountPage.clickOnDeleteAccountConfirm();
 	}
-	
+
 	/**** SUITE TWO****/
-	
+
 	@Test
 	public void GooglePlusFlow()
 	{
@@ -316,6 +322,93 @@ public class LaunchTest extends AbstractTest {
 	}
 
 	/***** SUITE THREE ****/
+
+	@Test
+	public void emailLoginTest(){
+		//User logs in via email
+		SignInPage.clicksignInEmailSignIn();
+		EmailSignInPage.clickOnEmailAdrressMobileElements("a@b.com");
+		EmailSignInPage.clickOnPasswordMobileElement("aaaaaa");
+		EmailSignInPage.clickOnSignUpButton();
+
+	}
+
+	@Test
+	public void changeReward(){
+
+		//Goes to kick center
+		StoresPage.clickStoresPageKicksCenter();
+
+		//Learn how to get kicks
+		KicksCenterRewadsPage.clickOnLearnHowToGetKicks();
+
+		//verify all items are displayed
+		//TODO: Figure out elements to verify in this flow
+
+		//Go back
+		CustomHooks.pressBack();
+
+		//Verify change rewards
+		KicksCenterRewadsPage.clickOnChangeReward();
+		driver.scrollTo("3400");
+		RewardsPickerPage.clickGasReward();
+	}
+
+	@Test
+	public void scrollRewardsPage(){
+		//Verify rewards displayed
+		CustomHooks.pressBack();
+
+		KicksCenterRewadsPage.clickOnseeAllRewardsFullWidth();
+
+		//Rewards Mall 
+		//Scroll to bottom
+		driver.scrollTo("1875000");
+		//Scroll back to top
+		driver.scrollTo("You earned");
+
+		//Go back
+		CustomHooks.pressBack();
+	}
+
+	@Test
+	public void redeemRewardTest(){
+		//Redeem a reward (from kick center)
+		//TODO: Redeem reward flow
+
+		//Go back
+		CustomHooks.pressBack();
+
+		//Open left nav
+		LandingPage.openLeftNavSignedIn();
+
+	}
+
+	@Test
+	public void inviteFriendsTest(){
+		//Go to invite friends
+		LeftNavBar.clickOnInviteLeftNav();
+		InviteAndGetKicksPage.clickOninviteFrendsButton();
+
+		//Verify all elements
+	}
+
+	@Test
+	public void logoutEmail(){
+		//Logout
+		CustomHooks.pressBack();
+		CustomHooks.pressBack();
+		LandingPage.openLeftNavSignedIn();
+
+		driver.scrollTo("Settings");
+
+		LeftNavBar.clickOnSettingsLeftNav();
+
+		LeftNavSettings.clicksettingsAccountSettings();
+
+		AccountSettings.clickAccountSettingsLogOut();
+	}
+
 	//@After
 	public void teardown(){
 		//driver.resetApp();
