@@ -21,5 +21,12 @@ public class RewardsPickerPage extends AbstractPage{
         PageFactory.initElements(new AppiumFieldDecorator(driver), new FirstUseRegistrationIntroPage());
         PageFactory.initElements(new AppiumFieldDecorator(driver), new FirstUseAlternateScreen());
     }
+    
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/kick_amount\").text(\"3400\")")
+	private static WebElement RewardsPickerPageGasReward;
+    
+    public static void clickGasReward(){
+        RewardsPickerPageGasReward.click();
+    }
 
 }

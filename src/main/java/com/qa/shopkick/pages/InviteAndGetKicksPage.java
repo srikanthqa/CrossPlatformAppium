@@ -20,4 +20,8 @@ public class InviteAndGetKicksPage extends AbstractPage{
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"INVITE FRIENDS\")")
 	private static WebElement inviteFriendsButton;
 	
+	public static void clickOninviteFrendsButton(){
+		inviteFriendsButton.click();
+	}
+	
 }
