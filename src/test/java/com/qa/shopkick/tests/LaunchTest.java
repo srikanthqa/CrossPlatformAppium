@@ -1,9 +1,5 @@
 package com.qa.shopkick.tests;
 
-import static org.junit.Assert.fail;
-
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
@@ -16,7 +12,6 @@ import com.qa.shopkick.pages.DealsPage;
 import com.qa.shopkick.pages.DeleteAccountPage;
 import com.qa.shopkick.pages.DidYouKnowPage;
 import com.qa.shopkick.pages.EmailSignInPage;
-import com.qa.shopkick.pages.EmailSignUp;
 import com.qa.shopkick.pages.FirstUseAlternateScreen;
 import com.qa.shopkick.pages.FirstUseDealsEducationPage;
 import com.qa.shopkick.pages.FirstUseRegistrationIntroPage;
@@ -45,12 +40,15 @@ import com.qa.shopkick.utils.CustomHooks;
 public class LaunchTest extends AbstractTest {
 
 	public static String currentKicksBeforeLogin, currentKicksAfterLogin;
-	/******* SUITE ONE *********/ 
+
 	@Test
 	public void FirstUseFlow(){
 
+		CustomHooks.waitFor(3);
 		//Go through the first use flow
 		FirstUseDealsEducationPage.clickNextButton();
+		CustomHooks.waitFor(2);
+
 		if(PlatformType.equals("IOS")){
 			CountryPickerPage.clickCountryUSA();
 			CountryPickerPage.clickNextButton();
@@ -64,7 +62,7 @@ public class LaunchTest extends AbstractTest {
 			FirstUseAlternateScreen.clickOnContinueAsGuestButton();			
 		}
 		else{
-		FirstUseRegistrationIntroPage.clickNoThanksButton();
+			FirstUseRegistrationIntroPage.clickNoThanksButton();
 		}
 
 		//if iOS and if mic permission is asked, give the permission
