@@ -41,10 +41,10 @@ echo "*****************"
 adb uninstall com.shopkick.app
 
 
-curl -O http://shopkicks-mac-pro.local:8080/job/Android_trunk/ws/apps/shopkick/android/Shopkick/bin/Shopkick-release-unsigned.apk
+curl -O http://shopkicks-mac-pro.local:8080/job/Android_trunk/ws/apps/shopkick/android/Shopkick/bin/Shopkick-release.apk
 
 
-adb install -r Shopkick-release-unsigned.apk
+adb install -r Shopkick-release.apk
 
 ########################## Start Appium #########################
 
