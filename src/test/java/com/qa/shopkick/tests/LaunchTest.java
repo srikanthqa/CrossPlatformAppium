@@ -39,6 +39,8 @@ import com.qa.shopkick.utils.CustomHooks;
 
 public class LaunchTest extends AbstractTest {
 
+	/*TODO: Add more methods to verify change in kicks
+	 * */
 	public static String currentKicksBeforeLogin, currentKicksAfterLogin;
 
 	@Test
@@ -57,14 +59,14 @@ public class LaunchTest extends AbstractTest {
 
 		//Pick default reward
 		RewardsPickerPage.clickNextButton();
-		
+
 		FirstUseAlternateScreen.clickOnContinueAsGuestButton();
 
 		//if iOS and if mic permission is asked, give the permission
 		if(PlatformType.equals("IOS")){
 			MicrophonePermissionPage.clickOKButton();
 		}
-		
+
 		CustomHooks.waitFor(3);
 	}
 
@@ -139,7 +141,6 @@ public class LaunchTest extends AbstractTest {
 
 		//Hit Not right now in verify phone number page
 		VerifyMobileNumber.clickNotNowForVerifyPhone();
-
 
 		//From landing page [stores tab]
 
@@ -347,7 +348,7 @@ public class LaunchTest extends AbstractTest {
 		KicksCenterRewadsPage.clickOnChangeReward();
 		driver.scrollTo("3400");
 		RewardsPickerPage.clickGasReward();
-		
+
 		CustomHooks.pressBack();
 	}
 
