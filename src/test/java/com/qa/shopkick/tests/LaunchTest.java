@@ -42,7 +42,7 @@ public class LaunchTest extends AbstractTest {
 	public static String currentKicksBeforeLogin, currentKicksAfterLogin;
 
 	@Test
-	public void FirstUseFlow(){
+	public void Test1FirstUseFlow(){
 
 		//Go through the first use flow
 		FirstUseDealsEducationPage.clickNextButton();
@@ -69,7 +69,7 @@ public class LaunchTest extends AbstractTest {
 	}
 
 	@Test
-	public void LoginAndLogoutWithFacebook(){
+	public void Test2LoginAndLogoutWithFacebook(){
 
 		//tap on the 'Guest' button to open left nav bar
 		LeftNavBar.clickGuestUserButton();
@@ -100,7 +100,7 @@ public class LaunchTest extends AbstractTest {
 	}
 
 	@Test
-	public void EmailSignUp()
+	public void Test3EmailSignUp()
 	{
 		//From logout screen hit on email to create an account
 		SignInPage.clicksignInEmailSignIn();
@@ -157,7 +157,7 @@ public class LaunchTest extends AbstractTest {
 	}
 
 	@Test
-	public void DeleteAccountTest() 
+	public void Test4DeleteAccountTest() 
 	{
 
 		//Tap on delete account
@@ -189,7 +189,7 @@ public class LaunchTest extends AbstractTest {
 	/**** SUITE TWO****/
 
 	@Test
-	public void GooglePlusFlow()
+	public void Test5GooglePlusFlow()
 	{
 		//tap on the 'Guest' button to open left nav bar
 		SignInPage.clicksignInGooglePlusSignIn();		
@@ -203,7 +203,7 @@ public class LaunchTest extends AbstractTest {
 	}
 
 	@Test
-	public void StoresPageSave()
+	public void Test6StoresPageSave()
 	{
 		//Go to Stores
 		LandingPage.clicktabTitleStores();
@@ -233,7 +233,7 @@ public class LaunchTest extends AbstractTest {
 	}
 
 	@Test
-	public void SaveDeal()
+	public void Test7SaveDeal()
 	{
 		//Go to Deals Tab
 		LandingPage.clicktabTitleDeals();
@@ -264,7 +264,7 @@ public class LaunchTest extends AbstractTest {
 	}
 
 	@Test
-	public void ProductsPage()
+	public void Test8ProductsPage()
 	{
 		//Go to Products Tab
 		LandingPage.clicktabTitleProducts();
@@ -301,7 +301,7 @@ public class LaunchTest extends AbstractTest {
 	//ProductsPage.clickProductsPageMySaves();
 
 	@Test
-	public void LogoutGooglePlus()
+	public void Test9LogoutGooglePlus()
 	{
 		//Logout
 		LandingPage.openLeftNavSignedIn();
@@ -319,7 +319,7 @@ public class LaunchTest extends AbstractTest {
 	/***** SUITE THREE ****/
 
 	@Test
-	public void emailLoginTest(){
+	public void Test10emailLoginTest(){
 		//User logs in via email
 		SignInPage.clicksignInEmailSignIn();
 		EmailSignInPage.clickOnEmailAdrressMobileElements("a@b.com");
@@ -329,7 +329,7 @@ public class LaunchTest extends AbstractTest {
 	}
 
 	@Test
-	public void changeReward(){
+	public void Test11changeReward(){
 
 		//Goes to kick center
 		StoresPage.clickStoresPageKicksCenter();
@@ -352,7 +352,7 @@ public class LaunchTest extends AbstractTest {
 	}
 
 	@Test
-	public void scrollRewardsPage(){
+	public void Test12scrollRewardsPage(){
 		//Verify rewards displayed
 
 		KicksCenterRewadsPage.clickOnseeAllRewardsFullWidth();
@@ -371,7 +371,7 @@ public class LaunchTest extends AbstractTest {
 	}
 
 	@Test
-	public void redeemRewardTest(){
+	public void Test13redeemRewardTest(){
 		//Redeem a reward (from kick center)
 		//TODO: Redeem reward flo
 
@@ -381,7 +381,7 @@ public class LaunchTest extends AbstractTest {
 	}
 
 	@Test
-	public void inviteFriendsTest(){
+	public void Test14inviteFriendsTest(){
 		//Go to invite friends
 		LeftNavBar.clickOnInviteLeftNav();
 		InviteAndGetKicksPage.clickOninviteFrendsButton();
@@ -392,7 +392,7 @@ public class LaunchTest extends AbstractTest {
 	}
 
 	@Test
-	public void logoutEmail(){
+	public void Test15logoutEmail(){
 		//Logout
 		LandingPage.openLeftNavSignedIn();
 
