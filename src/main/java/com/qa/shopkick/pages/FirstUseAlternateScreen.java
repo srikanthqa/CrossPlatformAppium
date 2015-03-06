@@ -18,5 +18,6 @@ public class FirstUseAlternateScreen extends AbstractPage {
 		continueAsGuestButton.click();
 		PageFactory.initElements(new AppiumFieldDecorator(driver),new MicrophonePermissionPage());
 		PageFactory.initElements(new AppiumFieldDecorator(driver),new LeftNavBar());
+		PageFactory.initElements(new AppiumFieldDecorator(driver),new LandingPage());
 	}
 }
