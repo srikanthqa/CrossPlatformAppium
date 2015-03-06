@@ -58,7 +58,7 @@ public class LaunchTest extends AbstractTest {
 		//Pick default reward
 		RewardsPickerPage.clickNextButton();
 		
-		if(driver.findElement(By.name("CONTINUE AS GUEST")).isDisplayed()){
+		if(driver.findElement(By.name("CONTINUE AS GUEST?")).isDisplayed()){
 			FirstUseAlternateScreen.clickOnContinueAsGuestButton();			
 		}
 		else{
