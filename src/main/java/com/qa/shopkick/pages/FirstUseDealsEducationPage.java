@@ -21,6 +21,4 @@ public class FirstUseDealsEducationPage extends AbstractPage{
         PageFactory.initElements(new AppiumFieldDecorator(driver),new CountryPickerPage());
         PageFactory.initElements(new AppiumFieldDecorator(driver),new FirstUseWalkinEducationPage());
     }
-
-
 }

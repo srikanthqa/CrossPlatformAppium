@@ -45,6 +45,7 @@ public class LaunchTest extends AbstractTest {
 	public void FirstUseFlow(){
 
 		CustomHooks.waitFor(3);
+
 		//Go through the first use flow
 		FirstUseDealsEducationPage.clickNextButton();
 		CustomHooks.waitFor(2);
@@ -58,6 +59,7 @@ public class LaunchTest extends AbstractTest {
 
 		//Pick default reward
 		RewardsPickerPage.clickNextButton();
+		
 		if(driver.findElement(By.name("CONTINUE AS GUEST")).isDisplayed()){
 			FirstUseAlternateScreen.clickOnContinueAsGuestButton();			
 		}
