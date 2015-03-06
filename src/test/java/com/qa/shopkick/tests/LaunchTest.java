@@ -58,12 +58,9 @@ public class LaunchTest extends AbstractTest {
 		//Pick default reward
 		RewardsPickerPage.clickNextButton();
 		
-		if(driver.findElement(By.name("CONTINUE AS GUEST?")).isDisplayed()){
+//		if(driver.findElement(By.name("CONTINUE AS GUEST?")).isDisplayed()){
 			FirstUseAlternateScreen.clickOnContinueAsGuestButton();			
-		}
-		else{
-			FirstUseRegistrationIntroPage.clickNoThanksButton();
-		}
+
 
 		//if iOS and if mic permission is asked, give the permission
 		if(PlatformType.equals("IOS")){
