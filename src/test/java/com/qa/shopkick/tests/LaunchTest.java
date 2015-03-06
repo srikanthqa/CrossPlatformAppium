@@ -44,8 +44,6 @@ public class LaunchTest extends AbstractTest {
 	@Test
 	public void FirstUseFlow(){
 
-		CustomHooks.waitFor(3);
-
 		//Go through the first use flow
 		FirstUseDealsEducationPage.clickNextButton();
 		CustomHooks.waitFor(2);
@@ -352,12 +350,13 @@ public class LaunchTest extends AbstractTest {
 		KicksCenterRewadsPage.clickOnChangeReward();
 		driver.scrollTo("3400");
 		RewardsPickerPage.clickGasReward();
+		
+		CustomHooks.pressBack();
 	}
 
 	@Test
 	public void scrollRewardsPage(){
 		//Verify rewards displayed
-		CustomHooks.pressBack();
 
 		KicksCenterRewadsPage.clickOnseeAllRewardsFullWidth();
 
@@ -369,15 +368,15 @@ public class LaunchTest extends AbstractTest {
 
 		//Go back
 		CustomHooks.pressBack();
+
+		//Go back
+		CustomHooks.pressBack();
 	}
 
 	@Test
 	public void redeemRewardTest(){
 		//Redeem a reward (from kick center)
-		//TODO: Redeem reward flow
-
-		//Go back
-		CustomHooks.pressBack();
+		//TODO: Redeem reward flo
 
 		//Open left nav
 		LandingPage.openLeftNavSignedIn();
@@ -391,13 +390,13 @@ public class LaunchTest extends AbstractTest {
 		InviteAndGetKicksPage.clickOninviteFrendsButton();
 
 		//Verify all elements
+		CustomHooks.pressBack();
+		CustomHooks.pressBack();
 	}
 
 	@Test
 	public void logoutEmail(){
 		//Logout
-		CustomHooks.pressBack();
-		CustomHooks.pressBack();
 		LandingPage.openLeftNavSignedIn();
 
 		driver.scrollTo("Settings");
