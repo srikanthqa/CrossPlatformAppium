@@ -80,7 +80,7 @@ public class LaunchTest extends AbstractTest {
 
 		currentKicksBeforeLogin = LeftNavBar.getCurrentKicksCount();
 
-		LeftNavBar.clickOnFaceBookSignIn();
+		LeftNavBar.clickOnGooglePlusSignIn();
 
 		CustomHooks.waitFor(5);
 
