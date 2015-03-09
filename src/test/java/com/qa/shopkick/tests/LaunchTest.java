@@ -83,7 +83,7 @@ public class LaunchTest extends AbstractTest {
 		CustomHooks.waitFor(3);
 		driver.scrollTo("Settings");
 		//click on settings
-		
+
 		LeftNavBar.clickOnSettingsLeftNav();
 
 		//Go to Account settings
@@ -211,23 +211,29 @@ public class LaunchTest extends AbstractTest {
 
 		CustomHooks.waitFor(3);
 
-		//Look for Michaels
-		if(driver.findElement(By.name("Michaels")).isDisplayed())
-		{
-			//Tap aggregate deals
-			DealsPage.clickDealsPageMichales();
+		//Click on search bar
+		DealsPage.clickOnSerahcBar();
+		//close the keyboard
+		driver.hideKeyboard();
+
+		//Search for store with deals available
+		if(!driver.findElement(By.name("Deals Available")).isDisplayed()){
+			driver.scrollTo("Deals available");
 		}
-		else
-		{	//Scroll to carters
-			driver.scrollTo("Carter's");
-			DealsPage.clickDealsPageCarters();
-		}
+
+		//click on available deal
+		DealsPage.clickOnDealsAvailable();
 
 		//Tap to open the deal use deal titile and index
 		DealAggregationPage.clickOnDealTile();
 
-		//Save deal
-		DealDetailpage.clickOnSaveDeal();
+		if(!driver.findElement(By.name("SAVE")).isDisplayed()){
+			//Save deal
+			DealDetailpage.clickOnSaveDeal();
+		}
+		else{
+			DealDetailpage.unSaveDeal();
+		}
 
 		//Back to Deals Tab
 		CustomHooks.pressBack();
@@ -282,7 +288,7 @@ public class LaunchTest extends AbstractTest {
 
 	@Test
 	public void EmailLoginTest(){
-		
+
 		//User logs in via email
 		SignInPage.clicksignInEmailSignIn();
 		EmailSignInPage.clickOnEmailAdrressMobileElements("a@b.com");
@@ -290,10 +296,10 @@ public class LaunchTest extends AbstractTest {
 		EmailSignInPage.clickOnSignUpButton();
 
 		CustomHooks.dismissMultiLoginMessage();
-		
+
 		//Goes to kick center
 		StoresPage.clickStoresPageKicksCenter();
-		
+
 		//Add a dismiss congratulations message
 		CustomHooks.dismissRedeemRewardMessage();
 
@@ -308,16 +314,16 @@ public class LaunchTest extends AbstractTest {
 
 		//Verify change rewards
 		KicksCenterRewadsPage.clickOnChangeReward();
-		
+
 		driver.scrollTo("3400");
 		if(driver.findElement(By.name("3400")).isDisplayed()){
-		RewardsPickerPage.clickGasReward();
+			RewardsPickerPage.clickGasReward();
 		}
-		
+
 		if(driver.findElement(By.name("1875000")).isDisplayed()){
 			RewardsPickerPage.clickVespaReward();
-			}
-			
+		}
+
 
 		CustomHooks.pressBack();
 

@@ -14,5 +14,12 @@ public class DealDetailpage extends AbstractPage{
 	public static void clickOnSaveDeal(){
 		saveOfferButton.click();
 	}
+	
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"SAVED\")")
+	private static WebElement unSaveOfferButton;
+	
+	public static void unSaveDeal(){
+		unSaveOfferButton.click();
+	}
 
 }
