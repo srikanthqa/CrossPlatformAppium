@@ -3,6 +3,7 @@ package com.qa.shopkick.utils;
 import org.openqa.selenium.By;
 
 import com.qa.shopkick.pages.DidYouKnowPage;
+import com.qa.shopkick.pages.RedeemGiftCardDialogPage;
 
 public class CustomHooks extends AbstractPage{
 
@@ -19,12 +20,20 @@ public class CustomHooks extends AbstractPage{
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static void dismissMultiLoginMessage(){
 		CustomHooks.waitFor(8);
 
 		if(driver.findElement(By.name("Did you know?")).isDisplayed()){
 			DidYouKnowPage.tapOnDidYouKnow();
+		}
+	}
+	
+	public static void dismissRedeemRewardMessage(){
+		CustomHooks.waitFor(3);
+		
+		if(driver.findElement(By.name("Congrats!?")).isDisplayed()){
+			RedeemGiftCardDialogPage.clickToDismiss();
 		}
 	}
 }

@@ -17,6 +17,7 @@ public class StoresPage extends AbstractPage {
 	public static void clickStoresPageKicksCenter(){
 		StoresPageKicksCenter.click();
 		PageFactory.initElements(new AppiumFieldDecorator(driver),new KicksCenterRewadsPage());
+		PageFactory.initElements(new AppiumFieldDecorator(driver),new RedeemGiftCardDialogPage());
 	}
 		
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_icon\")")
