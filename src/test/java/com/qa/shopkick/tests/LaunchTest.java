@@ -80,8 +80,10 @@ public class LaunchTest extends AbstractTest {
 
 		CustomHooks.dismissMultiLoginMessage();
 
+		CustomHooks.waitFor(3);
 		driver.scrollTo("Settings");
 		//click on settings
+		
 		LeftNavBar.clickOnSettingsLeftNav();
 
 		//Go to Account settings
@@ -171,7 +173,7 @@ public class LaunchTest extends AbstractTest {
 	/**** SUITE TWO****/
 
 	@Test
-	public void Test5GooglePlusFlow()
+	public void Test2GooglePlusFlow()
 	{
 		//tap on the 'Guest' button to open left nav bar
 		SignInPage.clicksignInGooglePlusSignIn();		
@@ -279,7 +281,7 @@ public class LaunchTest extends AbstractTest {
 	/***** SUITE THREE ****/
 
 	@Test
-	public void Test11emailLoginTest(){
+	public void Test3emailLoginTest(){
 		//User logs in via email
 		SignInPage.clicksignInEmailSignIn();
 		EmailSignInPage.clickOnEmailAdrressMobileElements("a@b.com");
