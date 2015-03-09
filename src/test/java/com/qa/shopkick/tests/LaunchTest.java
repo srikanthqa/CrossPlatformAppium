@@ -319,7 +319,7 @@ public class LaunchTest extends AbstractTest {
 	/***** SUITE THREE ****/
 
 	@Test
-	public void Test10emailLoginTest(){
+	public void Test11emailLoginTest(){
 		//User logs in via email
 		SignInPage.clicksignInEmailSignIn();
 		EmailSignInPage.clickOnEmailAdrressMobileElements("a@b.com");
@@ -328,7 +328,7 @@ public class LaunchTest extends AbstractTest {
 
 	}
 
-	public void Test11changeReward(){
+	public void Test12changeReward(){
 
 		//Goes to kick center
 		StoresPage.clickStoresPageKicksCenter();
@@ -350,7 +350,7 @@ public class LaunchTest extends AbstractTest {
 		CustomHooks.pressBack();
 	}
 
-	public void Test12scrollRewardsPage(){
+	public void Test13scrollRewardsPage(){
 		//Verify rewards displayed
 
 		KicksCenterRewadsPage.clickOnseeAllRewardsFullWidth();
@@ -368,7 +368,7 @@ public class LaunchTest extends AbstractTest {
 		CustomHooks.pressBack();
 	}
 
-	public void Test13redeemRewardTest(){
+	public void Test14redeemRewardTest(){
 		//Redeem a reward (from kick center)
 		//TODO: Redeem reward flo
 
@@ -377,7 +377,7 @@ public class LaunchTest extends AbstractTest {
 
 	}
 
-	public void Test14inviteFriendsTest(){
+	public void Test15inviteFriendsTest(){
 		//Go to invite friends
 		LeftNavBar.clickOnInviteLeftNav();
 		InviteAndGetKicksPage.clickOninviteFrendsButton();
@@ -387,7 +387,7 @@ public class LaunchTest extends AbstractTest {
 		CustomHooks.pressBack();
 	}
 
-	public void Test15logoutEmail(){
+	public void Test16logoutEmail(){
 		//Logout
 		LandingPage.openLeftNavSignedIn();
 
