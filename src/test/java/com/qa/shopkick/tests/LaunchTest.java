@@ -282,6 +282,7 @@ public class LaunchTest extends AbstractTest {
 
 	@Test
 	public void Test3emailLoginTest(){
+		
 		//User logs in via email
 		SignInPage.clicksignInEmailSignIn();
 		EmailSignInPage.clickOnEmailAdrressMobileElements("a@b.com");
@@ -312,6 +313,7 @@ public class LaunchTest extends AbstractTest {
 		if(driver.findElement(By.name("3400")).isDisplayed()){
 		RewardsPickerPage.clickGasReward();
 		}
+		
 		if(driver.findElement(By.name("1875000")).isDisplayed()){
 			RewardsPickerPage.clickVespaReward();
 			}
