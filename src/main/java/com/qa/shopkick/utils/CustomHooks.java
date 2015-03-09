@@ -1,5 +1,9 @@
 package com.qa.shopkick.utils;
 
+import org.openqa.selenium.By;
+
+import com.qa.shopkick.pages.DidYouKnowPage;
+
 public class CustomHooks extends AbstractPage{
 
 	public static void pressBack(){
@@ -13,6 +17,14 @@ public class CustomHooks extends AbstractPage{
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+	}
+	
+	public static void dismissMultiLoginMessage(){
+		CustomHooks.waitFor(8);
+
+		if(driver.findElement(By.name("Did you know?")).isDisplayed()){
+			DidYouKnowPage.tapOnDidYouKnow();
 		}
 	}
 }

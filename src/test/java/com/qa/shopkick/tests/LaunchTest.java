@@ -78,13 +78,7 @@ public class LaunchTest extends AbstractTest {
 
 		LeftNavBar.clickOnFaceBookSignIn();
 
-		CustomHooks.waitFor(8);
-
-		//in case of multi-user login
-
-		if(driver.findElement(By.name("Did you know?")).isDisplayed()){
-			DidYouKnowPage.tapOnDidYouKnow();
-		}
+		CustomHooks.dismissMultiLoginMessage();
 
 		driver.scrollTo("Settings");
 		//click on settings
@@ -182,12 +176,7 @@ public class LaunchTest extends AbstractTest {
 		//tap on the 'Guest' button to open left nav bar
 		SignInPage.clicksignInGooglePlusSignIn();		
 
-		CustomHooks.waitFor(3);
-
-		//in case of multi user login
-		if(driver.findElement(By.name("Did you know?")).isDisplayed()){
-			DidYouKnowPage.tapOnDidYouKnow();
-		}
+		CustomHooks.dismissMultiLoginMessage();
 
 		//Go to Stores
 		LandingPage.clicktabTitleStores();
@@ -297,6 +286,8 @@ public class LaunchTest extends AbstractTest {
 		EmailSignInPage.clickOnPasswordMobileElement("aaaaaa");
 		EmailSignInPage.clickOnSignUpButton();
 
+		CustomHooks.dismissMultiLoginMessage();
+		
 		//Goes to kick center
 		StoresPage.clickStoresPageKicksCenter();
 
