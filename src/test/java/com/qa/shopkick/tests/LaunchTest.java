@@ -44,7 +44,7 @@ public class LaunchTest extends AbstractTest {
 	public static String currentKicksBeforeLogin, currentKicksAfterLogin;
 
 	@Test
-	public void Test1FirstUseFlow(){
+	public void FirstUseFlow(){
 
 		//Go through the first use flow
 		FirstUseDealsEducationPage.clickNextButton();
@@ -173,7 +173,7 @@ public class LaunchTest extends AbstractTest {
 	/**** SUITE TWO****/
 
 	@Test
-	public void Test2GooglePlusFlow()
+	public void GooglePlusFlow()
 	{
 		//tap on the 'Guest' button to open left nav bar
 		SignInPage.clicksignInGooglePlusSignIn();		
@@ -281,7 +281,7 @@ public class LaunchTest extends AbstractTest {
 	/***** SUITE THREE ****/
 
 	@Test
-	public void Test3emailLoginTest(){
+	public void EmailLoginTest(){
 		
 		//User logs in via email
 		SignInPage.clicksignInEmailSignIn();
