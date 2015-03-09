@@ -68,10 +68,10 @@ public class LaunchTest extends AbstractTest {
 		}
 
 		CustomHooks.waitFor(3);
-	/*}
+	}
 
-	@Test
-	public void Test2LoginAndLogoutWithFacebook(){*/
+
+	public void Test2LoginAndLogoutWithFacebook(){
 
 		//tap on the 'Guest' button to open left nav bar
 		LeftNavBar.clickGuestUserButton();
@@ -99,11 +99,11 @@ public class LaunchTest extends AbstractTest {
 
 		//perform a logout
 		AccountSettings.clickAccountSettingsLogOut();
-/*	}
+	}
 
-	@Test
+
 	public void Test3EmailSignUp()
-	{*/
+	{
 		//From logout screen hit on email to create an account
 		SignInPage.clicksignInEmailSignIn();
 
@@ -155,12 +155,12 @@ public class LaunchTest extends AbstractTest {
 
 		//Go to Account settings
 		LeftNavSettings.clicksettingsAccountSettings();
-/*	}
+	}
 
-	@Test
+
 	public void Test4DeleteAccountTest() 
 	{
-*/
+
 		//Tap on delete account
 		AccountSettings.clickAccountSettingsDeleteAccount();
 
@@ -201,11 +201,11 @@ public class LaunchTest extends AbstractTest {
 		if(driver.findElement(By.name("Did you know?")).isDisplayed()){
 			DidYouKnowPage.tapOnDidYouKnow();
 		}
-/*	}
+	}
 
-	@Test
+
 	public void Test6StoresPageSave()
-	{*/
+	{
 		//Go to Stores
 		LandingPage.clicktabTitleStores();
 
@@ -231,11 +231,11 @@ public class LaunchTest extends AbstractTest {
 
 		//Go back to store tab
 		CustomHooks.pressBack();
-/*	}
+	}
 
-	@Test
+
 	public void Test7SaveDeal()
-	{*/
+	{
 		//Go to Deals Tab
 		LandingPage.clicktabTitleDeals();
 
@@ -262,11 +262,10 @@ public class LaunchTest extends AbstractTest {
 		//Back to Deals Tab
 		CustomHooks.pressBack();
 		CustomHooks.pressBack();
-/*	}
+	}
 
-	@Test
 	public void Test8ProductsPage()
-	{*/
+	{
 		//Go to Products Tab
 		LandingPage.clicktabTitleProducts();
 
@@ -295,15 +294,15 @@ public class LaunchTest extends AbstractTest {
 		CustomHooks.pressBack();
 
 		CustomHooks.pressBack();
-/*	}
+	}
 
 	//TODO: Add verification
 	//Back to My Saves
 	//ProductsPage.clickProductsPageMySaves();
 
-	@Test
+
 	public void Test9LogoutGooglePlus()
-	{*/
+	{
 		//Logout
 		LandingPage.openLeftNavSignedIn();
 
@@ -326,12 +325,11 @@ public class LaunchTest extends AbstractTest {
 		EmailSignInPage.clickOnEmailAdrressMobileElements("a@b.com");
 		EmailSignInPage.clickOnPasswordMobileElement("aaaaaa");
 		EmailSignInPage.clickOnSignUpButton();
-/*
+
 	}
 
-	@Test
 	public void Test11changeReward(){
-*/
+
 		//Goes to kick center
 		StoresPage.clickStoresPageKicksCenter();
 
@@ -350,12 +348,11 @@ public class LaunchTest extends AbstractTest {
 		RewardsPickerPage.clickGasReward();
 
 		CustomHooks.pressBack();
-/*	}
+	}
 
-	@Test
 	public void Test12scrollRewardsPage(){
 		//Verify rewards displayed
-*/
+
 		KicksCenterRewadsPage.clickOnseeAllRewardsFullWidth();
 
 		//Rewards Mall 
@@ -369,32 +366,29 @@ public class LaunchTest extends AbstractTest {
 
 		//Go back
 		CustomHooks.pressBack();
-/*	}
+	}
 
-	@Test
 	public void Test13redeemRewardTest(){
-	*/	//Redeem a reward (from kick center)
+		//Redeem a reward (from kick center)
 		//TODO: Redeem reward flo
 
 		//Open left nav
 		LandingPage.openLeftNavSignedIn();
 
-/*	}
+	}
 
-	@Test
 	public void Test14inviteFriendsTest(){
-*/		//Go to invite friends
+		//Go to invite friends
 		LeftNavBar.clickOnInviteLeftNav();
 		InviteAndGetKicksPage.clickOninviteFrendsButton();
 
 		//Verify all elements
 		CustomHooks.pressBack();
 		CustomHooks.pressBack();
-/*	}
+	}
 
-	@Test
 	public void Test15logoutEmail(){
-	*/	//Logout
+		//Logout
 		LandingPage.openLeftNavSignedIn();
 
 		driver.scrollTo("Settings");
