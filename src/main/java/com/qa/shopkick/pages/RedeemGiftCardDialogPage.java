@@ -7,6 +7,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 import com.qa.shopkick.utils.AbstractPage;
+import com.qa.shopkick.utils.CustomHooks;
 
 public class RedeemGiftCardDialogPage extends AbstractPage{
 	
@@ -15,6 +16,7 @@ public class RedeemGiftCardDialogPage extends AbstractPage{
 	
 	public static void clickToDismiss(){
 		congratsRedeemReward.click();
+		CustomHooks.pressBack();
 		PageFactory.initElements(new AppiumFieldDecorator(driver), new KicksCenterRewadsPage());
 	}
 

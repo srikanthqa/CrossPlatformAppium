@@ -25,8 +25,15 @@ public class RewardsPickerPage extends AbstractPage{
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/kick_amount\").text(\"3400\")")
 	private static WebElement RewardsPickerPageGasReward;
     
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/kick_amount\").text(\"1875000\")")
+	private static WebElement RewardsPickerPageVespaReward;
+    
     public static void clickGasReward(){
         RewardsPickerPageGasReward.click();
+    }
+    
+    public static void clickVespaReward(){
+    	RewardsPickerPageVespaReward.click();
     }
 
 }

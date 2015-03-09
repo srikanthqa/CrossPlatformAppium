@@ -307,8 +307,15 @@ public class LaunchTest extends AbstractTest {
 
 		//Verify change rewards
 		KicksCenterRewadsPage.clickOnChangeReward();
+		
 		driver.scrollTo("3400");
+		if(driver.findElement(By.name("3400")).isDisplayed()){
 		RewardsPickerPage.clickGasReward();
+		}
+		if(driver.findElement(By.name("1875000")).isDisplayed()){
+			RewardsPickerPage.clickVespaReward();
+			}
+			
 
 		CustomHooks.pressBack();
 
