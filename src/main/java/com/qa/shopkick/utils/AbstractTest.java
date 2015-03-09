@@ -28,8 +28,7 @@ public class AbstractTest {
     public static String BundleID="com.shopkick.debug-qa";
     public static String PackageName="com.shopkick.app";
     public static String LauncherActivity="com.shopkick.app.activity.AppScreenActivity";
-    public static String noSignApp = "noSign";
-
+   
     @BeforeClass
     public static void createEnvironment(){
         DesiredCapabilities capabilities=new DesiredCapabilities();
@@ -47,7 +46,7 @@ public class AbstractTest {
         }else if(PlatformType.equalsIgnoreCase("Android")){
             capabilities.setCapability("appActivity",LauncherActivity);
             capabilities.setCapability("appPackage",PackageName);
-            capabilities.setCapability(noSignApp, true);
+            capabilities.setCapability("noSign", true);
             try {
                 driver=new AndroidDriver(new URL(ServerURL),capabilities);
             } catch (MalformedURLException e) {
