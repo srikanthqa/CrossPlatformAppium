@@ -3,6 +3,7 @@ package com.qa.shopkick.utils;
 import org.openqa.selenium.By;
 
 import com.qa.shopkick.pages.DidYouKnowPage;
+import com.qa.shopkick.pages.OopsPotHolePage;
 import com.qa.shopkick.pages.RedeemGiftCardDialogPage;
 
 public class CustomHooks extends AbstractPage{
@@ -32,8 +33,16 @@ public class CustomHooks extends AbstractPage{
 	public static void dismissRedeemRewardMessage(){
 		CustomHooks.waitFor(3);
 		
-		if(driver.findElement(By.name("Congrats!?")).isDisplayed()){
+		if(driver.findElement(By.name("Congrats!")).isDisplayed()){
 			RedeemGiftCardDialogPage.clickToDismiss();
 		}
+	}
+	
+	public static void dismissPotHoleError(){
+		waitFor(3);
+		if(driver.findElement(By.name("Oops!")).isDisplayed()){
+			OopsPotHolePage.clickOnOkToDismissError();
+		}
+		
 	}
 }

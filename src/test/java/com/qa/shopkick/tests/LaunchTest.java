@@ -63,6 +63,7 @@ public class LaunchTest extends AbstractTest {
 
 		FirstUseAlternateScreen.clickOnContinueAsGuestButton();
 
+		CustomHooks.dismissPotHoleError();
 		//if iOS and if mic permission is asked, give the permission
 		if(PlatformType.equals("IOS")){
 			MicrophonePermissionPage.clickOKButton();
@@ -176,6 +177,8 @@ public class LaunchTest extends AbstractTest {
 	@Test
 	public void GooglePlusFlow()
 	{
+		CustomHooks.dismissPotHoleError();
+		
 		//tap on the 'Guest' button to open left nav bar
 		SignInPage.clicksignInGooglePlusSignIn();		
 
@@ -209,6 +212,8 @@ public class LaunchTest extends AbstractTest {
 
 		//Go to Deals Tab
 		LandingPage.clicktabTitleDeals();
+		
+		CustomHooks.dismissPotHoleError();
 
 		CustomHooks.waitFor(3);
 		
@@ -271,6 +276,8 @@ public class LaunchTest extends AbstractTest {
 
 		//Go to Products Tab
 		LandingPage.clicktabTitleProducts();
+		
+		CustomHooks.dismissPotHoleError();
 
 		//Open lookbook
 		ProductsPage.clickProductsPageLookbookCover();
@@ -319,6 +326,8 @@ public class LaunchTest extends AbstractTest {
 	@Test
 	public void EmailLoginTest(){
 
+		CustomHooks.dismissPotHoleError();
+		
 		//User logs in via email
 		SignInPage.clicksignInEmailSignIn();
 		EmailSignInPage.clickOnEmailAdrressMobileElements("a@b.com");
