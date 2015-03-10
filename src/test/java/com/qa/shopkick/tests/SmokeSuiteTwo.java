@@ -72,8 +72,6 @@ public class SmokeSuiteTwo extends AbstractTest{
 		//Go to Deals Tab
 		LandingPage.clicktabTitleDeals();
 
-		//Tap aggregate deals
-		DealsPage.clickDealsPageMichales();
 		
 		//Tap to open the deal use deal titile and index
 		DealAggregationPage.clickOnDealTile();
