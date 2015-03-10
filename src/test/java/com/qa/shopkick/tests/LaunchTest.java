@@ -178,9 +178,7 @@ public class LaunchTest extends AbstractTest {
 	@Test
 	public void GooglePlusFlow()
 	{
-		if(driver.findElement(By.name("Oops!")).isDisplayed() || driver.findElement(By.name("OK")).isDisplayed()){
-			OopsPotHolePage.clickOnOkToDismissError();
-		}
+		CustomHooks.dismissPotHoleError();
 		
 		//tap on the 'Guest' button to open left nav bar
 		SignInPage.clicksignInGooglePlusSignIn();		
