@@ -225,11 +225,11 @@ public class LaunchTest extends AbstractTest {
 			driver.scrollTo("Carter's");
 			DealsPage.clickDealsPageCarters();
 		}
-		if(driver.findElement(By.name("Michaels")).isDisplayed()){
+		else if(driver.findElement(By.name("Michaels")).isDisplayed()){
 			driver.scrollTo("Michaels");
 			DealsPage.clickDealsPageMichales();
 		}
-		if(driver.findElement(By.name("Target")).isDisplayed()){
+		else if(driver.findElement(By.name("Target")).isDisplayed()){
 			driver.scrollTo("Target");
 			DealsPage.clickDealsPageMichales();
 		}
