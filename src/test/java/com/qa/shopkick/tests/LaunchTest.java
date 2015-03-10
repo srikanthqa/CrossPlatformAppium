@@ -28,6 +28,7 @@ import com.qa.shopkick.pages.LookbookPage;
 import com.qa.shopkick.pages.MicrophonePermissionPage;
 import com.qa.shopkick.pages.MySavesPage;
 import com.qa.shopkick.pages.OfferPage;
+import com.qa.shopkick.pages.OopsPotHolePage;
 import com.qa.shopkick.pages.ProductsPage;
 import com.qa.shopkick.pages.RelatedOfferPage;
 import com.qa.shopkick.pages.RewardsPickerPage;
@@ -177,7 +178,9 @@ public class LaunchTest extends AbstractTest {
 	@Test
 	public void GooglePlusFlow()
 	{
-		CustomHooks.dismissPotHoleError();
+		if(driver.findElement(By.name("Oops!")).isDisplayed() || driver.findElement(By.name("OK")).isDisplayed()){
+			OopsPotHolePage.clickOnOkToDismissError();
+		}
 		
 		//tap on the 'Guest' button to open left nav bar
 		SignInPage.clicksignInGooglePlusSignIn();		
