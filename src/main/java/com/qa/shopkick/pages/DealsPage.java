@@ -13,7 +13,7 @@ public class DealsPage extends AbstractPage {
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/store_search_dummy_field\").text(\"Find stores near you\")")
 	private static WebElement DealsPageStoreSearch;
 
-	public static void clickOnSerahcBar(){
+	public static void clickOnSearchBar(){
 		DealsPageStoreSearch.click();
 		PageFactory.initElements(new AppiumFieldDecorator(driver), new DealAggregationPage());
 	}

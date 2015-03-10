@@ -60,7 +60,7 @@ public class SmokeSuiteTwo extends AbstractTest{
 		//Go to product
 		StoresPage.clickStoresPageOfferCellLeft();
 
-		//Save product
+		//Save product`
 		RelatedOfferPage.clickRelatedOfferSaveOffer();
 
 		//Go back to store view

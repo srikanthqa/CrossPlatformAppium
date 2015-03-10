@@ -212,7 +212,7 @@ public class LaunchTest extends AbstractTest {
 		CustomHooks.waitFor(3);
 
 		//Click on search bar
-		DealsPage.clickOnSerahcBar();
+		DealsPage.clickOnSearchBar();
 		//close the keyboard
 		driver.hideKeyboard();
 
