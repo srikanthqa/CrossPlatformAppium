@@ -178,8 +178,8 @@ public class LaunchTest extends AbstractTest {
 	@Test
 	public void GooglePlusFlow()
 	{
-//		CustomHooks.dismissPotHoleError();
-		
+		//		CustomHooks.dismissPotHoleError();
+
 		//tap on the 'Guest' button to open left nav bar
 		SignInPage.clicksignInGooglePlusSignIn();		
 
@@ -213,24 +213,25 @@ public class LaunchTest extends AbstractTest {
 
 		//Go to Deals Tab
 		LandingPage.clicktabTitleDeals();
-		
+
 		//CustomHooks.dismissPotHoleError();
 
 		CustomHooks.waitFor(3);
-		
+
 
 		//Look for Carters or Michaels or Target
 		if(driver.findElement(By.name("Carter's")).isDisplayed())
 		{
-			driver.scrollTo("Carter's");
 			DealsPage.clickDealsPageCarters();
 		}
 		else if(driver.findElement(By.name("Michaels")).isDisplayed()){
-			driver.scrollTo("Michaels");
 			DealsPage.clickDealsPageMichales();
 		}
-		else if(driver.findElement(By.name("Target")).isDisplayed()){
+		else if(!driver.findElement(By.name("Michaels")).isDisplayed()) {
 			driver.scrollTo("Target");
+			DealsPage.clickDealsPageMichales();
+		}
+		else if(driver.findElement(By.name("Old Navy")).isDisplayed()) {
 			DealsPage.clickDealsPageMichales();
 		}
 		else
@@ -241,24 +242,11 @@ public class LaunchTest extends AbstractTest {
 
 		/*
 		 * TODO: Make tappign on deals more generic, not hardcoded
-		 * 
-		 * //Click on search bar
-		DealsPage.clickOnSearchBar();
-
+		 *  //Click on search bar
+		  * search for a store
 		//close the keyboard
-		CustomHooks.pressBack();
-
 		//Search for store with deals available
-		if(driver.findElement(By.name("Deals available")).isDisplayed()){
-			//click on available deal
-			DealsListSearchPage.clickOnDealsAvailable();
-		}
-
-		else {
-			driver.scrollTo("Deals available");
-			DealsListSearchPage.clickOnDealsAvailable();
-		}*/
-
+		 */
 
 		//Tap to open the deal use deal titile and index
 		DealAggregationPage.clickOnDealTile();
@@ -277,7 +265,7 @@ public class LaunchTest extends AbstractTest {
 
 		//Go to Products Tab
 		LandingPage.clicktabTitleProducts();
-		
+
 		//CustomHooks.dismissPotHoleError();
 
 		//Open lookbook
@@ -327,8 +315,8 @@ public class LaunchTest extends AbstractTest {
 	@Test
 	public void EmailLoginTest(){
 
-		CustomHooks.dismissPotHoleError();
-		
+		//CustomHooks.dismissPotHoleError();
+
 		//User logs in via email
 		SignInPage.clicksignInEmailSignIn();
 		EmailSignInPage.clickOnEmailAdrressMobileElements("a@b.com");

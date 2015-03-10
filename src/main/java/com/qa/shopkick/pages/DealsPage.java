@@ -27,6 +27,12 @@ public class DealsPage extends AbstractPage {
 		MobileElement michaelsDealTile = (MobileElement) driver.findElement(By.name("Michaels"));
 		michaelsDealTile.click();
 	}
+	
+	public static void clickDealsPageOldNavy(){
+		MobileElement michaelsDealTile = (MobileElement) driver.findElement(By.name("Old Navy"));
+		michaelsDealTile.click();
+	}
+	
 	public static void clickDealsPageCarters(){
 		MobileElement DealsPageChainCarters = (MobileElement) driver.findElement(By.name("Carter's"));
 		DealsPageChainCarters.click();
