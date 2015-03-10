@@ -214,7 +214,7 @@ public class LaunchTest extends AbstractTest {
 		//Go to Deals Tab
 		LandingPage.clicktabTitleDeals();
 		
-		CustomHooks.dismissPotHoleError();
+		//CustomHooks.dismissPotHoleError();
 
 		CustomHooks.waitFor(3);
 		
