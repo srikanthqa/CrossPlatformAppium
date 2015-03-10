@@ -64,7 +64,7 @@ public class LaunchTest extends AbstractTest {
 
 		FirstUseAlternateScreen.clickOnContinueAsGuestButton();
 
-		CustomHooks.dismissPotHoleError();
+		//CustomHooks.dismissPotHoleError();
 		//if iOS and if mic permission is asked, give the permission
 		if(PlatformType.equals("IOS")){
 			MicrophonePermissionPage.clickOKButton();
@@ -178,7 +178,7 @@ public class LaunchTest extends AbstractTest {
 	@Test
 	public void GooglePlusFlow()
 	{
-		CustomHooks.dismissPotHoleError();
+//		CustomHooks.dismissPotHoleError();
 		
 		//tap on the 'Guest' button to open left nav bar
 		SignInPage.clicksignInGooglePlusSignIn();		
@@ -278,7 +278,7 @@ public class LaunchTest extends AbstractTest {
 		//Go to Products Tab
 		LandingPage.clicktabTitleProducts();
 		
-		CustomHooks.dismissPotHoleError();
+		//CustomHooks.dismissPotHoleError();
 
 		//Open lookbook
 		ProductsPage.clickProductsPageLookbookCover();
