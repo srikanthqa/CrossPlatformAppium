@@ -8,18 +8,10 @@ import com.qa.shopkick.utils.AbstractPage;
 
 public class DealDetailpage extends AbstractPage{
 
-	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"SAVE\")")
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/save_button\")")
 	private static WebElement saveOfferButton;
 
 	public static void clickOnSaveDeal(){
 		saveOfferButton.click();
 	}
-
-	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"SAVED\")")
-	private static WebElement unSaveOfferButton;
-
-	public static void unSaveDeal(){
-		unSaveOfferButton.click();
-	}
-
 }
