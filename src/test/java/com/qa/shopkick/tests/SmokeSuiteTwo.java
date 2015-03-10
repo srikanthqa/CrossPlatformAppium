@@ -125,7 +125,6 @@ public class SmokeSuiteTwo extends AbstractTest{
 		//Back to Products
 		CustomHooks.pressBack();
 
-		CustomHooks.pressBack();
 		//TODO: Add verification
 		//Back to My Saves
 		//ProductsPage.clickProductsPageMySaves();
