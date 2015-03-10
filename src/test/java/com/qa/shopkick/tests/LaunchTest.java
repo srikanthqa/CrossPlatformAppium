@@ -211,8 +211,32 @@ public class LaunchTest extends AbstractTest {
 		LandingPage.clicktabTitleDeals();
 
 		CustomHooks.waitFor(3);
+		
 
-		//Click on search bar
+		//Look for Carters or Michaels or Target
+		if(!driver.findElement(By.name("Carter's")).isDisplayed())
+		{
+			driver.scrollTo("Carter's");
+			DealsPage.clickDealsPageCarters();
+		}
+		if(!driver.findElement(By.name("Michaels")).isDisplayed()){
+			driver.scrollTo("Michaels");
+			DealsPage.clickDealsPageMichales();
+		}
+		if(!driver.findElement(By.name("Target")).isDisplayed()){
+			driver.scrollTo("Target");
+			DealsPage.clickDealsPageMichales();
+		}
+		else
+		{
+			driver.scrollTo("Aerie");
+			DealsPage.clickDealsPageAerie();
+		}
+
+		/*
+		 * TODO: Make tappign on deals more generic, not hardcoded
+		 * 
+		 * //Click on search bar
 		DealsPage.clickOnSearchBar();
 
 		//close the keyboard
@@ -227,7 +251,7 @@ public class LaunchTest extends AbstractTest {
 		else {
 			driver.scrollTo("Deals available");
 			DealsListSearchPage.clickOnDealsAvailable();
-		}
+		}*/
 
 
 		//Tap to open the deal use deal titile and index
