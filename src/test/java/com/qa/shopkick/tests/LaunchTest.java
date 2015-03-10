@@ -216,7 +216,7 @@ public class LaunchTest extends AbstractTest {
 		DealsPage.clickOnSearchBar();
 
 		//close the keyboard
-		driver.hideKeyboard();
+		CustomHooks.pressBack();
 
 		//Search for store with deals available
 		if(driver.findElement(By.name("Deals Available")).isDisplayed()){
