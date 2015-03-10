@@ -94,7 +94,7 @@ public class SmokeSuiteTwo extends AbstractTest{
 			//Save deal
 			DealDetailpage.clickOnSaveDeal();
 		}
-		else{
+		if(driver.findElement(By.name("SAVED")).isDisplayed()){
 			DealDetailpage.unSaveDeal();
 		}
 
