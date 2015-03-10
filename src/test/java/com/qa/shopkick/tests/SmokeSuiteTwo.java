@@ -19,6 +19,7 @@ import com.qa.shopkick.pages.LeftNavBar;
 import com.qa.shopkick.pages.LeftNavSettings;
 import com.qa.shopkick.pages.LookbookPage;
 import com.qa.shopkick.pages.MicrophonePermissionPage;
+import com.qa.shopkick.pages.MySavesPage;
 import com.qa.shopkick.pages.OfferPage;
 import com.qa.shopkick.pages.ProductsPage;
 import com.qa.shopkick.pages.RelatedOfferPage;
@@ -33,17 +34,14 @@ import com.qa.shopkick.utils.CustomHooks;
 public class SmokeSuiteTwo extends AbstractTest{
 
 	@Test
-	public void GooglePlusFlow(){
+	public void GooglePlusFlow()
+	{
+		CustomHooks.dismissPotHoleError();
 
 		//tap on the 'Guest' button to open left nav bar
 		SignInPage.clicksignInGooglePlusSignIn();		
 
-		CustomHooks.waitFor(3);
-
-		//in case of multi user login
-		if(driver.findElement(By.name("Did you know?")).isDisplayed()){
-			DidYouKnowPage.tapOnDidYouKnow();
-		}
+		CustomHooks.dismissMultiLoginMessage();
 
 		//Go to Stores
 		LandingPage.clicktabTitleStores();
@@ -52,15 +50,17 @@ public class SmokeSuiteTwo extends AbstractTest{
 		StoresPage.clickStoresPageNameAndKickInformation();
 
 		//wait for tool tips to load
-		CustomHooks.waitFor(7);
+		CustomHooks.waitFor(10);
 
 		//Close tool tips
 		ToolTipsPage.clickToolTipCloseButton();
 
+		driver.scrollTo("Trending on shopkick");
+
 		//Go to product
 		StoresPage.clickStoresPageOfferCellLeft();
 
-		//Save product`
+		//Save product
 		RelatedOfferPage.clickRelatedOfferSaveOffer();
 
 		//Go back to store view
@@ -72,15 +72,50 @@ public class SmokeSuiteTwo extends AbstractTest{
 		//Go to Deals Tab
 		LandingPage.clicktabTitleDeals();
 
+		//CustomHooks.dismissPotHoleError();
+
+		CustomHooks.waitFor(3);
+
+
+		//Look for Carters or Michaels or Target
+		if(driver.findElement(By.name("Carter's")).isDisplayed())
+		{
+			DealsPage.clickDealsPageCarters();
+		}
+		else if(driver.findElement(By.name("Michaels")).isDisplayed()){
+			DealsPage.clickDealsPageMichales();
+		}
+		else if(!driver.findElement(By.name("Michaels")).isDisplayed()) {
+			driver.scrollTo("Target");
+			DealsPage.clickDealsPageMichales();
+		}
+		else if(driver.findElement(By.name("Old Navy")).isDisplayed()) {
+			DealsPage.clickDealsPageMichales();
+		}
+		else
+		{
+			driver.scrollTo("Aerie");
+			DealsPage.clickDealsPageAerie();
+		}
+
+		/*
+		 * TODO: Make tappign on deals more generic, not hardcoded
+		 *  //Click on search bar
+		 * search for a store
+			//close the keyboard
+			//Search for store with deals available
+		 */
 
 		//Tap to open the deal use deal titile and index
 		DealAggregationPage.clickOnDealTile();
 
-		//Save deal
-		DealDetailpage.clickOnSaveDeal();
-
-		//		//Save deal
-		//		DealAggregationPage.clickDealAggregationSaveHeart();
+		if(!driver.findElement(By.name("SAVE")).isDisplayed()){
+			//Save deal
+			DealDetailpage.clickOnSaveDeal();
+		}
+		else{
+			DealDetailpage.unSaveDeal();
+		}
 
 		//Back to Deals Tab
 		CustomHooks.pressBack();
@@ -88,6 +123,8 @@ public class SmokeSuiteTwo extends AbstractTest{
 
 		//Go to Products Tab
 		LandingPage.clicktabTitleProducts();
+
+		//CustomHooks.dismissPotHoleError();
 
 		//Open lookbook
 		ProductsPage.clickProductsPageLookbookCover();
@@ -101,7 +138,8 @@ public class SmokeSuiteTwo extends AbstractTest{
 		//Tap My Saves
 		ProductsPage.clickProductsPageMySaves();
 
-		////Verify all Saved Products
+		//Tap on a product
+		MySavesPage.clickMySavesANYOfferTile();
 
 		//Unsave Product Page
 		OfferPage.clickOfferPageOfferSaveButton();
@@ -112,16 +150,15 @@ public class SmokeSuiteTwo extends AbstractTest{
 		//Back to Products
 		CustomHooks.pressBack();
 
-		//Back to My Saves
-		ProductsPage.clickProductsPageMySaves();
-
-		////Verify Product has been removed
-
-		//Back to Products
 		CustomHooks.pressBack();
+		//TODO: Add verification
+		//Back to My Saves
+		//ProductsPage.clickProductsPageMySaves();
 
 		//Logout
-		LeftNavBar.clickGuestUserButton();
+		LandingPage.openLeftNavSignedIn();
+
+		driver.scrollTo("Settings");
 
 		LeftNavBar.clickOnSettingsLeftNav();
 
@@ -130,7 +167,6 @@ public class SmokeSuiteTwo extends AbstractTest{
 		AccountSettings.clickAccountSettingsLogOut();
 
 	}
-
 	@After
 	public void teardown(){
 
