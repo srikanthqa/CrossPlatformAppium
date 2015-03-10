@@ -76,24 +76,8 @@ public class SmokeSuiteTwo extends AbstractTest{
 
 
 		//Look for Carters or Michaels or Target
-		if(driver.findElement(By.name("Carter's")).isDisplayed())
-		{
-			DealsPage.clickDealsPageCarters();
-		}
-		else if(driver.findElement(By.name("Michaels")).isDisplayed()){
-			DealsPage.clickDealsPageMichales();
-		}
-		else if(driver.findElement(By.name("Old Navy")).isDisplayed()) {
-			DealsPage.clickDealsPageMichales();
-		}
-		else if(driver.findElement(By.name("Target")).isDisplayed()) {
-			DealsPage.clickDealsPageTarget();
-		}
-		else
-		{
-			driver.scrollTo("Aerie");
-			DealsPage.clickDealsPageAerie();
-		}
+		driver.scrollTo("Michaels");
+		DealsPage.clickDealsPageMichales();
 
 		/*
 		 * TODO: Make tappign on deals more generic, not hardcoded
