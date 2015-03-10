@@ -8,6 +8,7 @@ import com.qa.shopkick.pages.ConfirmDeleteAccountPage;
 import com.qa.shopkick.pages.CountryPickerPage;
 import com.qa.shopkick.pages.DealAggregationPage;
 import com.qa.shopkick.pages.DealDetailpage;
+import com.qa.shopkick.pages.DealsListSearchPage;
 import com.qa.shopkick.pages.DealsPage;
 import com.qa.shopkick.pages.DeleteAccountPage;
 import com.qa.shopkick.pages.DidYouKnowPage;
@@ -213,18 +214,19 @@ public class LaunchTest extends AbstractTest {
 
 		//Click on search bar
 		DealsPage.clickOnSearchBar();
+		
 		//close the keyboard
 		driver.hideKeyboard();
 
 		//Search for store with deals available
 		if(driver.findElement(By.name("Deals Available")).isDisplayed()){
 			//click on available deal
-			DealsPage.clickOnDealsAvailable();
+			DealsListSearchPage.clickOnDealsAvailable();
 		}
 
 		else {
 			driver.scrollTo("Deals available");
-			DealsPage.clickOnDealsAvailable();
+			DealsListSearchPage.clickOnDealsAvailable();
 		}
 
 

@@ -15,18 +15,10 @@ public class DealsPage extends AbstractPage {
 
 	public static void clickOnSearchBar(){
 		DealsPageStoreSearch.click();
-		PageFactory.initElements(new AppiumFieldDecorator(driver), new DealAggregationPage());
+		PageFactory.initElements(new AppiumFieldDecorator(driver), new DealsListSearchPage());
 	}
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/chain_logo_image\")")
 	private static WebElement DealsPageChainLogoImage;
-
-	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/deals_inside\").text(\"Deals available\")")
-	private static WebElement dealsAvailableButton;
-
-	public static void clickOnDealsAvailable(){
-		dealsAvailableButton.click();
-
-	}
 
 }
