@@ -72,8 +72,6 @@ public class SmokeSuiteTwo extends AbstractTest{
 		//Go to Deals Tab
 		LandingPage.clicktabTitleDeals();
 
-		//CustomHooks.dismissPotHoleError();
-
 		CustomHooks.waitFor(3);
 
 
@@ -85,12 +83,11 @@ public class SmokeSuiteTwo extends AbstractTest{
 		else if(driver.findElement(By.name("Michaels")).isDisplayed()){
 			DealsPage.clickDealsPageMichales();
 		}
-		else if(!driver.findElement(By.name("Michaels")).isDisplayed()) {
-			driver.scrollTo("Target");
-			DealsPage.clickDealsPageMichales();
-		}
 		else if(driver.findElement(By.name("Old Navy")).isDisplayed()) {
 			DealsPage.clickDealsPageMichales();
+		}
+		else if(driver.findElement(By.name("Target")).isDisplayed()) {
+			DealsPage.clickDealsPageTarget();
 		}
 		else
 		{
