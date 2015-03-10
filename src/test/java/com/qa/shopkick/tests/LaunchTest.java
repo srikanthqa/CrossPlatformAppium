@@ -217,12 +217,16 @@ public class LaunchTest extends AbstractTest {
 		driver.hideKeyboard();
 
 		//Search for store with deals available
-		if(!driver.findElement(By.name("Deals Available")).isDisplayed()){
-			driver.scrollTo("Deals available");
+		if(driver.findElement(By.name("Deals Available")).isDisplayed()){
+			//click on available deal
+			DealsPage.clickOnDealsAvailable();
 		}
 
-		//click on available deal
-		DealsPage.clickOnDealsAvailable();
+		else {
+			driver.scrollTo("Deals available");
+			DealsPage.clickOnDealsAvailable();
+		}
+
 
 		//Tap to open the deal use deal titile and index
 		DealAggregationPage.clickOnDealTile();
