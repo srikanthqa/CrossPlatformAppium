@@ -40,5 +40,6 @@ public class LandingPage extends AbstractPage{
 	
 	public static void clicktabTitleDeals(){
 		tabTitleDeals.click();
+		PageFactory.initElements(new AppiumFieldDecorator(driver),new DealsPage());
 	}
 }
