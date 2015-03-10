@@ -214,7 +214,7 @@ public class LaunchTest extends AbstractTest {
 
 		//Click on search bar
 		DealsPage.clickOnSearchBar();
-		
+
 		//close the keyboard
 		driver.hideKeyboard();
 

@@ -1,8 +1,10 @@
 package com.qa.shopkick.pages;
 
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 
 import com.qa.shopkick.utils.AbstractPage;
 
@@ -12,6 +14,7 @@ public class DealsListSearchPage extends AbstractPage{
 
 	public static void clickOnDealsAvailable(){
 		dealsAvailableButton.click();
+		PageFactory.initElements(new AppiumFieldDecorator(driver), new DealAggregationPage());
 
 	}
 

@@ -26,19 +26,14 @@ public class DealAggregationPage extends AbstractPage{
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/heart\")")
 	private static WebElement DealAggregationSaveHeart;
-	
+
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/deal_image\")")
 	private static WebElement dealTileView;
-	
+
 	public static void clickOnDealTile(){
 		//MobileElement dealTileDealDetails = (MobileElement)driver.findElement(By.)
 		dealTileView.click();
 		PageFactory.initElements(new AppiumFieldDecorator(driver),new DealDetailpage());
 	}
-
-	public static void clickDealAggregationSaveHeart(){
-		DealAggregationSaveHeart.click();
-	}
-
 
 }

@@ -53,7 +53,7 @@ public class SmokeSuiteTwo extends AbstractTest{
 
 		//wait for tool tips to load
 		CustomHooks.waitFor(7);
-		
+
 		//Close tool tips
 		ToolTipsPage.clickToolTipCloseButton();
 
@@ -72,15 +72,15 @@ public class SmokeSuiteTwo extends AbstractTest{
 		//Go to Deals Tab
 		LandingPage.clicktabTitleDeals();
 
-		
+
 		//Tap to open the deal use deal titile and index
 		DealAggregationPage.clickOnDealTile();
-		
+
 		//Save deal
 		DealDetailpage.clickOnSaveDeal();
-		
-//		//Save deal
-//		DealAggregationPage.clickDealAggregationSaveHeart();
+
+		//		//Save deal
+		//		DealAggregationPage.clickDealAggregationSaveHeart();
 
 		//Back to Deals Tab
 		CustomHooks.pressBack();
@@ -130,7 +130,7 @@ public class SmokeSuiteTwo extends AbstractTest{
 		AccountSettings.clickAccountSettingsLogOut();
 
 	}
-	
+
 	@After
 	public void teardown(){
 
