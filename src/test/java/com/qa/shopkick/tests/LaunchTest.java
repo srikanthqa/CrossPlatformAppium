@@ -219,7 +219,7 @@ public class LaunchTest extends AbstractTest {
 		CustomHooks.pressBack();
 
 		//Search for store with deals available
-		if(driver.findElement(By.name("Deals Available")).isDisplayed()){
+		if(driver.findElement(By.name("Deals available")).isDisplayed()){
 			//click on available deal
 			DealsListSearchPage.clickOnDealsAvailable();
 		}
