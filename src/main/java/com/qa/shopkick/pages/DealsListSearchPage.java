@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import com.qa.shopkick.utils.AbstractPage;
 
 public class DealsListSearchPage extends AbstractPage{
+	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/deals_inside\").text(\"Deals available\")")
 	private static WebElement dealsAvailableButton;
 

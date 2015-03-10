@@ -217,29 +217,12 @@ public class LaunchTest extends AbstractTest {
 		//CustomHooks.dismissPotHoleError();
 
 		CustomHooks.waitFor(3);
-
-
-		//Look for Carters or Michaels or Target
-		if(driver.findElement(By.name("Carter's")).isDisplayed())
-		{
-			DealsPage.clickDealsPageCarters();
-		}
-		else if(driver.findElement(By.name("Michaels")).isDisplayed()){
-			DealsPage.clickDealsPageMichales();
-		}
-		else if(!driver.findElement(By.name("Michaels")).isDisplayed()) {
-			driver.scrollTo("Target");
-			DealsPage.clickDealsPageMichales();
-		}
-		else if(driver.findElement(By.name("Old Navy")).isDisplayed()) {
-			DealsPage.clickDealsPageMichales();
-		}
-		else
-		{
-			driver.scrollTo("Aerie");
-			DealsPage.clickDealsPageAerie();
-		}
-
+		
+		DealsPage.clickOnSearchBar();
+		
+		CustomHooks.pressBack();
+		
+		DealsListSearchPage.clickOnDealsAvailable();
 		/*
 		 * TODO: Make tappign on deals more generic, not hardcoded
 		 *  //Click on search bar

@@ -17,7 +17,7 @@ public class DealsPage extends AbstractPage {
 
 	public static void clickOnSearchBar(){
 		DealsPageStoreSearch.click();
-		PageFactory.initElements(new AppiumFieldDecorator(driver), new DealAggregationPage());
+		PageFactory.initElements(new AppiumFieldDecorator(driver), new DealsListSearchPage());
 	}
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/chain_logo_image\")")
@@ -26,11 +26,13 @@ public class DealsPage extends AbstractPage {
 	public static void clickDealsPageMichales(){
 		MobileElement michaelsDealTile = (MobileElement) driver.findElement(By.name("Michaels"));
 		michaelsDealTile.click();
+		PageFactory.initElements(new AppiumFieldDecorator(driver), new DealAggregationPage());
 	}
 	
 	public static void clickDealsPageOldNavy(){
 		MobileElement michaelsDealTile = (MobileElement) driver.findElement(By.name("Old Navy"));
 		michaelsDealTile.click();
+		PageFactory.initElements(new AppiumFieldDecorator(driver), new DealAggregationPage());
 	}
 	
 	public static void clickDealsPageCarters(){
@@ -49,14 +51,6 @@ public class DealsPage extends AbstractPage {
 		MobileElement DealsPageChainCarters = (MobileElement) driver.findElement(By.name("Target"));
 		DealsPageChainCarters.click();
 		PageFactory.initElements(new AppiumFieldDecorator(driver), new DealAggregationPage());
-	}
-
-	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/deals_inside\").text(\"Deals available\")")
-	private static WebElement dealsAvailableButton;
-
-	public static void clickOnDealsAvailable(){
-		dealsAvailableButton.click();
-
 	}
 
 }
