@@ -90,7 +90,7 @@ public class SmokeSuiteTwo extends AbstractTest{
 		//Tap to open the deal use deal titile and index
 		DealAggregationPage.clickOnDealTile();
 
-		if(!driver.findElement(By.name("SAVE")).isDisplayed()){
+		if(driver.findElement(By.name("SAVE")).isDisplayed()){
 			//Save deal
 			DealDetailpage.clickOnSaveDeal();
 		}
