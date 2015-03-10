@@ -39,8 +39,8 @@ public class CustomHooks extends AbstractPage{
 	}
 	
 	public static void dismissPotHoleError(){
-		waitFor(3);
-		if(driver.findElement(By.name("Oops!")).isDisplayed()){
+		waitFor(5);
+		if(driver.findElement(By.name("Oops!")).isDisplayed() || driver.findElement(By.name("OK")).isDisplayed()){
 			OopsPotHolePage.clickOnOkToDismissError();
 		}
 		
