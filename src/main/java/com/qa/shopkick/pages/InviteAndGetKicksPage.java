@@ -27,6 +27,7 @@ public class InviteAndGetKicksPage extends AbstractPage{
 		/* TODO: Should go to contact picker page from here
 		 * PageFactory.initElements(new AppiumFieldDecorator(driver),new FirstUseWalkinEducationPage());
 		 * */
+		PageFactory.initElements(new AppiumFieldDecorator(driver), new FacebookInvitePage());
 	}
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/app_screen_back_button\")")

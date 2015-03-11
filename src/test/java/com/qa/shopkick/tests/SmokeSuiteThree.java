@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 
 import com.qa.shopkick.pages.AccountSettings;
 import com.qa.shopkick.pages.EmailSignInPage;
+import com.qa.shopkick.pages.FacebookInvitePage;
 import com.qa.shopkick.pages.InviteAndGetKicksPage;
 import com.qa.shopkick.pages.KicksCenterRewadsPage;
 import com.qa.shopkick.pages.LandingPage;
@@ -90,8 +91,9 @@ public class SmokeSuiteThree extends AbstractTest{
 		InviteAndGetKicksPage.clickOninviteFrendsButton();
 
 		//Verify all elements
-		CustomHooks.pressBack();
-		CustomHooks.pressBack();
+		FacebookInvitePage.clickOnBackButton();
+		
+		InviteAndGetKicksPage.clickOnBackButton();
 
 		//Logout
 		LandingPage.openLeftNavSignedIn();
