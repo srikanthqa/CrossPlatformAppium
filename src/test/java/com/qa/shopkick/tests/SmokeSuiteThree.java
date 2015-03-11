@@ -20,72 +20,89 @@ import com.qa.shopkick.utils.AbstractTest;
 import com.qa.shopkick.utils.CustomHooks;
 
 public class SmokeSuiteThree extends AbstractTest{
-	
+
 	@Test
 	public void SuiteThree(){
-	//User logs in via email
-	SignInPage.clicksignInEmailSignIn();
-	EmailSignInPage.clickOnEmailAdrressMobileElements("a@b.com");
-	EmailSignInPage.clickOnPasswordMobileElement("aaaaaa");
-	EmailSignInPage.clickOnSignUpButton();
-	
-	//Goes to kick center
-	StoresPage.clickStoresPageKicksCenter();
-	
-	//Learn how to get kicks
-	KicksCenterRewadsPage.clickOnLearnHowToGetKicks();
-	
-	//verify all items are displayed
-	//TODO: Figure out elements to verify in this flow
-	
-	//Go back
-	CustomHooks.pressBack();
-	
-	//Verify change rewards
-	KicksCenterRewadsPage.clickOnChangeReward();
-	driver.scrollTo("3400");
-	RewardsPickerPage.clickGasReward();
-	
-	//Verify rewards displayed
-	CustomHooks.pressBack();
-	
-	KicksCenterRewadsPage.clickOnseeAllRewardsFullWidth();
-	
-	//Rewards Mall 
-	//Scroll to bottom
-	driver.scrollTo("1875000");
-	//Scroll back to top
-	driver.scrollTo("You earned");
-	
-	//Go back
-	CustomHooks.pressBack();
-	
-	//Redeem a reward (from kick center)
-	//TODO: Redeem reward flow
-	
-	//Go back
-	CustomHooks.pressBack();
-	
-	//Open left nav
-	LandingPage.openLeftNavSignedIn();
-	
-	//Go to invite friends
-	LeftNavBar.clickOnInviteLeftNav();
-	InviteAndGetKicksPage.clickOninviteFrendsButton();
-	
-	//Verify all elements
-	
-	//Logout
-	CustomHooks.pressBack();
-	CustomHooks.pressBack();
-	LandingPage.openLeftNavSignedIn();
+		//CustomHooks.dismissPotHoleError();
 
-	driver.scrollTo("Settings");
+		//User logs in via email
+		SignInPage.clicksignInEmailSignIn();
+		EmailSignInPage.clickOnEmailAdrressMobileElements("a@b.com");
+		EmailSignInPage.clickOnPasswordMobileElement("aaaaaa");
+		EmailSignInPage.clickOnSignUpButton();
 
-	LeftNavBar.clickOnSettingsLeftNav();
+		CustomHooks.dismissMultiLoginMessage();
 
-	LeftNavSettings.clicksettingsAccountSettings();
+		//Goes to kick center
+		StoresPage.clickStoresPageKicksCenter();
 
-	AccountSettings.clickAccountSettingsLogOut();
-}
+		//Add a dismiss congratulations message
+		CustomHooks.dismissRedeemRewardMessage();
+
+		//Learn how to get kicks
+		KicksCenterRewadsPage.clickOnLearnHowToGetKicks();
+
+		//verify all items are displayed
+		//TODO: Figure out elements to verify in this flow
+
+		//Go back
+		CustomHooks.pressBack();
+
+		//Verify change rewards
+		KicksCenterRewadsPage.clickOnChangeReward();
+
+		driver.scrollTo("3400");
+		if(driver.findElement(By.name("3400")).isDisplayed()){
+			RewardsPickerPage.clickGasReward();
+		}
+
+		if(driver.findElement(By.name("1875000")).isDisplayed()){
+			RewardsPickerPage.clickVespaReward();
+		}
+
+
+		CustomHooks.pressBack();
+
+		//Verify rewards displayed
+
+		KicksCenterRewadsPage.clickOnseeAllRewardsFullWidth();
+
+		//Rewards Mall 
+		//Scroll to bottom
+		driver.scrollTo("1875000");
+		//Scroll back to top
+		driver.scrollTo("You earned");
+
+		//Go back
+		CustomHooks.pressBack();
+
+		//Go back
+		CustomHooks.pressBack();
+
+		//Redeem a reward (from kick center)
+		//TODO: Redeem reward flo
+
+		//Open left nav
+		LandingPage.openLeftNavSignedIn();
+
+
+		//Go to invite friends
+		LeftNavBar.clickOnInviteLeftNav();
+		InviteAndGetKicksPage.clickOninviteFrendsButton();
+
+		//Verify all elements
+		CustomHooks.pressBack();
+		CustomHooks.pressBack();
+
+		//Logout
+		LandingPage.openLeftNavSignedIn();
+
+		driver.scrollTo("Settings");
+
+		LeftNavBar.clickOnSettingsLeftNav();
+
+		LeftNavSettings.clicksettingsAccountSettings();
+
+		AccountSettings.clickAccountSettingsLogOut();
+	}
 }

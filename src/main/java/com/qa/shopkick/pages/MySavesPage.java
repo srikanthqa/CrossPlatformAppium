@@ -45,5 +45,14 @@ public class MySavesPage extends AbstractPage {
 	}
 	
 	
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/app_screen_back_button\")")
+	private static WebElement MySavebackButton;
+	
+	public static void clickOnBackButton(){
+		MySavebackButton.click();
+		PageFactory.initElements(new AppiumFieldDecorator(driver), new LandingPage());
+		PageFactory.initElements(new AppiumFieldDecorator(driver), new ProductsPage());
+	}
+	
 
 }

@@ -270,7 +270,8 @@ public class LaunchTest extends AbstractTest {
 		//Back to Products
 		CustomHooks.pressBack();
 
-		CustomHooks.pressBack();
+		MySavesPage.clickOnBackButton();
+		
 		//TODO: Add verification
 		//Back to My Saves
 		//ProductsPage.clickProductsPageMySaves();
