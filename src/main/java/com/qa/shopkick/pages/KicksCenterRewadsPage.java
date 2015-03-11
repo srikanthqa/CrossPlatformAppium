@@ -34,7 +34,7 @@ public class KicksCenterRewadsPage extends AbstractPage{
 		PageFactory.initElements(new AppiumFieldDecorator(driver),new LearnHowGetMoreKicks());
 	}
 	
-	@AndroidFindBy(uiAutomator = "new UiSelector().text(\"SEE ALL REWARDS\")")
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/kicks_center_all_rewards_full_width_text\").text(\"SEE ALL REWARDS\")")
 	private static WebElement seeAllRewardsFullWidth;
 	
 	public static void clickOnseeAllRewardsFullWidth(){
@@ -44,6 +44,11 @@ public class KicksCenterRewadsPage extends AbstractPage{
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/kicks_center_all_rewards_half_width_text\").text(\"SEE ALL REWARDS\")")
 	private static WebElement seeAllRewardsHalfWidth;
+	
+	public static void clickOnseeAllRewardsHalfWidth(){
+		seeAllRewardsHalfWidth.click();
+		PageFactory.initElements(new AppiumFieldDecorator(driver),new RewardsMallPage());
+	}
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/kicks_center_screen_back\")")
 	private static WebElement closeKickCenter;

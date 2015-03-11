@@ -60,8 +60,8 @@ public class SmokeSuiteThree extends AbstractTest{
 
 		//Verify rewards displayed
 
-		KicksCenterRewadsPage.clickOnseeAllRewardsFullWidth();
-
+		KicksCenterRewadsPage.clickOnseeAllRewardsHalfWidth();
+		
 		//Rewards Mall 
 		//Scroll to bottom
 		driver.scrollTo("SOLD OUT");
