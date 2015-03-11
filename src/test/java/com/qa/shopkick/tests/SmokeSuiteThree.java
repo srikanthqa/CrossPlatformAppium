@@ -11,6 +11,7 @@ import com.qa.shopkick.pages.EmailSignInPage;
 import com.qa.shopkick.pages.InviteAndGetKicksPage;
 import com.qa.shopkick.pages.KicksCenterRewadsPage;
 import com.qa.shopkick.pages.LandingPage;
+import com.qa.shopkick.pages.LearnHowGetMoreKicks;
 import com.qa.shopkick.pages.LeftNavBar;
 import com.qa.shopkick.pages.LeftNavSettings;
 import com.qa.shopkick.pages.RewardsPickerPage;
@@ -40,7 +41,7 @@ public class SmokeSuiteThree extends AbstractTest{
 		//Learn how to get kicks
 		KicksCenterRewadsPage.clickOnLearnHowToGetKicks();
 		
-		CustomHooks.pressBack();
+		LearnHowGetMoreKicks.clickOnBackButton();
 
 		//Verify change rewards
 		KicksCenterRewadsPage.clickOnChangeReward();
@@ -55,7 +56,7 @@ public class SmokeSuiteThree extends AbstractTest{
 		}
 
 
-		CustomHooks.pressBack();
+		RewardsPickerPage.clickOnBackButton();
 
 		//Verify rewards displayed
 

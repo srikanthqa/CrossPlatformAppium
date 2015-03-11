@@ -47,4 +47,12 @@ public class LearnHowGetMoreKicks extends AbstractPage{
 		inviteTutorialButton.click();
 		PageFactory.initElements(new AppiumFieldDecorator(driver),new InviteAndGetKicksPage());
 	}
+	
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/app_screen_back_button\")")
+	private static WebElement kicksCenterBackButton;
+	
+	public static void clickOnBackButton(){
+		kicksCenterBackButton.click();
+		PageFactory.initElements(new AppiumFieldDecorator(driver), new KicksCenterRewadsPage());
+	}
 }

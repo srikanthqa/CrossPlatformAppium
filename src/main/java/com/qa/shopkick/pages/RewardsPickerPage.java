@@ -1,9 +1,11 @@
 package com.qa.shopkick.pages;
 
 import com.qa.shopkick.utils.AbstractPage;
+
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
@@ -35,5 +37,13 @@ public class RewardsPickerPage extends AbstractPage{
     public static void clickVespaReward(){
     	RewardsPickerPageVespaReward.click();
     }
+    
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/app_screen_back_button\")")
+	private static WebElement changeRewardBack;
+	
+	public static void clickOnBackButton(){
+		changeRewardBack.click();
+		PageFactory.initElements(new AppiumFieldDecorator(driver), new KicksCenterRewadsPage());
+	}
 
 }
