@@ -41,6 +41,7 @@ public class SmokeSuiteThree extends AbstractTest{
 		//Learn how to get kicks
 		KicksCenterRewadsPage.clickOnLearnHowToGetKicks();
 		
+		//
 		LearnHowGetMoreKicks.clickOnBackButton();
 
 		//Verify change rewards
