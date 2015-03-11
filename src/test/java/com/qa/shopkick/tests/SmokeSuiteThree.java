@@ -23,7 +23,8 @@ public class SmokeSuiteThree extends AbstractTest{
 
 	@Test
 	public void SuiteThree(){
-		//CustomHooks.dismissPotHoleError();
+		
+		CustomHooks.dismissPotHoleError();
 
 		//User logs in via email
 		SignInPage.clicksignInEmailSignIn();
