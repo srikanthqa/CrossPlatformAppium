@@ -24,7 +24,7 @@ public class SmokeSuiteThree extends AbstractTest{
 
 	@Test
 	public void SuiteThree(){
-		
+
 		CustomHooks.dismissPotHoleError();
 
 		//User logs in via email
@@ -40,21 +40,20 @@ public class SmokeSuiteThree extends AbstractTest{
 
 		//Learn how to get kicks
 		KicksCenterRewadsPage.clickOnLearnHowToGetKicks();
-		
+
 		//
 		LearnHowGetMoreKicks.clickOnBackButton();
 
 		//Verify change rewards
 		KicksCenterRewadsPage.clickOnChangeReward();
 
-		driver.scrollTo("3400");
-		if(driver.findElement(By.name("3400")).isDisplayed()){
-			RewardsPickerPage.clickGasReward();
-		}
-		else{
+		driver.scrollTo("1875000");
+		RewardsPickerPage.clickVespaReward();
+
+		/*		else{
 			driver.scrollTo("1875000");
 			RewardsPickerPage.clickVespaReward();
-		}
+		}*/
 
 
 		RewardsPickerPage.clickOnBackButton();
@@ -65,7 +64,7 @@ public class SmokeSuiteThree extends AbstractTest{
 
 		//Rewards Mall 
 		//Scroll to bottom
-		driver.scrollTo("1875000");
+		driver.scrollTo("SOLD OUT");
 		//Scroll back to top
 		driver.scrollTo("You earned");
 
