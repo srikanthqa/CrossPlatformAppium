@@ -40,12 +40,6 @@ public class SmokeSuiteThree extends AbstractTest{
 		//Learn how to get kicks
 		KicksCenterRewadsPage.clickOnLearnHowToGetKicks();
 
-		//verify all items are displayed
-		//TODO: Figure out elements to verify in this flow
-
-		//Go back
-		CustomHooks.pressBack();
-
 		//Verify change rewards
 		KicksCenterRewadsPage.clickOnChangeReward();
 
