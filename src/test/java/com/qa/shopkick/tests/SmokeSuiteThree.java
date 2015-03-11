@@ -39,6 +39,8 @@ public class SmokeSuiteThree extends AbstractTest{
 
 		//Learn how to get kicks
 		KicksCenterRewadsPage.clickOnLearnHowToGetKicks();
+		
+		CustomHooks.pressBack();
 
 		//Verify change rewards
 		KicksCenterRewadsPage.clickOnChangeReward();
@@ -47,8 +49,8 @@ public class SmokeSuiteThree extends AbstractTest{
 		if(driver.findElement(By.name("3400")).isDisplayed()){
 			RewardsPickerPage.clickGasReward();
 		}
-
-		if(driver.findElement(By.name("1875000")).isDisplayed()){
+		else{
+			driver.scrollTo("1875000");
 			RewardsPickerPage.clickVespaReward();
 		}
 
