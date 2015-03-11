@@ -61,7 +61,7 @@ public class SmokeSuiteThree extends AbstractTest{
 		//Verify rewards displayed
 
 		KicksCenterRewadsPage.clickOnseeAllRewardsHalfWidth();
-		
+
 		//Rewards Mall 
 		//Scroll to bottom
 		driver.scrollTo("SOLD OUT");
@@ -80,9 +80,13 @@ public class SmokeSuiteThree extends AbstractTest{
 		//Open left nav
 		LandingPage.openLeftNavSignedIn();
 
+		CustomHooks.waitFor(3);
 
 		//Go to invite friends
 		LeftNavBar.clickOnInviteLeftNav();
+
+		CustomHooks.waitFor(3);
+
 		InviteAndGetKicksPage.clickOninviteFrendsButton();
 
 		//Verify all elements
