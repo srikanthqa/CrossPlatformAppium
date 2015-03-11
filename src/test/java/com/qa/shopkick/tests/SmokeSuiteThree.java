@@ -37,9 +37,6 @@ public class SmokeSuiteThree extends AbstractTest{
 		//Goes to kick center
 		StoresPage.clickStoresPageKicksCenter();
 
-		//Add a dismiss congratulations message
-		CustomHooks.dismissRedeemRewardMessage();
-
 		//Learn how to get kicks
 		KicksCenterRewadsPage.clickOnLearnHowToGetKicks();
 
