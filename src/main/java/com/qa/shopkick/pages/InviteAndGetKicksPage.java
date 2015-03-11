@@ -29,4 +29,12 @@ public class InviteAndGetKicksPage extends AbstractPage{
 		 * */
 	}
 	
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/app_screen_back_button\")")
+	private static WebElement onScreenBackBoutton;
+	
+	public static void clickOnBackButton(){
+		onScreenBackBoutton.click();
+		PageFactory.initElements(new AppiumFieldDecorator(driver), new LandingPage());
+	}
+	
 }
