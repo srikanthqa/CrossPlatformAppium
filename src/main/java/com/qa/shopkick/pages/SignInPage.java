@@ -34,6 +34,7 @@ public class SignInPage extends AbstractPage {
 	}
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"EMAIL\")")
+	@iOSFindBy(uiAutomator = ".buttons()[\"Email\"]")
 	private static WebElement signInEmailSignIn;
 
 	public static void clicksignInEmailSignIn(){

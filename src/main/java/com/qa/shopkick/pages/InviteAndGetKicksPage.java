@@ -2,6 +2,7 @@ package com.qa.shopkick.pages;
 
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.pagefactory.iOSFindBy;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -20,6 +21,7 @@ public class InviteAndGetKicksPage extends AbstractPage{
 	private static WebElement searchContacts;
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"INVITE FRIENDS\")")
+	@iOSFindBy(uiAutomator = ".staticTexts()[\"Invite friends\"]")
 	private static WebElement inviteFriendsButton;
 	
 	public static void clickOninviteFrendsButton(){

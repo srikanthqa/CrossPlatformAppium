@@ -32,9 +32,21 @@ public class SmokeSuiteThree extends AbstractTest{
 		SignInPage.clicksignInEmailSignIn();
 		EmailSignInPage.clickOnEmailAdrressMobileElements("a@b.com");
 		EmailSignInPage.clickOnPasswordMobileElement("aaaaaa");
-		EmailSignInPage.clickOnSignUpButton();
+
+		//Element issues, using two different methods to sign in
+
+		if(PlatformType.equalsIgnoreCase("Android")){
+			EmailSignInPage.clickOnSignUpButton();
+		}
+		else{
+			EmailSignInPage.clickSignInIOS();
+		}
 
 		CustomHooks.dismissMultiLoginMessage();
+
+		if(driver.findElement(By.name("Your settings")).isDisplayed()){
+			CustomHooks.pressBack();
+		}
 
 		//Goes to kick center
 		StoresPage.clickStoresPageKicksCenter();
@@ -42,20 +54,21 @@ public class SmokeSuiteThree extends AbstractTest{
 		//Learn how to get kicks
 		KicksCenterRewadsPage.clickOnLearnHowToGetKicks();
 
-		//
-		LearnHowGetMoreKicks.clickOnBackButton();
+		if(PlatformType.equalsIgnoreCase("Android")){
+			//on screen back button 
+			LearnHowGetMoreKicks.clickOnBackButton();
+		}
+		else{
+			//if iOS
+			CustomHooks.pressBack();
+		}
 
 		//Verify change rewards
 		KicksCenterRewadsPage.clickOnChangeReward();
 
 		driver.scrollTo("1875000");
+
 		RewardsPickerPage.clickVespaReward();
-
-		/*		else{
-			driver.scrollTo("1875000");
-			RewardsPickerPage.clickVespaReward();
-		}*/
-
 
 		RewardsPickerPage.clickOnBackButton();
 
@@ -90,10 +103,15 @@ public class SmokeSuiteThree extends AbstractTest{
 
 		InviteAndGetKicksPage.clickOninviteFrendsButton();
 
-		//Verify all elements
-		FacebookInvitePage.clickOnBackButton();
-		
-		InviteAndGetKicksPage.clickOnBackButton();
+		if(PlatformType.equalsIgnoreCase("Android")){
+			//on screen back button 
+			InviteAndGetKicksPage.clickOnBackButton();
+		}
+		else{
+			//if iOS
+			CustomHooks.pressBack();
+		}
+
 
 		//Logout
 		LandingPage.openLeftNavSignedIn();

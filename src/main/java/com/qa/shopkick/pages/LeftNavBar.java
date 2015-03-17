@@ -85,6 +85,7 @@ public class LeftNavBar extends AbstractPage{
 	}
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/row_text\").text(\"Invite & get kicks\")")
+	@iOSFindBy(uiAutomator = ".tableViews()[0].cells()[\"Invite & get kicks\"]")
 	private static WebElement inviteAndGetKicksLeftNav;
 
 	public static void clickOnInviteLeftNav(){

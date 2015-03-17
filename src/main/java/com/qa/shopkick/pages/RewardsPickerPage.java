@@ -28,6 +28,7 @@ public class RewardsPickerPage extends AbstractPage{
 	private static WebElement RewardsPickerPageGasReward;
     
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/kick_amount\").text(\"1875000\")")
+    @iOSFindBy(uiAutomator = ".cells().firstWithName(\"1875000\")")
 	private static WebElement RewardsPickerPageVespaReward;
     
     public static void clickGasReward(){
@@ -39,6 +40,7 @@ public class RewardsPickerPage extends AbstractPage{
     }
     
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/app_screen_back_button\")")
+	@iOSFindBy(uiAutomator = ".buttons()[0]")
 	private static WebElement changeRewardBack;
 	
 	public static void clickOnBackButton(){

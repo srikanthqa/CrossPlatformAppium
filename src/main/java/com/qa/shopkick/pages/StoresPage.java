@@ -12,6 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 public class StoresPage extends AbstractPage {
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/kicks_counter\")")
+	@iOSFindBy(uiAutomator = ".buttons()[\"arrow down white\"]")
 	private static WebElement StoresPageKicksCenter;
 	
 	public static void clickStoresPageKicksCenter(){

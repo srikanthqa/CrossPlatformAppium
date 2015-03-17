@@ -23,7 +23,7 @@ public class EmailSignInPage extends AbstractPage {
 	@iOSFindBy(uiAutomator = ".textFields()[\"Email Address\"]")
 	private static WebElement eMailField;
 	
-	@iOSFindBy(uiAutomator = ".secureTextFields()[0]")
+	@iOSFindBy(uiAutomator = ".scrollViews()[0].secureTextFields()[0]")
 	private static WebElement passwordField;
 
 	public static void clickOnEmailAdrressMobileElements(String emailLogin){
@@ -73,6 +73,18 @@ public class EmailSignInPage extends AbstractPage {
 	public static void clickAndEnterFirstName(){
 		emailSignUpFirstName.click();
 		emailSignUpFirstName.sendKeys("Name");
+	}
+	
+	@iOSFindBy(uiAutomator= ".scrollViews()[0].buttons()[\"Sign in\"]")
+	private static WebElement signInSignUpIOS;
+	
+	public static void clickSignInIOS(){
+		driver.hideKeyboard();
+		signInSignUpIOS.click();
+		PageFactory.initElements(new AppiumFieldDecorator(driver),new DidYouKnowPage());
+		PageFactory.initElements(new AppiumFieldDecorator(driver),new LinkPhonePage());
+		PageFactory.initElements(new AppiumFieldDecorator(driver), new LandingPage());
+		PageFactory.initElements(new AppiumFieldDecorator(driver), new StoresPage());
 	}
 
 	public static void clickOnSignUpButton(){

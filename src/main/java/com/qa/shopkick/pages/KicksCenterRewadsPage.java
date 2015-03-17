@@ -2,6 +2,7 @@ package com.qa.shopkick.pages;
 
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.pagefactory.iOSFindBy;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -19,6 +20,7 @@ public class KicksCenterRewadsPage extends AbstractPage{
 	private static WebElement kickCenterUserKicks;
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/kc_widget_change_reward_text\").text(\"CHANGE REWARD\")")
+	@iOSFindBy(uiAutomator = ".buttons()[\"Change Reward\"]")
 	private static WebElement kickCenterChangeReward;
 	
 	public static void clickOnChangeReward(){
@@ -27,6 +29,7 @@ public class KicksCenterRewadsPage extends AbstractPage{
 	}
 		
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/kicks_center_tutorial_or_pending\").text(\"GET MORE KICKS. LEARN HOW.\")")
+	@iOSFindBy(uiAutomator = ".buttons()[\"Get More kicks. Learn How.\"]")
 	private static WebElement getMoreKicksLearnHow;
 	
 	public static void clickOnLearnHowToGetKicks(){
@@ -43,6 +46,7 @@ public class KicksCenterRewadsPage extends AbstractPage{
 	}
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/kicks_center_all_rewards_half_width_text\")")
+	@iOSFindBy(uiAutomator = ".buttons()[\"See All Rewards\"]")
 	private static WebElement seeAllRewardsHalfWidth;
 	
 	public static void clickOnseeAllRewardsHalfWidth(){
