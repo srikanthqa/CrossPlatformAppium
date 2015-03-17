@@ -91,6 +91,7 @@ public class LeftNavSettings extends AbstractPage {
 		settingsConnectToGooglePlus.click();
 	}
 
+	@iOSFindBy(uiAutomator = ".buttons()[\"Account settings\"]")
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/more_account_settings_button\").text(\"Account settings\")")
 	private static WebElement settingsAccountSettings;
 
