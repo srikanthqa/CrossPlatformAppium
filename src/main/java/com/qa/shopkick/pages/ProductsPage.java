@@ -21,6 +21,7 @@ public class ProductsPage extends AbstractPage {
 	private static WebElement ProductsPageTabHighlight;
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_icon\")")
+	@iOSFindBy(uiAutomator = ".buttons()[\"heart icon filled white\"]")
 	private static WebElement ProductsPageMySaves;
 	
 	public static void clickProductsPageMySaves(){
@@ -39,6 +40,7 @@ public class ProductsPage extends AbstractPage {
 	private static WebElement ProductsPageNewUserScanBonus;
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/lookbook_title\")")
+	@iOSFindBy(uiAutomator = ".tableViews()[0].cells()[0].buttons()[0]")
 	private static WebElement ProductsPageLookbookCover;
 	
 	public static void clickProductsPageLookbookCover(){

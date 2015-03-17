@@ -10,10 +10,18 @@ import org.openqa.selenium.support.PageFactory;
 public class RelatedOfferPage extends AbstractPage{
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_image\")")
+	@iOSFindBy(uiAutomator = ".buttons()[\"icon heart brown\"]")
 	private static WebElement RelatedOfferSaveOffer;
 	
 	public static void clickRelatedOfferSaveOffer(){
 		RelatedOfferSaveOffer.click();
+	}
+	
+	@iOSFindBy(uiAutomator = ".tableViews()[0].cells()[0]")
+	private static WebElement firstItemInTrending;
+	
+	public static void clickOnFirstTrendingItem(){
+		firstItemInTrending.click();
 	}
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"BUY NOW\")")

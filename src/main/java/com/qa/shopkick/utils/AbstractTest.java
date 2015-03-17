@@ -15,9 +15,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
-/**
- * Created by Srikanth on 12/16/14.
- */
 public class AbstractTest {
     public static AppiumDriver driver;
     public static String DeviceName=System.getProperty("deviceName");
@@ -61,5 +58,7 @@ public class AbstractTest {
     @AfterClass
     public static void tearEnvironment(){
         //driver.quit();
+    	//driver.resetApp();
+    	
     }
 }

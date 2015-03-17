@@ -42,6 +42,7 @@ public class StoresPage extends AbstractPage {
 	}
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/chain_name\").text(\"Old Navy\")")
+	@iOSFindBy(uiAutomator = ".cells()[\"Old Navy\"]")
 	private static WebElement StoresPageNameAndKickInformation;
 	
 	public static void clickStoresPageNameAndKickInformation(){
@@ -64,5 +65,10 @@ public class StoresPage extends AbstractPage {
 		PageFactory.initElements(new AppiumFieldDecorator(driver),new RelatedOfferPage());
 	}
 	
-
+	@iOSFindBy(uiAutomator = ".cells()[\"Trending on shopkick\"].buttons()[0]")
+	private static WebElement trendingNow;
+	
+	public static void clickOnTrendingOnShopkick(){
+		trendingNow.click();
+	}
 }

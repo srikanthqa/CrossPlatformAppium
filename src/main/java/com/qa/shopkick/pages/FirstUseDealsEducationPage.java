@@ -7,9 +7,6 @@ import io.appium.java_client.pagefactory.iOSFindBy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-/**
- * Created by Srikanth on 12/16/14.
- */
 public class FirstUseDealsEducationPage extends AbstractPage{
 
     @iOSFindBy(uiAutomator = ".buttons()[\"Next\"]")

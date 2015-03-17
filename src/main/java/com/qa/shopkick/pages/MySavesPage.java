@@ -37,6 +37,7 @@ public class MySavesPage extends AbstractPage {
 	private static WebElement MySavesTabDealTabCaption;
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/list_view\")")
+	@iOSFindBy(uiAutomator = ".cells()[0]")
 	private static WebElement MySavesOfferTile;
 	
 	public static void clickMySavesANYOfferTile(){
@@ -46,6 +47,7 @@ public class MySavesPage extends AbstractPage {
 	
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/app_screen_back_button\")")
+	
 	private static WebElement MySavebackButton;
 	
 	public static void clickOnBackButton(){

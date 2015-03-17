@@ -13,6 +13,7 @@ public class SignInPage extends AbstractPage {
 
 	//@iOSFindBy()
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/title_text\").text(\"Sign in or sign up\").className(\"android.widget.TextView\")")
+	 @iOSFindBy(uiAutomator = ".staticTexts()[\"Sign in or sign up\"]")
 	private static WebElement signInOrSignUp;
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"FACEBOOK\")")
@@ -23,6 +24,7 @@ public class SignInPage extends AbstractPage {
 	}
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"GOOGLE\")")
+	@iOSFindBy(uiAutomator= ".buttons()[\"Google\"]")
 	private static WebElement signInGooglePlusSignIn;
 
 	public static void clicksignInGooglePlusSignIn(){

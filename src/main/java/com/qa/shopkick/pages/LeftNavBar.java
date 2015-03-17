@@ -3,6 +3,7 @@ package com.qa.shopkick.pages;
 import static junit.framework.TestCase.assertTrue;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.pagefactory.iOSFindBy;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -13,6 +14,7 @@ import com.qa.shopkick.utils.AbstractPage;
 public class LeftNavBar extends AbstractPage{
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"GUEST\")")
+	@iOSFindBy(uiAutomator = ".elements()[\"Guest\"]")
 	private static WebElement guestLeftNavBar;
 
 	public static void clickGuestUserButton(){

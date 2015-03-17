@@ -11,7 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class FirstUseAlternateScreen extends AbstractPage {
 	
-	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/skip_button\")")
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/skip_button\")")	
 	public static WebElement continueAsGuestButton;
 
 	public static void clickOnContinueAsGuestButton(){

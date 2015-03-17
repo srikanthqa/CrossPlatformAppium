@@ -12,6 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 public class ToolTipsPage extends AbstractPage {
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/tooltip_close_button\")")
+	@iOSFindBy(uiAutomator = ".buttons()[\"x icon white\"]")
 	private static WebElement ToolTipCloseButton;
 	
 	public static void clickToolTipCloseButton(){

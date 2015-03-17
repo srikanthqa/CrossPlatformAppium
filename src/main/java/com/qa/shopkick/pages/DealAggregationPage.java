@@ -28,6 +28,7 @@ public class DealAggregationPage extends AbstractPage{
 	private static WebElement DealAggregationSaveHeart;
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/deal_image\")")
+	@iOSFindBy(uiAutomator = ".tableViews()[0].cells()[0].buttons()[0]")
 	private static WebElement dealTileView;
 
 	public static void clickOnDealTile(){

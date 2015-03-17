@@ -25,11 +25,9 @@ public class LookbookPage extends AbstractPage {
 	private static WebElement LookbookPageOfferImage;
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/fave_icon\")")
+	@iOSFindBy(uiAutomator = ".collectionViews()[0].cells()[1].buttons()[\"icon heart brown\"]")
 	private static WebElement LookbookPageLookbookOfferSaveHeart;
 
-	//identify and open a tile
-	
-	
 	
 	//use offerlikebutton
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/offer_like_button\")")

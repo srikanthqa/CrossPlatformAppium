@@ -57,12 +57,21 @@ public class SmokeSuiteTwo extends AbstractTest{
 
 		driver.scrollTo("Trending on shopkick");
 
-		//Go to product
-		StoresPage.clickStoresPageOfferCellLeft();
-
+		if(PlatformType.equals("IOS")){
+			//tap on all trending
+			StoresPage.clickOnTrendingOnShopkick();
+			//tap on cell
+			RelatedOfferPage.clickOnFirstTrendingItem();
+		}
+		else
+		{
+			//Go to product
+			StoresPage.clickStoresPageOfferCellLeft();
+		}
+		
 		//Save product
 		RelatedOfferPage.clickRelatedOfferSaveOffer();
-
+		
 		//Go back to store view
 		CustomHooks.pressBack();
 
@@ -74,18 +83,25 @@ public class SmokeSuiteTwo extends AbstractTest{
 
 		CustomHooks.waitFor(3);
 
-
+		/*
+		 * TODO: Make going to a deal more generic
+		 * Go to search in deals
+		 * Search for a store
+		 * Open store
+		 * 
+		 * */
+		
 		//Look for Carters or Michaels or Target
 		driver.scrollTo("Michaels");
-		DealsPage.clickDealsPageMichales();
-
-		/*
-		 * TODO: Make tappign on deals more generic, not hardcoded
-		 *  //Click on search bar
-		 * search for a store
-			//close the keyboard
-			//Search for store with deals available
-		 */
+		
+		if(PlatformType.equals("IOS")){
+			DealsPage.clickOnMichaelsIOS();
+		}
+		else
+		{
+			//Go to product
+			DealsPage.clickDealsPageMichales();
+		}
 
 		//Tap to open the deal use deal titile and index
 		DealAggregationPage.clickOnDealTile();
@@ -112,7 +128,11 @@ public class SmokeSuiteTwo extends AbstractTest{
 
 		//Tap My Saves
 		ProductsPage.clickProductsPageMySaves();
-
+		
+		/*
+		 *TODO: Add logic to tap on products tab under my saves
+		 * */
+		
 		//Tap on a product
 		MySavesPage.clickMySavesANYOfferTile();
 
@@ -121,7 +141,7 @@ public class SmokeSuiteTwo extends AbstractTest{
 
 		//Back to My Saves
 		CustomHooks.pressBack();
-		
+
 		//Hit back to go to products / landing page
 		MySavesPage.clickOnBackButton();
 

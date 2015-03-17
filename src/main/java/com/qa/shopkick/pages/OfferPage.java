@@ -21,6 +21,7 @@ public class OfferPage {
 	private static WebElement OfferPageOfferTitle;
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_image\")")
+	@iOSFindBy(uiAutomator = ".visibleCells()[1].buttons()[\"icon heart pink\"]")
 	private static WebElement OfferPageOfferSaveButton;
 	
 	public static void clickOfferPageOfferSaveButton(){

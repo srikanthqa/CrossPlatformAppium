@@ -3,12 +3,14 @@ package com.qa.shopkick.pages;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.pagefactory.iOSFindBy;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 import com.qa.shopkick.utils.AbstractPage;
+import com.sun.jna.Platform;
 
 public class DealsPage extends AbstractPage {
 
@@ -26,6 +28,14 @@ public class DealsPage extends AbstractPage {
 	public static void clickDealsPageMichales(){
 		MobileElement michaelsDealTile = (MobileElement) driver.findElement(By.name("Michaels"));
 		michaelsDealTile.click();
+		PageFactory.initElements(new AppiumFieldDecorator(driver), new DealAggregationPage());
+	}
+	
+	@iOSFindBy(uiAutomator = ".visibleCells()[\"Michaels\"]")
+	private static WebElement michaelsIOSElement;
+	
+	public static void clickOnMichaelsIOS(){
+		michaelsIOSElement.click();
 		PageFactory.initElements(new AppiumFieldDecorator(driver), new DealAggregationPage());
 	}
 	
