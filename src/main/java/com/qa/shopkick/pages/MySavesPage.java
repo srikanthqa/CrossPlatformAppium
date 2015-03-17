@@ -17,8 +17,13 @@ public class MySavesPage extends AbstractPage {
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/tab_count\")")
 	private static WebElement MySavesProductTabCount;
 	
-	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/tab_caption\")")
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/tab_caption\")") 	//<----REDO THIS ID
+	@iOSFindBy(uiAutomator = ".staticTexts()[\"PRODUCTS\"]")
 	private static WebElement MySavesProductTabCaption;
+	
+	public static void clickOnSavesProducts(){
+		MySavesProductTabCaption.click();
+	}
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/tab_count\")")
 	private static WebElement MySavesTabCollectionTabCount;
@@ -47,7 +52,7 @@ public class MySavesPage extends AbstractPage {
 	
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/app_screen_back_button\")")
-	
+	@iOSFindBy(uiAutomator = ".buttons()[0]")
 	private static WebElement MySavebackButton;
 	
 	public static void clickOnBackButton(){

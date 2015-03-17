@@ -2,6 +2,7 @@ package com.qa.shopkick.pages;
 
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.pagefactory.iOSFindBy;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -46,6 +47,7 @@ public class AccountSettings extends AbstractPage {
 	}
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"LOG OUT\")")
+	
 	private static WebElement accountSettingsLogOut;
 
 	public static void clickAccountSettingsLogOut(){
@@ -55,6 +57,7 @@ public class AccountSettings extends AbstractPage {
 	}
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"DELETE ACCOUNT\")")
+	@iOSFindBy(uiAutomator = ".buttons()[\"Log out\"]")
 	private static WebElement accountSettingsDeleteAccount;
 
 	public static void clickAccountSettingsDeleteAccount(){

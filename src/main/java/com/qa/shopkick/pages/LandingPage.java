@@ -12,7 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 public class LandingPage extends AbstractPage{
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/left_nav_user_image\")")
-	@iOSFindBy(uiAutomator = ".tableViews()[0].cells()[0].buttons()[0]")
+	@iOSFindBy(uiAutomator = ".tableViews()[0].cells()[0].buttons()[0]")		//<- double check this guy
 	private static WebElement leftNavUserImage;
 	
 	public static void openLeftNavSignedIn(){
