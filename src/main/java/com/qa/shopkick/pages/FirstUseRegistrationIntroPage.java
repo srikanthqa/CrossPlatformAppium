@@ -28,6 +28,7 @@ public class FirstUseRegistrationIntroPage extends AbstractPage{
 
     public static void clickSignUpOrSignInButton(){
         signUpOrSignInButton.click();
+        PageFactory.initElements(new AppiumFieldDecorator(driver),new SignInPage());
     }
 
 }

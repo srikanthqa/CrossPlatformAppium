@@ -35,8 +35,8 @@ public class SmokeSuiteOne extends AbstractTest{
 		if (!driver.findElement(By.name("Get points just for walking into stores.")).isDisplayed()) 
 		{
 			CustomHooks.waitFor(2);
-				CountryPickerPage.clickCountryUSA();
-				CountryPickerPage.clickNextButton();
+			CountryPickerPage.clickCountryUSA();
+			CountryPickerPage.clickNextButton();
 		}
 		FirstUseWalkinEducationPage.clickNextButton();
 		FirstUseRewardsEducationPage.clickNextButton();
@@ -61,12 +61,10 @@ public class SmokeSuiteOne extends AbstractTest{
 			{
 				FirstUseRegistrationIntroPage.clickSignUpOrSignInButton();
 			}
-			else
-			{
 				SignInPage.clicksignInFacebookSignIn();
 				CustomHooks.waitFor(5);
 				CustomHooks.dismissMultiLoginMessage();
-			}
+
 			if (driver.findElement(By.name("OK")).isDisplayed())
 			{
 				//if iOS and if mic permission is asked, give the permission
