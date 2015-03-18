@@ -14,6 +14,7 @@ public class DeleteAccountPage extends AbstractPage{
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/app_screen_header\").text(\"Delete Your Account\")")
 	private static WebElement deleteAccountHeader;
 	
+	@iOSFindBy(uiAutomator = ".secureTextFields().firstWithPredicate(\"value like 'Confirm using password'")
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/delete_acct_password\")")
 	private static WebElement deleteConfirmWithPassword;
 		

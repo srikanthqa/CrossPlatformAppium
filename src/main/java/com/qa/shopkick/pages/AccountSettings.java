@@ -45,7 +45,8 @@ public class AccountSettings extends AbstractPage {
 	public static void clickAccountSettingsChangePassword(){
 		accountSettingsChangePassword.click();
 	}
-
+	
+	@iOSFindBy(uiAutomator = ".buttons()[\"Log Out\"]")
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"LOG OUT\")")
 	
 	private static WebElement accountSettingsLogOut;
@@ -57,7 +58,7 @@ public class AccountSettings extends AbstractPage {
 	}
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"DELETE ACCOUNT\")")
-	@iOSFindBy(uiAutomator = ".buttons()[\"Log out\"]")
+	@iOSFindBy(uiAutomator = ".buttons()[\"Delete Account\"]")
 	private static WebElement accountSettingsDeleteAccount;
 
 	public static void clickAccountSettingsDeleteAccount(){

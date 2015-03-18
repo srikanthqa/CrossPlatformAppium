@@ -16,6 +16,7 @@ public class EmailSignUp extends AbstractPage {
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/title_text\").text(\"Create your login information.\")")
 	private static WebElement emailsigninCreateYourLoginInformation;
 	
+	@iOSFindBy(uiAutomator = ".textFields().firstWithPredicate(\"value like 'Email Address'\")")
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/email\").text(\"Email Address.\")")
 	private static WebElement emailsigninEmailAddress;
 	
@@ -23,6 +24,7 @@ public class EmailSignUp extends AbstractPage {
 		emailsigninEmailAddress.click();
 	}
 	
+	@iOSFindBy(uiAutomator = ".textFields().firstWithPredicate(\"value like 'Password'\")")
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/password\").text(\"Password.\")")
 	private static WebElement emailsigninPassword;
 	
