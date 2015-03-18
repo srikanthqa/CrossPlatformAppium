@@ -64,6 +64,7 @@ public class SmokeSuiteOne extends AbstractTest{
 			else
 			{
 				SignInPage.clicksignInFacebookSignIn();
+				CustomHooks.waitFor(5);
 				CustomHooks.dismissMultiLoginMessage();
 			}
 			if (driver.findElement(By.name("OK")).isDisplayed())
