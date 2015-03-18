@@ -30,9 +30,9 @@ public class SmokeSuiteOne extends AbstractTest{
 
 		//Go through the first use flow
 		FirstUseDealsEducationPage.clickNextButton();
-		CustomHooks.waitFor(2);
 
 		if (PlatformType.equals("IOS")) {
+			CustomHooks.waitFor(2);
 			if (driver.findElement(By.name("Tell us where you want to see deals.")).isDisplayed()) {
 				CountryPickerPage.clickCountryUSA();
 				CountryPickerPage.clickNextButton();
