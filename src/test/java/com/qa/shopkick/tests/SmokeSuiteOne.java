@@ -32,9 +32,11 @@ public class SmokeSuiteOne extends AbstractTest{
 		FirstUseDealsEducationPage.clickNextButton();
 		CustomHooks.waitFor(2);
 
-		if(PlatformType.equals("IOS")){
-			CountryPickerPage.clickCountryUSA();
-			CountryPickerPage.clickNextButton();
+		if (PlatformType.equals("IOS")) {
+			if (driver.findElement(By.name("USA")).isDisplayed()) {
+				CountryPickerPage.clickCountryUSA();
+				CountryPickerPage.clickNextButton();
+			}
 		}
 		FirstUseWalkinEducationPage.clickNextButton();
 		FirstUseRewardsEducationPage.clickNextButton();
@@ -102,7 +104,7 @@ public class SmokeSuiteOne extends AbstractTest{
 		//Add first and last name
 		EmailSignInPage.clickAndEnterFirstName();
 		EmailSignInPage.clickAndEnterLastName();
-		
+
 		driver.hideKeyboard();
 
 		if (PlatformType.equalsIgnoreCase("Android")) {
@@ -121,7 +123,7 @@ public class SmokeSuiteOne extends AbstractTest{
 
 		//Add zipcode
 		LinkPhonePage.clickAndEnterZipcode();
-		
+
 		driver.hideKeyboard();
 
 		//hit continue
