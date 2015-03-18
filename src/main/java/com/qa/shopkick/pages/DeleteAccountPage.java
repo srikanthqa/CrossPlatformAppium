@@ -25,6 +25,7 @@ public class DeleteAccountPage extends AbstractPage{
 	}
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/right_header_delete_account_next\")")
+	@iOSFindBy(uiAutomator = ".buttons()[\"forward arrow v2\"]")
 	private static WebElement deleteAccountButton;
 	
 	public static void clickToProceedDelete(){

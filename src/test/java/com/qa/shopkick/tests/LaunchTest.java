@@ -100,10 +100,10 @@ public class LaunchTest extends AbstractTest {
 
 		//CREATE ACCOUNT
 		//add email address
-		EmailSignInPage.clickOnEmailAdrressMobileElements("trest2@sk.com");
+		EmailSignInPage.clickAndEnterEmailANDROID("trest2@sk.com");
 
 		//add password
-		EmailSignInPage.clickOnPasswordMobileElement("sktest123");
+		EmailSignInPage.clickAndEnterPswdANDROID("sktest123");
 
 		//confirm password
 		EmailSignInPage.enterConfirmPassword();
@@ -298,8 +298,8 @@ public class LaunchTest extends AbstractTest {
 
 		//User logs in via email
 		SignInPage.clicksignInEmailSignIn();
-		EmailSignInPage.clickOnEmailAdrressMobileElements("a@b.com");
-		EmailSignInPage.clickOnPasswordMobileElement("aaaaaa");
+		EmailSignInPage.clickAndEnterEmailANDROID("a@b.com");
+		EmailSignInPage.clickAndEnterPswdANDROID("aaaaaa");
 		EmailSignInPage.clickOnSignUpButton();
 
 		CustomHooks.dismissMultiLoginMessage();

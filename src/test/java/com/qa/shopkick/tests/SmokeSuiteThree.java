@@ -30,16 +30,20 @@ public class SmokeSuiteThree extends AbstractTest{
 
 		//User logs in via email
 		SignInPage.clicksignInEmailSignIn();
-		EmailSignInPage.clickOnEmailAdrressMobileElements("a@b.com");
-		EmailSignInPage.clickOnPasswordMobileElement("aaaaaa");
 
 		//Element issues, using two different methods to sign in
 
-		if(PlatformType.equalsIgnoreCase("Android")){
-			EmailSignInPage.clickOnSignUpButton();
+		if (PlatformType.equalsIgnoreCase("Android")) {
+
+			//add email address
+			EmailSignInPage.clickAndEnterEmailANDROID("a@b.com");
+			//add password
+			EmailSignInPage.clickAndEnterPswdANDROID("aaaaaa");
 		}
 		else{
-			EmailSignInPage.clickSignInIOS();
+			EmailSignInPage.clickAndEnterEmailIOS("a@b.com");
+
+			EmailSignInPage.clickAndEnterPasswordIOS("aaaaaa");
 		}
 
 		CustomHooks.dismissMultiLoginMessage();

@@ -17,6 +17,7 @@ public class SignInPage extends AbstractPage {
 	private static WebElement signInOrSignUp;
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"FACEBOOK\")")
+	@iOSFindBy(uiAutomator = ".buttons()[\"Facebook\"]")
 	private static WebElement signInFacebookSignIn;
 
 	public static void clicksignInFacebookSignIn(){

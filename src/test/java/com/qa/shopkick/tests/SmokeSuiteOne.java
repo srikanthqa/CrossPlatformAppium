@@ -24,7 +24,7 @@ import com.qa.shopkick.utils.AbstractTest;
 import com.qa.shopkick.utils.CustomHooks;
 
 public class SmokeSuiteOne extends AbstractTest{
-	
+
 	@Test
 	public void FirstUseFlow(){
 
@@ -43,6 +43,10 @@ public class SmokeSuiteOne extends AbstractTest{
 		RewardsPickerPage.clickNextButton();
 
 		FirstUseAlternateScreen.clickOnContinueAsGuestButton();
+
+		//instead of NO thanks
+		//tap on sign in / sign up button
+		//choose facebook
 
 		//CustomHooks.dismissPotHoleError();
 		//if iOS and if mic permission is asked, give the permission
@@ -79,22 +83,35 @@ public class SmokeSuiteOne extends AbstractTest{
 		SignInPage.clicksignInEmailSignIn();
 
 		//CREATE ACCOUNT
-		//add email address
-		EmailSignInPage.clickOnEmailAdrressMobileElements("trest2@sk.com");
 
-		//add password
-		EmailSignInPage.clickOnPasswordMobileElement("sktest123");
+		if (PlatformType.equalsIgnoreCase("Android")) {
 
+			//add email address
+			EmailSignInPage.clickAndEnterEmailANDROID("trest2@sk.com");
+			//add password
+			EmailSignInPage.clickAndEnterPswdANDROID("sktest123");
+		}
+		else{
+			EmailSignInPage.clickAndEnterEmailIOS("trest2s@sk.com");
+
+			EmailSignInPage.clickAndEnterPasswordIOS("sktest123");
+		}
 		//confirm password
 		EmailSignInPage.enterConfirmPassword();
 
 		//Add first and last name
 		EmailSignInPage.clickAndEnterFirstName();
 		EmailSignInPage.clickAndEnterLastName();
+		
+		driver.hideKeyboard();
 
-		//Hit sign up
-		EmailSignInPage.clickOnSignUpButton();
-
+		if (PlatformType.equalsIgnoreCase("Android")) {
+			//Hit sign up
+			EmailSignInPage.clickOnSignUpButton();
+		}
+		else{
+			EmailSignInPage.clickSignInIOS();
+		}
 		CustomHooks.waitFor(5);
 
 		//Phone number screen
@@ -104,6 +121,8 @@ public class SmokeSuiteOne extends AbstractTest{
 
 		//Add zipcode
 		LinkPhonePage.clickAndEnterZipcode();
+		
+		driver.hideKeyboard();
 
 		//hit continue
 		LinkPhonePage.clickOnCompleteRegistration();
@@ -133,24 +152,19 @@ public class SmokeSuiteOne extends AbstractTest{
 		//In delete account tap on confirm delete account
 		DeleteAccountPage.clickAndDeleteAccountWithPassword();
 
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		CustomHooks.waitFor(3);
 		//Tap on top left corner to proceed with delete
 		DeleteAccountPage.clickToProceedDelete();
 
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		CustomHooks.waitFor(5);
 
-		//Comfirm delete account
-		ConfirmDeleteAccountPage.clickOnDeleteAccountConfirm();
+		if (PlatformType.equalsIgnoreCase("Android")) {
+			//Comfirm delete account
+			ConfirmDeleteAccountPage.clickOnDeleteAccountConfirm();
+		}
+		else{
+			ConfirmDeleteAccountPage.clickOnConfirmDeleteIOS();
+		}
 	}
 
 }

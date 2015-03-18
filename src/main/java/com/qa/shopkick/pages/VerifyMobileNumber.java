@@ -2,6 +2,7 @@ package com.qa.shopkick.pages;
 
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.pagefactory.iOSFindBy;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -17,6 +18,7 @@ public class VerifyMobileNumber extends AbstractPage{
 	private static WebElement verifyPhoneToLink;
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/verify_not_now_button\").text(\"Not right now\")")
+	@iOSFindBy(uiAutomator = ".buttons()[6]")
 	private static WebElement verifyPhoneNotRightNow;
 
 	public static void clickNotNowForVerifyPhone(){
