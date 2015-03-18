@@ -57,7 +57,7 @@ public class SmokeSuiteOne extends AbstractTest{
 		}
 		else
 		{
-			if(!driver.findElement(By.name("Facebook")).isDisplayed())
+			if(driver.findElement(By.name("No, thanks")).isDisplayed())
 			{
 				FirstUseRegistrationIntroPage.clickSignUpOrSignInButton();
 			}
