@@ -20,4 +20,12 @@ public class FirstUseAlternateScreen extends AbstractPage {
 		PageFactory.initElements(new AppiumFieldDecorator(driver),new LeftNavBar());
 		PageFactory.initElements(new AppiumFieldDecorator(driver),new LandingPage());
 	}
+	
+	@iOSFindBy(uiAutomator = ".buttons()[\"Sign Up/Sign In\"]")
+	private static WebElement iOsSignInSignUpButton;
+	
+	public static void clickOnSingSignUp(){
+		iOsSignInSignUpButton.click();
+		PageFactory.initElements(new AppiumFieldDecorator(driver), new SignInPage());
+	}
 }

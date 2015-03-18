@@ -22,6 +22,7 @@ public class SignInPage extends AbstractPage {
 
 	public static void clicksignInFacebookSignIn(){
 		signInFacebookSignIn.click();
+		PageFactory.initElements(new AppiumFieldDecorator(driver),new DidYouKnowPage());
 	}
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"GOOGLE\")")

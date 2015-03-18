@@ -10,6 +10,7 @@ import com.qa.shopkick.pages.DeleteAccountPage;
 import com.qa.shopkick.pages.EmailSignInPage;
 import com.qa.shopkick.pages.FirstUseAlternateScreen;
 import com.qa.shopkick.pages.FirstUseDealsEducationPage;
+import com.qa.shopkick.pages.FirstUseRegistrationIntroPage;
 import com.qa.shopkick.pages.FirstUseRewardsEducationPage;
 import com.qa.shopkick.pages.FirstUseWalkinEducationPage;
 import com.qa.shopkick.pages.LandingPage;
@@ -31,9 +32,11 @@ public class SmokeSuiteOne extends AbstractTest{
 		//Go through the first use flow
 		FirstUseDealsEducationPage.clickNextButton();
 
-		if (PlatformType.equals("IOS")) {
+		if (PlatformType.equals("IOS")) 
+		{
 			CustomHooks.waitFor(2);
-			if (!driver.findElement(By.name("Get points just for walking into stores.")).isDisplayed()) {
+			if (!driver.findElement(By.name("Get points just for walking into stores.")).isDisplayed()) 
+			{
 				CountryPickerPage.clickCountryUSA();
 				CountryPickerPage.clickNextButton();
 			}
@@ -44,30 +47,36 @@ public class SmokeSuiteOne extends AbstractTest{
 		//Pick default reward
 		RewardsPickerPage.clickNextButton();
 
-		FirstUseAlternateScreen.clickOnContinueAsGuestButton();
+		if (PlatformType.equalsIgnoreCase("Android")) {
+			FirstUseAlternateScreen.clickOnContinueAsGuestButton();
+			CustomHooks.waitFor(3);
 
-		//instead of NO thanks
-		//tap on sign in / sign up button
-		//choose facebook
+			//tap on the 'Guest' button to open left nav bar
+			LeftNavBar.clickGuestUserButton();
 
-		//CustomHooks.dismissPotHoleError();
-		//if iOS and if mic permission is asked, give the permission
-		if(PlatformType.equals("IOS")){
-			MicrophonePermissionPage.clickOKButton();
+			LeftNavBar.clickOnFaceBookSignIn();
+
+			CustomHooks.dismissMultiLoginMessage();
+		}
+		else
+		{
+			if(!driver.findElement(By.name("Facebook")).isDisplayed())
+			{
+				FirstUseRegistrationIntroPage.clickSignUpOrSignInButton();
+			}
+			else
+			{
+				SignInPage.clicksignInFacebookSignIn();
+				CustomHooks.dismissMultiLoginMessage();
+			}
+			if (driver.findElement(By.name("OK")).isDisplayed())
+			{
+				//if iOS and if mic permission is asked, give the permission
+				MicrophonePermissionPage.clickOKButton();
+			}
+
 		}
 
-		CustomHooks.waitFor(3);
-
-		//tap on the 'Guest' button to open left nav bar
-		LeftNavBar.clickGuestUserButton();
-
-		//Read current kicks so you can compare if the user has signed in and the kicks have been updated
-
-		//currentKicksBeforeLogin = LeftNavBar.getCurrentKicksCount();
-
-		LeftNavBar.clickOnFaceBookSignIn();
-
-		CustomHooks.dismissMultiLoginMessage();
 
 		CustomHooks.waitFor(3);
 		driver.scrollTo("Settings");
