@@ -33,7 +33,7 @@ public class SmokeSuiteOne extends AbstractTest{
 
 		if (PlatformType.equals("IOS")) {
 			CustomHooks.waitFor(2);
-			if (driver.findElement(By.name("Tell us where you want to see deals.")).isDisplayed()) {
+			if (!driver.findElement(By.name("Get points just for walking into stores.")).isDisplayed()) {
 				CountryPickerPage.clickCountryUSA();
 				CountryPickerPage.clickNextButton();
 			}
