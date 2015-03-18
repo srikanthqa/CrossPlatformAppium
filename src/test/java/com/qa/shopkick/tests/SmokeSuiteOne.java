@@ -61,16 +61,18 @@ public class SmokeSuiteOne extends AbstractTest{
 			{
 				FirstUseRegistrationIntroPage.clickSignUpOrSignInButton();
 			}
-				SignInPage.clicksignInFacebookSignIn();
-				CustomHooks.waitFor(5);
-				CustomHooks.dismissMultiLoginMessage();
+			SignInPage.clicksignInFacebookSignIn();
+			
+			CustomHooks.waitFor(8);
+			
+			CustomHooks.dismissMultiLoginMessage();
 
 			if (driver.findElement(By.name("OK")).isDisplayed())
 			{
 				//if iOS and if mic permission is asked, give the permission
 				MicrophonePermissionPage.clickOKButton();
 			}
-
+			LandingPage.openLeftNavSignedIn();
 		}
 
 

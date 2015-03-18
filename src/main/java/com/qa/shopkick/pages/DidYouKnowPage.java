@@ -1,9 +1,11 @@
 package com.qa.shopkick.pages;
 
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 
 import com.qa.shopkick.utils.AbstractPage;
 
@@ -15,5 +17,7 @@ public class DidYouKnowPage extends AbstractPage{
 	
 	public static void tapOnDidYouKnow(){
 		didYouKnowText.click();
+		PageFactory.initElements(new AppiumFieldDecorator(driver),new LandingPage());
+		PageFactory.initElements(new AppiumFieldDecorator(driver),new LeftNavBar());
 	}
 }
