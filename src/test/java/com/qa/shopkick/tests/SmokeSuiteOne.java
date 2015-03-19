@@ -67,9 +67,6 @@ public class SmokeSuiteOne extends AbstractTest{
 			
 			CustomHooks.dismissMultiLoginMessage();
 			
-			//TODO: REMOVE HACK
-			driver.navigate().back();
-			
 			CustomHooks.waitFor(5);
 //
 //			if (driver.findElement(By.name("Let your")).isDisplayed())

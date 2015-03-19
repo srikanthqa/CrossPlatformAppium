@@ -12,7 +12,7 @@ import com.qa.shopkick.utils.AbstractPage;
 public class DidYouKnowPage extends AbstractPage{
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/main_overlay_view\")")
-	@iOSFindBy(uiAutomator = ".buttons()[0]")
+	@iOSFindBy(uiAutomator = "")
 	private static WebElement didYouKnowText;
 	
 	public static void tapOnDidYouKnow(){
