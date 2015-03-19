@@ -63,7 +63,7 @@ public class SmokeSuiteOne extends AbstractTest{
 			}
 			SignInPage.clicksignInFacebookSignIn();
 			
-			CustomHooks.waitFor(8);
+			CustomHooks.waitFor(6);
 			
 			CustomHooks.dismissMultiLoginMessage();
 
