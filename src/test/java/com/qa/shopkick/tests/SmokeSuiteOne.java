@@ -34,7 +34,7 @@ public class SmokeSuiteOne extends AbstractTest{
 
 		if(PlatformType.equals("IOS"))
 		{
-			if(CountryPickerPage.clickAndProceedUSA() && !(FirstUseWalkinEducationPage.isGetPointsScreen())) 
+			if(CountryPickerPage.clickAndProceedUSA() || !(FirstUseWalkinEducationPage.isGetPointsScreen())) 
 			{
 				CountryPickerPage.clickCountryUSA();
 				CountryPickerPage.clickCountryUSA();
