@@ -32,7 +32,7 @@ public class SmokeSuiteOne extends AbstractTest{
 		//Go through the first use flow
 		FirstUseDealsEducationPage.clickNextButton();
 
-		if (!driver.findElement(By.name("Get points just for walking into stores.")).isDisplayed() && driver.findElement(By.name("USA")).isDisplayed()) 
+		if (!driver.findElement(By.name("Get points just for walking into stores.")).isDisplayed() || driver.findElement(By.name("Tell us where you want to see deals.")).isDisplayed()) 
 		{
 			CustomHooks.waitFor(2);
 			CountryPickerPage.clickCountryUSA();
@@ -44,38 +44,24 @@ public class SmokeSuiteOne extends AbstractTest{
 		//Pick default reward
 		RewardsPickerPage.clickNextButton();
 
-		if (PlatformType.equalsIgnoreCase("Android")) {
-			FirstUseAlternateScreen.clickOnContinueAsGuestButton();
-			CustomHooks.waitFor(3);
-
-			//tap on the 'Guest' button to open left nav bar
-			LeftNavBar.clickGuestUserButton();
-
-			LeftNavBar.clickOnFaceBookSignIn();
-
-			CustomHooks.dismissMultiLoginMessage();
-		}
-		else
+		if(driver.findElement(By.name("No, thanks")).isDisplayed())
 		{
-			if(driver.findElement(By.name("No, thanks")).isDisplayed())
-			{
-				FirstUseRegistrationIntroPage.clickSignUpOrSignInButton();
-			}
-			SignInPage.clicksignInFacebookSignIn();
-			
-			CustomHooks.waitFor(10);
-			
-			CustomHooks.dismissMultiLoginMessage();
-			
-			CustomHooks.waitFor(5);
-//
-//			if (driver.findElement(By.name("Let your")).isDisplayed())
-//			{
-//				//if iOS and if mic permission is asked, give the permission
-//				MicrophonePermissionPage.clickOKButton();
-//			}
-			LandingPage.openLeftNavSignedIn();
+			FirstUseRegistrationIntroPage.clickSignUpOrSignInButton();
 		}
+		SignInPage.clicksignInFacebookSignIn();
+
+		CustomHooks.waitFor(8);
+
+		CustomHooks.dismissMultiLoginMessage();
+
+		CustomHooks.waitFor(5);
+		//
+		//			if (driver.findElement(By.name("Let your")).isDisplayed())
+		//			{
+		//				//if iOS and if mic permission is asked, give the permission
+		//				MicrophonePermissionPage.clickOKButton();
+		//			}
+		LandingPage.openLeftNavSignedIn();
 
 
 		CustomHooks.waitFor(3);
