@@ -31,10 +31,16 @@ public class SmokeSuiteOne extends AbstractTest{
 
 		//Go through the first use flow
 		FirstUseDealsEducationPage.clickNextButton();
-		
-		if(PlatformType.equals("IOS") && CountryPickerPage.clickAndProceedUSA()==true){
-			CountryPickerPage.clickCountryUSA();
-			CountryPickerPage.clickNextButton();
+
+		if(PlatformType.equals("IOS"))
+		{
+			if(CountryPickerPage.clickAndProceedUSA()==true || FirstUseWalkinEducationPage.isLearnHowDisplayed() == false)
+			{
+				CountryPickerPage.clickCountryUSA();
+				CountryPickerPage.clickCountryUSA();
+				CountryPickerPage.clickNextButton();
+				CountryPickerPage.clickNextButton();
+			}
 		}
 
 		FirstUseWalkinEducationPage.clickNextButton();
