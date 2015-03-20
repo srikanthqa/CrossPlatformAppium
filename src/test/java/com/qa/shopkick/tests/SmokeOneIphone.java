@@ -4,7 +4,11 @@ import org.junit.Test;
 
 import com.qa.shopkick.pages.CountryPickerPage;
 import com.qa.shopkick.pages.FirstUseDealsEducationPage;
+import com.qa.shopkick.pages.FirstUseRegistrationIntroPage;
+import com.qa.shopkick.pages.FirstUseRewardsEducationPage;
 import com.qa.shopkick.pages.FirstUseWalkinEducationPage;
+import com.qa.shopkick.pages.RewardsPickerPage;
+import com.qa.shopkick.pages.SignInPage;
 import com.qa.shopkick.utils.AbstractTest;
 
 public class SmokeOneIphone extends AbstractTest{
@@ -21,6 +25,17 @@ public class SmokeOneIphone extends AbstractTest{
 			//CountryPickerPage.clickNextButton();
 		}
 		FirstUseWalkinEducationPage.clickNextButton();
+		
+		FirstUseRewardsEducationPage.clickNextButton();
+
+		//Pick default reward
+		RewardsPickerPage.clickNextButton();
+
+		if(!SignInPage.isFacebookLoginAvail())
+		{
+			FirstUseRegistrationIntroPage.clickSignUpOrSignInButton();
+		}
+		
 	}
 
 }
