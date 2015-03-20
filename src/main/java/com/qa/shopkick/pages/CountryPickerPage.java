@@ -42,7 +42,7 @@ public class CountryPickerPage extends AbstractPage{
 		PageFactory.initElements(new AppiumFieldDecorator(driver),new FirstUseWalkinEducationPage());
 	}
 	
-	public static void verifyAndClickUSA() {
+	public static void clickAndProceedUSA() {
 			clickCountryUSA();
 			clickNextButton();
 		}
