@@ -43,9 +43,12 @@ public class CountryPickerPage extends AbstractPage{
 	}
 	
 	public static void verifyAndClickUSA() {
-		if(nextButton.isDisplayed()){
-			clickCountryUSA();
+		if(!countryPickerText.isDisplayed()){
+			clickNextButton();
 		}
-		clickNextButton();
+		else{
+			clickCountryUSA();
+			clickNextButton();
+		}
 	}
 }
