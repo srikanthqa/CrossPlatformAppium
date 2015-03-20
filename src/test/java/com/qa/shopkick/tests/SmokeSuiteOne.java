@@ -49,7 +49,7 @@ public class SmokeSuiteOne extends AbstractTest{
 		//Pick default reward
 		RewardsPickerPage.clickNextButton();
 
-		if(!FirstUseRegistrationIntroPage.isItLegacySignUpScreen()==false)
+		if(!SignInPage.isFacebookLoginAvail())
 		{
 			FirstUseRegistrationIntroPage.clickSignUpOrSignInButton();
 		}

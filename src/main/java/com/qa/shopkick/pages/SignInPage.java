@@ -1,13 +1,14 @@
 package com.qa.shopkick.pages;
 
-import com.qa.shopkick.utils.AbstractPage;
-
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+
+import com.qa.shopkick.utils.AbstractPage;
 
 public class SignInPage extends AbstractPage {
 
@@ -18,7 +19,16 @@ public class SignInPage extends AbstractPage {
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"FACEBOOK\")")
 	@iOSFindBy(uiAutomator = ".buttons()[\"Facebook\"]")
-	private static WebElement signInFacebookSignIn;
+	private static MobileElement signInFacebookSignIn;
+	
+	public static boolean isFacebookLoginAvail(){
+		if(signInFacebookSignIn.isDisplayed()){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
 
 	public static void clicksignInFacebookSignIn(){
 		signInFacebookSignIn.click();
