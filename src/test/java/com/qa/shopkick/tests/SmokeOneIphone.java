@@ -20,7 +20,7 @@ public class SmokeOneIphone extends AbstractTest{
 	public void firstUseFlow(){
 		FirstUseDealsEducationPage.clickNextButton();
 		
-		if(driver.findElement(By.name("USA")).isDisplayed()) 
+		if(driver.findElement(By.name("Tell us where you want to see deals.")).isDisplayed()) 
 		{
 			CountryPickerPage.clickCountryUSA();
 			CountryPickerPage.clickCountryUSA();
