@@ -12,7 +12,7 @@ import com.qa.shopkick.utils.AbstractPage;
 public class LeftNavBar extends AbstractPage{
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"GUEST\")")
-	@iOSFindBy(uiAutomator = ".elements()[\"Guest\"]")
+	@iOSFindBy(uiAutomator = ".buttons()[\"guest user circle\"]")
 	private static WebElement guestLeftNavBar;
 
 	public static void clickGuestUserButton(){
@@ -25,6 +25,7 @@ public class LeftNavBar extends AbstractPage{
 	private static WebElement guestUserProfileHEader;
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"SIGN IN WITH FACEBOOK\")")
+	@iOSFindBy(uiAutomator = ".buttons()[\"Sign in with Facebook\"]")
 	private static WebElement signInWithFacebookLeftNav;
 
 	public static void clickOnFaceBookSignIn(){

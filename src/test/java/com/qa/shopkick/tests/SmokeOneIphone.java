@@ -7,6 +7,8 @@ import com.qa.shopkick.pages.FirstUseDealsEducationPage;
 import com.qa.shopkick.pages.FirstUseRegistrationIntroPage;
 import com.qa.shopkick.pages.FirstUseRewardsEducationPage;
 import com.qa.shopkick.pages.FirstUseWalkinEducationPage;
+import com.qa.shopkick.pages.LeftNavBar;
+import com.qa.shopkick.pages.MicrophonePermissionPage;
 import com.qa.shopkick.pages.RewardsPickerPage;
 import com.qa.shopkick.pages.SignInPage;
 import com.qa.shopkick.utils.AbstractTest;
@@ -31,10 +33,15 @@ public class SmokeOneIphone extends AbstractTest{
 		//Pick default reward
 		RewardsPickerPage.clickNextButton();
 
-		if(!SignInPage.isFacebookLoginAvail())
-		{
-			FirstUseRegistrationIntroPage.clickSignUpOrSignInButton();
-		}
+		FirstUseRegistrationIntroPage.clickNoThanksButton();
+		
+		MicrophonePermissionPage.clickOKButton();
+		
+		LeftNavBar.clickGuestUserButton();
+		
+		LeftNavBar.clickOnFaceBookSignIn();
+		
+		
 		
 	}
 
