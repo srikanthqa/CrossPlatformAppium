@@ -11,7 +11,7 @@ import org.openqa.selenium.support.PageFactory;
  */
 public class CountryPickerPage extends AbstractPage{
 
-    @iOSFindBy(uiAutomator = ".buttons()[3]")
+    @iOSFindBy(uiAutomator = ".buttons()[4]")
     private static WebElement countryUSA;
 
     @iOSFindBy(uiAutomator = ".buttons()[2]")

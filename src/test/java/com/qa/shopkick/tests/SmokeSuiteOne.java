@@ -32,7 +32,7 @@ public class SmokeSuiteOne extends AbstractTest{
 		//Go through the first use flow
 		FirstUseDealsEducationPage.clickNextButton();
 
-		if (!driver.findElement(By.name("Get points just for walking into stores.")).isDisplayed() || driver.findElement(By.name("Tell us where you want to see deals.")).isDisplayed()) 
+		if (!driver.findElement(By.partialLinkText("Get points just for walking into stores.")).isDisplayed() || driver.findElement(By.name("You can't change this later")).isDisplayed()) 
 		{
 			CustomHooks.waitFor(2);
 			CountryPickerPage.clickCountryUSA();
