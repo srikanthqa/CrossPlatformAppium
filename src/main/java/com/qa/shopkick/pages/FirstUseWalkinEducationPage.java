@@ -24,8 +24,12 @@ public class FirstUseWalkinEducationPage extends AbstractPage{
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"NEXT\")")
     private static WebElement nextButton;
     
-    public static boolean isLearnHowDisplayed(){
-    	if(learnHowButton.isDisplayed()){
+    @iOSFindBy(uiAutomator = ".staticTexts()[\"Get points just for walking into stores.\"]")
+    private static MobileElement getPointsText;
+    
+    
+    public static boolean isGetPointsScreen(){
+    	if(getPointsText.isDisplayed()){
     		return true;
     	}
     	else{
