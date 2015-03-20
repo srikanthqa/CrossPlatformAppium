@@ -1,8 +1,14 @@
 package com.qa.shopkick.pages;
 
+import java.util.logging.Logger;
+
 import com.qa.shopkick.utils.AbstractPage;
+
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
+import mx4j.log.Log;
+import mx4j.log.Log4JLogger;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
@@ -37,7 +43,7 @@ public class CountryPickerPage extends AbstractPage{
 	}
 	
 	public static void verifyAndClickUSA() {
-		if(countryPickerText.isDisplayed()){
+		if(nextButton.isDisplayed()){
 			clickCountryUSA();
 		}
 		clickNextButton();
