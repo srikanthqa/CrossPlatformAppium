@@ -1,6 +1,7 @@
 package com.qa.shopkick.tests;
 
 import org.junit.Test;
+import org.openqa.selenium.By;
 
 import com.qa.shopkick.pages.CountryPickerPage;
 import com.qa.shopkick.pages.FirstUseDealsEducationPage;
@@ -19,7 +20,7 @@ public class SmokeOneIphone extends AbstractTest{
 	public void firstUseFlow(){
 		FirstUseDealsEducationPage.clickNextButton();
 		
-		if(!FirstUseWalkinEducationPage.isGetPointsScreen()) 
+		if(driver.findElement(By.name("USA")).isDisplayed()) 
 		{
 			CountryPickerPage.clickCountryUSA();
 			CountryPickerPage.clickCountryUSA();
