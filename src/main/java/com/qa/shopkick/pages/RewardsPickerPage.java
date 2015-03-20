@@ -22,6 +22,7 @@ public class RewardsPickerPage extends AbstractPage{
         nextButton.click();
         PageFactory.initElements(new AppiumFieldDecorator(driver), new FirstUseRegistrationIntroPage());
         PageFactory.initElements(new AppiumFieldDecorator(driver), new FirstUseAlternateScreen());
+        PageFactory.initElements(new AppiumFieldDecorator(driver), new SignInPage());
     }
     
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/kick_amount\").text(\"3400\")")
