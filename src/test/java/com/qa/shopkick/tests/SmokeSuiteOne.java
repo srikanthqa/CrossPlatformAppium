@@ -34,7 +34,7 @@ public class SmokeSuiteOne extends AbstractTest{
 
 		if(PlatformType.equals("IOS"))
 		{
-			if(driver.findElement(By.name("Tell us where you want to see deals.")).isDisplayed())		//(CountryPickerPage.clickAndProceedUSA()==true || FirstUseWalkinEducationPage.isLearnHowDisplayed() == false) 
+			if(FirstUseWalkinEducationPage.isLearnHowDisplayed()==false)		//(CountryPickerPage.clickAndProceedUSA()==true || FirstUseWalkinEducationPage.isLearnHowDisplayed() == false) 
 			{
 				CountryPickerPage.clickCountryUSA();
 				CountryPickerPage.clickCountryUSA();
