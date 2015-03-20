@@ -36,12 +36,7 @@ public class SmokeSuiteOne extends AbstractTest{
 
 		if(PlatformType.equals("IOS"))
 		{
-			if (driver.findElement(By.name("You can't change this later")).isDisplayed()) 
-			{
-				CustomHooks.waitFor(2);
-				CountryPickerPage.clickCountryUSA();
-				CountryPickerPage.clickNextButton();
-			}
+				CountryPickerPage.verifyAndClickUSA();
 		}
 		
 		
