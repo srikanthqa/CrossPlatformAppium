@@ -34,7 +34,7 @@ public class SmokeSuiteOne extends AbstractTest{
 
 		if(PlatformType.equals("IOS"))
 		{
-			if(FirstUseWalkinEducationPage.isLearnHowDisplayed()==false)		//(CountryPickerPage.clickAndProceedUSA()==true || FirstUseWalkinEducationPage.isLearnHowDisplayed() == false) 
+			if(!FirstUseWalkinEducationPage.isLearnHowDisplayed())		//(CountryPickerPage.clickAndProceedUSA()==true || FirstUseWalkinEducationPage.isLearnHowDisplayed() == false) 
 			{
 				CountryPickerPage.clickCountryUSA();
 				CountryPickerPage.clickCountryUSA();
@@ -49,10 +49,11 @@ public class SmokeSuiteOne extends AbstractTest{
 		//Pick default reward
 		RewardsPickerPage.clickNextButton();
 
-		if(driver.findElement(By.name("No, thanks")).isDisplayed())
+		if(!FirstUseRegistrationIntroPage.isItLegacySignUpScreen()==false)
 		{
 			FirstUseRegistrationIntroPage.clickSignUpOrSignInButton();
 		}
+		
 		SignInPage.clicksignInFacebookSignIn();
 
 		CustomHooks.waitFor(8);
@@ -60,12 +61,12 @@ public class SmokeSuiteOne extends AbstractTest{
 		CustomHooks.dismissMultiLoginMessage();
 
 		CustomHooks.waitFor(5);
-		//
-		//			if (driver.findElement(By.name("Let your")).isDisplayed())
-		//			{
-		//				//if iOS and if mic permission is asked, give the permission
-		//				MicrophonePermissionPage.clickOKButton();
-		//			}
+
+		if (driver.findElement(By.name("OK")).isDisplayed())
+		{
+			//if iOS and if mic permission is asked, give the permission
+			MicrophonePermissionPage.clickOKButton();
+		}
 		LandingPage.openLeftNavSignedIn();
 
 

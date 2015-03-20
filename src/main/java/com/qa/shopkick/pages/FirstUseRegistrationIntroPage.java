@@ -19,6 +19,15 @@ public class FirstUseRegistrationIntroPage extends AbstractPage{
     @iOSFindBy(uiAutomator = ".buttons()[\"Sign Up/Sign In\"]")
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"SIGN UP/SIGN IN\")")
     private static WebElement signUpOrSignInButton;
+    
+    public static boolean isItLegacySignUpScreen(){
+    	if(noThanksButton.isDisplayed()){
+    		return true;
+    	}
+    	else{
+    		return false;
+    	}
+    }
 
     public static void clickNoThanksButton(){
         noThanksButton.click();
