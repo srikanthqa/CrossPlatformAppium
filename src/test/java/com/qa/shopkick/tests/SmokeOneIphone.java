@@ -10,7 +10,7 @@ import com.qa.shopkick.utils.AbstractTest;
 public class SmokeOneIphone extends AbstractTest{
 	
 	@Test
-	public static void firstUseFlow(){
+	public void firstUseFlow(){
 		FirstUseDealsEducationPage.clickNextButton();
 		
 		if(CountryPickerPage.clickAndProceedUSA() && !(FirstUseWalkinEducationPage.isGetPointsScreen())) 
