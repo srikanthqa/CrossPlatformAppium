@@ -31,11 +31,11 @@ public class SmokeSuiteOne extends AbstractTest{
 
 		//Go through the first use flow
 		FirstUseDealsEducationPage.clickNextButton();
-
-		if(driver.findElement(By.name("Tell us where you want to see deals.")).isDisplayed())
-		{
-			CountryPickerPage.clickAndProceedUSA();
-		}	
+		
+		if(!CountryPickerPage.clickAndProceedUSA()==false){
+			CountryPickerPage.clickCountryUSA();
+			CountryPickerPage.clickNextButton();
+		}
 
 		FirstUseWalkinEducationPage.clickNextButton();
 		FirstUseRewardsEducationPage.clickNextButton();
