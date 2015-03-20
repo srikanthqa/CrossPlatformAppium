@@ -23,7 +23,7 @@ public class CustomHooks extends AbstractPage{
 	}
 
 	public static void dismissMultiLoginMessage(){
-		waitFor(8);
+		waitFor(3);
 		if(driver.findElement(By.name("Did you know?")).isDisplayed()){
 			DidYouKnowPage.tapOnDidYouKnow();
 		}
