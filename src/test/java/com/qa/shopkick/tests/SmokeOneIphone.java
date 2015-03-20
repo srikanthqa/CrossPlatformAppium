@@ -13,13 +13,14 @@ public class SmokeOneIphone extends AbstractTest{
 	public void firstUseFlow(){
 		FirstUseDealsEducationPage.clickNextButton();
 		
-		if(CountryPickerPage.clickAndProceedUSA() || !(FirstUseWalkinEducationPage.isGetPointsScreen())) 
+		if((CountryPickerPage.clickAndProceedUSA()) || !(FirstUseWalkinEducationPage.isGetPointsScreen())) 
 		{
 			CountryPickerPage.clickCountryUSA();
 			CountryPickerPage.clickCountryUSA();
 			CountryPickerPage.clickNextButton();
 			//CountryPickerPage.clickNextButton();
 		}
+		FirstUseWalkinEducationPage.clickNextButton();
 	}
 
 }
