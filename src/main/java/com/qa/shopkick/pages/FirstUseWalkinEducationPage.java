@@ -29,7 +29,7 @@ public class FirstUseWalkinEducationPage extends AbstractPage{
     
     
     public static boolean isGetPointsScreen(){
-    	if(getPointsText.isDisplayed()){
+    	if(nextButton.isDisplayed()){
     		return true;
     	}
     	else{
