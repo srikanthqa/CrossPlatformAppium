@@ -32,12 +32,19 @@ public class SmokeSuiteOne extends AbstractTest{
 		//Go through the first use flow
 		FirstUseDealsEducationPage.clickNextButton();
 
-		if (driver.findElement(By.name("You can't change this later")).isDisplayed()) 
+		CustomHooks.waitFor(3);
+
+		if(PlatformType.equals("IOS"))
 		{
-			CustomHooks.waitFor(2);
-			CountryPickerPage.clickCountryUSA();
-			CountryPickerPage.clickNextButton();
+			if (driver.findElement(By.name("You can't change this later")).isDisplayed()) 
+			{
+				CustomHooks.waitFor(2);
+				CountryPickerPage.clickCountryUSA();
+				CountryPickerPage.clickNextButton();
+			}
 		}
+		
+		
 		FirstUseWalkinEducationPage.clickNextButton();
 		FirstUseRewardsEducationPage.clickNextButton();
 
