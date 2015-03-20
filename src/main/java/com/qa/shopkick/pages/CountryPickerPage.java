@@ -1,16 +1,13 @@
 package com.qa.shopkick.pages;
 
-import java.util.logging.Logger;
-
-import com.qa.shopkick.utils.AbstractPage;
-
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
-import mx4j.log.Log;
-import mx4j.log.Log4JLogger;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+
+import com.qa.shopkick.utils.AbstractPage;
 
 /**
  * Created by Srikanth on 12/16/14.
@@ -27,7 +24,7 @@ public class CountryPickerPage extends AbstractPage{
 	private static WebElement nextButton;
 
 	@iOSFindBy(uiAutomator = ".staticTexts()[\"Tell us where you want to see deals.\"]")
-	private static WebElement countryPickerText;
+	private static MobileElement countryPickerText;
 
 	public static void clickCountryUSA(){
 		countryUSA.click();
