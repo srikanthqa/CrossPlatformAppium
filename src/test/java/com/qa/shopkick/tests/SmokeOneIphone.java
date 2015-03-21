@@ -13,6 +13,7 @@ import com.qa.shopkick.pages.MicrophonePermissionPage;
 import com.qa.shopkick.pages.RewardsPickerPage;
 import com.qa.shopkick.pages.SignInPage;
 import com.qa.shopkick.utils.AbstractTest;
+import com.qa.shopkick.utils.CustomHooks;
 
 public class SmokeOneIphone extends AbstractTest{
 	
@@ -37,6 +38,8 @@ public class SmokeOneIphone extends AbstractTest{
 		FirstUseRegistrationIntroPage.clickNoThanksButton();
 		
 		MicrophonePermissionPage.clickOKButton();
+		
+		CustomHooks.waitFor(4);
 		
 		LeftNavBar.clickGuestUserButton();
 		
