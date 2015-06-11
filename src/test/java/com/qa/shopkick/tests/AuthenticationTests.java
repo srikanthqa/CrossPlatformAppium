@@ -36,10 +36,7 @@ public class AuthenticationTests extends AbstractTest{
 	
 	@Test
 	public void LoginWithFacebook(){
-		if(!SignInPage.isFacebookLoginAvail() || FirstUseRegistrationIntroPage.isItLegacySignUpScreen())
-		{
-			FirstUseRegistrationIntroPage.clickSignUpOrSignInButton();
-		}
+		FirstUseRegistrationIntroPage.clickNoThanksButton();
 		
 		SignInPage.clicksignInFacebookSignIn();
 
