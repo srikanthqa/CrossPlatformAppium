@@ -38,9 +38,9 @@ public class AuthenticationTests extends AbstractTest{
 		RewardsPickerPage.clickNextButton();
 	}
 
-	@Test (expected = NullPointerException.class)
+	@Test
 	public void LoginWithFacebook(){
-	//	PageFactory.initElements(new AppiumFieldDecorator(driver), new FirstUseRegistrationIntroPage());
+	PageFactory.initElements(new AppiumFieldDecorator(driver), new FirstUseRegistrationIntroPage());
 		
 		FirstUseRegistrationIntroPage.clickSignUpOrSignInButton();
 
