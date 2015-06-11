@@ -25,7 +25,7 @@ public class LeftNavBar extends AbstractPage{
 	private static WebElement guestUserProfileHEader;
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"SIGN IN WITH FACEBOOK\")")
-	@iOSFindBy(uiAutomator = ".buttons(1)[\"Sign in with Facebook\"]")
+	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[2]/UIATableView[1]/UIATableCell[1]/UIAButton[1]")
 	private static WebElement signInWithFacebookLeftNav;
 
 	public static void clickOnFaceBookSignIn(){
