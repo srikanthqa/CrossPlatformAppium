@@ -40,16 +40,17 @@ public class AuthenticationTests extends AbstractTest{
 		
 		SignInPage.clicksignInFacebookSignIn();
 
-		CustomHooks.waitFor(10);
+		CustomHooks.waitFor(5);
 
 		CustomHooks.dismissMultiLoginMessage();
 
 		CustomHooks.waitFor(5);
 
-		if (driver.findElement(By.name("OK")).isDisplayed())
-		{
-			//if iOS and if mic permission is asked, give the permission
-			MicrophonePermissionPage.clickOKButton();
+		if (PlatformType.equalsIgnoreCase("IOS")) {
+			if (MicrophonePermissionPage.isMicroPhonePermissionRequired()) {
+				//if iOS and if mic permission is asked, give the permission
+				MicrophonePermissionPage.clickOKButton();
+			}
 		}
 		LandingPage.openLeftNavSignedIn();
 	}
