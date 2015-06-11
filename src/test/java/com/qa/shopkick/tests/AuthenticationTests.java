@@ -1,7 +1,10 @@
 package com.qa.shopkick.tests;
 
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.PageFactory;
 
 import com.qa.shopkick.pages.CountryPickerPage;
 import com.qa.shopkick.pages.FirstUseDealsEducationPage;
@@ -14,6 +17,7 @@ import com.qa.shopkick.pages.RewardsPickerPage;
 import com.qa.shopkick.pages.SignInPage;
 import com.qa.shopkick.utils.AbstractTest;
 import com.qa.shopkick.utils.CustomHooks;
+
 
 public class AuthenticationTests extends AbstractTest{
 
@@ -34,7 +38,10 @@ public class AuthenticationTests extends AbstractTest{
 		RewardsPickerPage.clickNextButton();
 	}
 
+	@Test (expected = NullPointerException.class)
 	public void LoginWithFacebook(){
+	//	PageFactory.initElements(new AppiumFieldDecorator(driver), new FirstUseRegistrationIntroPage());
+		
 		FirstUseRegistrationIntroPage.clickSignUpOrSignInButton();
 
 		SignInPage.clicksignInFacebookSignIn();
