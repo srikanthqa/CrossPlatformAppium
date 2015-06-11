@@ -16,7 +16,7 @@ import com.qa.shopkick.utils.AbstractTest;
 import com.qa.shopkick.utils.CustomHooks;
 
 public class AuthenticationTests extends AbstractTest{
-	
+
 	@Test
 	public void FirstUseFlow(){
 		//Go through the first use flow
@@ -33,11 +33,10 @@ public class AuthenticationTests extends AbstractTest{
 		//Pick default reward
 		RewardsPickerPage.clickNextButton();
 	}
-	
-	@Test
+
 	public void LoginWithFacebook(){
 		FirstUseRegistrationIntroPage.clickSignUpOrSignInButton();
-		
+
 		SignInPage.clicksignInFacebookSignIn();
 
 		CustomHooks.waitFor(5);
