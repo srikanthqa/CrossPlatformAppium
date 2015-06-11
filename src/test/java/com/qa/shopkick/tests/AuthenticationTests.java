@@ -32,10 +32,10 @@ public class AuthenticationTests extends AbstractTest{
 
 		//Pick default reward
 		RewardsPickerPage.clickNextButton();
-/*	}
+	}
 	
 	@Test
-	public void LoginWithFacebook(){*/
+	public void LoginWithFacebook(){
 		FirstUseRegistrationIntroPage.clickSignUpOrSignInButton();
 		
 		SignInPage.clicksignInFacebookSignIn();
