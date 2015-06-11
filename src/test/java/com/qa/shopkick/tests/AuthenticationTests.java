@@ -36,7 +36,7 @@ public class AuthenticationTests extends AbstractTest{
 	
 	@Test
 	public void LoginWithFacebook(){*/
-		FirstUseRegistrationIntroPage.clickNoThanksButton();
+		FirstUseRegistrationIntroPage.clickSignUpOrSignInButton();
 		
 		SignInPage.clicksignInFacebookSignIn();
 
