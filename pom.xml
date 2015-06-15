@@ -30,6 +30,7 @@
 							<value>${deviceUDID}</value>
 						</property>
 					</systemProperties>
+					<groups>Authentication</groups>
 				</configuration>
 			</plugin>
 		</plugins>
