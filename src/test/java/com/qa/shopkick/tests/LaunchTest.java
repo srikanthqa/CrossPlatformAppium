@@ -45,7 +45,7 @@ public class LaunchTest extends AbstractTest {
 	 * */
 	public static String currentKicksBeforeLogin, currentKicksAfterLogin;
 
-	@Test
+	@Test 
 	public void FirstUseFlow(){
 
 		//Go through the first use flow

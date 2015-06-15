@@ -3,7 +3,7 @@
   <test name="Authentication Tests">
    <group>
        <run>
-           <include name="Authentication" />
+           <include name="Authentication", "growth" />
        </run>
    </group>
    <classes>
