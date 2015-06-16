@@ -31,9 +31,6 @@
 						</property>
 					</systemProperties>
 					<groups>Authentication, growth</groups>
-					<suiteXmlFiles>
-						<suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
-					</suiteXmlFiles>
 				</configuration>
 			</plugin>
 		</plugins>
