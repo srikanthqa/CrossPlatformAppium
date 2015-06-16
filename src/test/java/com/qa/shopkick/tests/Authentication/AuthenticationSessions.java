@@ -1,4 +1,4 @@
-package com.qa.shopkick.tests;
+package com.qa.shopkick.tests.Authentication;
 
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.junit.runners.MethodSorters;
@@ -24,9 +24,9 @@ import com.qa.shopkick.utils.CustomHooks;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class AuthenticationSessions extends AbstractTest{
-
-	@Test
-	public void Test1FirstUseFlow(){
+	
+	@Test 
+	public void Test1_FirstUseFlow(){
 		//Go through the first use flow
 		FirstUseDealsEducationPage.clickNextButton();
 		CustomHooks.waitFor(2);
@@ -43,7 +43,7 @@ public class AuthenticationSessions extends AbstractTest{
 	}
 
 	@Test
-	public void Test2LoginWithFacebook(){
+	public void Test2_LoginWithFacebook(){
 		PageFactory.initElements(new AppiumFieldDecorator(driver), new FirstUseRegistrationIntroPage());
 
 		FirstUseRegistrationIntroPage.clickSignUpOrSignInButton();

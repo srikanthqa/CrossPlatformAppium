@@ -5,10 +5,12 @@
        <run>
            <include name="growth"/>
             <include name="Authentication"/>
+            
        </run>
    </group>
    <classes>
        <class name="om.qa.shopkick.tests.AuthenticationTests" />
+       <class name="om.qa.shopkick.tests.AuthenticationSessions" />
    </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
