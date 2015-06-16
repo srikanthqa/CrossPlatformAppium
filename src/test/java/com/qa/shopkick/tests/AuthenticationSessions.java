@@ -4,6 +4,7 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 import org.junit.Test;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterTest;
 
 import com.qa.shopkick.pages.CountryPickerPage;
 import com.qa.shopkick.pages.FirstUseDealsEducationPage;
@@ -19,8 +20,8 @@ import com.qa.shopkick.utils.CustomHooks;
 
 
 
-
 public class AuthenticationSessions extends AbstractTest{
+
 	@Test
 	public void TestFirstUseFlow(){
 		//Go through the first use flow
@@ -38,10 +39,10 @@ public class AuthenticationSessions extends AbstractTest{
 		RewardsPickerPage.clickNextButton();
 	}
 
-	@Test
+	@AfterTest
 	public void TestLoginWithFacebook(){
-	PageFactory.initElements(new AppiumFieldDecorator(driver), new FirstUseRegistrationIntroPage());
-		
+		PageFactory.initElements(new AppiumFieldDecorator(driver), new FirstUseRegistrationIntroPage());
+
 		FirstUseRegistrationIntroPage.clickSignUpOrSignInButton();
 
 		SignInPage.clicksignInFacebookSignIn();
