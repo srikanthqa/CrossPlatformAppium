@@ -16,6 +16,9 @@ import com.qa.shopkick.pages.RewardsPickerPage;
 import com.qa.shopkick.pages.SignInPage;
 import com.qa.shopkick.utils.AbstractTest;
 import com.qa.shopkick.utils.CustomHooks;
+import org.junit.*;
+
+
 
 public class AuthenticationSessions extends AbstractTest{
 	@org.junit.Test
