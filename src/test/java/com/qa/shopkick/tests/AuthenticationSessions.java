@@ -42,7 +42,7 @@ public class AuthenticationSessions extends AbstractTest{
 		RewardsPickerPage.clickNextButton();
 	}
 
-	@AfterTest
+	@Test
 	public void Test2LoginWithFacebook(){
 		PageFactory.initElements(new AppiumFieldDecorator(driver), new FirstUseRegistrationIntroPage());
 
