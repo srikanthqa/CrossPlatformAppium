@@ -18,7 +18,7 @@ import com.qa.shopkick.utils.AbstractTest;
 import com.qa.shopkick.utils.CustomHooks;
 
 public class AuthenticationSessions extends AbstractTest{
-	@Test (groups= {"Authentication", "growth"})
+	@org.junit.Test
 	public void FirstUseFlow(){
 		//Go through the first use flow
 		FirstUseDealsEducationPage.clickNextButton();
@@ -35,7 +35,7 @@ public class AuthenticationSessions extends AbstractTest{
 		RewardsPickerPage.clickNextButton();
 	}
 
-	@Test (groups= {"facebook", "Authentication"})
+	@org.junit.Test
 	public void LoginWithFacebook(){
 	PageFactory.initElements(new AppiumFieldDecorator(driver), new FirstUseRegistrationIntroPage());
 		
