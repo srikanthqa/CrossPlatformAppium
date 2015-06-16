@@ -43,7 +43,7 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<configuration>
-					<suiteXmlFiles>suite1.xml</suiteXmlFiles>
+					<suiteXmlFiles>src/test/java/suite1.xml</suiteXmlFiles>
 				</configuration>
 			</plugin>
 		</plugins>
