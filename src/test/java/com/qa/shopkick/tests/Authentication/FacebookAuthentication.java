@@ -23,7 +23,7 @@ import com.qa.shopkick.utils.CustomHooks;
 
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class AuthenticationSessions extends AbstractTest{
+public class FacebookAuthentication extends AbstractTest{
 	
 	@Test 
 	public void Test1_FirstUseFlow(){
@@ -44,6 +44,7 @@ public class AuthenticationSessions extends AbstractTest{
 
 	@Test
 	public void Test2_LoginWithFacebook(){
+		//from first use flow log into facebook
 		PageFactory.initElements(new AppiumFieldDecorator(driver), new FirstUseRegistrationIntroPage());
 
 		FirstUseRegistrationIntroPage.clickSignUpOrSignInButton();
@@ -62,6 +63,10 @@ public class AuthenticationSessions extends AbstractTest{
 				MicrophonePermissionPage.clickOKButton();
 			}
 		}
-		LandingPage.openLeftNavSignedIn();
+	}
+	
+	@Test
+	public void Test3_logOutOfFacebook(){
+		CustomHooks.LogMeOut();
 	}
 }
