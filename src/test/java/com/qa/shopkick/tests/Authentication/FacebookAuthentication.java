@@ -7,7 +7,7 @@ import org.junit.FixMethodOrder;
 
 import org.junit.Test;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.AfterTest;
+
 
 import com.qa.shopkick.pages.CountryPickerPage;
 import com.qa.shopkick.pages.FirstUseDealsEducationPage;
