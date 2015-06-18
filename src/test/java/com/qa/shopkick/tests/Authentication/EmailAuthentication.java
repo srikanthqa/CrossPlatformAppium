@@ -98,28 +98,7 @@ public class EmailAuthentication extends AbstractTest
 
 	@Test
 	public void Test3_LoginWithEmail(){
-		CustomHooks.dismissPotHoleError();
-
-		//User logs in via email
-		SignInPage.clicksignInEmailSignIn();
-
-		//Element issues, using two different methods to sign in
-
-		if (PlatformType.equalsIgnoreCase("Android")) {
-
-			//add email address
-			EmailSignInPage.clickAndEnterEmailANDROID("a@b.com");
-			//add password
-			EmailSignInPage.clickAndEnterPswdANDROID("aaaaaa");
-		}
-		else
-		{
-			EmailSignInPage.clickAndEnterEmailIOS("a@b.com");
-
-			EmailSignInPage.clickAndEnterPasswordIOS("aaaaaa");
-		}
-
-		CustomHooks.dismissMultiLoginMessage();
+		LoginHooks.EmailLogin();
 
 	}
 

@@ -40,29 +40,13 @@ public class FacebookAuthentication extends AbstractTest{
 
 		//Pick default reward
 		RewardsPickerPage.clickNextButton();
+		
+		FirstUseRegistrationIntroPage.clickSignUpOrSignInButton();
 	}
 
 	@Test
 	public void Test2_LoginWithFacebook(){
-		//from first use flow log into facebook
-		PageFactory.initElements(new AppiumFieldDecorator(driver), new FirstUseRegistrationIntroPage());
-
-		FirstUseRegistrationIntroPage.clickSignUpOrSignInButton();
-
-		SignInPage.clicksignInFacebookSignIn();
-
-		CustomHooks.waitFor(5);
-
-		CustomHooks.dismissMultiLoginMessage();
-
-		CustomHooks.waitFor(5);
-
-		if (PlatformType.equalsIgnoreCase("IOS")) {
-			if (MicrophonePermissionPage.isMicroPhonePermissionRequired()) {
-				//if iOS and if mic permission is asked, give the permission
-				MicrophonePermissionPage.clickOKButton();
-			}
-		}
+		LoginHooks.LoginWithfacebook();
 	}
 	
 	@Test

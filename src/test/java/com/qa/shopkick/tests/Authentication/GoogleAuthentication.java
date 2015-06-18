@@ -14,10 +14,7 @@ public class GoogleAuthentication extends AbstractTest{
 	@Test
 	public void Test1_GooglePlusSignIn()
 	{
-		CustomHooks.dismissPotHoleError();
-		//tap on the 'Guest' button to open left nav bar
-		SignInPage.clicksignInGooglePlusSignIn();		
-		CustomHooks.dismissMultiLoginMessage();
+		LoginHooks.LoginWithGplus();
 	}
 	
 	@Test
