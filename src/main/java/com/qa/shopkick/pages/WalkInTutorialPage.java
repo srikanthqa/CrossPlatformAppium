@@ -1,8 +1,11 @@
 package com.qa.shopkick.pages;
 
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 
 import com.qa.shopkick.utils.AbstractPage;
 
@@ -26,5 +29,16 @@ public class WalkInTutorialPage extends AbstractPage{
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/tutorial_details_link\").text(\"SEE STORES WITH WALK-INS\")")
 	private static WebElement seeStoresWithWalkins;
 	
-	
+	public static void verifyHowToWalkInUiElements(){
+		if(walkinTutorialDetails.isDisplayed())
+		{
+			if(seeStoresWithWalkins.isDisplayed()){
+				seeStoresWithWalkins.click();
+				PageFactory.initElements(new AppiumFieldDecorator(driver), new StoresPage());
+			}
+		}
+		else{
+				Assert.fail();
+		}
+	}
 }

@@ -6,7 +6,11 @@ import org.junit.runners.MethodSorters;
 import org.openqa.selenium.By;
 
 import com.qa.shopkick.pages.KicksCenterRewadsPage;
+import com.qa.shopkick.pages.LearnHowGetMoreKicks;
+import com.qa.shopkick.pages.PurchaseKicksPage;
+import com.qa.shopkick.pages.ScanTutorialPage;
 import com.qa.shopkick.pages.StoresPage;
+import com.qa.shopkick.pages.WalkInTutorialPage;
 import com.qa.shopkick.tests.Authentication.LoginHooks;
 import com.qa.shopkick.utils.AbstractTest;
 import com.qa.shopkick.utils.CustomHooks;
@@ -14,18 +18,7 @@ import com.qa.shopkick.utils.CustomHooks;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class HowToSectionTests extends AbstractTest
 {
-	//From store screen go to Kicks center
 
-	//Go to learn more section
-
-	/*
-	 * Go to Walk-ins -> it should lead to more stores
-	 * 
-	 * Go to Scans -> should lead to stores
-	 * 
-	 * Go to Invites -> Should go to invites page
-	 * 
-	 * */
 
 	@Test
 	public void Test1_verifyHowToWalkins()
@@ -38,9 +31,18 @@ public class HowToSectionTests extends AbstractTest
 
 		//Goes to kick center
 		StoresPage.clickStoresPageKicksCenter();
+
+		//Look for redeem reward message and dismiss it
+		CustomHooks.dismissRedeemRewardMessage();
+
 		KicksCenterRewadsPage.clickOnLearnHowToGetKicks();
-		
+
 		//TODO: Insert code to check if we go to learn how to get Kicks for Walk-ins and redirected to stores tab 
+		//Look for the walk-in tutorial
+		LearnHowGetMoreKicks.clickOnWalkinTutorial();
+
+		//Call method to look for desired elements
+		WalkInTutorialPage.verifyHowToWalkInUiElements();
 	}
 
 	@Test
@@ -48,9 +50,16 @@ public class HowToSectionTests extends AbstractTest
 	{
 		//Goes to kick center
 		StoresPage.clickStoresPageKicksCenter();
+
+		//Look for redeem reward message and dismiss it
+		CustomHooks.dismissRedeemRewardMessage();
+
 		KicksCenterRewadsPage.clickOnLearnHowToGetKicks();
-		
+
+		LearnHowGetMoreKicks.clickOnScanTutorial();
 		//TODO: Insert code to check if we go to learn how to get Kicks for scans and redirected to stores tab
+
+		ScanTutorialPage.verifyScanHowToElements();
 	}
 
 	@Test
@@ -58,9 +67,16 @@ public class HowToSectionTests extends AbstractTest
 	{
 		//Goes to kick center
 		StoresPage.clickStoresPageKicksCenter();
+
+		//Look for redeem reward message and dismiss it
+		CustomHooks.dismissRedeemRewardMessage();
+
 		KicksCenterRewadsPage.clickOnLearnHowToGetKicks();
-		
+
 		//TODO: Insert code to check if we go to learn how to get Kicks for purchases and redirected to stores tab
+		LearnHowGetMoreKicks.clickOnPurchaseTutorial();
+		PurchaseKicksPage.verifyLinkCardElements();
+		CustomHooks.pressBack();
 	}
 
 	@Test
@@ -68,8 +84,16 @@ public class HowToSectionTests extends AbstractTest
 	{
 		//Goes to kick center
 		StoresPage.clickStoresPageKicksCenter();
-		KicksCenterRewadsPage.clickOnLearnHowToGetKicks();
+
+		//Look for redeem reward message and dismiss it
+		CustomHooks.dismissRedeemRewardMessage();
 		
+		KicksCenterRewadsPage.clickOnLearnHowToGetKicks();
+
 		//TODO: Insert code to check if we go to learn how to get Kicks for Invites and redirected to Invites page
+		
+		LearnHowGetMoreKicks.clickOnInviteTutorial();
+		
+		CustomHooks.pressBack();
 	}
 }

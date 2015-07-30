@@ -14,9 +14,14 @@ public class RedeemGiftCardDialogPage extends AbstractPage{
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/kc_toast_header_text\").text(\"Congrats!\")")
 	private static WebElement congratsRedeemReward;
 	
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/kicks_center_tutorial_or_pending\").text(\"Congrats!\")")
+	private static WebElement outsideTapArea;
+	
 	public static void clickToDismiss(){
-		congratsRedeemReward.click();
-		CustomHooks.pressBack();
+		if(congratsRedeemReward.isDisplayed()){
+		outsideTapArea.click();
+		//CustomHooks.pressBack();
+		}
 		PageFactory.initElements(new AppiumFieldDecorator(driver), new KicksCenterRewadsPage());
 	}
 

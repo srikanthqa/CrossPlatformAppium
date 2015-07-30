@@ -49,7 +49,9 @@ public class CustomHooks extends AbstractPage{
 	}
 
 	public static void LogMeOut(){
+		// before calling method leave app state in stores screen
 		LandingPage.openLeftNavSignedIn();
+		
 		waitFor(3);
 		
 		driver.scrollTo("Settings");

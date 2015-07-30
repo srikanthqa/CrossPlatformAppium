@@ -1,8 +1,11 @@
 package com.qa.shopkick.pages;
 
+import junit.framework.Assert;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 
 import com.qa.shopkick.utils.AbstractPage;
 
@@ -26,4 +29,15 @@ public class ScanTutorialPage extends AbstractPage{
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/tutorial_details_link\").text(\"SEE STORES WITH SCANS\")")
 	private static WebElement seeStoresWithScans;
 
+	public static void verifyScanHowToElements(){
+		if(scanTutorialDetails.isDisplayed()){
+			if(seeStoresWithScans.isDisplayed()){
+				seeStoresWithScans.click();
+				PageFactory.initElements(new AppiumFieldDecorator(driver), new StoresPage());
+			}
+		}
+		else{
+			Assert.fail();
+		}
+	}
 }
