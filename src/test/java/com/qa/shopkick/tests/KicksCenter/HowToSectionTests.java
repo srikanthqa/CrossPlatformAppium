@@ -19,7 +19,6 @@ import com.qa.shopkick.utils.CustomHooks;
 public class HowToSectionTests extends AbstractTest
 {
 
-
 	@Test
 	public void Test1_verifyHowToWalkins()
 	{
