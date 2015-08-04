@@ -61,6 +61,40 @@ public class ProductsPage extends AbstractPage {
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/lookbook_title\")")
 	private static WebElement ProductsPageLookbookTitle;
 	
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/lookbook_image\")")
+	private static WebElement ProductsPageLookbookImage;
 	
+	public static void clickProductsPageLookbookImage(){
+		ProductsPageLookbookImage.click();
+	}
 	
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/checkmark\")")
+	private static WebElement ProductsPageCheckmark;
+	
+	public static void clickProductsPageCheckmark(){
+		ProductsPageCheckmark.click();
+	}
+	
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/branded_lookbook_image\")")
+	private static WebElement ProductsPageBrandedLookbookImage;
+	
+	public static void clickProductsPageBrandedLookbookImage(){
+		ProductsPageBrandedLookbookImage.click();
+	}
+	
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/subtab_name\").text(\"WOMEN\")")
+	private static WebElement ProductsPageWomenTab;
+	
+	public static void clickProductsPageWomenTab(){
+		ProductsPageWomenTab.click();
+	}
+	
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/subtab_name\").text(\"TRENDING\")")
+	private static WebElement ProductsPageTrendingTab;
+	
+	public static void clickProductsPageTrendingTab(){
+		ProductsPageTrendingTab.click();
+	}
 }
+
+	
