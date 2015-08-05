@@ -23,5 +23,14 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="/Users/viveknyayapathi/Downloads/selenium-2.44.0 2/selenium-java-2.44.0.jar"/>
+	<classpathentry kind="lib" path="/Users/viveknyayapathi/.m2/repository/org/seleniumhq/selenium/selenium-api/2.44.0/selenium-api-2.44.0.jar" sourcepath="/Users/viveknyayapathi/.m2/repository/org/seleniumhq/selenium/selenium-api/2.44.0/selenium-api-2.44.0-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="org.seleniumhq.selenium"/>
+			<attribute name="maven.artifactId" value="selenium-api"/>
+			<attribute name="maven.version" value="2.44.0"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

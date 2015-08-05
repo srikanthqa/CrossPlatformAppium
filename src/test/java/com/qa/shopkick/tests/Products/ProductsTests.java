@@ -1,21 +1,22 @@
 package com.qa.shopkick.tests.Products;
 
+
+
+import io.appium.java_client.MobileBy;
+import io.appium.java_client.MobileElement;
+
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
-import org.openqa.selenium.By;
 
-import com.qa.shopkick.pages.KicksCenterRewadsPage;
 import com.qa.shopkick.pages.LandingPage;
 import com.qa.shopkick.pages.LookbookPage;
 import com.qa.shopkick.pages.ProductsPage;
-import com.qa.shopkick.pages.StoresPage;
-import com.qa.shopkick.tests.Authentication.LoginHooks;
 import com.qa.shopkick.utils.AbstractTest;
 import com.qa.shopkick.utils.CustomHooks;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class ProductsTests {
+public class ProductsTests extends AbstractTest{
 
 	@Test
 	public void SwitchToProductsTab(){
@@ -47,6 +48,14 @@ public class ProductsTests {
 		
 	    //Tap My Saves
 	    ProductsPage.clickProductsPageMySaves();
+	    
+	}
+	
+	@Test
+	public void OpenLookBookTest(){
+		MobileElement LookBookElementone =  (MobileElement) driver.findElements(MobileBy.AndroidUIAutomator("new UiSelector().resourceId(\"com.shopkick.app:id/browse_feed_recycler_view\").childSelector(new UiSelector().className(\"android.widget.RelativeLayout\").index(1).childSelector(new UiSelector().resourceId(\"com.shopkick.app:id/lookbook_image\")"));
+		LookBookElementone.click();
+		
 	}
 	
 }

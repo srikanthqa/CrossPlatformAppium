@@ -102,5 +102,6 @@ public class ProductsPage extends AbstractPage {
 	public static void clickProductsPageTrendingTab(){
 		ProductsPageTrendingTab.click();
 	}
+
 }
 
