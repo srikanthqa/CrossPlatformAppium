@@ -1,5 +1,7 @@
 package com.qa.shopkick.pages;
 
+import junit.framework.Assert;
+
 import com.qa.shopkick.utils.AbstractPage;
 
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -78,7 +80,7 @@ public class ProductsPage extends AbstractPage {
 	private static WebElement ProductsPageCheckmark;
 
 	public static void clickProductsPageCheckmark(){
-		ProductsPageCheckmark.click();
+		Assert.assertTrue(ProductsPageCheckmark.isDisplayed());
 	}
 
 	//Branded lookbook
