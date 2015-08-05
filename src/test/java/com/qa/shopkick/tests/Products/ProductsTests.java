@@ -47,7 +47,7 @@ public class ProductsTests extends AbstractTest{
 	public void Test4_VerifyLookbookState(){
 
 		//Verify checkmark for read lookbooks
-		ProductsPage.clickProductsPageCheckmark();
+		ProductsPage.verifyCheckMarkForLookBooks();
 	}
 
 	//Scroll down then back up (to do)

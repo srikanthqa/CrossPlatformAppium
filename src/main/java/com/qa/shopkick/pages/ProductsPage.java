@@ -79,7 +79,7 @@ public class ProductsPage extends AbstractPage {
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/checkmark\")")
 	private static WebElement ProductsPageCheckmark;
 
-	public static void clickProductsPageCheckmark(){
+	public static void verifyCheckMarkForLookBooks(){
 		Assert.assertTrue(ProductsPageCheckmark.isDisplayed());
 	}
 
