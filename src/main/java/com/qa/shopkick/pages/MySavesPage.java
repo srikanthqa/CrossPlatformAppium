@@ -61,5 +61,14 @@ public class MySavesPage extends AbstractPage {
 		PageFactory.initElements(new AppiumFieldDecorator(driver), new ProductsPage());
 	}
 	
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/heart\")")
+	private static WebElement MySavesDealHeart;
+	
+	public static void clickOnMySavesDealHeart(){
+		MySavesDealHeart.click();
+	}
+	
+	}
+	
 
 }
