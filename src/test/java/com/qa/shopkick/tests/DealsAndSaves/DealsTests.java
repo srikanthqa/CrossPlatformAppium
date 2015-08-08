@@ -38,15 +38,16 @@ public class DealsTests extends AbstractTest{
 	public void Test4_ScrollDeals(){
 		//scrolling down then back up
 		CustomHooks.pressBack();
-		driver.scrollTo("Michaels")
-		driver.scrollTo("Target")
+		driver.scrollTo("Michaels");
+		driver.scrollTo("Target");
 	}
 	
 	@Test
 	public void Tesst5_SearchDeals(){
-		searching Old Navy in Deals
+		//searching Old Navy in Deals
 		DealsPage.clickOnSearchBar();
-		driver.sendKeyEvent("Old Navy");
+		//driver.sendKeys("Old Navy");
+		DealsPage.searchInStoresSearchBar("Old Navy");
 		
 	}
 }

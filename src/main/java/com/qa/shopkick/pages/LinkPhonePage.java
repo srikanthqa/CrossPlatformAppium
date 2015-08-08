@@ -1,6 +1,5 @@
 package com.qa.shopkick.pages;
 
-import static junit.framework.TestCase.assertTrue;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;

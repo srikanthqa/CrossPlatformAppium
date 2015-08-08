@@ -1,16 +1,16 @@
 package com.qa.shopkick.pages;
 
-import junit.framework.Assert;
-
-import com.qa.shopkick.utils.AbstractPage;
-
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
+import junit.framework.Assert;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
+import com.qa.shopkick.utils.AbstractPage;
+
+@SuppressWarnings("deprecation")
 public class ProductsPage extends AbstractPage {
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/kicks_counter\")")

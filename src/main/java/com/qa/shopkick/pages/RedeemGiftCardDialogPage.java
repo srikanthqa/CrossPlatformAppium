@@ -1,13 +1,12 @@
 package com.qa.shopkick.pages;
 
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
-
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
+
 import com.qa.shopkick.utils.AbstractPage;
-import com.qa.shopkick.utils.CustomHooks;
 
 public class RedeemGiftCardDialogPage extends AbstractPage{
 	

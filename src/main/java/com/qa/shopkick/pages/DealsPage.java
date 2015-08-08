@@ -10,7 +10,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 import com.qa.shopkick.utils.AbstractPage;
-import com.sun.jna.Platform;
 
 public class DealsPage extends AbstractPage {
 
@@ -20,6 +19,11 @@ public class DealsPage extends AbstractPage {
 	public static void clickOnSearchBar(){
 		DealsPageStoreSearch.click();
 		PageFactory.initElements(new AppiumFieldDecorator(driver), new DealsListSearchPage());
+	}
+	
+	public static void searchInStoresSearchBar(String StoreName){
+		DealsPageStoreSearch.clear();
+		DealsPageStoreSearch.sendKeys(StoreName);
 	}
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/chain_logo_image\")")

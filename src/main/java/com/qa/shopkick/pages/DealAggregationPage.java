@@ -2,7 +2,6 @@ package com.qa.shopkick.pages;
 
 import com.qa.shopkick.utils.AbstractPage;
 
-import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;

@@ -1,10 +1,9 @@
 package com.qa.shopkick.pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
+
+import org.openqa.selenium.WebElement;
 
 import com.qa.shopkick.utils.AbstractPage;
 

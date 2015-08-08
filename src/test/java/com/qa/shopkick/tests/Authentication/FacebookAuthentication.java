@@ -1,23 +1,15 @@
 package com.qa.shopkick.tests.Authentication;
 
-import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import org.junit.runners.MethodSorters;
-
 import org.junit.FixMethodOrder;
-
 import org.junit.Test;
-import org.openqa.selenium.support.PageFactory;
-
+import org.junit.runners.MethodSorters;
 
 import com.qa.shopkick.pages.CountryPickerPage;
 import com.qa.shopkick.pages.FirstUseDealsEducationPage;
 import com.qa.shopkick.pages.FirstUseRegistrationIntroPage;
 import com.qa.shopkick.pages.FirstUseRewardsEducationPage;
 import com.qa.shopkick.pages.FirstUseWalkinEducationPage;
-import com.qa.shopkick.pages.LandingPage;
-import com.qa.shopkick.pages.MicrophonePermissionPage;
 import com.qa.shopkick.pages.RewardsPickerPage;
-import com.qa.shopkick.pages.SignInPage;
 import com.qa.shopkick.utils.AbstractTest;
 import com.qa.shopkick.utils.CustomHooks;
 

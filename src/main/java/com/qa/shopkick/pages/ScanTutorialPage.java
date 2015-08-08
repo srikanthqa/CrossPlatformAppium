@@ -1,14 +1,15 @@
 package com.qa.shopkick.pages;
 
-import junit.framework.Assert;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import junit.framework.Assert;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 import com.qa.shopkick.utils.AbstractPage;
 
+@SuppressWarnings("deprecation")
 public class ScanTutorialPage extends AbstractPage{
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/app_screen_header\").text(\"How to scan\")")
