@@ -65,6 +65,16 @@ public class LeftNavBar extends AbstractPage{
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/all_time_kicks_text\").text(\"All-time kicks\")")
 	private static WebElement allTimeKicksLeftNav;
+	
+	public static void clickOnAllTimeKicks(){
+		allTimeKicksLeftNav.click();
+		PageFactory.initElements(new AppiumFieldDecorator(driver),new KicksActivityPage());
+	}
+	
+	public static void clickOnCurrentKicks(){
+		currentKicksLeftNav.click();
+		PageFactory.initElements(new AppiumFieldDecorator(driver),new KicksActivityPage());
+	}
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/row_text\").text(\"My profile\")")
 	private static WebElement myProfileLeftNav;

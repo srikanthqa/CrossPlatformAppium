@@ -23,6 +23,14 @@ public class KicksCenterRewadsPage extends AbstractPage{
 	@iOSFindBy(uiAutomator = ".buttons()[\"Change Reward\"]")
 	private static WebElement kickCenterChangeReward;
 	
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/kicks_center_kicks_activity_text\").text(\"Kicks Activity\")")
+	private static WebElement kicksActivityScreen;
+	
+	public static void clickOnKicksActivity(){
+		kicksActivityScreen.click();
+		PageFactory.initElements(new AppiumFieldDecorator(driver),new KicksActivityPage());
+	}
+	
 	public static void clickOnChangeReward(){
 		kickCenterChangeReward.click();
 		PageFactory.initElements(new AppiumFieldDecorator(driver),new RewardsPickerPage());
@@ -31,6 +39,8 @@ public class KicksCenterRewadsPage extends AbstractPage{
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/kicks_center_tutorial_or_pending\").text(\"GET MORE KICKS. LEARN HOW.\")")
 	@iOSFindBy(uiAutomator = ".buttons()[\"Get More kicks. Learn How.\"]")
 	private static WebElement getMoreKicksLearnHow;
+	
+	
 	
 	public static void clickOnLearnHowToGetKicks(){
 		getMoreKicksLearnHow.click();
