@@ -54,10 +54,10 @@ public class LaunchTest extends AbstractTest {
 			CountryPickerPage.clickNextButton();
 		}
 		FirstUseWalkinEducationPage.clickNextButton();
-		FirstUseRewardsEducationPage.clickNextButton();
+		FirstUseRewardsEducationPage.clickPickARewardButton();
 
 		//Pick default reward
-		RewardsPickerPage.clickNextButton();
+		RewardsPickerPage.clickSelectRewardButton();
 
 		FirstUseAlternateScreen.clickOnContinueAsGuestButton();
 

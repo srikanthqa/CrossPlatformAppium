@@ -30,10 +30,10 @@ public class SmokeOneIphone extends AbstractTest{
 		}
 		FirstUseWalkinEducationPage.clickNextButton();
 		
-		FirstUseRewardsEducationPage.clickNextButton();
+		FirstUseRewardsEducationPage.clickPickARewardButton();
 
 		//Pick default reward
-		RewardsPickerPage.clickNextButton();
+		RewardsPickerPage.clickSelectRewardButton();
 
 		FirstUseRegistrationIntroPage.clickNoThanksButton();
 		

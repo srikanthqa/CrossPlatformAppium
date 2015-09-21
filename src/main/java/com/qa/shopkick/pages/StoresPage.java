@@ -72,4 +72,12 @@ public class StoresPage extends AbstractPage {
 	public static void clickOnTrendingOnShopkick(){
 		trendingNow.click();
 	}
+	
+	@AndroidFindBy(id = "com.shopkick.app:id/store_search_text_field")
+	public static WebElement StoresPageSearchBox;
+	
+
+	@AndroidFindBy(id = "com.shopkick.app:id/chain_name")
+	public static WebElement StoresPageChainName;
+	
 }

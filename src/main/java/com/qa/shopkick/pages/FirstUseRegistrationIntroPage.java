@@ -23,6 +23,9 @@ public class FirstUseRegistrationIntroPage extends AbstractPage{
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"SIGN UP/SIGN IN\")")
     private static WebElement signUpOrSignInButton;
     
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"Have an account? Log In\")")
+    private static WebElement logInButton;
+    
     public static boolean isItLegacySignUpScreen(){
     	if(noThanksButton.isDisplayed()){
     		return true;
@@ -41,6 +44,11 @@ public class FirstUseRegistrationIntroPage extends AbstractPage{
     public static void clickSignUpOrSignInButton(){
         signUpOrSignInButton.click();
         PageFactory.initElements(new AppiumFieldDecorator(driver),new SignInPage());
+    }
+    
+    public static void clickLoginButton(){
+    	logInButton.click();
+    	PageFactory.initElements(new AppiumFieldDecorator(driver),new SignInPage());
     }
 
 }

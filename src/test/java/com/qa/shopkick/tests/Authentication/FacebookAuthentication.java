@@ -27,13 +27,17 @@ public class FacebookAuthentication extends AbstractTest{
 			CountryPickerPage.clickCountryUSA();
 			CountryPickerPage.clickNextButton();
 		}
+		//Redeem your kicks for rewards screen
 		FirstUseWalkinEducationPage.clickNextButton();
-		FirstUseRewardsEducationPage.clickNextButton();
+		
+		//User has to tap on pick a reward
+		FirstUseRewardsEducationPage.clickPickARewardButton();
 
 		//Pick default reward
-		RewardsPickerPage.clickNextButton();
+		RewardsPickerPage.clickSelectRewardButton();
 		
-		FirstUseRegistrationIntroPage.clickSignUpOrSignInButton();
+		//Click on Login button
+		FirstUseRegistrationIntroPage.clickLoginButton();;
 	}
 
 	@Test

@@ -13,9 +13,9 @@ import com.qa.shopkick.utils.AbstractPage;
 public class SignInPage extends AbstractPage {
 
 	//@iOSFindBy()
-	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/title_text\").text(\"Sign in or sign up\").className(\"android.widget.TextView\")")
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/title_text\").text(\"Choose your login method\").className(\"android.widget.TextView\")")
 	 @iOSFindBy(uiAutomator = ".staticTexts()[\"Sign in or sign up\"]")
-	private static WebElement signInOrSignUp;
+	private static WebElement signInMethodText;
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"FACEBOOK\")")
 	@iOSFindBy(uiAutomator = ".buttons()[\"Facebook\"]")

@@ -12,12 +12,12 @@ import org.openqa.selenium.support.PageFactory;
  */
 public class FirstUseRewardsEducationPage extends AbstractPage{
 
-    @iOSFindBy(uiAutomator = ".buttons()[\"Next\"]")
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"NEXT\")")
-    private static WebElement nextButton;
+    @iOSFindBy(uiAutomator = ".buttons()[\"Pick a Reward\"]")
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"PICK A REWARD\")")
+    private static WebElement pickAReward;
 
-    public static void clickNextButton(){
-        nextButton.click();
+    public static void clickPickARewardButton(){
+        pickAReward.click();
         PageFactory.initElements(new AppiumFieldDecorator(driver),new RewardsPickerPage());
     }
 

@@ -33,10 +33,10 @@ public class AuthenticationTests extends AbstractTest{
 			CountryPickerPage.clickNextButton();
 		}
 		FirstUseWalkinEducationPage.clickNextButton();
-		FirstUseRewardsEducationPage.clickNextButton();
+		FirstUseRewardsEducationPage.clickPickARewardButton();
 
 		//Pick default reward
-		RewardsPickerPage.clickNextButton();
+		RewardsPickerPage.clickSelectRewardButton();
 	}
 
 	@Test

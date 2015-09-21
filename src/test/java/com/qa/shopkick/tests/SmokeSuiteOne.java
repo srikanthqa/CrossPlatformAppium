@@ -44,10 +44,10 @@ public class SmokeSuiteOne extends AbstractTest{
 		}
 
 		FirstUseWalkinEducationPage.clickNextButton();
-		FirstUseRewardsEducationPage.clickNextButton();
+		FirstUseRewardsEducationPage.clickPickARewardButton();
 
 		//Pick default reward
-		RewardsPickerPage.clickNextButton();
+		RewardsPickerPage.clickSelectRewardButton();
 
 		if(!SignInPage.isFacebookLoginAvail())
 		{

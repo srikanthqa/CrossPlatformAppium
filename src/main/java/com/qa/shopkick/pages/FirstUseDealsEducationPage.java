@@ -9,12 +9,12 @@ import org.openqa.selenium.support.PageFactory;
 
 public class FirstUseDealsEducationPage extends AbstractPage{
 
-    @iOSFindBy(uiAutomator = ".buttons()[\"Next\"]")
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"NEXT\")")
-    private static WebElement nextButton;
+    @iOSFindBy(uiAutomator = ".buttons()[\"Get Started\"]")
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"GET STARTED\")")
+    private static WebElement getStartedFirstUse;
 
     public static void clickNextButton(){
-        nextButton.click();
+        getStartedFirstUse.click();
         PageFactory.initElements(new AppiumFieldDecorator(driver),new CountryPickerPage());
         PageFactory.initElements(new AppiumFieldDecorator(driver),new FirstUseWalkinEducationPage());
     }

@@ -14,12 +14,12 @@ import org.openqa.selenium.support.PageFactory;
  */
 public class RewardsPickerPage extends AbstractPage{
 
-    @iOSFindBy(uiAutomator = ".buttons()[\"Next\"]")
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"NEXT\")")
-    private static WebElement nextButton;
+    @iOSFindBy(uiAutomator = ".buttons()[\"Select Reward\"]")
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"SELECT REWARD\")")
+    private static WebElement selectReward;
 
-    public static void clickNextButton(){
-        nextButton.click();
+    public static void clickSelectRewardButton(){
+        selectReward.click();
         PageFactory.initElements(new AppiumFieldDecorator(driver), new FirstUseRegistrationIntroPage());
         PageFactory.initElements(new AppiumFieldDecorator(driver), new FirstUseAlternateScreen());
         PageFactory.initElements(new AppiumFieldDecorator(driver), new SignInPage());
