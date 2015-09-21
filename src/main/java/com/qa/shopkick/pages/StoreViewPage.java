@@ -1,5 +1,7 @@
 package com.qa.shopkick.pages;
 
+import java.util.List;
+
 import io.appium.java_client.pagefactory.AndroidFindBy;
 
 import org.openqa.selenium.WebElement;
@@ -54,6 +56,18 @@ public class StoreViewPage extends AbstractPage {
 	public static void clickStoreViewPageKicksSummaryBNCView(){
 		StoreViewPageKicksSummaryBNCView.click();
 	}
+	
+	@AndroidFindBy(id = "com.shopkick.app:id/group_header_see_all_field")
+	public static WebElement StoreViewPageGroupHeader;
+	
+	@AndroidFindBy(id = "com.shopkick.app:id/product_image")
+	public static List <WebElement> productList;
+	
+	@AndroidFindBy(id = "com.shopkick.app:id/button_text")
+	public static List <WebElement> buttonTextList;
 
+	@AndroidFindBy(id = "com.shopkick.app:id/fave_icon")
+	public static WebElement heartIcon;
+	//
 	
 }
