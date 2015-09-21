@@ -59,6 +59,8 @@ public class LoginHooks extends AbstractTest{
 
 			EmailSignInPage.clickAndEnterPasswordIOS("aaaaaa");
 		}
+		
+		EmailSignInPage.clickLoginButton();
 
 		CustomHooks.dismissMultiLoginMessage();
 	}

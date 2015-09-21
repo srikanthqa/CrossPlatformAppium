@@ -100,11 +100,22 @@ public class EmailSignInPage extends AbstractPage {
 	}
 
 
-	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/forgot_password\").text(\"Forgot your password?\")")
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/forgot_password\").text(\"Forgot password?\")")
 	private static WebElement emailsigninForgotYourPassword;
 
 	public static void clickemailsigninForgotYourPassword(){
 		emailsigninForgotYourPassword.click();
+	}
+	
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"LOG IN\")")
+	private static WebElement logInEmailButton;
+	
+	public static void clickLoginButton(){
+		logInEmailButton.click();
+		PageFactory.initElements(new AppiumFieldDecorator(driver),new DidYouKnowPage());
+		PageFactory.initElements(new AppiumFieldDecorator(driver), new LandingPage());
+		PageFactory.initElements(new AppiumFieldDecorator(driver), new StoresPage());
+		
 	}
 
 
