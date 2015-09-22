@@ -35,7 +35,7 @@ public class KicksActivityPage extends AbstractPage {
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/ka_pending_header\").text(\"Pending\")")
 	private static WebElement PendingHeader;
 	
-	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/ka_pending_header\").text(\"Past\")")
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/ka_past_header\").text(\"Past\")")
 	private static WebElement PastHeader;
 	
 }
