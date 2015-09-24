@@ -94,4 +94,3 @@ public class LoginHooks extends AbstractTest{
 				FirstUseRegistrationIntroPage.clickLoginButton();
 			}
 	}
-}
