@@ -21,7 +21,7 @@ public class StoresPage extends AbstractPage {
 		PageFactory.initElements(new AppiumFieldDecorator(driver),new RedeemGiftCardDialogPage());
 	}
 		
-	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_icon\")")
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/promo_key_view\")")
 	private static WebElement StoresPageMySaves;
 	
 	public static void clickStoresPageMySaves(){

@@ -27,6 +27,10 @@ public class EmailAuthentication extends AbstractTest
 		//Go thorough first use
 		LoginHooks.GoThroughFirstUse();
 		
+<<<<<<< HEAD
+=======
+		//FacebookAuthentication.
+>>>>>>> fixed class path removed testNg
 		//dismiss the beta env. error that we see during logout
 		CustomHooks.dismissPotHoleError();
 

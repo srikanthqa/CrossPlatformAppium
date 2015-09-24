@@ -1,10 +1,10 @@
 package com.qa.shopkick.tests;
 
-import org.testng.annotations.Test;
 import javax.management.DescriptorKey;
 
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
+import org.junit.Test;
 import org.openqa.selenium.support.PageFactory;
 
 import com.qa.shopkick.pages.CountryPickerPage;
