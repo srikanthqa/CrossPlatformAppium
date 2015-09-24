@@ -24,6 +24,10 @@ public class EmailAuthentication extends AbstractTest
 	@Test
 	public void Test1_createEmailAccount()
 	{
+		//Go thorough first use
+		LoginHooks.GoThroughFirstUse();
+		
+		FacebookAuthentication.
 		//dismiss the beta env. error that we see during logout
 		CustomHooks.dismissPotHoleError();
 

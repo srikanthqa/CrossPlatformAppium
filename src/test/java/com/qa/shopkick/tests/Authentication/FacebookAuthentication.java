@@ -37,7 +37,7 @@ public class FacebookAuthentication extends AbstractTest{
 		RewardsPickerPage.clickSelectRewardButton();
 		
 		//Click on Login button
-		FirstUseRegistrationIntroPage.clickLoginButton();;
+		FirstUseRegistrationIntroPage.clickLoginButton();
 	}
 
 	@Test

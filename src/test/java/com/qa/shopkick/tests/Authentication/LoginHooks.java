@@ -1,7 +1,13 @@
 package com.qa.shopkick.tests.Authentication;
 
+import com.qa.shopkick.pages.CountryPickerPage;
 import com.qa.shopkick.pages.EmailSignInPage;
+import com.qa.shopkick.pages.FirstUseDealsEducationPage;
+import com.qa.shopkick.pages.FirstUseRegistrationIntroPage;
+import com.qa.shopkick.pages.FirstUseRewardsEducationPage;
+import com.qa.shopkick.pages.FirstUseWalkinEducationPage;
 import com.qa.shopkick.pages.MicrophonePermissionPage;
+import com.qa.shopkick.pages.RewardsPickerPage;
 import com.qa.shopkick.pages.SignInPage;
 import com.qa.shopkick.utils.AbstractTest;
 import com.qa.shopkick.utils.CustomHooks;
@@ -65,4 +71,27 @@ public class LoginHooks extends AbstractTest{
 		CustomHooks.dismissMultiLoginMessage();
 	}
 
+	public static void GoThroughFirstUse()
+	{
+		//Go through the first use flow
+				FirstUseDealsEducationPage.clickNextButton();
+				CustomHooks.waitFor(2);
+
+				if(PlatformType.equals("IOS")){
+					CountryPickerPage.clickCountryUSA();
+					CountryPickerPage.clickNextButton();
+				}
+				//Redeem your kicks for rewards screen
+				FirstUseWalkinEducationPage.clickNextButton();
+				
+				//User has to tap on pick a reward
+				FirstUseRewardsEducationPage.clickPickARewardButton();
+
+				//Pick default reward
+				RewardsPickerPage.clickSelectRewardButton();
+				
+				//Click on Login button
+				FirstUseRegistrationIntroPage.clickLoginButton();
+			}
+	}
 }
