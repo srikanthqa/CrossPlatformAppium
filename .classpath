@@ -23,6 +23,10 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry kind="lib" path="/Users/viveknyayapathi/Downloads/selenium-java-2.44.0.jar"/>
+	<classpathentry kind="lib" path="/Users/viveknyayapathi/Downloads/selenium-java-2.46.0.jar"/>
+	<classpathentry kind="lib" path="/Users/viveknyayapathi/Downloads/selenium-server-2.46.0.jar"/>
+	<classpathentry kind="lib" path="/Users/viveknyayapathi/Downloads/maven-surefire-plugin-2.18.1.jar"/>
+	<classpathentry kind="lib" path="/Users/viveknyayapathi/Downloads/java-client-2.1.0.jar"/>
+	<classpathentry kind="lib" path="/Users/viveknyayapathi/Downloads/selenium-api-2.25.0.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

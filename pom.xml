@@ -12,6 +12,9 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.16</version>
 				<configuration>
+					<forkCount>0</forkCount>
+					<reuseForks>false</reuseForks>
+					<forkMode>never</forkMode>
 					<systemProperties>
 						<property>
 							<name>platformType</name>
@@ -30,7 +33,6 @@
 							<value>${deviceUDID}</value>
 						</property>
 					</systemProperties>
-					<groups>Authentication, FacebookSDK</groups>
 				</configuration>
 			</plugin>
 		</plugins>
