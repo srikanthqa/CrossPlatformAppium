@@ -26,9 +26,6 @@ public class EmailAuthentication extends AbstractTest
 	{
 		//Go thorough first use
 		LoginHooks.GoThroughFirstUse();
-		
-		//the beta env. error that we see during logout
-		CustomHooks.dismissPotHoleError();
 
 		//From logout screen hit on email to create an account
 		SignInPage.clicksignInEmailSignIn();
