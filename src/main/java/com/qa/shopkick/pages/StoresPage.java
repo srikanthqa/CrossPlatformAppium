@@ -1,5 +1,7 @@
 package com.qa.shopkick.pages;
 
+import java.util.List;
+
 import com.qa.shopkick.utils.AbstractPage;
 
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -11,6 +13,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class StoresPage extends AbstractPage {
 	
+	//Kicks center
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/kicks_counter\")")
 	@iOSFindBy(uiAutomator = ".buttons()[\"arrow down white\"]")
 	private static WebElement StoresPageKicksCenter;
@@ -21,6 +24,7 @@ public class StoresPage extends AbstractPage {
 		PageFactory.initElements(new AppiumFieldDecorator(driver),new RedeemGiftCardDialogPage());
 	}
 		
+	//My Saves
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/promo_key_view\")")
 	private static WebElement StoresPageMySaves;
 	
@@ -28,6 +32,7 @@ public class StoresPage extends AbstractPage {
 		StoresPageMySaves.click();
 	}
 	
+	//Promo image unit
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/promo_image\")")
 	private static WebElement StoresPagePromoImage;
 	
@@ -35,6 +40,7 @@ public class StoresPage extends AbstractPage {
 		StoresPagePromoImage.click();
 	}
 	
+	//searcgh bar
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/store_search_dummy_field\")")
 	private static WebElement StoresPageStoreSearch;
 	
@@ -42,6 +48,28 @@ public class StoresPage extends AbstractPage {
 		StoresPageStoreSearch.click();
 	}
 	
+	//stores tab highlight
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/store_search_dummy_field\")")
+	public static WebElement tabHighlight;
+	
+	
+	//Stores tab carousel promo unit
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/promo_carousel_cell\")")
+	public static WebElement promoUnitStoresTab;
+	
+	//StoresList Item
+	@AndroidFindBy(id = "com.shopkick.app:id/name_and_kick_information")
+	public static List <WebElement> recyclerViewStoresList;
+	
+	//StoreDistance items
+	@AndroidFindBy(id = "com.shopkick.app:id/distance_text")
+	public static List <WebElement> storesDistances;
+	
+	/************** BLAH ***************** REVIST ****************/
+	
+	//TODO: REVISIT THIS CODE AND BELOW
+	
+	//Old Navy
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/chain_name\").text(\"Old Navy\")")
 	@iOSFindBy(uiAutomator = ".cells()[\"Old Navy\"]")
 	private static WebElement StoresPageNameAndKickInformation;
