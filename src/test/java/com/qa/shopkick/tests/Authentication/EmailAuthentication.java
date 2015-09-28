@@ -38,7 +38,7 @@ public class EmailAuthentication extends AbstractTest
 		EmailSignInPage.clickAndEnterPswdANDROID("sktest123");
 
 		//Hit sign up
-		EmailSignInPage.clickOnSignUpButton();
+		EmailSignInPage.clickLoginButton();
 
 		CustomHooks.waitFor(5);
 
