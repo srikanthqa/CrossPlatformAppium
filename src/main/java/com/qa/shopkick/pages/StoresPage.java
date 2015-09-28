@@ -46,6 +46,7 @@ public class StoresPage extends AbstractPage {
 	
 	public static void clickStoresPageStoreSearch(){
 		StoresPageStoreSearch.click();
+		PageFactory.initElements(new AppiumFieldDecorator(driver),new StoreSearchPage());
 	}
 	
 	//stores tab highlight

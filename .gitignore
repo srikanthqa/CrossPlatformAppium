@@ -1,1 +1,15 @@
+# Do not need target files
 /target/
+/bin/
+/build/
+
+#Do not need jars
+*.jar
+
+#other eclipse generated files we don not need
+local.properties
+.classpath
+.settings/
+.loadpath
+
+
