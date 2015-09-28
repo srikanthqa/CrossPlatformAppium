@@ -37,13 +37,6 @@ public class EmailAuthentication extends AbstractTest
 		//add password
 		EmailSignInPage.clickAndEnterPswdANDROID("sktest123");
 
-		//confirm password
-		EmailSignInPage.enterConfirmPassword();
-
-		//Add first and last name
-		EmailSignInPage.clickAndEnterFirstName();
-		EmailSignInPage.clickAndEnterLastName();
-
 		//Hit sign up
 		EmailSignInPage.clickOnSignUpButton();
 
