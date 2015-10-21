@@ -39,7 +39,7 @@
 	</build>
 	<packaging>jar</packaging>
 
-	<name>mobileautomation</name>
+	<name>CrossPlatformAppium</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
