@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.qa.shopkick</groupId>
-	<artifactId>mobileautomation</artifactId>
+	<artifactId>CrossPlatformAppium</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<build>
 		<plugins>
@@ -72,5 +72,11 @@
 			<artifactId>java-client</artifactId>
 			<version>2.1.0</version>
 		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+
 	</dependencies>
 </project>

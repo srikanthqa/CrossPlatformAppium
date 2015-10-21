@@ -21,11 +21,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="mobileautomation" />
+        <module name="CrossPlatformAppium" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.7">
-      <module name="mobileautomation" target="1.5" />
+      <module name="CrossPlatformAppium" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
