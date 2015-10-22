@@ -32,10 +32,11 @@ mkdir screenshots
 
 ############ remove old files #################
 
-echo "Deleting old apk from build folder"
+echo "Deleting old apk from APK folder"
 echo "*****************"
-rm -rf Shopkick-release-unsigned.apk
-echo "Deleting old apk from Your device"
+cd APK
+#rm -rf *.apk
+echo "Deleted old apk from Your device"
 echo "*****************"
 
 rm -fr logs/Logcat.txt
@@ -50,12 +51,13 @@ killall node
 Echo 'Downloading the build'
 echo "*****************"
 
-curl --output APK/Shopkick-release.apk -O http://shopkicks-mac-pro.local:8080/job/Android_trunk/ws/apps/shopkick/android/Shopkick/bin/Shopkick-release.apk
+
+#curl --output APK/Shopkick-release.apk -O http://shopkicks-mac-pro.local:8080/job/Android_RC_branch/ws/apps/shopkick/android/Shopkick/build/outputs/apk/
 
 Echo 'Installing APK ....'
 
-adb install -r APK/Shopkick-release.apk
+adb install -r APK/Shopkick_debug_pr*.apk
 ########################## Start Appium #########################
-appium --address 0.0.0.0 --port 4723 > logs/appium.log &
+killall node && appium --address 0.0.0.0 --port 4723 > logs/appium.log &
 ########################### Kick off tests ######################################
 
