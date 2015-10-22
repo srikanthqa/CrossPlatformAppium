@@ -1,171 +1,142 @@
 package com.qa.shopkick.tests;
 
-import org.junit.After;
-import org.junit.Test;
-import org.openqa.selenium.By;
-
-import com.qa.shopkick.pages.AccountSettings;
-import com.qa.shopkick.pages.CountryPickerPage;
-import com.qa.shopkick.pages.DealAggregationPage;
-import com.qa.shopkick.pages.DealDetailpage;
-import com.qa.shopkick.pages.DealsPage;
-import com.qa.shopkick.pages.DidYouKnowPage;
-import com.qa.shopkick.pages.FirstUseDealsEducationPage;
-import com.qa.shopkick.pages.FirstUseRegistrationIntroPage;
-import com.qa.shopkick.pages.FirstUseRewardsEducationPage;
-import com.qa.shopkick.pages.FirstUseWalkinEducationPage;
-import com.qa.shopkick.pages.LandingPage;
-import com.qa.shopkick.pages.LeftNavBar;
-import com.qa.shopkick.pages.LeftNavSettings;
-import com.qa.shopkick.pages.LookbookPage;
-import com.qa.shopkick.pages.MicrophonePermissionPage;
-import com.qa.shopkick.pages.MySavesPage;
-import com.qa.shopkick.pages.OfferPage;
-import com.qa.shopkick.pages.ProductsPage;
-import com.qa.shopkick.pages.RelatedOfferPage;
-import com.qa.shopkick.pages.RewardsPickerPage;
-import com.qa.shopkick.pages.SignInPage;
-import com.qa.shopkick.pages.StoreViewPage;
-import com.qa.shopkick.pages.StoresPage;
-import com.qa.shopkick.pages.ToolTipsPage;
+import com.qa.shopkick.pages.*;
 import com.qa.shopkick.utils.AbstractTest;
 import com.qa.shopkick.utils.CustomHooks;
+import org.junit.After;
+import org.junit.Test;
 
-public class SmokeSuiteTwo extends AbstractTest{
+public class SmokeSuiteTwo extends AbstractTest {
 
-	@Test
-	public void GooglePlusFlow()
-	{
-		CustomHooks.dismissPotHoleError();
+    @Test
+    public void GooglePlusFlow() {
+        CustomHooks.dismissPotHoleError();
 
-		//tap on the 'Guest' button to open left nav bar
-		SignInPage.clicksignInGooglePlusSignIn();		
+        //tap on the 'Guest' button to open left nav bar
+        SignInPage.clicksignInGooglePlusSignIn();
 
-		CustomHooks.dismissMultiLoginMessage();
+        CustomHooks.dismissMultiLoginMessage();
 
-		//Go to Stores
-		LandingPage.clicktabTitleStores();
+        //Go to Stores
+        LandingPage.clicktabTitleStores();
 
-		//Open a store
-		StoresPage.clickStoresPageNameAndKickInformation();
+        //Open a store
+        StoresPage.clickStoresPageNameAndKickInformation();
 
-		//wait for tool tips to load
-		CustomHooks.waitFor(10);
+        //wait for tool tips to load
+        CustomHooks.waitFor(10);
 
-		//Close tool tips
-		ToolTipsPage.clickToolTipCloseButton();
+        //Close tool tips
+        ToolTipsPage.clickToolTipCloseButton();
 
-		driver.scrollTo("Trending on shopkick");
+        driver.scrollTo("Trending on shopkick");
 
-		if(PlatformType.equals("IOS")){
-			//tap on all trending
-			StoresPage.clickOnTrendingOnShopkick();
-			//tap on cell
-			RelatedOfferPage.clickOnFirstTrendingItem();
-		}
-		else
-		{
-			//Go to product
-			StoresPage.clickStoresPageOfferCellLeft();
-		}
-		
-		//Save product
-		RelatedOfferPage.clickRelatedOfferSaveOffer();
-		
-		//Go back to store view
-		CustomHooks.pressBack();
+        if (PlatformType.equals("IOS")) {
+            //tap on all trending
+            StoresPage.clickOnTrendingOnShopkick();
+            //tap on cell
+            RelatedOfferPage.clickOnFirstTrendingItem();
+        } else {
+            //Go to product
+            StoresPage.clickStoresPageOfferCellLeft();
+        }
 
-		//Go back to store tab
-		CustomHooks.pressBack();
+        //Save product
+        RelatedOfferPage.clickRelatedOfferSaveOffer();
 
-		//Go to Deals Tab
-		LandingPage.clicktabTitleDeals();
+        //Go back to store view
+        CustomHooks.pressBack();
 
-		CustomHooks.waitFor(3);
+        //Go back to store tab
+        CustomHooks.pressBack();
+
+        //Go to Deals Tab
+        LandingPage.clicktabTitleDeals();
+
+        CustomHooks.waitFor(3);
 
 		/*
-		 * TODO: Make going to a deal more generic
+         * TODO: Make going to a deal more generic
 		 * Go to search in deals
 		 * Search for a store
 		 * Open store
 		 * 
 		 * */
-		
-		//Look for Carters or Michaels or Target
-		driver.scrollTo("Michaels");
-		
-		if(PlatformType.equals("IOS")){
-			DealsPage.clickOnMichaelsIOS();
-		}
-		else
-		{
-			//Go to product
-			DealsPage.clickDealsPageMichales();
-		}
 
-		//Tap to open the deal use deal titile and index
-		DealAggregationPage.clickOnDealTile();
+        //Look for Carters or Michaels or Target
+        driver.scrollTo("Michaels");
 
-		DealDetailpage.clickOnSaveDeal();
+        if (PlatformType.equals("IOS")) {
+            DealsPage.clickOnMichaelsIOS();
+        } else {
+            //Go to product
+            DealsPage.clickDealsPageMichales();
+        }
 
-		//Back to Deals Tab
-		CustomHooks.pressBack();
-		CustomHooks.pressBack();
+        //Tap to open the deal use deal titile and index
+        DealAggregationPage.clickOnDealTile();
 
-		//Go to Products Tab
-		LandingPage.clicktabTitleProducts();
+        DealDetailpage.clickOnSaveDeal();
 
-		//CustomHooks.dismissPotHoleError();
+        //Back to Deals Tab
+        CustomHooks.pressBack();
+        CustomHooks.pressBack();
 
-		//Open lookbook
-		ProductsPage.clickProductsPageLookbookCover();
+        //Go to Products Tab
+        LandingPage.clicktabTitleProducts();
 
-		//Save offer in lookbook
-		LookbookPage.clickLookbookPageLookbookOfferSaveHeart();
+        //CustomHooks.dismissPotHoleError();
 
-		//Back to Products Tab
-		CustomHooks.pressBack();
+        //Open lookbook
+        ProductsPage.clickProductsPageLookbookCover();
 
-		//Tap My Saves
-		ProductsPage.clickProductsPageMySaves();
+        //Save offer in lookbook
+        LookbookPage.clickLookbookPageLookbookOfferSaveHeart();
+
+        //Back to Products Tab
+        CustomHooks.pressBack();
+
+        //Tap My Saves
+        ProductsPage.clickProductsPageMySaves();
 		
 		/*
 		 *TODO: Add logic to tap on products tab under my saves
 		 * */
-		
-		//Tap on a product
-		MySavesPage.clickMySavesANYOfferTile();
 
-		//Unsave Product Page
-		OfferPage.clickOfferPageOfferSaveButton();
+        //Tap on a product
+        MySavesPage.clickMySavesANYOfferTile();
 
-		//Back to My Saves
-		CustomHooks.pressBack();
+        //Unsave Product Page
+        OfferPage.clickOfferPageOfferSaveButton();
 
-		//Hit back to go to products / landing page
-		MySavesPage.clickOnBackButton();
+        //Back to My Saves
+        CustomHooks.pressBack();
 
-		//TODO: Add verification
-		//Back to My Saves
-		//ProductsPage.clickProductsPageMySaves();
+        //Hit back to go to products / landing page
+        MySavesPage.clickOnBackButton();
 
-		//Logout
-		LandingPage.openLeftNavSignedIn();
+        //TODO: Add verification
+        //Back to My Saves
+        //ProductsPage.clickProductsPageMySaves();
 
-		driver.scrollTo("Settings");
+        //Logout
+        LandingPage.openLeftNavSignedIn();
 
-		LeftNavBar.clickOnSettingsLeftNav();
+        driver.scrollTo("Settings");
 
-		LeftNavSettings.clicksettingsAccountSettings();
+        LeftNavBar.clickOnSettingsLeftNav();
 
-		AccountSettings.clickAccountSettingsLogOut();
+        LeftNavSettings.clicksettingsAccountSettings();
 
-	}
-	@After
-	public void teardown(){
+        AccountSettings.clickAccountSettingsLogOut();
+
+    }
+
+    @After
+    public void teardown() {
 
 
-	}
+    }
 
 }
 

@@ -1,40 +1,10 @@
 package com.qa.shopkick.tests;
 
-import org.junit.Test;
-import org.openqa.selenium.By;
-
-import com.qa.shopkick.pages.AccountSettings;
-import com.qa.shopkick.pages.ConfirmDeleteAccountPage;
-import com.qa.shopkick.pages.CountryPickerPage;
-import com.qa.shopkick.pages.DealAggregationPage;
-import com.qa.shopkick.pages.DealDetailpage;
-import com.qa.shopkick.pages.DealsListSearchPage;
-import com.qa.shopkick.pages.DealsPage;
-import com.qa.shopkick.pages.DeleteAccountPage;
-import com.qa.shopkick.pages.EmailSignInPage;
-import com.qa.shopkick.pages.FirstUseAlternateScreen;
-import com.qa.shopkick.pages.FirstUseDealsEducationPage;
-import com.qa.shopkick.pages.FirstUseRewardsEducationPage;
-import com.qa.shopkick.pages.FirstUseWalkinEducationPage;
-import com.qa.shopkick.pages.InviteAndGetKicksPage;
-import com.qa.shopkick.pages.KicksCenterRewadsPage;
-import com.qa.shopkick.pages.LandingPage;
-import com.qa.shopkick.pages.LeftNavBar;
-import com.qa.shopkick.pages.LeftNavSettings;
-import com.qa.shopkick.pages.LinkPhonePage;
-import com.qa.shopkick.pages.LookbookPage;
-import com.qa.shopkick.pages.MicrophonePermissionPage;
-import com.qa.shopkick.pages.MySavesPage;
-import com.qa.shopkick.pages.OfferPage;
-import com.qa.shopkick.pages.ProductsPage;
-import com.qa.shopkick.pages.RelatedOfferPage;
-import com.qa.shopkick.pages.RewardsPickerPage;
-import com.qa.shopkick.pages.SignInPage;
-import com.qa.shopkick.pages.StoresPage;
-import com.qa.shopkick.pages.ToolTipsPage;
-import com.qa.shopkick.pages.VerifyMobileNumber;
+import com.qa.shopkick.pages.*;
 import com.qa.shopkick.utils.AbstractTest;
 import com.qa.shopkick.utils.CustomHooks;
+import org.junit.Test;
+import org.openqa.selenium.By;
 
 public class LaunchTest extends AbstractTest {
 
@@ -46,7 +16,7 @@ public class LaunchTest extends AbstractTest {
 	public void FirstUseFlow(){
 
 		//Go through the first use flow
-		FirstUseDealsEducationPage.clickNextButton();
+		FirstUseDealsEducationPage.clickGetStartedButton();
 		CustomHooks.waitFor(2);
 
 		if(PlatformType.equals("IOS")){
@@ -74,33 +44,6 @@ public class LaunchTest extends AbstractTest {
 
 		//Read current kicks so you can compare if the user has signed in and the kicks have been updated
 
-		currentKicksBeforeLogin = LeftNavBar.getCurrentKicksCount();
-
-		LeftNavBar.clickOnFaceBookSignIn();
-
-		CustomHooks.dismissMultiLoginMessage();
-
-		CustomHooks.waitFor(3);
-		driver.scrollTo("Settings");
-		//click on settings
-
-		LeftNavBar.clickOnSettingsLeftNav();
-
-		//Go to Account settings
-		LeftNavSettings.clicksettingsAccountSettings();
-
-		//perform a logout
-		AccountSettings.clickAccountSettingsLogOut();
-
-		//From logout screen hit on email to create an account
-		SignInPage.clicksignInEmailSignIn();
-
-		//CREATE ACCOUNT
-		//add email address
-		EmailSignInPage.clickAndEnterEmailANDROID("trest2@sk.com");
-
-		//add password
-		EmailSignInPage.clickAndEnterPswdANDROID("sktest123");
 
 		//confirm password
 		EmailSignInPage.enterConfirmPassword();

@@ -1,10 +1,8 @@
 package com.qa.shopkick.pages;
 
-import io.appium.java_client.pagefactory.AndroidFindBy;
-
-import org.openqa.selenium.WebElement;
-
 import com.qa.shopkick.utils.AbstractPage;
+import io.appium.java_client.pagefactory.AndroidFindBy;
+import org.openqa.selenium.WebElement;
 
 public class AllRewardsPage extends AbstractPage{
 	

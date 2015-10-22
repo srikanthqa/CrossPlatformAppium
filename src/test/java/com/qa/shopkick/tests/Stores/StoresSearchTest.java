@@ -1,8 +1,7 @@
 package com.qa.shopkick.tests.Stores;
 
-import org.junit.Test;
-
 import com.qa.shopkick.utils.AbstractTest;
+import org.junit.Test;
 
 public class StoresSearchTest extends AbstractTest{
 	

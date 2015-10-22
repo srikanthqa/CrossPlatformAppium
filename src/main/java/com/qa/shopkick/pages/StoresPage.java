@@ -1,15 +1,13 @@
 package com.qa.shopkick.pages;
 
-import java.util.List;
-
 import com.qa.shopkick.utils.AbstractPage;
-
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+
+import java.util.List;
 
 public class StoresPage extends AbstractPage {
 	

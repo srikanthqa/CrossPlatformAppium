@@ -1,15 +1,14 @@
 package com.qa.shopkick.tests.DealsAndSaves;
 
-import org.junit.FixMethodOrder;
-import org.junit.Test;
-import org.junit.runners.MethodSorters;
-
 import com.qa.shopkick.pages.DealAggregationPage;
 import com.qa.shopkick.pages.DealsPage;
 import com.qa.shopkick.pages.MySavesPage;
 import com.qa.shopkick.pages.ProductsPage;
 import com.qa.shopkick.utils.AbstractTest;
 import com.qa.shopkick.utils.CustomHooks;
+import org.junit.FixMethodOrder;
+import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class DealsTests extends AbstractTest{

@@ -1,12 +1,11 @@
 package com.qa.shopkick.tests.Stores;
 
-import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
 import com.qa.shopkick.pages.LandingPage;
 import com.qa.shopkick.pages.StoresPage;
 import com.qa.shopkick.utils.AbstractTest;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 public class StoresListTest extends AbstractTest{
 	

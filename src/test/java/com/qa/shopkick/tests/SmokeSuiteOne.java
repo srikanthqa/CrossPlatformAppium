@@ -1,173 +1,153 @@
 package com.qa.shopkick.tests;
 
+import com.qa.shopkick.pages.*;
+import com.qa.shopkick.utils.AbstractTest;
+import com.qa.shopkick.utils.CustomHooks;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
-import com.qa.shopkick.pages.AccountSettings;
-import com.qa.shopkick.pages.ConfirmDeleteAccountPage;
-import com.qa.shopkick.pages.CountryPickerPage;
-import com.qa.shopkick.pages.DeleteAccountPage;
-import com.qa.shopkick.pages.EmailSignInPage;
-import com.qa.shopkick.pages.FirstUseAlternateScreen;
-import com.qa.shopkick.pages.FirstUseDealsEducationPage;
-import com.qa.shopkick.pages.FirstUseRegistrationIntroPage;
-import com.qa.shopkick.pages.FirstUseRewardsEducationPage;
-import com.qa.shopkick.pages.FirstUseWalkinEducationPage;
-import com.qa.shopkick.pages.LandingPage;
-import com.qa.shopkick.pages.LeftNavBar;
-import com.qa.shopkick.pages.LeftNavSettings;
-import com.qa.shopkick.pages.LinkPhonePage;
-import com.qa.shopkick.pages.MicrophonePermissionPage;
-import com.qa.shopkick.pages.RewardsPickerPage;
-import com.qa.shopkick.pages.SignInPage;
-import com.qa.shopkick.pages.VerifyMobileNumber;
-import com.qa.shopkick.utils.AbstractTest;
-import com.qa.shopkick.utils.CustomHooks;
+import java.util.logging.Logger;
 
-public class SmokeSuiteOne extends AbstractTest{
+public class SmokeSuiteOne extends AbstractTest {
+    final private static Logger log = Logger.getLogger(String.valueOf(SmokeSuiteOne.class));
 
-	@Test
-	public void FirstUseFlow(){
+    @Test
+    public void FirstUseFlow() {
 
-		//Go through the first use flow
-		FirstUseDealsEducationPage.clickNextButton();
+        //Go through the first use flow
+        FirstUseDealsEducationPage.clickGetStartedButton();
 
-		if(PlatformType.equals("IOS"))
-		{
-			if(CountryPickerPage.clickAndProceedUSA() || !(FirstUseWalkinEducationPage.isGetPointsScreen())) 
-			{
-				CountryPickerPage.clickCountryUSA();
-				CountryPickerPage.clickCountryUSA();
-				CountryPickerPage.clickNextButton();
-				//CountryPickerPage.clickNextButton();
-			}
-		}
+        if (PlatformType.equals("IOS")) {
+            if (CountryPickerPage.clickAndProceedUSA() || !(FirstUseWalkinEducationPage.isGetPointsScreen())) {
+                CountryPickerPage.clickCountryUSA();
+                CountryPickerPage.clickCountryUSA();
+                CountryPickerPage.clickNextButton();
+                //CountryPickerPage.clickGetStartedButton();
+            }
+        }
 
-		FirstUseWalkinEducationPage.clickNextButton();
-		FirstUseRewardsEducationPage.clickPickARewardButton();
+        FirstUseWalkinEducationPage.clickNextButton();
+        FirstUseRewardsEducationPage.clickPickARewardButton();
 
-		//Pick default reward
-		RewardsPickerPage.clickSelectRewardButton();
+        log.info("Pick default reward"); //Pick default reward
+        RewardsPickerPage.clickSelectRewardButton();
 
-		if(!SignInPage.isFacebookLoginAvail())
-		{
-			FirstUseRegistrationIntroPage.clickSignUpOrSignInButton();
-		}
-		
-		SignInPage.clicksignInFacebookSignIn();
+        FirstUseRegistrationIntroPage.clickSignUpOrSignInButton();
 
-		CustomHooks.waitFor(10);
+        //        if (!SignInPage.isFacebookLoginAvail()) {
+        //            FirstUseRegistrationIntroPage.clickSignUpOrSignInButton();
+        //        }
 
-		CustomHooks.dismissMultiLoginMessage();
+        SignInPage.clicksignInFacebookSignIn();
 
-		CustomHooks.waitFor(5);
+        CustomHooks.waitFor(10);
 
-		if (driver.findElement(By.name("OK")).isDisplayed())
-		{
-			//if iOS and if mic permission is asked, give the permission
-			MicrophonePermissionPage.clickOKButton();
-		}
-		LandingPage.openLeftNavSignedIn();
+        CustomHooks.dismissMultiLoginMessage();
+
+        CustomHooks.waitFor(5);
+
+        if (driver.findElement(By.name("OK")).isDisplayed()) {
+            //if iOS and if mic permission is asked, give the permission
+            MicrophonePermissionPage.clickOKButton();
+        }
+        LandingPage.openLeftNavSignedIn();
 
 
-		CustomHooks.waitFor(3);
-		driver.scrollTo("Settings");
-		//click on settings
+        CustomHooks.waitFor(3);
+        driver.scrollTo("Settings");
+        //click on settings
 
-		LeftNavBar.clickOnSettingsLeftNav();
+        LeftNavBar.clickOnSettingsLeftNav();
 
-		//Go to Account settings
-		LeftNavSettings.clicksettingsAccountSettings();
+        //Go to Account settings
+        LeftNavSettings.clicksettingsAccountSettings();
 
-		//perform a logout
-		AccountSettings.clickAccountSettingsLogOut();
+        //perform a logout
+        AccountSettings.clickAccountSettingsLogOut();
 
-		//From logout screen hit on email to create an account
-		SignInPage.clicksignInEmailSignIn();
+        //From logout screen hit on email to create an account
+        SignInPage.clicksignInEmailSignIn();
 
-		//CREATE ACCOUNT
+        //CREATE ACCOUNT
 
-		if (PlatformType.equalsIgnoreCase("Android")) {
+        if (PlatformType.equalsIgnoreCase("Android")) {
 
-			//add email address
-			EmailSignInPage.clickAndEnterEmailANDROID("trest2@sk.com");
-			//add password
-			EmailSignInPage.clickAndEnterPswdANDROID("sktest123");
-		}
-		else{
-			EmailSignInPage.clickAndEnterEmailIOS("trest2s@sk.com");
+            //add email address
+            EmailSignInPage.clickAndEnterEmailANDROID("trest2@sk.com");
+            //add password
+            EmailSignInPage.clickAndEnterPswdANDROID("sktest123");
+        } else {
+            EmailSignInPage.clickAndEnterEmailIOS("trest2s@sk.com");
 
-			EmailSignInPage.clickAndEnterPasswordIOS("sktest123");
-		}
-		//confirm password
-		EmailSignInPage.enterConfirmPassword();
+            EmailSignInPage.clickAndEnterPasswordIOS("sktest123");
+        }
+        //confirm password
+        EmailSignInPage.enterConfirmPassword();
 
-		//Add first and last name
-		EmailSignInPage.clickAndEnterFirstName();
-		EmailSignInPage.clickAndEnterLastName();
+        //Add first and last name
+        EmailSignInPage.clickAndEnterFirstName();
+        EmailSignInPage.clickAndEnterLastName();
 
-		driver.hideKeyboard();
+        driver.hideKeyboard();
 
-		if (PlatformType.equalsIgnoreCase("Android")) {
-			//Hit sign up
-			EmailSignInPage.clickOnSignUpButton();
-		}
-		else{
-			EmailSignInPage.clickSignInIOS();
-		}
-		CustomHooks.waitFor(5);
+        if (PlatformType.equalsIgnoreCase("Android")) {
+            //Hit sign up
+            EmailSignInPage.clickOnSignUpButton();
+        } else {
+            EmailSignInPage.clickSignInIOS();
+        }
+        CustomHooks.waitFor(5);
 
-		//Phone number screen
+        //Phone number screen
 
-		//add phone number
-		LinkPhonePage.clickAndEnterPhoneNumber();
+        //add phone number
+        LinkPhonePage.clickAndEnterPhoneNumber();
 
-		//Add zipcode
-		LinkPhonePage.clickAndEnterZipcode();
+        //Add zipcode
+        LinkPhonePage.clickAndEnterZipcode();
 
-		driver.hideKeyboard();
+        driver.hideKeyboard();
 
-		//hit continue
-		LinkPhonePage.clickOnCompleteRegistration();
+        //hit continue
+        LinkPhonePage.clickOnCompleteRegistration();
 
-		CustomHooks.waitFor(10);
+        CustomHooks.waitFor(10);
 
-		//Hit Not right now in verify phone number page
-		VerifyMobileNumber.clickNotNowForVerifyPhone();
+        //Hit Not right now in verify phone number page
+        VerifyMobileNumber.clickNotNowForVerifyPhone();
 
-		//From landing page [stores tab]
+        //From landing page [stores tab]
 
-		if(!driver.findElement(By.name("Your settings")).isDisplayed()){
-			//Go to left nav bar
-			LandingPage.openLeftNavSignedIn();
+        if (!driver.findElement(By.name("Your settings")).isDisplayed()) {
+            //Go to left nav bar
+            LandingPage.openLeftNavSignedIn();
 
-			//Go to settings
-			LeftNavBar.clickOnSettingsLeftNav();
+            //Go to settings
+            LeftNavBar.clickOnSettingsLeftNav();
 
-		}
+        }
 
-		//Go to Account settings
-		LeftNavSettings.clicksettingsAccountSettings();
+        //Go to Account settings
+        LeftNavSettings.clicksettingsAccountSettings();
 
-		//Tap on delete account
-		AccountSettings.clickAccountSettingsDeleteAccount();
+        //Tap on delete account
+        AccountSettings.clickAccountSettingsDeleteAccount();
 
-		//In delete account tap on confirm delete account
-		DeleteAccountPage.clickAndDeleteAccountWithPassword();
+        //In delete account tap on confirm delete account
+        DeleteAccountPage.clickAndDeleteAccountWithPassword();
 
-		CustomHooks.waitFor(3);
-		//Tap on top left corner to proceed with delete
-		DeleteAccountPage.clickToProceedDelete();
+        CustomHooks.waitFor(3);
+        //Tap on top left corner to proceed with delete
+        DeleteAccountPage.clickToProceedDelete();
 
-		CustomHooks.waitFor(5);
+        CustomHooks.waitFor(5);
 
-		if (PlatformType.equalsIgnoreCase("Android")) {
-			//Comfirm delete account
-			ConfirmDeleteAccountPage.clickOnDeleteAccountConfirm();
-		}
-		else{
-			ConfirmDeleteAccountPage.clickOnConfirmDeleteIOS();
-		}
-	}
+        if (PlatformType.equalsIgnoreCase("Android")) {
+            //Comfirm delete account
+            ConfirmDeleteAccountPage.clickOnDeleteAccountConfirm();
+        } else {
+            ConfirmDeleteAccountPage.clickOnConfirmDeleteIOS();
+        }
+    }
 
 }

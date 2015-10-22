@@ -1,13 +1,11 @@
 package com.qa.shopkick.pages;
 
+import com.qa.shopkick.utils.AbstractPage;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
-import com.qa.shopkick.utils.AbstractPage;
 
 public class EmailSignUp extends AbstractPage {
 	

@@ -1,14 +1,12 @@
 package com.qa.shopkick.pages;
 
+import com.qa.shopkick.utils.AbstractPage;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
 import junit.framework.Assert;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-
-import com.qa.shopkick.utils.AbstractPage;
 
 @SuppressWarnings("deprecation")
 public class ProductsPage extends AbstractPage {

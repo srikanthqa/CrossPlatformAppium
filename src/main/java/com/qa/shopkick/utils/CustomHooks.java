@@ -1,14 +1,7 @@
 package com.qa.shopkick.utils;
 
+import com.qa.shopkick.pages.*;
 import org.openqa.selenium.By;
-
-import com.qa.shopkick.pages.AccountSettings;
-import com.qa.shopkick.pages.DidYouKnowPage;
-import com.qa.shopkick.pages.LandingPage;
-import com.qa.shopkick.pages.LeftNavBar;
-import com.qa.shopkick.pages.LeftNavSettings;
-import com.qa.shopkick.pages.OopsPotHolePage;
-import com.qa.shopkick.pages.RedeemGiftCardDialogPage;
 
 public class CustomHooks extends AbstractPage{
 

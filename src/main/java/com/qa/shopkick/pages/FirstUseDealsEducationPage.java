@@ -7,15 +7,21 @@ import io.appium.java_client.pagefactory.iOSFindBy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-public class FirstUseDealsEducationPage extends AbstractPage{
+public class FirstUseDealsEducationPage extends AbstractPage {
 
     @iOSFindBy(uiAutomator = ".buttons()[\"Get Started\"]")
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"GET STARTED\")")
     private static WebElement getStartedFirstUse;
 
-    public static void clickNextButton(){
-        getStartedFirstUse.click();
-        PageFactory.initElements(new AppiumFieldDecorator(driver),new CountryPickerPage());
-        PageFactory.initElements(new AppiumFieldDecorator(driver),new FirstUseWalkinEducationPage());
+    public static void clickGetStartedButton() {
+
+        try {
+            getStartedFirstUse.click();
+            PageFactory.initElements(new AppiumFieldDecorator(driver), new CountryPickerPage());
+            PageFactory.initElements(new AppiumFieldDecorator(driver), new FirstUseWalkinEducationPage());
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.exit(1);
+        }
     }
 }

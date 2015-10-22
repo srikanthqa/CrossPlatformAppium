@@ -1,7 +1,5 @@
 package com.qa.shopkick.tests;
 
-import org.junit.Test;
-
 import java.util.logging.Logger;
 
 /**
@@ -12,19 +10,31 @@ public class HelloSK {
 
     final private static Logger log = Logger.getLogger("");
 
-    @Test
-    public void TestHello_StringSplit() {
+    public static void main(String[] args) {
 
-        String array[] = "Today is Monday".split("");
-
-        for (String a : array) {
-            log.info(a);
-        }
-    }
-
-    @Test
-    public void TestHello_Appium() {
-
+//        JSONObject obj = new JSONObject();
+//        obj.put("name", "mkyong.com");
+//        obj.put("age", new Integer(100));
+//
+//        JSONArray list = new JSONArray();
+//        list.add("msg 1");
+//        list.add("msg 2");
+//        list.add("msg 3");
+//
+//        obj.put("messages", list);
+//
+//        try {
+//
+//            FileWriter file = new FileWriter("c:\\test.json");
+//            file.write(obj.toJSONString());
+//            file.flush();
+//            file.close();
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//        System.out.print(obj);
 
     }
 }
