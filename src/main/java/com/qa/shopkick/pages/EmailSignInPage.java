@@ -6,6 +6,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
@@ -13,11 +14,14 @@ import org.openqa.selenium.support.PageFactory;
 
 public class EmailSignInPage extends AbstractPage {
 
+    final private static Logger log = Logger.getLogger(String.valueOf(EmailSignInPage.class));
+
     public static void clickAndEnterEmailANDROID(String emailLogin) {
         MobileElement emailAddress = (MobileElement) driver.findElement(By.id("com.shopkick.app:id/email"));
         emailAddress.click();
         emailAddress.clear();
         emailAddress.sendKeys(emailLogin);
+        log.info("Type Email:" + emailLogin);
     }
 
     public static void clickAndEnterPswdANDROID(String passwordLogin) {
@@ -25,7 +29,7 @@ public class EmailSignInPage extends AbstractPage {
         passwordField.click();
         passwordField.clear();
         passwordField.sendKeys(passwordLogin);
-
+        log.info("Type Password: " + passwordLogin);
     }
 
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/error_box\")")
@@ -131,6 +135,5 @@ public class EmailSignInPage extends AbstractPage {
         PageFactory.initElements(new AppiumFieldDecorator(driver), new DidYouKnowPage());
         PageFactory.initElements(new AppiumFieldDecorator(driver), new LandingPage());
         PageFactory.initElements(new AppiumFieldDecorator(driver), new StoresPage());
-
     }
 }

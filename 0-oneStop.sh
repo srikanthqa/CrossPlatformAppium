@@ -5,11 +5,11 @@ mkdir reports
 mkdir screenshots
 
 adb uninstall com.shopkick.app
-Echo 'Installing APK ....'
-adb install -r APK/Shopkick_debug_qa*.apk
+Echo "App Uninstalled"
 ########################## Start Appium #########################
 killall node ; appium > logs/appium.log &
 #killall node ; appium --address 0.0.0.0 --port 4723 > logs/appium.log &
 ########################### Kick off tests ######################################
-
-mvn -e -Dtest=com.qa.shopkick.tests.Authentication.EmailAuthentication#Test1_LoginWrongEmailAccount test
+#sleep 2
+mvn clean compile
+mvn -Dtest=com.qa.shopkick.tests.Authentication.EmailAuthentication#Test1_LoginWrongEmailAccount test
