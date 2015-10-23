@@ -25,17 +25,17 @@ public class AbstractTest {
     private static String testrailDir = "testrail_scripts/";
     private static FileWriter fileWriter = null;
     private static String port = "4725";
-
     private long startTime = 0;
     private long endTime = 0;
     private long elapsed = 0;
 
+    public TestName name = new TestName();
     protected String elapsedSec = "";
     protected String runStatus = "failed";
     protected String testSectionName = "";
     protected String testName = "";
     protected static String fileName = QaConstants.TEST_LODGE_FILE_JSON;
-    private static String testLodgeDir = "testLodge_scripts/";
+    protected static String testLodgeDir = "testLodge_scripts/";
     protected static String filePath = testLodgeDir + File.separator + fileName;
     protected static File file = new File(filePath);
     protected static String reportName = "";
@@ -43,8 +43,6 @@ public class AbstractTest {
     //    private static JSONObject railsTestJSON = new org.json.simple.JSONObject();
     //    private static JSONArray resultsList = new JSONArray();
 
-    @Rule
-    public TestName name = new TestName();
     //Commented for debug purpose
     //    public static String DeviceName=System.getProperty("deviceName");
     //    public static String PlatformType=System.getProperty("platformType");
@@ -55,13 +53,13 @@ public class AbstractTest {
     protected static String DeviceName = "LGG3";
     protected static String PlatformVersion = "5.0.1";
     protected static String DeviceUDID = "null";
-
     protected static String ServerURL = "http://0.0.0.0:4723/wd/hub";
     protected static String BundleID = "com.shopkick.debug-qa";
     protected static String PackageName = "com.shopkick.app";
     protected static String LauncherActivity = PackageName + "." + "activity.AppScreenActivity";
 
     public static AppiumDriver createAppiumDriver() {
+        log.info("Going to Create createAppiumDriver() ...");
         try {
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, DeviceName);
@@ -110,26 +108,27 @@ public class AbstractTest {
 
     @BeforeClass
     public static void createEnvironment() {
-        //        try {
-        //            if (!file.exists()) {
-        //                log.info(fileName + " doesn't exist : So creating it at " + filePath);
-        //                file.createNewFile();
-        //                log.info(fileName + " filed created ");
-        //            }
-        //            fileWriter = new FileWriter(filePath);
-        //            railsTestJSON.put("resultsList", resultsList);
-        //            reportName = "" + "_" + calendar.getCaptureTime() + "_" + QaConstants.TEST_LODGE_FILE_JSON;
-        //            railsTestJSON.put("reportName", reportName);
-        //            log.info("reportName: " + reportName);
-        //
-        //                        railsTestJSON.put("buildNo", QaProperties.getAPKVersion());
-        //
-        //                        log.info("buildNo: " + QaProperties.getAPKVersion());
-        //
-        //
-        //        } catch (IOException e) {
-        //            log.info(e);
-        //        }
+     /*           try {
+                    if (!file.exists()) {
+                        log.info(fileName + " doesn't exist : So creating it at " + filePath);
+                        file.createNewFile();
+                        log.info(fileName + " filed created ");
+                    }
+                    fileWriter = new FileWriter(filePath);
+                    railsTestJSON.put("resultsList", resultsList);
+                    reportName = "" + "_" + calendar.getCaptureTime() + "_" + QaConstants.TEST_LODGE_FILE_JSON;
+                    railsTestJSON.put("reportName", reportName);
+                    log.info("reportName: " + reportName);
+
+                                railsTestJSON.put("buildNo", QaProperties.getAPKVersion());
+
+                                log.info("buildNo: " + QaProperties.getAPKVersion());
+
+
+                } catch (IOException e) {
+                    log.info(e);
+                }
+    */
     }
 
     @AfterClass
@@ -141,18 +140,14 @@ public class AbstractTest {
             //            fileWriter.close();
         } catch (Exception e) {
             log.error(e);
-        } finally {
-            log.info("Going to Quit Driver");
-            driver.quit();
         }
         log.info("<--------- End tearDown() Test --------->");
     }
 
     @Before
     public void beforeMethod() {
-        log.info("<--------- Start beforeMethod() Test --------------------------------------------------------->");
+        log.info("<--------- Start beforeMethod() Test ------------------------------------------------------>");
         try {
-            log.info("Going to Create createAppiumDriver() ...");
             createAppiumDriver();
             runStatus = "failed";
             testName = "";
@@ -168,8 +163,6 @@ public class AbstractTest {
     public void afterMethod() {
         log.info("<--------- Start afterMethod() Test --------------------------------------------------------->");
         try {
-            if (driver != null)
-                driver.quit();
             testName = name.getMethodName();
             endTime = System.currentTimeMillis(); // Get the end Time
             elapsed = (endTime - startTime) / 1000;
@@ -182,6 +175,9 @@ public class AbstractTest {
             log.info(testName + " : " + runStatus + " : " + elapsed + " Seconds ");
         } catch (Exception e) {
             log.error(e);
+        } finally {
+            log.info("Going to Quit Driver");
+            driver.quit();
         }
         log.info("<--------- End afterMethod() Test --------------------------------------------------------->");
     }

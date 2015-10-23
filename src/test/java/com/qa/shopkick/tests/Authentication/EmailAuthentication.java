@@ -44,6 +44,8 @@ public class EmailAuthentication extends AbstractTest {
 
     @Test
     public void Test2LoginWithEmailAccount() {
+
+        testName = "Test2LoginWithEmailAccount";
         //Go thorough first use
         LoginHooks.GoThroughFirstUse();
 
