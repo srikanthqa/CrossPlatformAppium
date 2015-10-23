@@ -108,7 +108,7 @@ public class AbstractTest {
 
     @BeforeClass
     public static void createEnvironment() {
-        createAppiumDriver();
+        //        createAppiumDriver();
      /*           try {
                     if (!file.exists()) {
                         log.info(fileName + " doesn't exist : So creating it at " + filePath);
@@ -139,20 +139,22 @@ public class AbstractTest {
             //            fileWriter.append(railsTestJSON.toString());
             //            fileWriter.flush();
             //            fileWriter.close();
-            log.info("JSON Created");
+            log.info("JSON Created NOT ");
         } catch (Exception e) {
             log.error(e);
-        } finally {
-            log.info("Going to Quit Driver");
-            driver.quit();
-            log.info("<--------- End tearDown() Test --------->");
         }
+        //        finally {
+        //            log.info("Going to Quit Driver");
+        //            driver.quit();
+        //            log.info("<--------- End tearDown() Test --------->");
+        //        }
     }
 
     @Before
     public void beforeMethod() {
         log.info("<--------- Start beforeMethod() Test ------------------------------------------------------>");
         try {
+            createAppiumDriver();
             //Initialize all the variables
             runStatus = "failed";
             testName = "";
@@ -176,13 +178,12 @@ public class AbstractTest {
             //            eachResult.put("runStatus", runStatus);
             //            eachResult.put("testName", testName);
             //            resultsList.add(eachResult);
-            log.info("runStatus = " + runStatus);
-            log.info(testName + " : " + runStatus + " : " + elapsed + " Seconds ");
+            log.info(testName + " : " + runStatus + " : Took " + elapsed + " Seconds ");
         } catch (Exception e) {
             log.error(e);
-            //        } finally {
-            //            log.info("Going to Quit Driver");
-            //            driver.quit();
+        } finally {
+            log.info("Going to Quit Driver");
+            driver.quit();
         }
         log.info("<--------- End afterMethod() Test --------------------------------------------------------->");
     }

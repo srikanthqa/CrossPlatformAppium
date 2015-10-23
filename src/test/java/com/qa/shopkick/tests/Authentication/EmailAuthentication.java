@@ -9,7 +9,6 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
-import static com.thoughtworks.selenium.SeleneseTestCase.assertNotEquals;
 import static junit.framework.TestCase.assertEquals;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -45,32 +44,32 @@ public class EmailAuthentication extends AbstractTest {
         runStatus = "passed";
     }
 
-    @Test
-    public void Test2LoginWithEmailAccount() {
-
-        testName = "Test2LoginWithEmailAccount";
-        //Go thorough first use
-        LoginHooks.GoThroughFirstUse();
-
-        //From logout screen hit on email to create an account
-        SignInPage.clicksignInEmailSignIn();
-
-        //CREATE ACCOUNT
-        //add email address
-        EmailSignInPage.clickAndEnterEmailANDROID("qa_auto1@gmail.com");
-
-        //add password
-        EmailSignInPage.clickAndEnterPswdANDROID("123456");
-
-        //Hit sign in
-        EmailSignInPage.clickLoginButton();
-
-        String ACTUAL_ERROR = EmailSignInPage.getEmailPasswordError();
-        assertNotEquals(ACTUAL_ERROR, EXPECTED_ERROR);
-
-        //make sure you see the Kicks Count on the top center
-        runStatus = "passed";
-    }
+//    @Test
+//    public void Test2LoginWithEmailAccount() {
+//
+//        testName = "Test2LoginWithEmailAccount";
+//        //Go thorough first use
+//        LoginHooks.GoThroughFirstUse();
+//
+//        //From logout screen hit on email to create an account
+//        SignInPage.clicksignInEmailSignIn();
+//
+//        //CREATE ACCOUNT
+//        //add email address
+//        EmailSignInPage.clickAndEnterEmailANDROID("qa_auto1@gmail.com");
+//
+//        //add password
+//        EmailSignInPage.clickAndEnterPswdANDROID("123456");
+//
+//        //Hit sign in
+//        EmailSignInPage.clickLoginButton();
+//
+//        String ACTUAL_ERROR = EmailSignInPage.getEmailPasswordError();
+//        assertNotEquals(ACTUAL_ERROR, EXPECTED_ERROR);
+//
+//        //make sure you see the Kicks Count on the top center
+//        runStatus = "passed";
+//    }
 
 
 /*    @Test

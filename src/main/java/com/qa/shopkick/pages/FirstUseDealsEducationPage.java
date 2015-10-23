@@ -1,6 +1,7 @@
 package com.qa.shopkick.pages;
 
 import com.qa.shopkick.utils.AbstractPage;
+import com.qa.shopkick.utils.CustomHooks;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
@@ -21,6 +22,7 @@ public class FirstUseDealsEducationPage extends AbstractPage {
         try {
             getStartedFirstUse.click();
             log.info("click() getStartedFirstUse");
+            CustomHooks.waitFor(2);
             PageFactory.initElements(new AppiumFieldDecorator(driver), new CountryPickerPage());
             PageFactory.initElements(new AppiumFieldDecorator(driver), new FirstUseWalkinEducationPage());
         } catch (Exception e) {

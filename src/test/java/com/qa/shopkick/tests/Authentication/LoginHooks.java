@@ -4,85 +4,78 @@ import com.qa.shopkick.pages.*;
 import com.qa.shopkick.utils.AbstractTest;
 import com.qa.shopkick.utils.CustomHooks;
 
-public class LoginHooks extends AbstractTest{
+public class LoginHooks extends AbstractTest {
 
-	public static void LoginWithfacebook()
-	{
-		//from first use flow log into facebook
-		CustomHooks.dismissPotHoleError();
+    public static void LoginWithfacebook() {
+        //from first use flow log into facebook
+        CustomHooks.dismissPotHoleError();
 
-		SignInPage.clicksignInFacebookSignIn();
+        SignInPage.clicksignInFacebookSignIn();
 
-		CustomHooks.waitFor(5);
+        CustomHooks.waitFor(5);
 
-		CustomHooks.dismissMultiLoginMessage();
+        CustomHooks.dismissMultiLoginMessage();
 
-		CustomHooks.waitFor(5);
+        CustomHooks.waitFor(5);
 
-		if (PlatformType.equalsIgnoreCase("IOS")) {
-			if (MicrophonePermissionPage.isMicroPhonePermissionRequired()) {
-				//if iOS and if mic permission is asked, give the permission
-				MicrophonePermissionPage.clickOKButton();
-			}
-		}
-	}
-	
-	public static void LoginWithGplus()
-	{
-		CustomHooks.dismissPotHoleError();
-		//tap on the 'Guest' button to open left nav bar
-		SignInPage.clicksignInGooglePlusSignIn();		
-		CustomHooks.dismissMultiLoginMessage();
-	}
-	
-	public static void EmailLogin()
-	{
-		CustomHooks.dismissPotHoleError();
+        if (PlatformType.equalsIgnoreCase("IOS")) {
+            if (MicrophonePermissionPage.isMicroPhonePermissionRequired()) {
+                //if iOS and if mic permission is asked, give the permission
+                MicrophonePermissionPage.clickOKButton();
+            }
+        }
+    }
 
-		//User logs in via email
-		SignInPage.clicksignInEmailSignIn();
+    public static void LoginWithGplus() {
+        CustomHooks.dismissPotHoleError();
+        //tap on the 'Guest' button to open left nav bar
+        SignInPage.clicksignInGooglePlusSignIn();
+        CustomHooks.dismissMultiLoginMessage();
+    }
 
-		//Element issues, using two different methods to sign in
+    public static void EmailLogin() {
+        CustomHooks.dismissPotHoleError();
 
-		if (PlatformType.equalsIgnoreCase("Android")) {
+        //User logs in via email
+        SignInPage.clicksignInEmailSignIn();
 
-			//add email address
-			EmailSignInPage.clickAndEnterEmailANDROID("a@b.com");
-			//add password
-			EmailSignInPage.clickAndEnterPswdANDROID("aaaaaa");
-		}
-		else
-		{
-			EmailSignInPage.clickAndEnterEmailIOS("a@b.com");
+        //Element issues, using two different methods to sign in
 
-			EmailSignInPage.clickAndEnterPasswordIOS("aaaaaa");
-		}
-		
-		EmailSignInPage.clickLoginButton();
+        if (PlatformType.equalsIgnoreCase("Android")) {
 
-		CustomHooks.dismissMultiLoginMessage();
-	}
+            //add email address
+            EmailSignInPage.clickAndEnterEmailANDROID("a@b.com");
+            //add password
+            EmailSignInPage.clickAndEnterPswdANDROID("aaaaaa");
+        } else {
+            EmailSignInPage.clickAndEnterEmailIOS("a@b.com");
 
-	public static void GoThroughFirstUse()
-	{
-		//Go through the first use flow
-				FirstUseDealsEducationPage.clickGetStartedButton();
-				CustomHooks.waitFor(2);
+            EmailSignInPage.clickAndEnterPasswordIOS("aaaaaa");
+        }
 
-				if(PlatformType.equals("IOS")){
-					CountryPickerPage.clickCountryUSA();
-					CountryPickerPage.clickNextButton();
-				}
-				//Redeem your kicks for rewards screen
-				FirstUseWalkinEducationPage.clickNextButton();
-				
-				//User has to tap on pick a reward
-				FirstUseRewardsEducationPage.clickPickARewardButton();
+        EmailSignInPage.clickLoginButton();
 
-				//Pick default reward
-				RewardsPickerPage.clickSelectRewardButton();
-				
-				//Click on Login button
-				FirstUseRegistrationIntroPage.clickLoginButton();
-			}
-	}
+        CustomHooks.dismissMultiLoginMessage();
+    }
+
+    public static void GoThroughFirstUse() {
+        //Go through the first use flow
+        FirstUseDealsEducationPage.clickGetStartedButton();
+
+        if (PlatformType.equals("IOS")) {
+            CountryPickerPage.clickCountryUSA();
+            CountryPickerPage.clickNextButton();
+        }
+        //Redeem your kicks for rewards screen
+        FirstUseWalkinEducationPage.clickNextButton();
+
+        //User has to tap on pick a reward
+        FirstUseRewardsEducationPage.clickPickARewardButton();
+
+        //Pick default reward
+        RewardsPickerPage.clickSelectRewardButton();
+
+        //Click on Login button
+        FirstUseRegistrationIntroPage.clickLoginButton();
+    }
+}
