@@ -7,6 +7,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
@@ -34,13 +35,14 @@ public class EmailSignInPage extends AbstractPage {
 
         try {
             return ErrorEmailPassword.getText();
+        } catch (NoSuchElementException nse) {
+            return "";
+
         } catch (Exception e) {
             e.printStackTrace();
+            return null;
         }
-        return "";
-
     }
-
 
     @iOSFindBy(uiAutomator = ".textFields()[\"Email Address\"]")
     private static WebElement eMailField;

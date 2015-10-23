@@ -1,26 +1,26 @@
 package com.qa.shopkick.tests.Authentication;
 
-import com.qa.shopkick.pages.*;
+import com.qa.shopkick.pages.EmailSignInPage;
+import com.qa.shopkick.pages.SignInPage;
 import com.qa.shopkick.utils.AbstractTest;
-import com.qa.shopkick.utils.CustomHooks;
 import org.apache.log4j.Logger;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
-import org.openqa.selenium.By;
 
 import static com.thoughtworks.selenium.SeleneseTestCase.assertNotEquals;
+import static junit.framework.TestCase.assertEquals;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
 public class EmailAuthentication extends AbstractTest {
     final private static Logger log = Logger.getLogger((EmailAuthentication.class));
-    final private static String EMAIL_PASSWORD_ERROR = "Oh no, that email/password isn't right. Try again or tap to reset password.";
+    final private static String EXPECTED_ERROR = "Oh no, that email/password isn't right. Try again or tap to reset password.";
 
     @Test
-    public void Test_LoginWrongEmailAccount_1() {
+    public void Test1_LoginWrongEmailAccount() {
 
-        testName = "Test_LoginWrongEmailAccount_1";
+        testName = "Test1_LoginWrongEmailAccount";
         //Go thorough first use
         LoginHooks.GoThroughFirstUse();
 
@@ -37,13 +37,13 @@ public class EmailAuthentication extends AbstractTest {
         //Hit sign in
         EmailSignInPage.clickLoginButton();
 
-        String error = EmailSignInPage.getEmailPasswordError();
-        assertNotEquals(error, EMAIL_PASSWORD_ERROR);
+        String ACTUAL_ERROR = EmailSignInPage.getEmailPasswordError();
+        assertEquals("ERROR! " + EXPECTED_ERROR, ACTUAL_ERROR, EXPECTED_ERROR);
         runStatus = "passed";
     }
 
     @Test
-    public void Test2CreateEmailAccount() {
+    public void Test2LoginWithEmailAccount() {
         //Go thorough first use
         LoginHooks.GoThroughFirstUse();
 
@@ -52,34 +52,23 @@ public class EmailAuthentication extends AbstractTest {
 
         //CREATE ACCOUNT
         //add email address
-        EmailSignInPage.clickAndEnterEmailANDROID("trest2@sk.com");
+        EmailSignInPage.clickAndEnterEmailANDROID("qa_auto1@gmail.com");
 
         //add password
-        EmailSignInPage.clickAndEnterPswdANDROID("sktest123");
+        EmailSignInPage.clickAndEnterPswdANDROID("123456");
 
         //Hit sign in
         EmailSignInPage.clickLoginButton();
 
-        String error = EmailSignInPage.getEmailPasswordError();
-        assertNotEquals(error, EMAIL_PASSWORD_ERROR);
-        //Phone number screen
+        String ACTUAL_ERROR = EmailSignInPage.getEmailPasswordError();
+        assertNotEquals(ACTUAL_ERROR, EXPECTED_ERROR);
 
-        //add phone number
-        LinkPhonePage.clickAndEnterPhoneNumber();
-
-        //Add zipcode
-        LinkPhonePage.clickAndEnterZipcode();
-
-        //hit continue
-        LinkPhonePage.clickOnCompleteRegistration();
-
-        CustomHooks.waitFor(10);
-
-        //Hit Not right now in verify phone number page
-        VerifyMobileNumber.clickNotNowForVerifyPhone();
+        //make sure you see the Kicks Count on the top center
+        runStatus = "passed";
     }
 
-    @Test
+
+/*    @Test
     public void Test3_DeleteEmailAccount() {
         if (!driver.findElement(By.name("Your settings")).isDisplayed()) {
             //Go to left nav bar
@@ -119,4 +108,5 @@ public class EmailAuthentication extends AbstractTest {
     public void Test4_logOutOfEmail() {
         CustomHooks.LogMeOut();
     }
+*/
 }

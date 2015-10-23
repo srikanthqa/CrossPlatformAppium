@@ -1,3 +1,495 @@
 [36minfo[39m: Welcome to Appium v1.4.13 (REV c75d8adcb66a75818a542fe1891a34260c21f76a)
 [36minfo[39m: Appium REST http interface listener started on 0.0.0.0:4723
 [36minfo[39m: Console LogLevel: debug
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session[39m [90m{"desiredCapabilities":{"appActivity":"com.shopkick.app.activity.AppScreenActivity","appPackage":"com.shopkick.app","newCommandTimeout":7200,"noSign":true,"platformVersion":"5.0.1","platformName":"Android","deviceName":"LGG3"}}[39m
+[36minfo[39m: Client User-Agent string: Apache-HttpClient/4.3.3 (java 1.5)
+[36minfo[39m: [debug] Didn't get app but did get Android package, will attempt to launch it on the device
+[36minfo[39m: [debug] Creating new appium session 24a6d397-34f4-482e-875e-4bc13d37f607
+[36minfo[39m: Starting android appium
+[36minfo[39m: [debug] Getting Java version
+[36minfo[39m: Java version is: 1.8.0_66
+[36minfo[39m: [debug] Checking whether adb is present
+[36minfo[39m: [debug] Using adb from /Applications/android-sdk-macosx/platform-tools/adb
+[33mwarn[39m: No app capability, can't parse package/activity
+[36minfo[39m: [debug] Using fast reset? true
+[36minfo[39m: [debug] Preparing device for session
+[36minfo[39m: [debug] Not checking whether app is present since we are assuming it's already on the device
+[36minfo[39m: Retrieving device
+[36minfo[39m: [debug] Trying to find a connected android device
+[36minfo[39m: [debug] Getting connected devices...
+[36minfo[39m: [debug] executing cmd: /Applications/android-sdk-macosx/platform-tools/adb devices
+[36minfo[39m: [debug] 1 device(s) connected
+[36minfo[39m: Found device LGD8504664e998
+[36minfo[39m: [debug] Setting device id to LGD8504664e998
+[36minfo[39m: [debug] Waiting for device to be ready and to respond to shell commands (timeout = 5)
+[36minfo[39m: [debug] executing cmd: /Applications/android-sdk-macosx/platform-tools/adb -s LGD8504664e998 wait-for-device
+[36minfo[39m: [debug] executing cmd: /Applications/android-sdk-macosx/platform-tools/adb -s LGD8504664e998 shell "echo 'ready'"
+[36minfo[39m: [debug] Starting logcat capture
+[36minfo[39m: [debug] Getting device API level
+[36minfo[39m: [debug] executing cmd: /Applications/android-sdk-macosx/platform-tools/adb -s LGD8504664e998 shell "getprop ro.build.version.sdk"
+[36minfo[39m: [debug] Device is at API Level 21
+[36minfo[39m: Device API level is: 21
+[36minfo[39m: [debug] Extracting strings for language: default
+[36minfo[39m: [debug] Apk doesn't exist locally
+[36minfo[39m: [debug] Could not get strings, but it looks like we had an old strings file anyway, so ignoring
+[36minfo[39m: [debug] executing cmd: /Applications/android-sdk-macosx/platform-tools/adb -s LGD8504664e998 shell "rm -rf /data/local/tmp/strings.json"
+[36minfo[39m: [debug] Not uninstalling app since server not started with --full-reset
+[36minfo[39m: [debug] Skipping install since we launched with a package instead of an app path
+[36minfo[39m: [debug] Forwarding system:4724 to device:4724
+[36minfo[39m: [debug] executing cmd: /Applications/android-sdk-macosx/platform-tools/adb -s LGD8504664e998 forward tcp:4724 tcp:4724
+[36minfo[39m: [debug] Pushing appium bootstrap to device...
+[36minfo[39m: [debug] executing cmd: /Applications/android-sdk-macosx/platform-tools/adb -s LGD8504664e998 push "/usr/local/lib/node_modules/appium/build/android_bootstrap/AppiumBootstrap.jar" /data/local/tmp/
+[36minfo[39m: [debug] Pushing settings apk to device...
+[36minfo[39m: [debug] executing cmd: /Applications/android-sdk-macosx/platform-tools/adb -s LGD8504664e998 install "/usr/local/lib/node_modules/appium/build/settings_apk/settings_apk-debug.apk"
+[36minfo[39m: [debug] Pushing unlock helper app to device...
+[36minfo[39m: [debug] executing cmd: /Applications/android-sdk-macosx/platform-tools/adb -s LGD8504664e998 install "/usr/local/lib/node_modules/appium/build/unlock_apk/unlock_apk-debug.apk"
+[36minfo[39m: Starting App
+[36minfo[39m: [debug] Attempting to kill all 'uiautomator' processes
+[36minfo[39m: [debug] Getting all processes with 'uiautomator'
+[36minfo[39m: [debug] executing cmd: /Applications/android-sdk-macosx/platform-tools/adb -s LGD8504664e998 shell "ps 'uiautomator'"
+[36minfo[39m: [debug] No matching processes found
+[36minfo[39m: [debug] Running bootstrap
+[36minfo[39m: [debug] spawning: /Applications/android-sdk-macosx/platform-tools/adb -s LGD8504664e998 shell uiautomator runtest AppiumBootstrap.jar -c io.appium.android.bootstrap.Bootstrap -e pkg com.shopkick.app -e disableAndroidWatchers false
+[36minfo[39m: [debug] [90m[UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: numtests=1[39m
+[36minfo[39m: [debug] [90m[UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: stream=[39m
+[36minfo[39m: [debug] [90m[UIAUTOMATOR STDOUT] io.appium.android.bootstrap.Bootstrap:[39m
+[36minfo[39m: [debug] [90m[UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner[39m
+[36minfo[39m: [debug] [90m[UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: test=testRunServer[39m
+[36minfo[39m: [debug] [90m[UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: class=io.appium.android.bootstrap.Bootstrap[39m
+[36minfo[39m: [debug] [90m[UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: current=1[39m
+[36minfo[39m: [debug] [90m[UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS_CODE: 1[39m
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Socket opened on port 4724
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Appium Socket Server Ready
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Loading json...
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Registered crash watchers.
+[36minfo[39m: [debug] Waking up device if it's not alive
+[36minfo[39m: [debug] Pushing command to appium work queue: ["wake",{}]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Client connected
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got data from client: {"cmd":"action","action":"wake","params":{}}
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command of type ACTION
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command action: wake
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Returning result: {"status":0,"value":true}
+[36minfo[39m: [debug] executing cmd: /Applications/android-sdk-macosx/platform-tools/adb -s LGD8504664e998 shell "dumpsys window"
+[36minfo[39m: [debug] Screen already unlocked, continuing.
+[36minfo[39m: [debug] Pushing command to appium work queue: ["getDataDir",{}]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got data from client: {"cmd":"action","action":"getDataDir","params":{}}
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command of type ACTION
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command action: getDataDir
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Returning result: {"status":0,"value":"\/data\/local\/tmp"}
+[36minfo[39m: [debug] dataDir set to: /data/local/tmp
+[36minfo[39m: [debug] Pushing command to appium work queue: ["compressedLayoutHierarchy",{"compressLayout":false}]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got data from client: {"cmd":"action","action":"compressedLayoutHierarchy","params":{"compressLayout":false}}
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command of type ACTION
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command action: compressedLayoutHierarchy
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Returning result: {"status":0,"value":false}
+[36minfo[39m: [debug] Getting device API level
+[36minfo[39m: [debug] executing cmd: /Applications/android-sdk-macosx/platform-tools/adb -s LGD8504664e998 shell "getprop ro.build.version.sdk"
+[36minfo[39m: [debug] Device is at API Level 21
+[36minfo[39m: [debug] executing cmd: /Applications/android-sdk-macosx/platform-tools/adb -s LGD8504664e998 shell "am start -S -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -f 0x10200000 -n com.shopkick.app/com.shopkick.app.activity.AppScreenActivity"
+[36minfo[39m: [debug] Waiting for pkg "com.shopkick.app" and activity "com.shopkick.app.activity.AppScreenActivity" to be focused
+[36minfo[39m: [debug] Getting focused package and activity
+[36minfo[39m: [debug] executing cmd: /Applications/android-sdk-macosx/platform-tools/adb -s LGD8504664e998 shell "dumpsys window windows"
+[36minfo[39m: [debug] executing cmd: /Applications/android-sdk-macosx/platform-tools/adb -s LGD8504664e998 shell "getprop ro.build.version.release"
+[36minfo[39m: [debug] Device is at release version 5.0.1
+[36minfo[39m: [debug] Device launched! Ready for commands
+[36minfo[39m: [debug] Setting command timeout to 7200 secs
+[36minfo[39m: [debug] Appium session started with sessionId 24a6d397-34f4-482e-875e-4bc13d37f607
+[36minfo[39m: [37m<-- POST /wd/hub/session [39m[36m303[39m[90m 6365.584 ms - 74[39m [90m[39m
+[36minfo[39m: [37m-->[39m [37mGET[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607[39m [90m{}[39m
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":{"platform":"LINUX","browserName":"Android","platformVersion":"5.0.1","webStorageEnabled":false,"takesScreenshot":true,"javascriptEnabled":true,"databaseEnabled":false,"networkConnectionEnabled":true,"locationContextEnabled":false,"warnings":{},"desired":{"appActivity":"com.shopkick.app.activity.AppScreenActivity","appPackage":"com.shopkick.app","newCommandTimeout":7200,"noSign":true,"platformVersion":"5.0.1","platformName":"Android","deviceName":"LGG3"},"appActivity":"com.shopkick.app.activity.AppScreenActivity","appPackage":"com.shopkick.app","newCommandTimeout":7200,"noSign":true,"platformName":"Android","deviceName":"LGD8504664e998"},"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- GET /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607 [39m[32m200[39m[90m 3.245 ms - 717[39m [90m{"status":0,"value":{"platform":"LINUX","browserName":"Android","platformVersion":"5.0.1","webStorageEnabled":false,"takesScreenshot":true,"javascriptEnabled":true,"databaseEnabled":false,"networkConnectionEnabled":true,"locationContextEnabled":false,"warnings":{},"desired":{"appActivity":"com.shopkick.app.activity.AppScreenActivity","appPackage":"com.shopkick.app","newCommandTimeout":7200,"noSign":true,"platformVersion":"5.0.1","platformName":"Android","deviceName":"LGG3"},"appActivity":"com.shopkick.app.activity.AppScreenActivity","appPackage":"com.shopkick.app","newCommandTimeout":7200,"noSign":true,"platformName":"Android","deviceName":"LGD8504664e998"},"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/timeouts/implicit_wait[39m [90m{"ms":20000}[39m
+[36minfo[39m: [debug] Set Android implicit wait to 20000ms
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":null,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/timeouts/implicit_wait [39m[32m200[39m[90m 2.234 ms - 76[39m [90m{"status":0,"value":null,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/timeouts/implicit_wait[39m [90m{"ms":0}[39m
+[36minfo[39m: [debug] Set Android implicit wait to 0ms
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":null,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/timeouts/implicit_wait [39m[32m200[39m[90m 1.402 ms - 76[39m [90m{"status":0,"value":null,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/elements[39m [90m{"using":"-android uiautomator","value":"new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"GET STARTED\")"}[39m
+[36minfo[39m: [debug] Waiting up to 0ms for condition
+[36minfo[39m: [debug] Pushing command to appium work queue: ["find",{"strategy":"-android uiautomator","selector":"new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"GET STARTED\")","context":"","multiple":true}]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got data from client: {"cmd":"action","action":"find","params":{"strategy":"-android uiautomator","selector":"new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"GET STARTED\")","context":"","multiple":true}}
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command of type ACTION
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command action: find
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Finding new UiSelector().resourceId("com.shopkick.app:id/button_text").text("GET STARTED") using ANDROID_UIAUTOMATOR with the contextId:  multiple: true
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Parsing selector: new UiSelector().resourceId("com.shopkick.app:id/button_text").text("GET STARTED")
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] UiSelector coerce type: class java.lang.String arg: "com.shopkick.app:id/button_text"
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] UiSelector coerce type: class java.lang.String arg: "GET STARTED"
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Using: UiSelector[TEXT=GET STARTED, RESOURCE_ID=com.shopkick.app:id/button_text]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] getElements selector:UiSelector[TEXT=GET STARTED, RESOURCE_ID=com.shopkick.app:id/button_text]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Element[] is null: (0)
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] getElements tmp selector:UiSelector[TEXT=GET STARTED, INSTANCE=0, RESOURCE_ID=com.shopkick.app:id/button_text]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Element[] is null: (1)
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] getElements tmp selector:UiSelector[TEXT=GET STARTED, INSTANCE=1, RESOURCE_ID=com.shopkick.app:id/button_text]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Returning result: {"status":0,"value":[{"ELEMENT":"1"}]}
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":[{"ELEMENT":"1"}],"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/elements [39m[32m200[39m[90m 2296.444 ms - 89[39m [90m{"status":0,"value":[{"ELEMENT":"1"}],"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/timeouts/implicit_wait[39m [90m{"ms":1000}[39m
+[36minfo[39m: [debug] Set Android implicit wait to 1000ms
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":null,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/timeouts/implicit_wait [39m[32m200[39m[90m 1.005 ms - 76[39m [90m{"status":0,"value":null,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/element/1/click[39m [90m{"id":"1"}[39m
+[36minfo[39m: [debug] Pushing command to appium work queue: ["element:click",{"elementId":"1"}]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got data from client: {"cmd":"action","action":"element:click","params":{"elementId":"1"}}
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command of type ACTION
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command action: click
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Returning result: {"status":0,"value":true}
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":true,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/element/1/click [39m[32m200[39m[90m 160.480 ms - 76[39m [90m{"status":0,"value":true,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/timeouts/implicit_wait[39m [90m{"ms":0}[39m
+[36minfo[39m: [debug] Set Android implicit wait to 0ms
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":null,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/timeouts/implicit_wait [39m[32m200[39m[90m 2.356 ms - 76[39m [90m{"status":0,"value":null,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/elements[39m [90m{"using":"-android uiautomator","value":"new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"NEXT\")"}[39m
+[36minfo[39m: [debug] Waiting up to 0ms for condition
+[36minfo[39m: [debug] Pushing command to appium work queue: ["find",{"strategy":"-android uiautomator","selector":"new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"NEXT\")","context":"","multiple":true}]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got data from client: {"cmd":"action","action":"find","params":{"strategy":"-android uiautomator","selector":"new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"NEXT\")","context":"","multiple":true}}
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command of type ACTION
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command action: find
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Finding new UiSelector().resourceId("com.shopkick.app:id/button_text").text("NEXT") using ANDROID_UIAUTOMATOR with the contextId:  multiple: true
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Parsing selector: new UiSelector().resourceId("com.shopkick.app:id/button_text").text("NEXT")
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] UiSelector coerce type: class java.lang.String arg: "com.shopkick.app:id/button_text"
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] UiSelector coerce type: class java.lang.String arg: "NEXT"
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Using: UiSelector[TEXT=NEXT, RESOURCE_ID=com.shopkick.app:id/button_text]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] getElements selector:UiSelector[TEXT=NEXT, RESOURCE_ID=com.shopkick.app:id/button_text]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Element[] is null: (0)
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] getElements tmp selector:UiSelector[TEXT=NEXT, INSTANCE=0, RESOURCE_ID=com.shopkick.app:id/button_text]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Element[] is null: (1)
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] getElements tmp selector:UiSelector[TEXT=NEXT, INSTANCE=1, RESOURCE_ID=com.shopkick.app:id/button_text]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Returning result: {"status":0,"value":[{"ELEMENT":"2"}]}
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":[{"ELEMENT":"2"}],"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/elements [39m[32m200[39m[90m 183.004 ms - 89[39m [90m{"status":0,"value":[{"ELEMENT":"2"}],"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/timeouts/implicit_wait[39m [90m{"ms":1000}[39m
+[36minfo[39m: [debug] Set Android implicit wait to 1000ms
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":null,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/timeouts/implicit_wait [39m[32m200[39m[90m 0.977 ms - 76[39m [90m{"status":0,"value":null,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/element/2/click[39m [90m{"id":"2"}[39m
+[36minfo[39m: [debug] Pushing command to appium work queue: ["element:click",{"elementId":"2"}]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got data from client: {"cmd":"action","action":"element:click","params":{"elementId":"2"}}
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command of type ACTION
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command action: click
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Returning result: {"status":0,"value":true}
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":true,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/element/2/click [39m[32m200[39m[90m 156.630 ms - 76[39m [90m{"status":0,"value":true,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/timeouts/implicit_wait[39m [90m{"ms":0}[39m
+[36minfo[39m: [debug] Set Android implicit wait to 0ms
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":null,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/timeouts/implicit_wait [39m[32m200[39m[90m 1.014 ms - 76[39m [90m{"status":0,"value":null,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/elements[39m [90m{"using":"-android uiautomator","value":"new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"PICK A REWARD\")"}[39m
+[36minfo[39m: [debug] Waiting up to 0ms for condition
+[36minfo[39m: [debug] Pushing command to appium work queue: ["find",{"strategy":"-android uiautomator","selector":"new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"PICK A REWARD\")","context":"","multiple":true}]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got data from client: {"cmd":"action","action":"find","params":{"strategy":"-android uiautomator","selector":"new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"PICK A REWARD\")","context":"","multiple":true}}
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command of type ACTION
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command action: find
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Finding new UiSelector().resourceId("com.shopkick.app:id/button_text").text("PICK A REWARD") using ANDROID_UIAUTOMATOR with the contextId:  multiple: true
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Parsing selector: new UiSelector().resourceId("com.shopkick.app:id/button_text").text("PICK A REWARD")
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] UiSelector coerce type: class java.lang.String arg: "com.shopkick.app:id/button_text"
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] UiSelector coerce type: class java.lang.String arg: "PICK A REWARD"
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Using: UiSelector[TEXT=PICK A REWARD, RESOURCE_ID=com.shopkick.app:id/button_text]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] getElements selector:UiSelector[TEXT=PICK A REWARD, RESOURCE_ID=com.shopkick.app:id/button_text]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Element[] is null: (0)
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] getElements tmp selector:UiSelector[TEXT=PICK A REWARD, INSTANCE=0, RESOURCE_ID=com.shopkick.app:id/button_text]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Element[] is null: (1)
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] getElements tmp selector:UiSelector[TEXT=PICK A REWARD, INSTANCE=1, RESOURCE_ID=com.shopkick.app:id/button_text]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Returning result: {"status":0,"value":[{"ELEMENT":"3"}]}
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":[{"ELEMENT":"3"}],"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/elements [39m[32m200[39m[90m 1583.840 ms - 89[39m [90m{"status":0,"value":[{"ELEMENT":"3"}],"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/timeouts/implicit_wait[39m [90m{"ms":1000}[39m
+[36minfo[39m: [debug] Set Android implicit wait to 1000ms
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":null,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/timeouts/implicit_wait [39m[32m200[39m[90m 0.930 ms - 76[39m [90m{"status":0,"value":null,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/element/3/click[39m [90m{"id":"3"}[39m
+[36minfo[39m: [debug] Pushing command to appium work queue: ["element:click",{"elementId":"3"}]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got data from client: {"cmd":"action","action":"element:click","params":{"elementId":"3"}}
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command of type ACTION
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command action: click
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Returning result: {"status":0,"value":true}
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":true,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/element/3/click [39m[32m200[39m[90m 315.030 ms - 76[39m [90m{"status":0,"value":true,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/timeouts/implicit_wait[39m [90m{"ms":0}[39m
+[36minfo[39m: [debug] Set Android implicit wait to 0ms
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":null,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/timeouts/implicit_wait [39m[32m200[39m[90m 0.940 ms - 76[39m [90m{"status":0,"value":null,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/elements[39m [90m{"using":"-android uiautomator","value":"new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"SELECT REWARD\")"}[39m
+[36minfo[39m: [debug] Waiting up to 0ms for condition
+[36minfo[39m: [debug] Pushing command to appium work queue: ["find",{"strategy":"-android uiautomator","selector":"new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"SELECT REWARD\")","context":"","multiple":true}]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got data from client: {"cmd":"action","action":"find","params":{"strategy":"-android uiautomator","selector":"new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"SELECT REWARD\")","context":"","multiple":true}}
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command of type ACTION
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command action: find
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Finding new UiSelector().resourceId("com.shopkick.app:id/button_text").text("SELECT REWARD") using ANDROID_UIAUTOMATOR with the contextId:  multiple: true
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Parsing selector: new UiSelector().resourceId("com.shopkick.app:id/button_text").text("SELECT REWARD")
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] UiSelector coerce type: class java.lang.String arg: "com.shopkick.app:id/button_text"
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] UiSelector coerce type: class java.lang.String arg: "SELECT REWARD"
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Using: UiSelector[TEXT=SELECT REWARD, RESOURCE_ID=com.shopkick.app:id/button_text]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] getElements selector:UiSelector[TEXT=SELECT REWARD, RESOURCE_ID=com.shopkick.app:id/button_text]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Element[] is null: (0)
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] getElements tmp selector:UiSelector[TEXT=SELECT REWARD, INSTANCE=0, RESOURCE_ID=com.shopkick.app:id/button_text]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Element[] is null: (1)
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] getElements tmp selector:UiSelector[TEXT=SELECT REWARD, INSTANCE=1, RESOURCE_ID=com.shopkick.app:id/button_text]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Returning result: {"status":0,"value":[{"ELEMENT":"4"}]}
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":[{"ELEMENT":"4"}],"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/elements [39m[32m200[39m[90m 1658.007 ms - 89[39m [90m{"status":0,"value":[{"ELEMENT":"4"}],"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/timeouts/implicit_wait[39m [90m{"ms":1000}[39m
+[36minfo[39m: [debug] Set Android implicit wait to 1000ms
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":null,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/timeouts/implicit_wait [39m[32m200[39m[90m 1.358 ms - 76[39m [90m{"status":0,"value":null,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/element/4/click[39m [90m{"id":"4"}[39m
+[36minfo[39m: [debug] Pushing command to appium work queue: ["element:click",{"elementId":"4"}]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got data from client: {"cmd":"action","action":"element:click","params":{"elementId":"4"}}
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command of type ACTION
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command action: click
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Returning result: {"status":0,"value":true}
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":true,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/element/4/click [39m[32m200[39m[90m 211.783 ms - 76[39m [90m{"status":0,"value":true,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/timeouts/implicit_wait[39m [90m{"ms":0}[39m
+[36minfo[39m: [debug] Set Android implicit wait to 0ms
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":null,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/timeouts/implicit_wait [39m[32m200[39m[90m 1.167 ms - 76[39m [90m{"status":0,"value":null,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/elements[39m [90m{"using":"-android uiautomator","value":"new UiSelector().resourceId(\"com.shopkick.app:id/login\").text(\"Have an account? Log In\")"}[39m
+[36minfo[39m: [debug] Waiting up to 0ms for condition
+[36minfo[39m: [debug] Pushing command to appium work queue: ["find",{"strategy":"-android uiautomator","selector":"new UiSelector().resourceId(\"com.shopkick.app:id/login\").text(\"Have an account? Log In\")","context":"","multiple":true}]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got data from client: {"cmd":"action","action":"find","params":{"strategy":"-android uiautomator","selector":"new UiSelector().resourceId(\"com.shopkick.app:id/login\").text(\"Have an account? Log In\")","context":"","multiple":true}}
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command of type ACTION
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command action: find
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Finding new UiSelector().resourceId("com.shopkick.app:id/login").text("Have an account? Log In") using ANDROID_UIAUTOMATOR with the contextId:  multiple: true
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Parsing selector: new UiSelector().resourceId("com.shopkick.app:id/login").text("Have an account? Log In")
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] UiSelector coerce type: class java.lang.String arg: "com.shopkick.app:id/login"
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] UiSelector coerce type: class java.lang.String arg: "Have an account? Log In"
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Using: UiSelector[TEXT=Have an account? Log In, RESOURCE_ID=com.shopkick.app:id/login]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] getElements selector:UiSelector[TEXT=Have an account? Log In, RESOURCE_ID=com.shopkick.app:id/login]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Element[] is null: (0)
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] getElements tmp selector:UiSelector[TEXT=Have an account? Log In, INSTANCE=0, RESOURCE_ID=com.shopkick.app:id/login]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Element[] is null: (1)
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] getElements tmp selector:UiSelector[TEXT=Have an account? Log In, INSTANCE=1, RESOURCE_ID=com.shopkick.app:id/login]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Returning result: {"status":0,"value":[{"ELEMENT":"5"}]}
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":[{"ELEMENT":"5"}],"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/elements [39m[32m200[39m[90m 1517.900 ms - 89[39m [90m{"status":0,"value":[{"ELEMENT":"5"}],"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/timeouts/implicit_wait[39m [90m{"ms":1000}[39m
+[36minfo[39m: [debug] Set Android implicit wait to 1000ms
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":null,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/timeouts/implicit_wait [39m[32m200[39m[90m 1.249 ms - 76[39m [90m{"status":0,"value":null,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/element/5/click[39m [90m{"id":"5"}[39m
+[36minfo[39m: [debug] Pushing command to appium work queue: ["element:click",{"elementId":"5"}]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got data from client: {"cmd":"action","action":"element:click","params":{"elementId":"5"}}
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command of type ACTION
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command action: click
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Returning result: {"status":0,"value":true}
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":true,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/element/5/click [39m[32m200[39m[90m 157.260 ms - 76[39m [90m{"status":0,"value":true,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/timeouts/implicit_wait[39m [90m{"ms":0}[39m
+[36minfo[39m: [debug] Set Android implicit wait to 0ms
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":null,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/timeouts/implicit_wait [39m[32m200[39m[90m 1.050 ms - 76[39m [90m{"status":0,"value":null,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/elements[39m [90m{"using":"-android uiautomator","value":"new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"EMAIL\")"}[39m
+[36minfo[39m: [debug] Waiting up to 0ms for condition
+[36minfo[39m: [debug] Pushing command to appium work queue: ["find",{"strategy":"-android uiautomator","selector":"new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"EMAIL\")","context":"","multiple":true}]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got data from client: {"cmd":"action","action":"find","params":{"strategy":"-android uiautomator","selector":"new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"EMAIL\")","context":"","multiple":true}}
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command of type ACTION
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command action: find
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Finding new UiSelector().resourceId("com.shopkick.app:id/button_text").text("EMAIL") using ANDROID_UIAUTOMATOR with the contextId:  multiple: true
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Parsing selector: new UiSelector().resourceId("com.shopkick.app:id/button_text").text("EMAIL")
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] UiSelector coerce type: class java.lang.String arg: "com.shopkick.app:id/button_text"
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] UiSelector coerce type: class java.lang.String arg: "EMAIL"
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Using: UiSelector[TEXT=EMAIL, RESOURCE_ID=com.shopkick.app:id/button_text]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] getElements selector:UiSelector[TEXT=EMAIL, RESOURCE_ID=com.shopkick.app:id/button_text]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Element[] is null: (0)
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] getElements tmp selector:UiSelector[TEXT=EMAIL, INSTANCE=0, RESOURCE_ID=com.shopkick.app:id/button_text]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Element[] is null: (1)
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] getElements tmp selector:UiSelector[TEXT=EMAIL, INSTANCE=1, RESOURCE_ID=com.shopkick.app:id/button_text]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Returning result: {"status":0,"value":[{"ELEMENT":"6"}]}
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":[{"ELEMENT":"6"}],"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/elements [39m[32m200[39m[90m 1254.112 ms - 89[39m [90m{"status":0,"value":[{"ELEMENT":"6"}],"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/timeouts/implicit_wait[39m [90m{"ms":1000}[39m
+[36minfo[39m: [debug] Set Android implicit wait to 1000ms
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":null,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/timeouts/implicit_wait [39m[32m200[39m[90m 1.074 ms - 76[39m [90m{"status":0,"value":null,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/element/6/click[39m [90m{"id":"6"}[39m
+[36minfo[39m: [debug] Pushing command to appium work queue: ["element:click",{"elementId":"6"}]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got data from client: {"cmd":"action","action":"element:click","params":{"elementId":"6"}}
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command of type ACTION
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command action: click
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Returning result: {"status":0,"value":true}
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":true,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/element/6/click [39m[32m200[39m[90m 161.171 ms - 76[39m [90m{"status":0,"value":true,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/element[39m [90m{"using":"id","value":"com.shopkick.app:id/email"}[39m
+[36minfo[39m: [debug] Waiting up to 1000ms for condition
+[36minfo[39m: [debug] Pushing command to appium work queue: ["find",{"strategy":"id","selector":"com.shopkick.app:id/email","context":"","multiple":false}]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got data from client: {"cmd":"action","action":"find","params":{"strategy":"id","selector":"com.shopkick.app:id/email","context":"","multiple":false}}
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command of type ACTION
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command action: find
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Finding com.shopkick.app:id/email using ID with the contextId:  multiple: false
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Using: UiSelector[INSTANCE=0, RESOURCE_ID=com.shopkick.app:id/email]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Returning result: {"status":0,"value":{"ELEMENT":"7"}}
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":{"ELEMENT":"7"},"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/element [39m[32m200[39m[90m 981.505 ms - 87[39m [90m{"status":0,"value":{"ELEMENT":"7"},"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/element/7/click[39m [90m{"id":"7"}[39m
+[36minfo[39m: [debug] Pushing command to appium work queue: ["element:click",{"elementId":"7"}]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got data from client: {"cmd":"action","action":"element:click","params":{"elementId":"7"}}
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command of type ACTION
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command action: click
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Returning result: {"status":0,"value":true}
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":true,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/element/7/click [39m[32m200[39m[90m 1378.130 ms - 76[39m [90m{"status":0,"value":true,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/element/7/clear[39m [90m{"id":"7"}[39m
+[36minfo[39m: [debug] Pushing command to appium work queue: ["element:clear",{"elementId":"7"}]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got data from client: {"cmd":"action","action":"element:clear","params":{"elementId":"7"}}
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command of type ACTION
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command action: clear
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Attempting to clear using UiObject.clearText().
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Text remains after clearing, but it appears to be hint text.
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Returning result: {"status":0,"value":true}
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":true,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/element/7/clear [39m[32m200[39m[90m 3854.273 ms - 76[39m [90m{"status":0,"value":true,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/element/7/value[39m [90m{"id":"7","value":["trest2@sk.com"]}[39m
+[36minfo[39m: [debug] Pushing command to appium work queue: ["element:setText",{"elementId":"7","text":"trest2@sk.com","replace":false}]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got data from client: {"cmd":"action","action":"element:setText","params":{"elementId":"7","text":"trest2@sk.com","replace":false}}
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command of type ACTION
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command action: setText
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Using element passed in.
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Attempting to clear using UiObject.clearText().
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Text remains after clearing, but it appears to be hint text.
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Text not cleared. Assuming remainder is hint text.
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Sending plain text to element: trest2@sk.com
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Returning result: {"status":0,"value":true}
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":true,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/element/7/value [39m[32m200[39m[90m 5403.401 ms - 76[39m [90m{"status":0,"value":true,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/element[39m [90m{"using":"id","value":"com.shopkick.app:id/password"}[39m
+[36minfo[39m: [debug] Waiting up to 1000ms for condition
+[36minfo[39m: [debug] Pushing command to appium work queue: ["find",{"strategy":"id","selector":"com.shopkick.app:id/password","context":"","multiple":false}]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got data from client: {"cmd":"action","action":"find","params":{"strategy":"id","selector":"com.shopkick.app:id/password","context":"","multiple":false}}
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command of type ACTION
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command action: find
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Finding com.shopkick.app:id/password using ID with the contextId:  multiple: false
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Using: UiSelector[INSTANCE=0, RESOURCE_ID=com.shopkick.app:id/password]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Returning result: {"status":0,"value":{"ELEMENT":"8"}}
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":{"ELEMENT":"8"},"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/element [39m[32m200[39m[90m 499.526 ms - 87[39m [90m{"status":0,"value":{"ELEMENT":"8"},"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/element/8/click[39m [90m{"id":"8"}[39m
+[36minfo[39m: [debug] Pushing command to appium work queue: ["element:click",{"elementId":"8"}]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got data from client: {"cmd":"action","action":"element:click","params":{"elementId":"8"}}
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command of type ACTION
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command action: click
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Returning result: {"status":0,"value":true}
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":true,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/element/8/click [39m[32m200[39m[90m 198.642 ms - 76[39m [90m{"status":0,"value":true,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/element/8/clear[39m [90m{"id":"8"}[39m
+[36minfo[39m: [debug] Pushing command to appium work queue: ["element:clear",{"elementId":"8"}]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got data from client: {"cmd":"action","action":"element:clear","params":{"elementId":"8"}}
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command of type ACTION
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command action: clear
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Attempting to clear using UiObject.clearText().
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Returning result: {"status":0,"value":true}
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":true,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/element/8/clear [39m[32m200[39m[90m 2728.943 ms - 76[39m [90m{"status":0,"value":true,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/element/8/value[39m [90m{"id":"8","value":["sktest123"]}[39m
+[36minfo[39m: [debug] Pushing command to appium work queue: ["element:setText",{"elementId":"8","text":"sktest123","replace":false}]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got data from client: {"cmd":"action","action":"element:setText","params":{"elementId":"8","text":"sktest123","replace":false}}
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command of type ACTION
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command action: setText
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Using element passed in.
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Attempting to clear using UiObject.clearText().
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Sending plain text to element: sktest123
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Returning result: {"status":0,"value":true}
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":true,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/element/8/value [39m[32m200[39m[90m 5369.434 ms - 76[39m [90m{"status":0,"value":true,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/timeouts/implicit_wait[39m [90m{"ms":0}[39m
+[36minfo[39m: [debug] Set Android implicit wait to 0ms
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":null,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/timeouts/implicit_wait [39m[32m200[39m[90m 0.969 ms - 76[39m [90m{"status":0,"value":null,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/elements[39m [90m{"using":"-android uiautomator","value":"new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"LOG IN\")"}[39m
+[36minfo[39m: [debug] Waiting up to 0ms for condition
+[36minfo[39m: [debug] Pushing command to appium work queue: ["find",{"strategy":"-android uiautomator","selector":"new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"LOG IN\")","context":"","multiple":true}]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got data from client: {"cmd":"action","action":"find","params":{"strategy":"-android uiautomator","selector":"new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"LOG IN\")","context":"","multiple":true}}
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command of type ACTION
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command action: find
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Finding new UiSelector().resourceId("com.shopkick.app:id/button_text").text("LOG IN") using ANDROID_UIAUTOMATOR with the contextId:  multiple: true
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Parsing selector: new UiSelector().resourceId("com.shopkick.app:id/button_text").text("LOG IN")
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] UiSelector coerce type: class java.lang.String arg: "com.shopkick.app:id/button_text"
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] UiSelector coerce type: class java.lang.String arg: "LOG IN"
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Using: UiSelector[TEXT=LOG IN, RESOURCE_ID=com.shopkick.app:id/button_text]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] getElements selector:UiSelector[TEXT=LOG IN, RESOURCE_ID=com.shopkick.app:id/button_text]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Element[] is null: (0)
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] getElements tmp selector:UiSelector[TEXT=LOG IN, INSTANCE=0, RESOURCE_ID=com.shopkick.app:id/button_text]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Element[] is null: (1)
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] getElements tmp selector:UiSelector[TEXT=LOG IN, INSTANCE=1, RESOURCE_ID=com.shopkick.app:id/button_text]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Returning result: {"status":0,"value":[{"ELEMENT":"9"}]}
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":[{"ELEMENT":"9"}],"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/elements [39m[32m200[39m[90m 616.702 ms - 89[39m [90m{"status":0,"value":[{"ELEMENT":"9"}],"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/timeouts/implicit_wait[39m [90m{"ms":1000}[39m
+[36minfo[39m: [debug] Set Android implicit wait to 1000ms
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":null,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/timeouts/implicit_wait [39m[32m200[39m[90m 1.137 ms - 76[39m [90m{"status":0,"value":null,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/element/9/click[39m [90m{"id":"9"}[39m
+[36minfo[39m: [debug] Pushing command to appium work queue: ["element:click",{"elementId":"9"}]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got data from client: {"cmd":"action","action":"element:click","params":{"elementId":"9"}}
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command of type ACTION
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command action: click
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Returning result: {"status":0,"value":true}
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":true,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/element/9/click [39m[32m200[39m[90m 675.392 ms - 76[39m [90m{"status":0,"value":true,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/timeouts/implicit_wait[39m [90m{"ms":0}[39m
+[36minfo[39m: [debug] Set Android implicit wait to 0ms
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":null,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/timeouts/implicit_wait [39m[32m200[39m[90m 1.455 ms - 76[39m [90m{"status":0,"value":null,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/elements[39m [90m{"using":"-android uiautomator","value":"new UiSelector().resourceId(\"com.shopkick.app:id/facebook_flow_text\").text(\"We will never post anything without your permission.\")"}[39m
+[36minfo[39m: [debug] Waiting up to 0ms for condition
+[36minfo[39m: [debug] Pushing command to appium work queue: ["find",{"strategy":"-android uiautomator","selector":"new UiSelector().resourceId(\"com.shopkick.app:id/facebook_flow_text\").text(\"We will never post anything without your permission.\")","context":"","multiple":true}]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got data from client: {"cmd":"action","action":"find","params":{"strategy":"-android uiautomator","selector":"new UiSelector().resourceId(\"com.shopkick.app:id/facebook_flow_text\").text(\"We will never post anything without your permission.\")","context":"","multiple":true}}
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command of type ACTION
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command action: find
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Finding new UiSelector().resourceId("com.shopkick.app:id/facebook_flow_text").text("We will never post anything without your permission.") using ANDROID_UIAUTOMATOR with the contextId:  multiple: true
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Parsing selector: new UiSelector().resourceId("com.shopkick.app:id/facebook_flow_text").text("We will never post anything without your permission.")
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] UiSelector coerce type: class java.lang.String arg: "com.shopkick.app:id/facebook_flow_text"
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] UiSelector coerce type: class java.lang.String arg: "We will never post anything without your permission."
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Using: UiSelector[TEXT=We will never post anything without your permission., RESOURCE_ID=com.shopkick.app:id/facebook_flow_text]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] getElements selector:UiSelector[TEXT=We will never post anything without your permission., RESOURCE_ID=com.shopkick.app:id/facebook_flow_text]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Element[] is null: (0)
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] getElements tmp selector:UiSelector[TEXT=We will never post anything without your permission., INSTANCE=0, RESOURCE_ID=com.shopkick.app:id/facebook_flow_text]
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/timeouts/implicit_wait[39m [90m{"ms":0}[39m
+[36minfo[39m: [debug] Set Android implicit wait to 0ms
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":null,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/timeouts/implicit_wait [39m[32m200[39m[90m 0.770 ms - 76[39m [90m{"status":0,"value":null,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/elements[39m [90m{"using":"-android uiautomator","value":"new UiSelector().resourceId(\"com.shopkick.app:id/error_box\")"}[39m
+[36minfo[39m: [debug] Waiting up to 0ms for condition
+[36minfo[39m: [debug] Pushing command to appium work queue: ["find",{"strategy":"-android uiautomator","selector":"new UiSelector().resourceId(\"com.shopkick.app:id/error_box\")","context":"","multiple":true}]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Failed to locate element. Clearing Accessibility cache and retrying.
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Finding new UiSelector().resourceId("com.shopkick.app:id/facebook_flow_text").text("We will never post anything without your permission.") using ANDROID_UIAUTOMATOR with the contextId:  multiple: true
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Parsing selector: new UiSelector().resourceId("com.shopkick.app:id/facebook_flow_text").text("We will never post anything without your permission.")
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] UiSelector coerce type: class java.lang.String arg: "com.shopkick.app:id/facebook_flow_text"
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] UiSelector coerce type: class java.lang.String arg: "We will never post anything without your permission."
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Using: UiSelector[TEXT=We will never post anything without your permission., RESOURCE_ID=com.shopkick.app:id/facebook_flow_text]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] getElements selector:UiSelector[TEXT=We will never post anything without your permission., RESOURCE_ID=com.shopkick.app:id/facebook_flow_text]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Element[] is null: (0)
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] getElements tmp selector:UiSelector[TEXT=We will never post anything without your permission., INSTANCE=0, RESOURCE_ID=com.shopkick.app:id/facebook_flow_text]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Returning result: {"status":0,"value":[]}
+[36minfo[39m: [debug] Condition unmet after 65ms. Timing out.
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":[],"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/elements [39m[32m200[39m[90m 65.827 ms - 74[39m [90m{"status":0,"value":[],"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got data from client: {"cmd":"action","action":"find","params":{"strategy":"-android uiautomator","selector":"new UiSelector().resourceId(\"com.shopkick.app:id/error_box\")","context":"","multiple":true}}
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command of type ACTION
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command action: find
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Finding new UiSelector().resourceId("com.shopkick.app:id/error_box") using ANDROID_UIAUTOMATOR with the contextId:  multiple: true
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Parsing selector: new UiSelector().resourceId("com.shopkick.app:id/error_box")
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] UiSelector coerce type: class java.lang.String arg: "com.shopkick.app:id/error_box"
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Using: UiSelector[RESOURCE_ID=com.shopkick.app:id/error_box]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] getElements selector:UiSelector[RESOURCE_ID=com.shopkick.app:id/error_box]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Element[] is null: (0)
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] getElements tmp selector:UiSelector[INSTANCE=0, RESOURCE_ID=com.shopkick.app:id/error_box]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Element[] is null: (1)
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] getElements tmp selector:UiSelector[INSTANCE=1, RESOURCE_ID=com.shopkick.app:id/error_box]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Returning result: {"status":0,"value":[{"ELEMENT":"10"}]}
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":[{"ELEMENT":"10"}],"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/elements [39m[32m200[39m[90m 126.858 ms - 90[39m [90m{"status":0,"value":[{"ELEMENT":"10"}],"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mPOST[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/timeouts/implicit_wait[39m [90m{"ms":1000}[39m
+[36minfo[39m: [debug] Set Android implicit wait to 1000ms
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":null,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- POST /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/timeouts/implicit_wait [39m[32m200[39m[90m 1.895 ms - 76[39m [90m{"status":0,"value":null,"sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m
+[36minfo[39m: [37m-->[39m [37mGET[39m [37m/wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/element/10/text[39m [90m{}[39m
+[36minfo[39m: [debug] Pushing command to appium work queue: ["element:getText",{"elementId":"10"}]
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got data from client: {"cmd":"action","action":"element:getText","params":{"elementId":"10"}}
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command of type ACTION
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Got command action: getText
+[36minfo[39m: [debug] [BOOTSTRAP] [debug] Returning result: {"status":0,"value":"Oh no, that email\/password isn't right. Try again or tap to reset password."}
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":"Oh no, that email/password isn't right. Try again or tap to reset password.","sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}
+[36minfo[39m: [37m<-- GET /wd/hub/session/24a6d397-34f4-482e-875e-4bc13d37f607/element/10/text [39m[32m200[39m[90m 49.639 ms - 149[39m [90m{"status":0,"value":"Oh no, that email/password isn't right. Try again or tap to reset password.","sessionId":"24a6d397-34f4-482e-875e-4bc13d37f607"}[39m

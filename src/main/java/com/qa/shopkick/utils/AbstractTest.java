@@ -7,9 +7,7 @@ import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.apache.log4j.Logger;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Rule;
+import org.junit.*;
 import org.junit.rules.TestName;
 import org.openqa.selenium.SessionNotCreatedException;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -18,16 +16,22 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.io.File;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public class AbstractTest {
     final private static Logger log = Logger.getLogger(String.valueOf(AbstractTest.class));
 
-    @Rule
-    public TestName name = new TestName();
+    private static QaCalendar calendar = QaCalendar.getInstance();
+    private static String testrailDir = "testrail_scripts/";
+    private static FileWriter fileWriter = null;
+    private static String port = "4725";
+
     public static AppiumDriver driver;
+    private long startTime = 0;
+    private long endTime = 0;
+    private long elapsed = 0;
+
     public String elapsedSec = "";
     protected String runStatus = "failed";
     protected String testSectionName = "";
@@ -37,12 +41,11 @@ public class AbstractTest {
     protected static String filePath = testLodgeDir + File.separator + fileName;
     protected static File file = new File(filePath);
 
-//    private static JSONObject railsTestJSON = new org.json.simple.JSONObject();
-//    private static JSONArray resultsList = new JSONArray();
-    private static QaCalendar calendar = QaCalendar.getInstance();
-    private static String testrailDir = "testrail_scripts/";
-    private static FileWriter fileWriter = null;
-    private static String port = "4725";
+    //    private static JSONObject railsTestJSON = new org.json.simple.JSONObject();
+    //    private static JSONArray resultsList = new JSONArray();
+
+    @Rule
+    public TestName name = new TestName();
 
     //Commented for debug purpose
     //    public static String DeviceName=System.getProperty("deviceName");
@@ -50,9 +53,9 @@ public class AbstractTest {
     //    public static String PlatformVersion=System.getProperty("platformVersion");
     //    public static String DeviceUDID=System.getProperty("deviceUDID");
 
-    public static String DeviceName = "LGD";
+    public static String DeviceName = "LGG3";
     public static String PlatformType = "Android";
-    public static String PlatformVersion = "4.4.2";
+    public static String PlatformVersion = "5.0.1";
     public static String DeviceUDID = "null";
 
     public static String ServerURL = "http://0.0.0.0:4723/wd/hub";
@@ -106,28 +109,28 @@ public class AbstractTest {
     @BeforeClass
     public static void createEnvironment() {
 
+        createAppiumDriver();
         String reportName = "";
-        try {
-            if (!file.exists()) {
-                log.info(fileName + " doesn't exist : So creating it at " + filePath);
-                file.createNewFile();
-                log.info(fileName + " filed created ");
-            }
-            fileWriter = new FileWriter(filePath);
-//            railsTestJSON.put("resultsList", resultsList);
-//            reportName = "" + "_" + calendar.getCaptureTime() + "_" + QaConstants.TEST_LODGE_FILE_JSON;
-//            railsTestJSON.put("reportName", reportName);
-//            log.info("reportName: " + reportName);
-
-            //            railsTestJSON.put("buildNo", QaProperties.getAPKVersion());
-            //
-            //            log.info("buildNo: " + QaProperties.getAPKVersion());
-
-            createAppiumDriver();
-
-        } catch (IOException e) {
-            log.info(e);
-        }
+        //        try {
+        //            if (!file.exists()) {
+        //                log.info(fileName + " doesn't exist : So creating it at " + filePath);
+        //                file.createNewFile();
+        //                log.info(fileName + " filed created ");
+        //            }
+        //            fileWriter = new FileWriter(filePath);
+        //            railsTestJSON.put("resultsList", resultsList);
+        //            reportName = "" + "_" + calendar.getCaptureTime() + "_" + QaConstants.TEST_LODGE_FILE_JSON;
+        //            railsTestJSON.put("reportName", reportName);
+        //            log.info("reportName: " + reportName);
+        //
+        //                        railsTestJSON.put("buildNo", QaProperties.getAPKVersion());
+        //
+        //                        log.info("buildNo: " + QaProperties.getAPKVersion());
+        //
+        //
+        //        } catch (IOException e) {
+        //            log.info(e);
+        //        }
     }
 
     @AfterClass
@@ -135,5 +138,38 @@ public class AbstractTest {
         //driver.quit();
         //driver.resetApp();
 
+    }
+
+    @Before
+    public void beforeMethod() {
+        try {
+            log.info("<--------- Start Test --------------------------------------------------------->");
+            runStatus = "failed";
+            testName = "";
+            testSectionName = "";
+            startTime = System.currentTimeMillis(); // Get the start Time
+        } catch (Exception e) {
+            log.error(e);
+        }
+    }
+
+    @After
+    public void afterMethod() {
+        testName = name.getMethodName();
+        endTime = System.currentTimeMillis(); // Get the end Time
+        elapsed = (endTime - startTime) / 1000;
+        try {
+            //            eachResult.put("elapsed", elapsed);
+            //            eachResult.put("testSectionName", testSectionName);
+            //            eachResult.put("runStatus", runStatus);
+            //            eachResult.put("testName", testName);
+            //            resultsList.add(eachResult);
+            log.info("runStatus = " + runStatus);
+            log.info(testName + " : " + runStatus + " : " + elapsed + " Seconds ");
+            log.info("<--------- End Test --------------------------------------------------------->");
+
+        } catch (Exception e) {
+            log.error(e);
+        }
     }
 }
