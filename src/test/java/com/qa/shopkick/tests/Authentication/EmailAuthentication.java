@@ -3,6 +3,7 @@ package com.qa.shopkick.tests.Authentication;
 import com.qa.shopkick.pages.EmailSignInPage;
 import com.qa.shopkick.pages.SignInPage;
 import com.qa.shopkick.utils.AbstractTest;
+import com.qa.shopkick.utils.CustomHooks;
 import org.apache.log4j.Logger;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -39,6 +40,8 @@ public class EmailAuthentication extends AbstractTest {
 
         String ACTUAL_ERROR = EmailSignInPage.getEmailPasswordError();
         assertEquals("ERROR! " + EXPECTED_ERROR, ACTUAL_ERROR, EXPECTED_ERROR);
+        CustomHooks.pressBack();
+        CustomHooks.pressBack();
         runStatus = "passed";
     }
 

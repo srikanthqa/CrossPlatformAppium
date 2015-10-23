@@ -22,13 +22,11 @@ public class AbstractTest {
     final private static Logger log = Logger.getLogger(String.valueOf(AbstractTest.class));
     private static QaCalendar calendar = QaCalendar.getInstance();
     private static int dCount = 1;
-    private static String testrailDir = "testrail_scripts/";
     private static FileWriter fileWriter = null;
     private static String port = "4725";
     private long startTime = 0;
-    private long endTime = 0;
-    private long elapsed = 0;
 
+    @Rule
     public TestName name = new TestName();
     protected String elapsedSec = "";
     protected String runStatus = "failed";
@@ -40,7 +38,7 @@ public class AbstractTest {
     protected static File file = new File(filePath);
     protected static String reportName = "";
     protected static AppiumDriver driver;
-    //    private static JSONObject railsTestJSON = new org.json.simple.JSONObject();
+    //    private static JSONObject lodgeTestJSON = new org.json.simple.JSONObject();
     //    private static JSONArray resultsList = new JSONArray();
 
     //Commented for debug purpose
@@ -88,6 +86,8 @@ public class AbstractTest {
                     File app = new File(appDir, apk);
 
                     capabilities.setCapability("app", app.getAbsolutePath());
+                    //Don't create driver for subsequent tests. As appium server is still running
+                    //                    if (driver == null)
                     driver = new AndroidDriver(new URL(ServerURL), capabilities);
                     log.info("Created Android Driver: " + dCount++);
                     break;
@@ -108,6 +108,7 @@ public class AbstractTest {
 
     @BeforeClass
     public static void createEnvironment() {
+        createAppiumDriver();
      /*           try {
                     if (!file.exists()) {
                         log.info(fileName + " doesn't exist : So creating it at " + filePath);
@@ -132,23 +133,27 @@ public class AbstractTest {
     }
 
     @AfterClass
-    public static void tearDown() {
-        log.info("<--------- Start tearDown() Test --------->");
+    public static void tearDownEnvironment() {
+        log.info("<--------- Start tearDownEnvironment() Test --------->");
         try {
             //            fileWriter.append(railsTestJSON.toString());
             //            fileWriter.flush();
             //            fileWriter.close();
+            log.info("JSON Created");
         } catch (Exception e) {
             log.error(e);
+        } finally {
+            log.info("Going to Quit Driver");
+            driver.quit();
+            log.info("<--------- End tearDown() Test --------->");
         }
-        log.info("<--------- End tearDown() Test --------->");
     }
 
     @Before
     public void beforeMethod() {
         log.info("<--------- Start beforeMethod() Test ------------------------------------------------------>");
         try {
-            createAppiumDriver();
+            //Initialize all the variables
             runStatus = "failed";
             testName = "";
             testSectionName = "";
@@ -164,8 +169,8 @@ public class AbstractTest {
         log.info("<--------- Start afterMethod() Test --------------------------------------------------------->");
         try {
             testName = name.getMethodName();
-            endTime = System.currentTimeMillis(); // Get the end Time
-            elapsed = (endTime - startTime) / 1000;
+            long endTime = System.currentTimeMillis();
+            long elapsed = (endTime - startTime) / 1000;
             //            eachResult.put("elapsed", elapsed);
             //            eachResult.put("testSectionName", testSectionName);
             //            eachResult.put("runStatus", runStatus);
@@ -175,9 +180,9 @@ public class AbstractTest {
             log.info(testName + " : " + runStatus + " : " + elapsed + " Seconds ");
         } catch (Exception e) {
             log.error(e);
-        } finally {
-            log.info("Going to Quit Driver");
-            driver.quit();
+            //        } finally {
+            //            log.info("Going to Quit Driver");
+            //            driver.quit();
         }
         log.info("<--------- End afterMethod() Test --------------------------------------------------------->");
     }
