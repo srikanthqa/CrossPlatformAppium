@@ -13,8 +13,12 @@ import org.openqa.selenium.SessionNotCreatedException;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.PageFactory;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
@@ -23,7 +27,7 @@ public class AbstractTest {
     private static QaCalendar calendar = QaCalendar.getInstance();
     private static int dCount = 1;
     private static FileWriter fileWriter = null;
-    private static String port = "4725";
+    private static String port = "4723";
     private long startTime = 0;
 
     @Rule
@@ -33,13 +37,13 @@ public class AbstractTest {
     protected String testSectionName = "";
     protected String testName = "";
     protected static String fileName = QaConstants.TEST_LODGE_FILE_JSON;
-    protected static String testLodgeDir = "testLodge_scripts/";
+    protected static String testLodgeDir = "testLodge_script";
     protected static String filePath = testLodgeDir + File.separator + fileName;
     protected static File file = new File(filePath);
     protected static String reportName = "";
     protected static AppiumDriver driver;
-    //    private static JSONObject lodgeTestJSON = new org.json.simple.JSONObject();
-    //    private static JSONArray resultsList = new JSONArray();
+    private static JSONObject testLodgeJSON = new org.json.simple.JSONObject();
+    private static JSONArray resultsList = new JSONArray();
 
     //Commented for debug purpose
     //    public static String DeviceName=System.getProperty("deviceName");
@@ -51,7 +55,7 @@ public class AbstractTest {
     protected static String DeviceName = "LGG3";
     protected static String PlatformVersion = "5.0.1";
     protected static String DeviceUDID = "null";
-    protected static String ServerURL = "http://0.0.0.0:4723/wd/hub";
+    protected static String ServerURL = "http://0.0.0.0:" + port + "/wd/hub";
     protected static String BundleID = "com.shopkick.debug-qa";
     protected static String PackageName = "com.shopkick.app";
     protected static String LauncherActivity = PackageName + "." + "activity.AppScreenActivity";
@@ -109,37 +113,33 @@ public class AbstractTest {
     @BeforeClass
     public static void createEnvironment() {
         //        createAppiumDriver();
-     /*           try {
-                    if (!file.exists()) {
-                        log.info(fileName + " doesn't exist : So creating it at " + filePath);
-                        file.createNewFile();
-                        log.info(fileName + " filed created ");
-                    }
-                    fileWriter = new FileWriter(filePath);
-                    railsTestJSON.put("resultsList", resultsList);
-                    reportName = "" + "_" + calendar.getCaptureTime() + "_" + QaConstants.TEST_LODGE_FILE_JSON;
-                    railsTestJSON.put("reportName", reportName);
-                    log.info("reportName: " + reportName);
+        try {
+            if (!file.exists()) {
+                log.info(fileName + " doesn't exist : So creating it at " + filePath);
+                file.createNewFile();
+                log.info(fileName + " filed created ");
+            }
+            fileWriter = new FileWriter(filePath);
+            testLodgeJSON.put("resultsList", resultsList);
+            reportName = "" + "_" + calendar.getCaptureTime() + "_" + QaConstants.TEST_LODGE_FILE_JSON;
+            testLodgeJSON.put("reportName", reportName);
+            log.info("reportName: " + reportName);
+            testLodgeJSON.put("buildNo", "1111");
+            log.info("buildNo: " + "4.7.6");
+        } catch (IOException e) {
+            log.info(e);
+        }
 
-                                railsTestJSON.put("buildNo", QaProperties.getAPKVersion());
-
-                                log.info("buildNo: " + QaProperties.getAPKVersion());
-
-
-                } catch (IOException e) {
-                    log.info(e);
-                }
-    */
     }
 
     @AfterClass
     public static void tearDownEnvironment() {
         log.info("<--------- Start tearDownEnvironment() Test --------->");
         try {
-            //            fileWriter.append(railsTestJSON.toString());
-            //            fileWriter.flush();
-            //            fileWriter.close();
-            log.info("JSON Created NOT ");
+            fileWriter.append(testLodgeJSON.toString());
+            fileWriter.flush();
+            fileWriter.close();
+            log.info("JSON Created ");
         } catch (Exception e) {
             log.error(e);
         }
@@ -170,14 +170,15 @@ public class AbstractTest {
     public void afterMethod() {
         log.info("<--------- Start afterMethod() Test --------------------------------------------------------->");
         try {
+            JSONObject eachResult = new org.json.simple.JSONObject();
             testName = name.getMethodName();
             long endTime = System.currentTimeMillis();
             long elapsed = (endTime - startTime) / 1000;
-            //            eachResult.put("elapsed", elapsed);
-            //            eachResult.put("testSectionName", testSectionName);
-            //            eachResult.put("runStatus", runStatus);
-            //            eachResult.put("testName", testName);
-            //            resultsList.add(eachResult);
+            eachResult.put("elapsed", elapsed);
+            eachResult.put("testSectionName", testSectionName);
+            eachResult.put("runStatus", runStatus);
+            eachResult.put("testName", testName);
+            resultsList.add(eachResult);
             log.info(testName + " : " + runStatus + " : Took " + elapsed + " Seconds ");
         } catch (Exception e) {
             log.error(e);

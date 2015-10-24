@@ -1,0 +1,12 @@
+{
+  "resultsList": [
+    {
+      "elapsed": 42,
+      "runStatus": "passed",
+      "testSectionName": "",
+      "testName": "Test2LoginWithEmailAccount"
+    }
+  ],
+  "reportName": "_10-23-2015-07:20_testLodge.json",
+  "buildNo": "1111"
+}

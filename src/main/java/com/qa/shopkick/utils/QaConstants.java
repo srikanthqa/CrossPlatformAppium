@@ -8,7 +8,7 @@ public interface QaConstants {
     public static final boolean SUCCESS = true;
     public static final boolean FAILURE = false;
 
-    public static final String TEST_LODGE_FILE_JSON = "testLODGE.json";
+    public static final String TEST_LODGE_FILE_JSON = "testLodge.json";
     public static final String TEST_LODGE_DIR = "testLODGE_scripts/";
     public static final String SCREENSHOTS_DIR = "screenshots//";
     public static final String REPORTS_DIR = "reports/";
