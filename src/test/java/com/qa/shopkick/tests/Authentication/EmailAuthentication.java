@@ -44,9 +44,10 @@ public class EmailAuthentication extends AbstractTest {
         runStatus = "passed";
     }
 
-    @Test
-    public void Test2_LoginWrongEmailAccount() {
-    }
+//    @Test
+//    public void Test2_LoginWrongEmailAccount() {
+//        log.info("Test2_LoginWrongEmailAccount");
+//    }
     //    @Test
     //    public void Test2_LoginWrongEmailAccount() {
     //

@@ -50,7 +50,8 @@ public class AbstractTest {
     public static String platformType = System.getProperty("platformType");
     public static String platformVersion = System.getProperty("platformVersion");
     public static String deviceUDID = System.getProperty("deviceUDID");
-
+    private static String buildNo = "1112";
+    private static File userDir = new File(System.getProperty("user.dir"));
     //    protected static String platformType = "Android";
     //    protected static String deviceName = "LGG3";
     //    protected static String platformVersion = "5.0.1";
@@ -83,19 +84,16 @@ public class AbstractTest {
                     break;
                 }
                 case "Android": {
-
                     log.info(platformType + " : " + deviceName + " : " + platformVersion);
                     String apk = "Shopkick_debug_qa_e80a4cd5f375938343f5a8f91d51763b6339c89f.apk";
                     log.info("using: " + apk);
                     log.info("Some times you got to play the waiting game    ");
-                    File userDir = new File(System.getProperty("user.dir"));
                     File appDir = new File(userDir, "APK/");
                     File app = new File(appDir, apk);
-
                     capabilities.setCapability("app", app.getAbsolutePath());
                     //Don't create driver for subsequent tests. As appium server is still running
-                    //                    if (driver == null)
-                    driver = new AndroidDriver(new URL(serverURL), capabilities);
+                    if (driver == null)
+                        driver = new AndroidDriver(new URL(serverURL), capabilities);
                     log.info("Created Android Driver: " + dCount++);
                     break;
                 }
@@ -115,8 +113,8 @@ public class AbstractTest {
 
     @BeforeClass
     public static void createEnvironment() {
-        //        createAppiumDriver();
         try {
+            createAppiumDriver();
             if (!file.exists()) {
                 log.info(fileName + " doesn't exist : So creating it at " + filePath);
                 file.createNewFile();
@@ -127,7 +125,7 @@ public class AbstractTest {
             reportName = "Android" + "_" + calendar.getCurrentDate() + "_" + QaConstants.TEST_LODGE_FILE_JSON;
             testLodgeJSON.put("reportName", reportName);
             log.info("reportName: " + reportName);
-            testLodgeJSON.put("buildNo", "1112");
+            testLodgeJSON.put("buildNo", buildNo);
             log.info("buildNo: " + "4.7.6");
         } catch (IOException e) {
             log.info(e);
@@ -158,7 +156,7 @@ public class AbstractTest {
     public void beforeMethod() {
         log.info("<--------- Start beforeMethod() Test ------------------------------------------------------>");
         try {
-            createAppiumDriver();
+            //            createAppiumDriver();
             //Initialize all the variables
             runStatus = "failed";
             testName = "";
