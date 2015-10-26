@@ -12,5 +12,5 @@ killall node ; appium > logs/appium.log &
 ########################### Kick off tests ######################################
 #sleep 2
 #mvn clean compile
-#mvn -Dtest=com.qa.shopkick.tests.Authentication.EmailAuthentication test
+mvn -Dtest=com.qa.shopkick.tests.Authentication.EmailAuthentication test
 #mvn -Dtest=com.qa.shopkick.tests.Authentication.EmailAuthentication#Test1_LoginWrongEmailAccount test

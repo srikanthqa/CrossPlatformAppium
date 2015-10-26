@@ -16,37 +16,10 @@ public class EmailAuthentication extends AbstractTest {
     final private static Logger log = Logger.getLogger((EmailAuthentication.class));
     final private static String EXPECTED_ERROR = "Oh no, that email/password isn't right. Try again or tap to reset password.";
 
-//    @Test
-//    public void Test1_LoginWrongEmailAccount() {
-//
-//        testName = "Test1_LoginWrongEmailAccount";
-//        //Go thorough first use
-//        LoginHooks.GoThroughFirstUse();
-//
-//        //From logout screen hit on email to create an account
-//        SignInPage.clicksignInEmailSignIn();
-//
-//        //CREATE ACCOUNT
-//        //add email address
-//        EmailSignInPage.clickAndEnterEmailANDROID("trest2@sk.com");
-//
-//        //add password
-//        EmailSignInPage.clickAndEnterPswdANDROID("sktest123");
-//
-//        //Hit sign in
-//        EmailSignInPage.clickLoginButton();
-//
-//        String ACTUAL_ERROR = EmailSignInPage.getEmailPasswordError();
-//        assertEquals("ERROR! " + EXPECTED_ERROR, ACTUAL_ERROR, EXPECTED_ERROR);
-//        CustomHooks.pressBack();
-//        CustomHooks.pressBack();
-//        runStatus = "passed";
-//    }
-
     @Test
-    public void Test2LoginWithEmailAccount() {
+    public void Test1_LoginWithEmailAccount() {
 
-        testName = "Test2LoginWithEmailAccount";
+        testName = "Test1LoginWithEmailAccount";
         //Go thorough first use
         LoginHooks.GoThroughFirstUse();
 
@@ -70,6 +43,32 @@ public class EmailAuthentication extends AbstractTest {
         runStatus = "passed";
     }
 
+    //    @Test
+    //    public void Test2_LoginWrongEmailAccount() {
+    //
+    //        testName = "Test2LoginWrongEmailAccount";
+    //        //Go thorough first use
+    //        LoginHooks.GoThroughFirstUse();
+    //
+    //        //From logout screen hit on email to create an account
+    //        SignInPage.clicksignInEmailSignIn();
+    //
+    //        //CREATE ACCOUNT
+    //        //add email address
+    //        EmailSignInPage.clickAndEnterEmailANDROID("trest2@sk.com");
+    //
+    //        //add password
+    //        EmailSignInPage.clickAndEnterPswdANDROID("sktest123");
+    //
+    //        //Hit sign in
+    //        EmailSignInPage.clickLoginButton();
+    //
+    //        String ACTUAL_ERROR = EmailSignInPage.getEmailPasswordError();
+    //        assertEquals("ERROR! " + EXPECTED_ERROR, ACTUAL_ERROR, EXPECTED_ERROR);
+    //        CustomHooks.pressBack();
+    //        CustomHooks.pressBack();
+    //        runStatus = "passed";
+    //    }
 
 /*    @Test
     public void Test3_DeleteEmailAccount() {
