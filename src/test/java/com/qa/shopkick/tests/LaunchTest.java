@@ -19,7 +19,7 @@ public class LaunchTest extends AbstractTest {
 		FirstUseDealsEducationPage.clickGetStartedButton();
 		CustomHooks.waitFor(2);
 
-		if(PlatformType.equals("IOS")){
+		if(platformType.equals("IOS")){
 			CountryPickerPage.clickCountryUSA();
 			CountryPickerPage.clickNextButton();
 		}
@@ -33,7 +33,7 @@ public class LaunchTest extends AbstractTest {
 
 		//CustomHooks.dismissPotHoleError();
 		//if iOS and if mic permission is asked, give the permission
-		if(PlatformType.equals("IOS")){
+		if(platformType.equals("IOS")){
 			MicrophonePermissionPage.clickOKButton();
 		}
 

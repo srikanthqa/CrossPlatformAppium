@@ -46,43 +46,46 @@ public class AbstractTest {
     private static JSONArray resultsList = new JSONArray();
 
     //Commented for debug purpose
-    //    public static String DeviceName=System.getProperty("deviceName");
-    //    public static String PlatformType=System.getProperty("platformType");
-    //    public static String PlatformVersion=System.getProperty("platformVersion");
-    //    public static String DeviceUDID=System.getProperty("deviceUDID");
+    public static String deviceName = System.getProperty("deviceName");
+    public static String platformType = System.getProperty("platformType");
+    public static String platformVersion = System.getProperty("platformVersion");
+    public static String deviceUDID = System.getProperty("deviceUDID");
 
-    protected static String PlatformType = "Android";
-    protected static String DeviceName = "LGG3";
-    protected static String PlatformVersion = "5.0.1";
-    protected static String DeviceUDID = "null";
-    protected static String ServerURL = "http://0.0.0.0:" + port + "/wd/hub";
-    protected static String BundleID = "com.shopkick.debug-qa";
-    protected static String PackageName = "com.shopkick.app";
-    protected static String LauncherActivity = PackageName + "." + "activity.AppScreenActivity";
+    //    protected static String platformType = "Android";
+    //    protected static String deviceName = "LGG3";
+    //    protected static String platformVersion = "5.0.1";
+    //    protected static String deviceUDID = "null";
+
+    protected static String serverURL = "http://0.0.0.0:" + port + "/wd/hub";
+    protected static String bundleID = "com.shopkick.debug-qa";
+    protected static String packageName = "com.shopkick.app";
+    protected static String launcherActivity = packageName + "." + "activity.AppScreenActivity";
 
     public static AppiumDriver createAppiumDriver() {
         log.info("Going to Create createAppiumDriver() ...");
         try {
             DesiredCapabilities capabilities = new DesiredCapabilities();
-            capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, DeviceName);
-            capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, PlatformType);
-            capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, PlatformVersion);
-            capabilities.setCapability("appActivity", LauncherActivity);
-            capabilities.setCapability("appPackage", PackageName);
+            capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, deviceName);
+            capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, platformType);
+            capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, platformVersion);
+            capabilities.setCapability("appActivity", launcherActivity);
+            capabilities.setCapability("appPackage", packageName);
             capabilities.setCapability("noSign", true);
             capabilities.setCapability("newCommandTimeout", 7200);
 
-            switch (PlatformType) {
+            switch (platformType) {
                 case "IOS": {
-                    capabilities.setCapability("udid", DeviceUDID);
-                    capabilities.setCapability("bundleId", BundleID);
-                    driver = new IOSDriver(new URL(ServerURL), capabilities);
+                    capabilities.setCapability("udid", deviceUDID);
+                    capabilities.setCapability("bundleId", bundleID);
+                    driver = new IOSDriver(new URL(serverURL), capabilities);
                     log.info("Created IOS Driver: " + dCount++);
                     log.info(driver.getTitle());
                     break;
                 }
                 case "Android": {
-                    String apk = "Shopkick_debug_qa_ce22833c9da74fa6e98cb1e2cd23f9624b814266.apk";
+
+                    log.info(platformType + " : " + deviceName + " : " + platformVersion);
+                    String apk = "Shopkick_debug_qa_e80a4cd5f375938343f5a8f91d51763b6339c89f.apk";
                     log.info("using: " + apk);
                     log.info("Some times you got to play the waiting game    ");
                     File userDir = new File(System.getProperty("user.dir"));
@@ -92,7 +95,7 @@ public class AbstractTest {
                     capabilities.setCapability("app", app.getAbsolutePath());
                     //Don't create driver for subsequent tests. As appium server is still running
                     //                    if (driver == null)
-                    driver = new AndroidDriver(new URL(ServerURL), capabilities);
+                    driver = new AndroidDriver(new URL(serverURL), capabilities);
                     log.info("Created Android Driver: " + dCount++);
                     break;
                 }
@@ -121,10 +124,10 @@ public class AbstractTest {
             }
             fileWriter = new FileWriter(filePath);
             testLodgeJSON.put("resultsList", resultsList);
-            reportName = "" + "_" + calendar.getCaptureTime() + "_" + QaConstants.TEST_LODGE_FILE_JSON;
+            reportName = "Android" + "_" + calendar.getCurrentDate() + "_" + QaConstants.TEST_LODGE_FILE_JSON;
             testLodgeJSON.put("reportName", reportName);
             log.info("reportName: " + reportName);
-            testLodgeJSON.put("buildNo", "1111");
+            testLodgeJSON.put("buildNo", "1112");
             log.info("buildNo: " + "4.7.6");
         } catch (IOException e) {
             log.info(e);
@@ -139,15 +142,16 @@ public class AbstractTest {
             fileWriter.append(testLodgeJSON.toString());
             fileWriter.flush();
             fileWriter.close();
-            log.info("JSON Created ");
+            log.info("Result JSON Created ");
         } catch (Exception e) {
             log.error(e);
+        } finally {
+            if (driver != null) {
+                log.info("Going to Quit Driver");
+                driver.quit();
+            }
+            log.info("<--------- End tearDownEnvironment() Test --------->");
         }
-        //        finally {
-        //            log.info("Going to Quit Driver");
-        //            driver.quit();
-        //            log.info("<--------- End tearDown() Test --------->");
-        //        }
     }
 
     @Before

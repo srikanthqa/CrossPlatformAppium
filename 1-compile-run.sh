@@ -7,7 +7,7 @@ mkdir screenshots
 adb uninstall com.shopkick.app
 Echo "App Uninstalled"
 ########################## Start Appium #########################
-killall node ; appium > logs/appium.log &
+#killall node ; appium > logs/appium.log &
 #killall node ; appium --address 0.0.0.0 --port 4723 > logs/appium.log &
 ########################### Kick off tests ######################################
 #sleep 2

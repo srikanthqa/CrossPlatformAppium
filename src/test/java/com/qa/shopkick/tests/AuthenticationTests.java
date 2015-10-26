@@ -16,7 +16,7 @@ public class AuthenticationTests extends AbstractTest{
 		FirstUseDealsEducationPage.clickGetStartedButton();
 		CustomHooks.waitFor(2);
 
-		if(PlatformType.equals("IOS")){
+		if(platformType.equals("IOS")){
 			CountryPickerPage.clickCountryUSA();
 			CountryPickerPage.clickNextButton();
 		}
@@ -41,7 +41,7 @@ public class AuthenticationTests extends AbstractTest{
 
 		CustomHooks.waitFor(5);
 
-		if (PlatformType.equalsIgnoreCase("IOS")) {
+		if (platformType.equalsIgnoreCase("IOS")) {
 			if (MicrophonePermissionPage.isMicroPhonePermissionRequired()) {
 				//if iOS and if mic permission is asked, give the permission
 				MicrophonePermissionPage.clickOKButton();

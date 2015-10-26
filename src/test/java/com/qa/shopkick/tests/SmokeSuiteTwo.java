@@ -31,7 +31,7 @@ public class SmokeSuiteTwo extends AbstractTest {
 
         driver.scrollTo("Trending on shopkick");
 
-        if (PlatformType.equals("IOS")) {
+        if (platformType.equals("IOS")) {
             //tap on all trending
             StoresPage.clickOnTrendingOnShopkick();
             //tap on cell
@@ -66,7 +66,7 @@ public class SmokeSuiteTwo extends AbstractTest {
         //Look for Carters or Michaels or Target
         driver.scrollTo("Michaels");
 
-        if (PlatformType.equals("IOS")) {
+        if (platformType.equals("IOS")) {
             DealsPage.clickOnMichaelsIOS();
         } else {
             //Go to product

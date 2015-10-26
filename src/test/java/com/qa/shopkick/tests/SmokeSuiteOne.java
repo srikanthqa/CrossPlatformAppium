@@ -17,7 +17,7 @@ public class SmokeSuiteOne extends AbstractTest {
         //Go through the first use flow
         FirstUseDealsEducationPage.clickGetStartedButton();
 
-        if (PlatformType.equals("IOS")) {
+        if (platformType.equals("IOS")) {
             if (CountryPickerPage.clickAndProceedUSA() || !(FirstUseWalkinEducationPage.isGetPointsScreen())) {
                 CountryPickerPage.clickCountryUSA();
                 CountryPickerPage.clickCountryUSA();
@@ -70,7 +70,7 @@ public class SmokeSuiteOne extends AbstractTest {
 
         //CREATE ACCOUNT
 
-        if (PlatformType.equalsIgnoreCase("Android")) {
+        if (platformType.equalsIgnoreCase("Android")) {
 
             //add email address
             EmailSignInPage.clickAndEnterEmailANDROID("trest2@sk.com");
@@ -90,7 +90,7 @@ public class SmokeSuiteOne extends AbstractTest {
 
         driver.hideKeyboard();
 
-        if (PlatformType.equalsIgnoreCase("Android")) {
+        if (platformType.equalsIgnoreCase("Android")) {
             //Hit sign up
             EmailSignInPage.clickOnSignUpButton();
         } else {
@@ -142,7 +142,7 @@ public class SmokeSuiteOne extends AbstractTest {
 
         CustomHooks.waitFor(5);
 
-        if (PlatformType.equalsIgnoreCase("Android")) {
+        if (platformType.equalsIgnoreCase("Android")) {
             //Comfirm delete account
             ConfirmDeleteAccountPage.clickOnDeleteAccountConfirm();
         } else {

@@ -18,8 +18,9 @@ public class EmailAuthentication extends AbstractTest {
 
     @Test
     public void Test1_LoginWithEmailAccount() {
-
+        testSectionName = "EmailAuthentication";
         testName = "Test1LoginWithEmailAccount";
+
         //Go thorough first use
         LoginHooks.GoThroughFirstUse();
 
@@ -43,6 +44,9 @@ public class EmailAuthentication extends AbstractTest {
         runStatus = "passed";
     }
 
+    @Test
+    public void Test2_LoginWrongEmailAccount() {
+    }
     //    @Test
     //    public void Test2_LoginWrongEmailAccount() {
     //

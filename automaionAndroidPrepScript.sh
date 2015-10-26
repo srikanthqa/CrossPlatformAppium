@@ -51,12 +51,11 @@ killall node
 Echo 'Downloading the build'
 echo "*****************"
 
-
 #curl --output APK/Shopkick-release.apk -O http://shopkicks-mac-pro.local:8080/job/Android_RC_branch/ws/apps/shopkick/android/Shopkick/build/outputs/apk/
 
 Echo 'Installing APK ....'
 
-adb install -r APK/Shopkick_debug_pr*.apk
+adb install -r APK/Shopkick_debug_qa*.apk
 ########################## Start Appium #########################
 killall node && appium --address 0.0.0.0 --port 4723 > logs/appium.log &
 ########################### Kick off tests ######################################

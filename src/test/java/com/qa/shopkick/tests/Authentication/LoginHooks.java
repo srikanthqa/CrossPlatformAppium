@@ -18,7 +18,7 @@ public class LoginHooks extends AbstractTest {
 
         CustomHooks.waitFor(5);
 
-        if (PlatformType.equalsIgnoreCase("IOS")) {
+        if (platformType.equalsIgnoreCase("IOS")) {
             if (MicrophonePermissionPage.isMicroPhonePermissionRequired()) {
                 //if iOS and if mic permission is asked, give the permission
                 MicrophonePermissionPage.clickOKButton();
@@ -41,7 +41,7 @@ public class LoginHooks extends AbstractTest {
 
         //Element issues, using two different methods to sign in
 
-        if (PlatformType.equalsIgnoreCase("Android")) {
+        if (platformType.equalsIgnoreCase("Android")) {
 
             //add email address
             EmailSignInPage.clickAndEnterEmailANDROID("a@b.com");
@@ -62,7 +62,7 @@ public class LoginHooks extends AbstractTest {
         //Go through the first use flow
         FirstUseDealsEducationPage.clickGetStartedButton();
 
-        if (PlatformType.equals("IOS")) {
+        if (platformType.equals("IOS")) {
             CountryPickerPage.clickCountryUSA();
             CountryPickerPage.clickNextButton();
         }

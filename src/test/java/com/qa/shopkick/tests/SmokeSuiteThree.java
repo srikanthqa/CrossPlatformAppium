@@ -18,7 +18,7 @@ public class SmokeSuiteThree extends AbstractTest{
 
 		//Element issues, using two different methods to sign in
 
-		if (PlatformType.equalsIgnoreCase("Android")) {
+		if (platformType.equalsIgnoreCase("Android")) {
 
 			//add email address
 			EmailSignInPage.clickAndEnterEmailANDROID("a@b.com");
@@ -43,7 +43,7 @@ public class SmokeSuiteThree extends AbstractTest{
 		//Learn how to get kicks
 		KicksCenterRewadsPage.clickOnLearnHowToGetKicks();
 
-		if(PlatformType.equalsIgnoreCase("Android")){
+		if(platformType.equalsIgnoreCase("Android")){
 			//on screen back button 
 			LearnHowGetMoreKicks.clickOnBackButton();
 		}
@@ -92,7 +92,7 @@ public class SmokeSuiteThree extends AbstractTest{
 
 		InviteAndGetKicksPage.clickOninviteFrendsButton();
 
-		if(PlatformType.equalsIgnoreCase("Android")){
+		if(platformType.equalsIgnoreCase("Android")){
 			//on screen back button 
 			InviteAndGetKicksPage.clickOnBackButton();
 		}

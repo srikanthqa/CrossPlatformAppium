@@ -17,7 +17,7 @@ public class FacebookAuthentication extends AbstractTest{
 		FirstUseDealsEducationPage.clickGetStartedButton();
 		CustomHooks.waitFor(2);
 
-		if(PlatformType.equals("IOS")){
+		if(platformType.equals("IOS")){
 			CountryPickerPage.clickCountryUSA();
 			CountryPickerPage.clickNextButton();
 		}
