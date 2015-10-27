@@ -34,7 +34,7 @@ public class AbstractTest {
     protected String runStatus = "failed";
     protected String testSectionName = "";
     protected String testName = "";
-    protected static String fileName = QaConstants.TEST_LODGE_FILE_JSON;
+    protected static String fileName = QaConstants.TEST_LODGE_RESULT_JSON;
     protected static String testLodgeDir = "testLodge_script";
     protected static String filePath = testLodgeDir + File.separator + fileName;
     protected static File file = new File(filePath);
@@ -113,7 +113,7 @@ public class AbstractTest {
             }
             fileWriter = new FileWriter(filePath);
             testLodgeJSON.put("resultsList", resultsList);
-            reportName = "Android" + "_" + calendar.getCurrentDate() + "_" + QaConstants.TEST_LODGE_FILE_JSON;
+            reportName = "Android" + "_" + calendar.getCurrentDate() + "_" + QaConstants.TEST_LODGE_RESULT_JSON;
             testLodgeJSON.put("reportName", reportName);
             log.info("reportName: " + reportName);
             testLodgeJSON.put("buildNo", buildNo);

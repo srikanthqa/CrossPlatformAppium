@@ -47,7 +47,7 @@ public class QaReportProcessor {
     public String getRailsReportName() {
         JSONParser parser = new JSONParser();
         try {
-            Object obj = parser.parse(new FileReader(QaConstants.TEST_LODGE_FILE_JSON + File.separator + QaConstants.TEST_LODGE_FILE_JSON));
+            Object obj = parser.parse(new FileReader(QaConstants.TEST_LODGE_RESULT_JSON + File.separator + QaConstants.TEST_LODGE_RESULT_JSON));
             JSONObject jsonObject = (JSONObject) obj;
             reportName = (String) jsonObject.get("reportName");
             log.info("reportName: " + reportName);

@@ -14,7 +14,7 @@ public class QaFileReader {
 
     public static Logger log = Logger.getLogger(QaFileReader.class);
     private static String testrailDir = "testrail_scripts";
-    String fileName = QaConstants.TEST_LODGE_FILE_JSON;
+    String fileName = QaConstants.TEST_LODGE_RESULT_JSON;
     String filePath = testrailDir + File.separator + fileName;
     File file = new File(filePath);
     //    JSONParser parser = new JSONParser();
