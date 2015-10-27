@@ -1,23 +1,11 @@
 package com.qa.shopkick.tests;
 
-import javax.management.DescriptorKey;
-
-import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-
-import org.junit.Test;
-import org.openqa.selenium.support.PageFactory;
-
-import com.qa.shopkick.pages.CountryPickerPage;
-import com.qa.shopkick.pages.FirstUseDealsEducationPage;
-import com.qa.shopkick.pages.FirstUseRegistrationIntroPage;
-import com.qa.shopkick.pages.FirstUseRewardsEducationPage;
-import com.qa.shopkick.pages.FirstUseWalkinEducationPage;
-import com.qa.shopkick.pages.LandingPage;
-import com.qa.shopkick.pages.MicrophonePermissionPage;
-import com.qa.shopkick.pages.RewardsPickerPage;
-import com.qa.shopkick.pages.SignInPage;
+import com.qa.shopkick.pages.*;
 import com.qa.shopkick.utils.AbstractTest;
 import com.qa.shopkick.utils.CustomHooks;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.junit.Test;
+import org.openqa.selenium.support.PageFactory;
 
 
 public class AuthenticationTests extends AbstractTest{
@@ -25,10 +13,10 @@ public class AuthenticationTests extends AbstractTest{
 	@Test
 	void FirstUseFlow(){
 		//Go through the first use flow
-		FirstUseDealsEducationPage.clickNextButton();
+		FirstUseDealsEducationPage.clickGetStartedButton();
 		CustomHooks.waitFor(2);
 
-		if(PlatformType.equals("IOS")){
+		if(platformType.equals("IOS")){
 			CountryPickerPage.clickCountryUSA();
 			CountryPickerPage.clickNextButton();
 		}
@@ -53,7 +41,7 @@ public class AuthenticationTests extends AbstractTest{
 
 		CustomHooks.waitFor(5);
 
-		if (PlatformType.equalsIgnoreCase("IOS")) {
+		if (platformType.equalsIgnoreCase("IOS")) {
 			if (MicrophonePermissionPage.isMicroPhonePermissionRequired()) {
 				//if iOS and if mic permission is asked, give the permission
 				MicrophonePermissionPage.clickOKButton();

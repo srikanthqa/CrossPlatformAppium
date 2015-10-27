@@ -1,25 +1,10 @@
 package com.qa.shopkick.tests;
 
-import static org.junit.Assert.fail;
-
-import org.junit.After;
-import org.junit.Test;
-import org.openqa.selenium.By;
-
-import com.qa.shopkick.pages.AccountSettings;
-import com.qa.shopkick.pages.EmailSignInPage;
-import com.qa.shopkick.pages.FacebookInvitePage;
-import com.qa.shopkick.pages.InviteAndGetKicksPage;
-import com.qa.shopkick.pages.KicksCenterRewadsPage;
-import com.qa.shopkick.pages.LandingPage;
-import com.qa.shopkick.pages.LearnHowGetMoreKicks;
-import com.qa.shopkick.pages.LeftNavBar;
-import com.qa.shopkick.pages.LeftNavSettings;
-import com.qa.shopkick.pages.RewardsPickerPage;
-import com.qa.shopkick.pages.SignInPage;
-import com.qa.shopkick.pages.StoresPage;
+import com.qa.shopkick.pages.*;
 import com.qa.shopkick.utils.AbstractTest;
 import com.qa.shopkick.utils.CustomHooks;
+import org.junit.Test;
+import org.openqa.selenium.By;
 
 public class SmokeSuiteThree extends AbstractTest{
 
@@ -33,7 +18,7 @@ public class SmokeSuiteThree extends AbstractTest{
 
 		//Element issues, using two different methods to sign in
 
-		if (PlatformType.equalsIgnoreCase("Android")) {
+		if (platformType.equalsIgnoreCase("Android")) {
 
 			//add email address
 			EmailSignInPage.clickAndEnterEmailANDROID("a@b.com");
@@ -58,7 +43,7 @@ public class SmokeSuiteThree extends AbstractTest{
 		//Learn how to get kicks
 		KicksCenterRewadsPage.clickOnLearnHowToGetKicks();
 
-		if(PlatformType.equalsIgnoreCase("Android")){
+		if(platformType.equalsIgnoreCase("Android")){
 			//on screen back button 
 			LearnHowGetMoreKicks.clickOnBackButton();
 		}
@@ -107,7 +92,7 @@ public class SmokeSuiteThree extends AbstractTest{
 
 		InviteAndGetKicksPage.clickOninviteFrendsButton();
 
-		if(PlatformType.equalsIgnoreCase("Android")){
+		if(platformType.equalsIgnoreCase("Android")){
 			//on screen back button 
 			InviteAndGetKicksPage.clickOnBackButton();
 		}

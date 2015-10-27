@@ -1,11 +1,9 @@
 package com.qa.shopkick.pages;
 
+import com.qa.shopkick.utils.AbstractPage;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import junit.framework.Assert;
-
 import org.openqa.selenium.WebElement;
-
-import com.qa.shopkick.utils.AbstractPage;
 
 @SuppressWarnings("deprecation")
 public class PurchaseKicksPage extends AbstractPage{

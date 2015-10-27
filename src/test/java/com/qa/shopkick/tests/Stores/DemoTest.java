@@ -1,7 +1,5 @@
 package com.qa.shopkick.tests.Stores;
 
-import io.appium.java_client.pagefactory.AndroidFindBy;
-
 import com.qa.shopkick.pages.StoreViewPage;
 import com.qa.shopkick.pages.StoresPage;
 import com.qa.shopkick.utils.AbstractTest;

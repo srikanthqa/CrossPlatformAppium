@@ -1,10 +1,8 @@
 package com.qa.shopkick.pages;
 
 import com.qa.shopkick.utils.AbstractPage;
-
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
