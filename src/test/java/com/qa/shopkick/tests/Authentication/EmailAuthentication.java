@@ -32,9 +32,6 @@ public class EmailAuthentication extends AbstractTest {
         String ACTUAL_ERROR = EmailSignInPage.getEmailPasswordError();
         assertNotEquals(EXPECTED_ERROR, ACTUAL_ERROR);
 
-        //com.shopkick.app:id/kicks_amount
-        //make sure you see the Kicks Count on the top center is equal to 1
-
         String expectedKicks = "1";
         LandingPage landingPage = new LandingPage();
         String actualKicks = landingPage.getKicksOnLandingPage();

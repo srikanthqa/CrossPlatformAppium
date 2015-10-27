@@ -5,6 +5,8 @@ import org.apache.commons.codec.binary.Base64;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.log4j.Logger;
 import org.json.simple.JSONArray;
@@ -95,10 +97,51 @@ public class TestLodgeMethods {
         return jsonData;
     }
 
+    public String executeHttpPost(String url) throws Exception {
+
+        try {
+            getTestLodgeCredentials();
+            //Username password needs Encoding
+            String encodedAuthString = Base64.encodeBase64String((user + ":" + pass).getBytes());
+            // add request header
+            HttpPost httpPost = new HttpPost(url);
+            httpPost.addHeader("Content-type", "application/json");
+            httpPost.addHeader("Authorization", "Basic " + encodedAuthString);
+            String postData = "step: {\n" +
+                    "        title: 'Title',\n" +
+                    "        description: 'Thebodytext',\n" +
+                    "    }";
+
+            StringEntity params = new StringEntity(postData);
+            httpPost.setEntity(params);
+
+            HttpResponse response = client.execute(httpPost);
+            log.info("\nSending 'POST' request to URL : " + url);
+            int resCode = response.getStatusLine().getStatusCode();
+            log.info("Response Code : " + resCode);
+
+            if (resCode != 200) {
+                System.exit(1);
+            }
+            BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+
+            StringBuffer result = new StringBuffer();
+            String line = "";
+            while ((line = rd.readLine()) != null) {
+                result.append(line);
+            }
+            log.info(result.toString());
+
+        } catch (Exception e) {
+            log.error(e);
+        }
+        return jsonData;
+    }
+
     public void getTestSuiteFromProject(String projectId) {
         String url = "https://shopkick.api.testlodge.com/v1/projects/" + projectId + "/suites.json";
         try {
-            jsonData = executeHttpGet(url);
+            jsonData = executeHttpPost(url);
             JSONParser parser = new JSONParser();
             Object obj = parser.parse(jsonData);
             JSONObject levelObject = (JSONObject) obj;
@@ -114,8 +157,7 @@ public class TestLodgeMethods {
         }
     }
 
-    public void getTestSuiteDetails(String projectId, String suiteId) {
-        //testlodge.com/v1/projects/1/suites/1.json
+    public void showTestSuiteDetails(String projectId, String suiteId) {
         String url = "https://shopkick.api.testlodge.com/v1/projects/" + projectId + "/suites/" + suiteId + ".json";
         try {
             jsonData = executeHttpGet(url);
@@ -128,8 +170,21 @@ public class TestLodgeMethods {
         } catch (Exception e) {
             log.error(e);
         }
+    }
 
+    public void createTestCases(String projectId, String suiteId) {
 
+        String url = "https://shopkick.api.testlodge.com/v1/projects/" + projectId + "/suites/" + suiteId + "/steps.json";
+        try {
+            jsonData = executeHttpPost(url);
+            JSONParser parser = new JSONParser();
+            Object obj = parser.parse(jsonData);
+
+            JSONObject suiteObject = (JSONObject) obj;
+            log.info("SuiteId: " + suiteObject.get("id").toString() + ": SuiteName " + suiteObject.get("name").toString());
+        } catch (Exception e) {
+            log.error(e);
+        }
     }
 
     public void getProjectsList() {
@@ -155,7 +210,12 @@ public class TestLodgeMethods {
 
         //        HttpClientExample.getInstance().executeHttpGet(url);
         //        HttpClientExample.getInstance().getProjectsList();
+        // Existing Project Id = 10019
+        // Created Smoke Suite id = 58074
+        //TestLodgeMethods.getInstance().showTestSuiteDetails("10019", "58074");
 
-        TestLodgeMethods.getInstance().getTestSuiteDetails("10019","57100");
+        TestLodgeMethods.getInstance().createTestCases("10019", "58074");
+
+
     }
 }
