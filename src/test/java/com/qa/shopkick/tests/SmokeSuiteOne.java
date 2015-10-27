@@ -66,7 +66,7 @@ public class SmokeSuiteOne extends AbstractTest {
         AccountSettings.clickAccountSettingsLogOut();
 
         //From logout screen hit on email to create an account
-        SignInPage.clickSignInEmailSignInButton();
+        SignInPage.clickEmailSignInButton();
 
         //CREATE ACCOUNT
 

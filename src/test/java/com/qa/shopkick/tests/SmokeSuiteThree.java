@@ -14,7 +14,7 @@ public class SmokeSuiteThree extends AbstractTest{
 		CustomHooks.dismissPotHoleError();
 
 		//User logs in via email
-		SignInPage.clickSignInEmailSignInButton();
+		SignInPage.clickEmailSignInButton();
 
 		//Element issues, using two different methods to sign in
 

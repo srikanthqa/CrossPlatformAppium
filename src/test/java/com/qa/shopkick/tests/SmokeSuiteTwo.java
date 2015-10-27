@@ -13,7 +13,7 @@ public class SmokeSuiteTwo extends AbstractTest {
         CustomHooks.dismissPotHoleError();
 
         //tap on the 'Guest' button to open left nav bar
-        SignInPage.clicksignInGooglePlusSignInButton();
+        SignInPage.clickGooglePlusSignInButton();
 
         CustomHooks.dismissMultiLoginMessage();
 

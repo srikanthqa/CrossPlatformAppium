@@ -15,7 +15,7 @@ killall node ; appium > logs/appium.log &
 
 #killall node ; appium
 
-mvn -Dtest=TestRunner test
+mvn -Dtest=EmailAuthentication test
 #mvn -Dtest=com.qa.shopkick.tests.Authentication.EmailAuthentication test
 #mvn -Dtest=com.qa.shopkick.tests.Authentication.FacebookAuthentication test
 

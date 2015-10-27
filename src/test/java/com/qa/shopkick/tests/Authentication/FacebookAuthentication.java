@@ -2,6 +2,7 @@ package com.qa.shopkick.tests.Authentication;
 
 import com.qa.shopkick.pages.*;
 import com.qa.shopkick.utils.AbstractTest;
+import com.qa.shopkick.utils.CustomHooks;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
@@ -40,13 +41,12 @@ public class FacebookAuthentication extends AbstractTest {
         runStatus = "Passed";
     }
 
-    //	@Test
-    //	public void Test2_LoginWithFacebook(){
-    //
-    //	}
-    //
-    //	@Test
-    //	public void Test3_logOutOfFacebook(){
-    //		CustomHooks.LogMeOut();
-    //	}
+    @Test
+    public void Test2_logOutOfFacebook() {
+
+        testSectionName = "FacebookAuthentication";
+        testName = "Test2_logOutOfFacebook";
+        CustomHooks.LogMeOut();
+        runStatus = "Passed";
+    }
 }

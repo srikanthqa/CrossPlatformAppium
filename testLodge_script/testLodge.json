@@ -1,1 +1,24 @@
-{"resultsList":[{"elapsed":42,"runStatus":"passed","testSectionName":"EmailAuthentication","testName":"Test1_LoginWithEmailAccount"}],"reportName":"Android_10-26_testLodge.json","buildNo":"1112"}
+{
+  "resultsList": [
+    {
+      "elapsed": 50,
+      "runStatus": "passed",
+      "testSectionName": "EmailAuthentication",
+      "testName": "Test1_LoginWithEmailAccount"
+    },
+    {
+      "elapsed": 12,
+      "runStatus": "passed",
+      "testSectionName": "EmailAuthentication",
+      "testName": "Test2_logOutOfEmailAccount"
+    },
+    {
+      "elapsed": 8,
+      "runStatus": "Passed",
+      "testSectionName": "FacebookAuthentication",
+      "testName": "Test3_LoginWithFacebookAccount"
+    }
+  ],
+  "reportName": "Android_10-27_testLodge.json",
+  "buildNo": "1112"
+}

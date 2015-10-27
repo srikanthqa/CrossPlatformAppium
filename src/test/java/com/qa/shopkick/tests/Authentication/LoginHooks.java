@@ -26,31 +26,26 @@ public class LoginHooks extends AbstractTest {
     public static void loginWithGoogleplus() {
         CustomHooks.dismissPotHoleError();
         //tap on the 'Guest' button to open left nav bar
-        SignInPage.clicksignInGooglePlusSignInButton();
+        SignInPage.clickGooglePlusSignInButton();
         CustomHooks.dismissMultiLoginMessage();
     }
 
     public static void loginWithEmail() {
         CustomHooks.dismissPotHoleError();
-
-        //User logs in via email
-        SignInPage.clickSignInEmailSignInButton();
+        SignInPage.clickEmailSignInButton();
 
         //Element issues, using two different methods to sign in
-
         if (platformType.equalsIgnoreCase("Android")) {
 
-            //add email address
-            EmailSignInPage.typeEmailANDROID("a@b.com");
-            //add password
-            EmailSignInPage.typePasswordANDROID("aaaaaa");
+            EmailSignInPage.typeEmailANDROID("qa@a.com");
+            EmailSignInPage.typePasswordANDROID("123456");
+            EmailSignInPage.clickLoginButton();
+
         } else {
-            EmailSignInPage.clickAndEnterEmailIOS("a@b.com");
-
-            EmailSignInPage.clickAndEnterPasswordIOS("aaaaaa");
+            EmailSignInPage.clickAndEnterEmailIOS("qa@i.com");
+            EmailSignInPage.clickAndEnterPasswordIOS("123456");
+            EmailSignInPage.clickLoginButton();
         }
-
-        EmailSignInPage.clickLoginButton();
 
         CustomHooks.dismissMultiLoginMessage();
     }

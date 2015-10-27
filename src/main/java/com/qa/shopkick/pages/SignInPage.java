@@ -28,10 +28,17 @@ public class SignInPage extends ScreenBaseClass {
     @iOSFindBy(uiAutomator = ".buttons()[\"Google\"]")
     private static WebElement signInGooglePlusSignIn;
 
-    public static boolean isFacebookLoginAvail() {
-        if (signInFacebookSignIn.isDisplayed()) {
-            return true;
-        } else {
+    public static boolean areFacebookGoogleEmailButtonsVisible() {
+        try {
+            if (signInFacebookSignIn.isDisplayed() &&
+                    signInGooglePlusSignIn.isDisplayed() &&
+                    signInEmailSignIn.isDisplayed()) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            log.info(e);
             return false;
         }
     }
@@ -47,7 +54,7 @@ public class SignInPage extends ScreenBaseClass {
         }
     }
 
-    public static void clicksignInGooglePlusSignInButton() {
+    public static void clickGooglePlusSignInButton() {
         try {
             signInGooglePlusSignIn.click();
             log.info("signInGooglePlusSignIn.click()");
@@ -59,11 +66,15 @@ public class SignInPage extends ScreenBaseClass {
     }
 
 
-    public static void clickSignInEmailSignInButton() {
-        signInEmailSignIn.click();
-        log.info("Click clickSignInEmailSignInButton");
-        PageFactory.initElements(new AppiumFieldDecorator(driver), new EmailSignInPage());
-        PageFactory.initElements(new AppiumFieldDecorator(driver), new EmailSignUp());
+    public static void clickEmailSignInButton() {
+        try {
+            signInEmailSignIn.click();
+            log.info("Click clickEmailSignInButton");
+            PageFactory.initElements(new AppiumFieldDecorator(driver), new EmailSignInPage());
+            PageFactory.initElements(new AppiumFieldDecorator(driver), new EmailSignUp());
+        } catch (Exception e) {
+            log.error(e);
+        }
     }
 
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/facebook_flow_text\").text(\"We will never post anything without your permission.\")")

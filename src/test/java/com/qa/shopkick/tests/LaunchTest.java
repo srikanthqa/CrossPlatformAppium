@@ -121,7 +121,7 @@ public class LaunchTest extends AbstractTest {
 		//		CustomHooks.dismissPotHoleError();
 
 		//tap on the 'Guest' button to open left nav bar
-		SignInPage.clicksignInGooglePlusSignInButton();
+		SignInPage.clickGooglePlusSignInButton();
 
 		CustomHooks.dismissMultiLoginMessage();
 
@@ -237,7 +237,7 @@ public class LaunchTest extends AbstractTest {
 		//CustomHooks.dismissPotHoleError();
 
 		//User logs in via email
-		SignInPage.clickSignInEmailSignInButton();
+		SignInPage.clickEmailSignInButton();
 		EmailSignInPage.typeEmailANDROID("a@b.com");
 		EmailSignInPage.typePasswordANDROID("aaaaaa");
 		EmailSignInPage.clickOnSignUpButton();

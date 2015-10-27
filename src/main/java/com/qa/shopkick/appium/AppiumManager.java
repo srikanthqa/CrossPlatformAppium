@@ -49,6 +49,7 @@ public class AppiumManager {
             File app = new File(appDir, apk);
 
             capabilities.setCapability("platformName", "Android");
+            capabilities.setCapability("deviceName", deviceName);
             capabilities.setCapability("app", app.getAbsolutePath());
             capabilities.setCapability(CapabilityType.VERSION, "");
             capabilities.setCapability("app-package", appPackage);

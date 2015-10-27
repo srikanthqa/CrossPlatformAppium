@@ -1,7 +1,6 @@
 package com.qa.shopkick.tests.Authentication;
 
-import com.qa.shopkick.pages.EmailSignInPage;
-import com.qa.shopkick.pages.SignInPage;
+import com.qa.shopkick.pages.*;
 import com.qa.shopkick.utils.AbstractTest;
 import com.qa.shopkick.utils.CustomHooks;
 import org.apache.log4j.Logger;
@@ -10,6 +9,8 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
 import static com.thoughtworks.selenium.SeleneseTestCase.assertNotEquals;
+import static junit.framework.Assert.assertTrue;
+import static junit.framework.TestCase.assertEquals;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
@@ -26,29 +27,43 @@ public class EmailAuthentication extends AbstractTest {
         LoginHooks.GoThroughFirstUse();
 
         //From logout screen hit on email to create an account
-        SignInPage.clickSignInEmailSignInButton();
-
-        //CREATE ACCOUNT
-        //add email address
-        EmailSignInPage.typeEmailANDROID("qa@a.com");
-
-        //add password
-        EmailSignInPage.typePasswordANDROID("123456");
-
-        //Hit sign in
-        EmailSignInPage.clickLoginButton();
+        LoginHooks.loginWithEmail();
 
         String ACTUAL_ERROR = EmailSignInPage.getEmailPasswordError();
-        assertNotEquals(ACTUAL_ERROR, EXPECTED_ERROR);
+        assertNotEquals(EXPECTED_ERROR, ACTUAL_ERROR);
 
-        //make sure you see the Kicks Count on the top center
+        //com.shopkick.app:id/kicks_amount
+        //make sure you see the Kicks Count on the top center is equal to 1
+
+        String expectedKicks = "1";
+        LandingPage landingPage = new LandingPage();
+        String actualKicks = landingPage.getKicksOnLandingPage();
+
+        assertEquals("KICKS in Landing Screen don't match ", expectedKicks, actualKicks);
         runStatus = "passed";
     }
 
     @Test
     public void Test2_logOutOfEmailAccount() {
+
+        testSectionName = "EmailAuthentication";
+        testName = "Test2_logOutOfEmailAccount";
         CustomHooks.LogMeOut();
+        assertTrue("Error Some buttons missing", SignInPage.areFacebookGoogleEmailButtonsVisible());
+        runStatus = "passed";
     }
+
+    @Test
+    public void Test3_LoginWithFacebookAccount() {
+
+        testSectionName = "FacebookAuthentication";
+        testName = "Test3_LoginWithFacebookAccount";
+
+        LoginHooks.loginWithFacebook();
+        //set run status as passed
+        runStatus = "Passed";
+    }
+
     //    @Test
     //    public void Test2_LoginWrongEmailAccount() {
     //        log.info("Test2_LoginWrongEmailAccount");
@@ -61,7 +76,7 @@ public class EmailAuthentication extends AbstractTest {
     //        LoginHooks.GoThroughFirstUse();
     //
     //        //From logout screen hit on email to create an account
-    //        SignInPage.clickSignInEmailSignInButton();
+    //        SignInPage.clickEmailSignInButton();
     //
     //        //CREATE ACCOUNT
     //        //add email address
