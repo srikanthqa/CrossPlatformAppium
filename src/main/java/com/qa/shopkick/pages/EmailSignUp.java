@@ -1,13 +1,13 @@
 package com.qa.shopkick.pages;
 
-import com.qa.shopkick.utils.AbstractPage;
+import com.qa.shopkick.utils.ScreenBaseClass;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public class EmailSignUp extends AbstractPage {
+public class EmailSignUp extends ScreenBaseClass {
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/title_text\").text(\"Create your login information.\")")
 	private static WebElement emailsigninCreateYourLoginInformation;

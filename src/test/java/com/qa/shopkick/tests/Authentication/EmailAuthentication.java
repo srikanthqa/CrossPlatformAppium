@@ -3,6 +3,7 @@ package com.qa.shopkick.tests.Authentication;
 import com.qa.shopkick.pages.EmailSignInPage;
 import com.qa.shopkick.pages.SignInPage;
 import com.qa.shopkick.utils.AbstractTest;
+import com.qa.shopkick.utils.CustomHooks;
 import org.apache.log4j.Logger;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -19,20 +20,20 @@ public class EmailAuthentication extends AbstractTest {
     @Test
     public void Test1_LoginWithEmailAccount() {
         testSectionName = "EmailAuthentication";
-        testName = "Test1LoginWithEmailAccount";
+        testName = "Test1_LoginWithEmailAccount";
 
         //Go thorough first use
         LoginHooks.GoThroughFirstUse();
 
         //From logout screen hit on email to create an account
-        SignInPage.clicksignInEmailSignIn();
+        SignInPage.clickSignInEmailSignInButton();
 
         //CREATE ACCOUNT
         //add email address
-        EmailSignInPage.clickAndEnterEmailANDROID("qa_auto1@gmail.com");
+        EmailSignInPage.typeEmailANDROID("qa@a.com");
 
         //add password
-        EmailSignInPage.clickAndEnterPswdANDROID("123456");
+        EmailSignInPage.typePasswordANDROID("123456");
 
         //Hit sign in
         EmailSignInPage.clickLoginButton();
@@ -44,10 +45,14 @@ public class EmailAuthentication extends AbstractTest {
         runStatus = "passed";
     }
 
-//    @Test
-//    public void Test2_LoginWrongEmailAccount() {
-//        log.info("Test2_LoginWrongEmailAccount");
-//    }
+    @Test
+    public void Test2_logOutOfEmailAccount() {
+        CustomHooks.LogMeOut();
+    }
+    //    @Test
+    //    public void Test2_LoginWrongEmailAccount() {
+    //        log.info("Test2_LoginWrongEmailAccount");
+    //    }
     //    @Test
     //    public void Test2_LoginWrongEmailAccount() {
     //
@@ -56,14 +61,14 @@ public class EmailAuthentication extends AbstractTest {
     //        LoginHooks.GoThroughFirstUse();
     //
     //        //From logout screen hit on email to create an account
-    //        SignInPage.clicksignInEmailSignIn();
+    //        SignInPage.clickSignInEmailSignInButton();
     //
     //        //CREATE ACCOUNT
     //        //add email address
-    //        EmailSignInPage.clickAndEnterEmailANDROID("trest2@sk.com");
+    //        EmailSignInPage.typeEmailANDROID("trest2@sk.com");
     //
     //        //add password
-    //        EmailSignInPage.clickAndEnterPswdANDROID("sktest123");
+    //        EmailSignInPage.typePasswordANDROID("sktest123");
     //
     //        //Hit sign in
     //        EmailSignInPage.clickLoginButton();
@@ -107,13 +112,9 @@ public class EmailAuthentication extends AbstractTest {
 
     @Test
     public void Test3_LoginWithEmail() {
-        LoginHooks.EmailLogin();
+        LoginHooks.loginWithEmail();
 
-    }
-
-    @Test
-    public void Test4_logOutOfEmail() {
-        CustomHooks.LogMeOut();
     }
 */
+
 }

@@ -1,11 +1,11 @@
 package com.qa.shopkick.pages;
 
-import com.qa.shopkick.utils.AbstractPage;
+import com.qa.shopkick.utils.ScreenBaseClass;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
 import org.openqa.selenium.WebElement;
 
-public class RelatedOfferPage extends AbstractPage{
+public class RelatedOfferPage extends ScreenBaseClass {
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_image\")")
 	@iOSFindBy(uiAutomator = ".buttons()[\"icon heart brown\"]")

@@ -1,13 +1,13 @@
 package com.qa.shopkick.pages;
 
-import com.qa.shopkick.utils.AbstractPage;
+import com.qa.shopkick.utils.ScreenBaseClass;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-public class WalkInTutorialPage extends AbstractPage{
+public class WalkInTutorialPage extends ScreenBaseClass {
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/app_screen_header\").text(\"Walk-in information\")")
 	private static WebElement walkinTutorialHeader;

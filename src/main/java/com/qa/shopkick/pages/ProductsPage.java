@@ -1,6 +1,6 @@
 package com.qa.shopkick.pages;
 
-import com.qa.shopkick.utils.AbstractPage;
+import com.qa.shopkick.utils.ScreenBaseClass;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 @SuppressWarnings("deprecation")
-public class ProductsPage extends AbstractPage {
+public class ProductsPage extends ScreenBaseClass {
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/kicks_counter\")")
 	private static WebElement ProductsPageKicksCounter;

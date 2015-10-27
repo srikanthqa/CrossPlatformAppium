@@ -1,6 +1,6 @@
 package com.qa.shopkick.pages;
 
-import com.qa.shopkick.utils.AbstractPage;
+import com.qa.shopkick.utils.ScreenBaseClass;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 /**
  * Created by Srikanth on 12/16/14.
  */
-public class CountryPickerPage extends AbstractPage{
+public class CountryPickerPage extends ScreenBaseClass {
 
 	@iOSFindBy(uiAutomator = ".buttons()[3]")
 	private static WebElement countryUSA;

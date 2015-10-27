@@ -6,17 +6,9 @@ import com.qa.shopkick.utils.CustomHooks;
 
 public class LoginHooks extends AbstractTest {
 
-    public static void LoginWithfacebook() {
+    public static void loginWithFacebook() {
         //from first use flow log into facebook
-        CustomHooks.dismissPotHoleError();
-
-        SignInPage.clicksignInFacebookSignIn();
-
-        CustomHooks.waitFor(5);
-
-        CustomHooks.dismissMultiLoginMessage();
-
-        CustomHooks.waitFor(5);
+        SignInPage.clickFacebookSignInButton();
 
         if (platformType.equalsIgnoreCase("IOS")) {
             if (MicrophonePermissionPage.isMicroPhonePermissionRequired()) {
@@ -24,29 +16,34 @@ public class LoginHooks extends AbstractTest {
                 MicrophonePermissionPage.clickOKButton();
             }
         }
+
+        FacebookSignInPage.typeEmailANDROID("cm.manish@yahoo.com");
+        FacebookSignInPage.typePasswordANDROID("relaxManish");
+        FacebookSignInPage.clickLogInANDROID();
+
     }
 
-    public static void LoginWithGplus() {
+    public static void loginWithGoogleplus() {
         CustomHooks.dismissPotHoleError();
         //tap on the 'Guest' button to open left nav bar
-        SignInPage.clicksignInGooglePlusSignIn();
+        SignInPage.clicksignInGooglePlusSignInButton();
         CustomHooks.dismissMultiLoginMessage();
     }
 
-    public static void EmailLogin() {
+    public static void loginWithEmail() {
         CustomHooks.dismissPotHoleError();
 
         //User logs in via email
-        SignInPage.clicksignInEmailSignIn();
+        SignInPage.clickSignInEmailSignInButton();
 
         //Element issues, using two different methods to sign in
 
         if (platformType.equalsIgnoreCase("Android")) {
 
             //add email address
-            EmailSignInPage.clickAndEnterEmailANDROID("a@b.com");
+            EmailSignInPage.typeEmailANDROID("a@b.com");
             //add password
-            EmailSignInPage.clickAndEnterPswdANDROID("aaaaaa");
+            EmailSignInPage.typePasswordANDROID("aaaaaa");
         } else {
             EmailSignInPage.clickAndEnterEmailIOS("a@b.com");
 

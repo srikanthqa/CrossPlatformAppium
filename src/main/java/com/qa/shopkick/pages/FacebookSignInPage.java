@@ -1,36 +1,55 @@
 package com.qa.shopkick.pages;
 
 import com.qa.shopkick.utils.ScreenBaseClass;
-import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import io.appium.java_client.pagefactory.iOSFindBy;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
 
-public class EmailSignInPage extends ScreenBaseClass {
+public class FacebookSignInPage extends ScreenBaseClass {
 
-    final private static Logger log = Logger.getLogger(String.valueOf(EmailSignInPage.class));
+    final private static Logger log = Logger.getLogger(String.valueOf(FacebookSignInPage.class));
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.facebook.katana:id/login_username\")")
+    private static WebElement emailText;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.facebook.katana:id/login_password\")")
+    private static WebElement passwordText;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.facebook.katana:id/login_login\")")
+    private static WebElement logInButton;
 
     public static void typeEmailANDROID(String emailLogin) {
-        MobileElement emailAddress = (MobileElement) driver.findElement(By.id("com.shopkick.app:id/email"));
-        emailAddress.click();
-        emailAddress.clear();
-        emailAddress.sendKeys(emailLogin);
-        log.info("Type Email:" + emailLogin);
+        try {
+            emailText.click();
+            emailText.clear();
+            emailText.sendKeys(emailLogin);
+            log.info("Type Email:" + emailLogin);
+        } catch (Exception e) {
+            log.debug(e);
+        }
     }
 
     public static void typePasswordANDROID(String passwordLogin) {
-        MobileElement passwordField = (MobileElement) driver.findElement(By.id("com.shopkick.app:id/password"));
-        passwordField.click();
-        passwordField.clear();
-        passwordField.sendKeys(passwordLogin);
-        log.info("Type Password: " + passwordLogin);
+        try {
+            passwordText.click();
+            passwordText.clear();
+            passwordText.sendKeys(passwordLogin);
+            log.info("Type Password: " + passwordLogin);
+        } catch (Exception e) {
+            log.debug(e);
+        }
     }
 
+    public static void clickLogInANDROID() {
+        try {
+            logInButton.click();
+            log.info("clickLogInANDROID");
+        } catch (Exception e) {
+            log.debug(e);
+        }
+    }
+
+ /*
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/error_box\")")
     private static WebElement ErrorEmailPassword;
 
@@ -61,7 +80,7 @@ public class EmailSignInPage extends ScreenBaseClass {
     public static void clickAndEnterPasswordIOS(String pswd) {
         emailsigninPassword.click();
         emailsigninPassword.sendKeys(pswd);
-        PageFactory.initElements(new AppiumFieldDecorator(driver), new EmailSignInPage());
+        PageFactory.initElements(new AppiumFieldDecorator(driver), new FacebookSignInPage());
     }
 
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/password_confirmation\")")
@@ -71,7 +90,7 @@ public class EmailSignInPage extends ScreenBaseClass {
     public static void enterConfirmPassword() {
         emailConfirmPassword.click();
         emailConfirmPassword.sendKeys("sktest123");
-        PageFactory.initElements(new AppiumFieldDecorator(driver), new EmailSignInPage());
+        PageFactory.initElements(new AppiumFieldDecorator(driver), new FacebookSignInPage());
     }
 
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"SIGN IN OR SIGN UP\")")
@@ -118,7 +137,7 @@ public class EmailSignInPage extends ScreenBaseClass {
     }
 
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/forgot_password\").text(\"Forgot password?\")")
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/forgot_password\").text(\"Forgot passwordText?\")")
     private static WebElement emailsigninForgotYourPassword;
 
     public static void clickemailsigninForgotYourPassword() {
@@ -130,8 +149,10 @@ public class EmailSignInPage extends ScreenBaseClass {
 
     public static void clickLoginButton() {
         logInEmailButton.click();
-        waitFor(5);
+        CustomHooks.waitFor(5);
+        PageFactory.initElements(new AppiumFieldDecorator(driver), new DidYouKnowPage());
         PageFactory.initElements(new AppiumFieldDecorator(driver), new LandingPage());
         PageFactory.initElements(new AppiumFieldDecorator(driver), new StoresPage());
     }
+*/
 }

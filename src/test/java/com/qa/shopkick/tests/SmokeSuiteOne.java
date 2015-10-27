@@ -38,7 +38,7 @@ public class SmokeSuiteOne extends AbstractTest {
         //            FirstUseRegistrationIntroPage.clickSignUpOrSignInButton();
         //        }
 
-        SignInPage.clicksignInFacebookSignIn();
+        SignInPage.clickFacebookSignInButton();
 
         CustomHooks.waitFor(10);
 
@@ -66,16 +66,16 @@ public class SmokeSuiteOne extends AbstractTest {
         AccountSettings.clickAccountSettingsLogOut();
 
         //From logout screen hit on email to create an account
-        SignInPage.clicksignInEmailSignIn();
+        SignInPage.clickSignInEmailSignInButton();
 
         //CREATE ACCOUNT
 
         if (platformType.equalsIgnoreCase("Android")) {
 
             //add email address
-            EmailSignInPage.clickAndEnterEmailANDROID("trest2@sk.com");
+            EmailSignInPage.typeEmailANDROID("trest2@sk.com");
             //add password
-            EmailSignInPage.clickAndEnterPswdANDROID("sktest123");
+            EmailSignInPage.typePasswordANDROID("sktest123");
         } else {
             EmailSignInPage.clickAndEnterEmailIOS("trest2s@sk.com");
 

@@ -1,37 +1,35 @@
 package com.qa.shopkick.utils;
 
+import com.qa.shopkick.appium.AppiumManager;
 import com.qa.shopkick.pages.FirstUseDealsEducationPage;
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.apache.log4j.Logger;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.junit.*;
 import org.junit.rules.TestName;
 import org.openqa.selenium.SessionNotCreatedException;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.UnreachableBrowserException;
 import org.openqa.selenium.support.PageFactory;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 
 import java.io.File;
 import java.io.FileWriter;
-import java.io.IOException;
-import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public class AbstractTest {
     final private static Logger log = Logger.getLogger(String.valueOf(AbstractTest.class));
     private static QaCalendar calendar = QaCalendar.getInstance();
-    private static int dCount = 1;
+
     private static FileWriter fileWriter = null;
-    private static String port = "4723";
     private long startTime = 0;
 
     @Rule
     public TestName name = new TestName();
+    private static AppiumManager appiumManager = new AppiumManager();
+
     protected String elapsedSec = "";
     protected String runStatus = "failed";
     protected String testSectionName = "";
@@ -41,34 +39,23 @@ public class AbstractTest {
     protected static String filePath = testLodgeDir + File.separator + fileName;
     protected static File file = new File(filePath);
     protected static String reportName = "";
-    protected static AppiumDriver driver;
+    protected static AppiumDriver driver = null;
     private static JSONObject testLodgeJSON = new org.json.simple.JSONObject();
     private static JSONArray resultsList = new JSONArray();
 
-    //Commented for debug purpose
-    public static String deviceName = System.getProperty("deviceName");
-    public static String platformType = System.getProperty("platformType");
-    public static String platformVersion = System.getProperty("platformVersion");
-    public static String deviceUDID = System.getProperty("deviceUDID");
     private static String buildNo = "1112";
     private static File userDir = new File(System.getProperty("user.dir"));
-    //    protected static String platformType = "Android";
-    //    protected static String deviceName = "LGG3";
-    //    protected static String platformVersion = "5.0.1";
-    //    protected static String deviceUDID = "null";
-
-    protected static String serverURL = "http://0.0.0.0:" + port + "/wd/hub";
-    protected static String bundleID = "com.shopkick.debug-qa";
     protected static String packageName = "com.shopkick.app";
     protected static String launcherActivity = packageName + "." + "activity.AppScreenActivity";
 
+    protected static String platformType = "Android";
+    protected static String deviceUDID = "null";
+
     public static AppiumDriver createAppiumDriver() {
-        log.info("Going to Create createAppiumDriver() ...");
+
         try {
             DesiredCapabilities capabilities = new DesiredCapabilities();
-            capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, deviceName);
             capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, platformType);
-            capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, platformVersion);
             capabilities.setCapability("appActivity", launcherActivity);
             capabilities.setCapability("appPackage", packageName);
             capabilities.setCapability("noSign", true);
@@ -76,39 +63,43 @@ public class AbstractTest {
 
             switch (platformType) {
                 case "IOS": {
-                    capabilities.setCapability("udid", deviceUDID);
-                    capabilities.setCapability("bundleId", bundleID);
-                    driver = new IOSDriver(new URL(serverURL), capabilities);
-                    log.info("Created IOS Driver: " + dCount++);
-                    log.info(driver.getTitle());
+                    driver = appiumManager.createAndroidDriver(driver);
+
                     break;
                 }
                 case "Android": {
-                    log.info(platformType + " : " + deviceName + " : " + platformVersion);
-                    String apk = "Shopkick_debug_qa_e80a4cd5f375938343f5a8f91d51763b6339c89f.apk";
-                    log.info("using: " + apk);
-                    log.info("Some times you got to play the waiting game    ");
-                    File appDir = new File(userDir, "APK/");
-                    File app = new File(appDir, apk);
-                    capabilities.setCapability("app", app.getAbsolutePath());
-                    //Don't create driver for subsequent tests. As appium server is still running
-                    if (driver == null)
-                        driver = new AndroidDriver(new URL(serverURL), capabilities);
-                    log.info("Created Android Driver: " + dCount++);
+                    driver = appiumManager.createAndroidDriver(driver); //app lauched here
                     break;
                 }
             }
-            log.info("Now Installing .... so hold your Horses:");
             driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+            log.info("SessionId: " + driver.getSessionId());
             PageFactory.initElements(new AppiumFieldDecorator(driver), new FirstUseDealsEducationPage());
+        } catch (UnreachableBrowserException ube) {
+            log.info(ube.getMessage());
+            System.exit(1);
         } catch (SessionNotCreatedException e) {
-            log.info(e);
+            e.getMessage();
             System.exit(1);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error(e);
             System.exit(1);
         }
         return driver;
+    }
+
+    public static void closeAppiumDriver() {
+
+        try {
+            if (driver != null) {
+                log.info("Going to Quit Driver");
+                driver.closeApp();
+                driver.quit();
+                driver = null;
+            }
+        } catch (Exception e) {
+            log.error(e);
+        }
     }
 
     @BeforeClass
@@ -127,10 +118,9 @@ public class AbstractTest {
             log.info("reportName: " + reportName);
             testLodgeJSON.put("buildNo", buildNo);
             log.info("buildNo: " + "4.7.6");
-        } catch (IOException e) {
+        } catch (Exception e) {
             log.info(e);
         }
-
     }
 
     @AfterClass
@@ -144,10 +134,7 @@ public class AbstractTest {
         } catch (Exception e) {
             log.error(e);
         } finally {
-            if (driver != null) {
-                log.info("Going to Quit Driver");
-                driver.quit();
-            }
+            closeAppiumDriver();
             log.info("<--------- End tearDownEnvironment() Test --------->");
         }
     }
@@ -156,9 +143,8 @@ public class AbstractTest {
     public void beforeMethod() {
         log.info("<--------- Start beforeMethod() Test ------------------------------------------------------>");
         try {
-            //            createAppiumDriver();
-            //Initialize all the variables
             runStatus = "failed";
+            log.info("SessionID : " + driver.getSessionId());
             testName = "";
             testSectionName = "";
             startTime = System.currentTimeMillis(); // Get the start Time
@@ -172,6 +158,7 @@ public class AbstractTest {
     public void afterMethod() {
         log.info("<--------- Start afterMethod() Test --------------------------------------------------------->");
         try {
+            log.info("SessionID : " + driver.getSessionId());
             JSONObject eachResult = new org.json.simple.JSONObject();
             testName = name.getMethodName();
             long endTime = System.currentTimeMillis();
@@ -184,9 +171,6 @@ public class AbstractTest {
             log.info(testName + " : " + runStatus + " : Took " + elapsed + " Seconds ");
         } catch (Exception e) {
             log.error(e);
-        } finally {
-            log.info("Going to Quit Driver");
-            driver.quit();
         }
         log.info("<--------- End afterMethod() Test --------------------------------------------------------->");
     }

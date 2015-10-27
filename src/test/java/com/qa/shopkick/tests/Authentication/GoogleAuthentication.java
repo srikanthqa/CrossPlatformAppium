@@ -12,7 +12,7 @@ public class GoogleAuthentication extends AbstractTest{
 	@Test
 	public void Test1_GooglePlusSignIn()
 	{
-		LoginHooks.LoginWithGplus();
+		LoginHooks.loginWithGoogleplus();
 	}
 	
 	@Test

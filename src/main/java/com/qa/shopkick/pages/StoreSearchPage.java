@@ -1,12 +1,12 @@
 package com.qa.shopkick.pages;
 
-import com.qa.shopkick.utils.AbstractPage;
+import com.qa.shopkick.utils.ScreenBaseClass;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-public class StoreSearchPage extends AbstractPage{
+public class StoreSearchPage extends ScreenBaseClass {
 	public static String searchedStore;
 
 	//press back to dismiss keyboard

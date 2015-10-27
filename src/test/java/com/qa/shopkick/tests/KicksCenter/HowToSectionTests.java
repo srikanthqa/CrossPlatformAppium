@@ -17,7 +17,7 @@ public class HowToSectionTests extends AbstractTest
 	public void Test1_verifyHowToWalkins()
 	{
 		//Login with Facebook
-		LoginHooks.LoginWithfacebook();
+		LoginHooks.loginWithFacebook();
 		if(driver.findElement(By.name("Your settings")).isDisplayed()){
 			CustomHooks.pressBack();
 		}

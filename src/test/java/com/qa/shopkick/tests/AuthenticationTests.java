@@ -33,7 +33,7 @@ public class AuthenticationTests extends AbstractTest{
 		
 		FirstUseRegistrationIntroPage.clickSignUpOrSignInButton();
 
-		SignInPage.clicksignInFacebookSignIn();
+		SignInPage.clickFacebookSignInButton();
 
 		CustomHooks.waitFor(5);
 

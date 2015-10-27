@@ -1,13 +1,13 @@
 package com.qa.shopkick.pages;
 
-import com.qa.shopkick.utils.AbstractPage;
+import com.qa.shopkick.utils.ScreenBaseClass;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-public class KicksCenterRewadsPage extends AbstractPage{
+public class KicksCenterRewadsPage extends ScreenBaseClass {
 
 	//Declaring all static texts in page first, parts we wont click
 

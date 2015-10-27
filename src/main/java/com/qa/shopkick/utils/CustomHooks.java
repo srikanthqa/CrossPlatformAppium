@@ -3,21 +3,7 @@ package com.qa.shopkick.utils;
 import com.qa.shopkick.pages.*;
 import org.openqa.selenium.By;
 
-public class CustomHooks extends AbstractPage{
-
-	public static void pressBack(){
-		driver.navigate().back();
-	}
-
-	public static void waitFor(int seconds){
-		int millSeconds = seconds*1000;
-		try {
-			Thread.sleep(millSeconds);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+public class CustomHooks extends ScreenBaseClass {
 
 	public static void dismissMultiLoginMessage(){
 		waitFor(3);

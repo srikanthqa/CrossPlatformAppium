@@ -1,12 +1,12 @@
 package com.qa.shopkick.pages;
 
-import com.qa.shopkick.utils.AbstractPage;
+import com.qa.shopkick.utils.ScreenBaseClass;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import junit.framework.Assert;
 import org.openqa.selenium.WebElement;
 
 @SuppressWarnings("deprecation")
-public class PurchaseKicksPage extends AbstractPage{
+public class PurchaseKicksPage extends ScreenBaseClass {
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/app_screen_header\").text(\"Kicks for Purchases\")")
 	private static WebElement purchaseTutorialHeader;

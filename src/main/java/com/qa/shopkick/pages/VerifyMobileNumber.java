@@ -1,13 +1,13 @@
 package com.qa.shopkick.pages;
 
-import com.qa.shopkick.utils.AbstractPage;
+import com.qa.shopkick.utils.ScreenBaseClass;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-public class VerifyMobileNumber extends AbstractPage{
+public class VerifyMobileNumber extends ScreenBaseClass {
 
 /*	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/verify_title_text\").text(\"Verify your mobile number to redeem rewards!\")")
 	private static WebElement linkPhoneTitleText;*/

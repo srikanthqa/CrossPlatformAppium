@@ -14,16 +14,16 @@ public class SmokeSuiteThree extends AbstractTest{
 		CustomHooks.dismissPotHoleError();
 
 		//User logs in via email
-		SignInPage.clicksignInEmailSignIn();
+		SignInPage.clickSignInEmailSignInButton();
 
 		//Element issues, using two different methods to sign in
 
 		if (platformType.equalsIgnoreCase("Android")) {
 
 			//add email address
-			EmailSignInPage.clickAndEnterEmailANDROID("a@b.com");
+			EmailSignInPage.typeEmailANDROID("a@b.com");
 			//add password
-			EmailSignInPage.clickAndEnterPswdANDROID("aaaaaa");
+			EmailSignInPage.typePasswordANDROID("aaaaaa");
 		}
 		else{
 			EmailSignInPage.clickAndEnterEmailIOS("a@b.com");
