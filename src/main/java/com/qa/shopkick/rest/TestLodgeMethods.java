@@ -15,7 +15,7 @@ public class TestLodgeMethods extends APIClient {
 
     private Logger log = Logger.getLogger(TestLodgeMethods.class);
     private static TestLodgeMethods instance;
-    private String passed, failed, skipped = "";
+    private String passed = "", failed = "", skipped = "";
 
     public static synchronized TestLodgeMethods getInstance() {
 
@@ -137,14 +137,10 @@ public class TestLodgeMethods extends APIClient {
     @Test
     public void runMain() throws Exception {
 
-        //        HttpClientExample.getInstance().executeHttpGet(url);
-        //        HttpClientExample.getInstance().getProjectsList();
         // Existing Project Id = 10019
         // Created Smoke Suite id = 58074
         //TestLodgeMethods.getInstance().showTestSuiteDetails("10019", "58074");
 
         TestLodgeMethods.getInstance().showTestRunsFromProjectAndRunId("10019", "175520");
-
-
     }
 }

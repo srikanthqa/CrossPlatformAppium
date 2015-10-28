@@ -32,7 +32,7 @@ public class EmailAuthentication extends AbstractTest {
         String ACTUAL_ERROR = EmailSignInPage.getEmailPasswordError();
         assertNotEquals(EXPECTED_ERROR, ACTUAL_ERROR);
 
-        String expectedKicks = "1";
+        String expectedKicks = "2";
         LandingPage landingPage = new LandingPage();
         String actualKicks = landingPage.getKicksOnLandingPage();
 

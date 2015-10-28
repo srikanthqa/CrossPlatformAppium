@@ -1,24 +1,24 @@
 {
   "resultsList": [
     {
-      "elapsed": 50,
-      "runStatus": "passed",
+      "elapsed": 51,
+      "runStatus": "failed",
       "testSectionName": "EmailAuthentication",
       "testName": "Test1_LoginWithEmailAccount"
     },
     {
-      "elapsed": 12,
+      "elapsed": 10,
       "runStatus": "passed",
       "testSectionName": "EmailAuthentication",
       "testName": "Test2_logOutOfEmailAccount"
     },
     {
-      "elapsed": 8,
+      "elapsed": 9,
       "runStatus": "Passed",
       "testSectionName": "FacebookAuthentication",
       "testName": "Test3_LoginWithFacebookAccount"
     }
   ],
-  "reportName": "Android_10-27_testLodge.json",
+  "reportName": "Android_10-28_testLodge.json",
   "buildNo": "1112"
 }

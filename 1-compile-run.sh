@@ -14,3 +14,7 @@ Echo "App Uninstalled"
 #mvn clean compile
 mvn -Dtest=com.qa.shopkick.tests.Authentication.EmailAuthentication test
 #mvn -Dtest=com.qa.shopkick.tests.Authentication.EmailAuthentication#Test1_LoginWrongEmailAccount test
+
+
+
+#python testLodge_script/testrail_reporter.py -p "Avery Automation" -s SmokeTests testLodge_script/testLodge.json

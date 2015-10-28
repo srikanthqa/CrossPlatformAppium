@@ -25,13 +25,15 @@ public class AppiumManager {
     File appDir = new File(userDir, "APK/");
     private static int dCount = 0;
 
-    //Commented for debug purpose
-    //    public static String deviceName = System.getProperty("deviceName");
-    //    public static String platformType = System.getProperty("platformType");
-    //    public static String platformVersion = System.getProperty("platformVersion");
-    //    public static String deviceUDID = System.getProperty("deviceUDID");
+    String apk = "Shopkick_release_production_v_4_7_6_Beta2.apk";
 
-    protected static String bundleID = "com.shopkick.debug-qa";
+    /*Commented for debug purpose
+        public static String deviceName = System.getProperty("deviceName");
+        public static String platformType = System.getProperty("platformType");
+        public static String platformVersion = System.getProperty("platformVersion");
+        public static String deviceUDID = System.getProperty("deviceUDID");
+        protected static String bundleID = "com.shopkick.debug-qa";
+    */
     protected static String deviceName = "S5";
     protected static String platformVersion = "5.0.1";
 
@@ -43,7 +45,7 @@ public class AppiumManager {
         dCount++;
         try {
             log.info("Going to Create createAppiumDriver() ..." + dCount + " time ");
-            String apk = "Shopkick_debug_qa_e80a4cd5f375938343f5a8f91d51763b6339c89f.apk";
+
             log.info("Using: " + apk);
             log.info("Some times you got to play the waiting game    ");
             File app = new File(appDir, apk);
