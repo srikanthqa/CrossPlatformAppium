@@ -15,7 +15,7 @@ public class TestLodgeMethods extends APIClient {
 
     private Logger log = Logger.getLogger(TestLodgeMethods.class);
     private static TestLodgeMethods instance;
-
+    private String passed, failed, skipped = "";
 
     public static synchronized TestLodgeMethods getInstance() {
 
@@ -24,8 +24,6 @@ public class TestLodgeMethods extends APIClient {
         }
         return instance;
     }
-
-
 
 
     public void getProjectsList() {
@@ -109,6 +107,12 @@ public class TestLodgeMethods extends APIClient {
             JSONObject levelObject = (JSONObject) obj;
 
             log.info("RunId: " + levelObject.get("id").toString() + ": SuiteName " + levelObject.get("name").toString());
+
+            passed = levelObject.get("passed_number").toString();
+            failed = levelObject.get("failed_number").toString();
+            skipped = levelObject.get("skipped_number").toString();
+            log.info("passed_number: " + levelObject.get("passed_number").toString() + ": failed_number " + levelObject.get("failed_number").toString());
+
         } catch (Exception e) {
             log.error(e);
         }
@@ -124,6 +128,7 @@ public class TestLodgeMethods extends APIClient {
 
             JSONObject suiteObject = (JSONObject) obj;
             log.info("SuiteId: " + suiteObject.get("id").toString() + ": SuiteName " + suiteObject.get("name").toString());
+
         } catch (Exception e) {
             log.error(e);
         }
