@@ -50,48 +50,6 @@ public class EmailAuthentication extends AbstractTest {
         runStatus = "passed";
     }
 
-    @Test
-    public void Test3_LoginWithFacebookAccount() {
-
-        testSectionName = "FacebookAuthentication";
-        testName = "Test3_LoginWithFacebookAccount";
-
-        LoginHooks.loginWithFacebook();
-        //set run status as passed
-        runStatus = "Passed";
-    }
-
-    //    @Test
-    //    public void Test2_LoginWrongEmailAccount() {
-    //        log.info("Test2_LoginWrongEmailAccount");
-    //    }
-    //    @Test
-    //    public void Test2_LoginWrongEmailAccount() {
-    //
-    //        testName = "Test2LoginWrongEmailAccount";
-    //        //Go thorough first use
-    //        LoginHooks.GoThroughFirstUse();
-    //
-    //        //From logout screen hit on email to create an account
-    //        SignInPage.clickEmailSignInButton();
-    //
-    //        //CREATE ACCOUNT
-    //        //add email address
-    //        EmailSignInPage.typeEmailANDROID("trest2@sk.com");
-    //
-    //        //add password
-    //        EmailSignInPage.typePasswordANDROID("sktest123");
-    //
-    //        //Hit sign in
-    //        EmailSignInPage.clickLoginButton();
-    //
-    //        String ACTUAL_ERROR = EmailSignInPage.getEmailPasswordError();
-    //        assertEquals("ERROR! " + EXPECTED_ERROR, ACTUAL_ERROR, EXPECTED_ERROR);
-    //        CustomHooks.pressBack();
-    //        CustomHooks.pressBack();
-    //        runStatus = "passed";
-    //    }
-
 /*    @Test
     public void Test3_DeleteEmailAccount() {
         if (!driver.findElement(By.name("Your settings")).isDisplayed()) {
