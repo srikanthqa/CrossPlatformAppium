@@ -2,7 +2,7 @@ package com.qa.shopkick.tests.Stores;
 
 import com.qa.shopkick.pages.StoreViewPage;
 import com.qa.shopkick.pages.StoresPage;
-import com.qa.shopkick.utils.AbstractTest;
+import com.qa.shopkick.tests.AbstractTest;
 import com.qa.shopkick.utils.CustomHooks;
 
 public class DemoTest extends AbstractTest {

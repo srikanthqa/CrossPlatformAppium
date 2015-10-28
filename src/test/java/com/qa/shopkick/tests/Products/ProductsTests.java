@@ -4,7 +4,7 @@ package com.qa.shopkick.tests.Products;
 import com.qa.shopkick.pages.LandingPage;
 import com.qa.shopkick.pages.LookbookPage;
 import com.qa.shopkick.pages.ProductsPage;
-import com.qa.shopkick.utils.AbstractTest;
+import com.qa.shopkick.tests.AbstractTest;
 import com.qa.shopkick.utils.CustomHooks;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;

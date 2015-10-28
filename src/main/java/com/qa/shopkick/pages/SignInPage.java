@@ -33,6 +33,7 @@ public class SignInPage extends ScreenBaseClass {
             if (signInFacebookSignIn.isDisplayed() &&
                     signInGooglePlusSignIn.isDisplayed() &&
                     signInEmailSignIn.isDisplayed()) {
+                log.info("All three buttons present Good to go ");
                 return true;
             } else {
                 return false;

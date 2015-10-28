@@ -1,7 +1,9 @@
-package com.qa.shopkick.utils;
+package com.qa.shopkick.tests;
 
 import com.qa.shopkick.appium.AppiumManager;
 import com.qa.shopkick.pages.FirstUseDealsEducationPage;
+import com.qa.shopkick.utils.QaCalendar;
+import com.qa.shopkick.utils.QaConstants;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.remote.MobileCapabilityType;
@@ -40,7 +42,7 @@ public class AbstractTest {
     protected static File file = new File(filePath);
     protected static String reportName = "";
     protected static AppiumDriver driver = null;
-    private static JSONObject testLodgeJSON = new org.json.simple.JSONObject();
+    private static JSONObject testLodgeJSON = new JSONObject();
     private static JSONArray resultsList = new JSONArray();
 
     private static String buildNo = "1112";
@@ -159,7 +161,7 @@ public class AbstractTest {
         log.info("<--------- Start afterMethod() Test --------------------------------------------------------->");
         try {
             log.info("SessionID : " + driver.getSessionId());
-            JSONObject eachResult = new org.json.simple.JSONObject();
+            JSONObject eachResult = new JSONObject();
             testName = name.getMethodName();
             long endTime = System.currentTimeMillis();
             long elapsed = (endTime - startTime) / 1000;

@@ -1,7 +1,6 @@
 package com.qa.shopkick.tests;
 
 import com.qa.shopkick.pages.*;
-import com.qa.shopkick.utils.AbstractTest;
 import com.qa.shopkick.utils.CustomHooks;
 import org.junit.Test;
 import org.openqa.selenium.By;

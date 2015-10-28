@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
  */
 public class ScreenBaseClass {
 
-    protected static AppiumDriver driver = AbstractTest.driver;
+    protected static AppiumDriver driver;
 
     public ScreenBaseClass() {
 

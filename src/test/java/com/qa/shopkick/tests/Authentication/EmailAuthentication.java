@@ -1,7 +1,10 @@
 package com.qa.shopkick.tests.Authentication;
 
-import com.qa.shopkick.pages.*;
-import com.qa.shopkick.utils.AbstractTest;
+import com.qa.shopkick.pages.AccountSettings;
+import com.qa.shopkick.pages.EmailSignInPage;
+import com.qa.shopkick.pages.LandingPage;
+import com.qa.shopkick.pages.SignInPage;
+import com.qa.shopkick.tests.AbstractTest;
 import com.qa.shopkick.utils.CustomHooks;
 import org.apache.log4j.Logger;
 import org.junit.FixMethodOrder;
@@ -26,25 +29,16 @@ public class EmailAuthentication extends AbstractTest {
         //Go thorough first use
         LoginHooks.GoThroughFirstUse();
 
-        //From logout screen hit on email to create an account
-        LoginHooks.loginWithEmail();
-
+        String expectedEmail = LoginHooks.loginWithEmail();
         String ACTUAL_ERROR = EmailSignInPage.getEmailPasswordError();
         assertNotEquals(EXPECTED_ERROR, ACTUAL_ERROR);
+        String actualKicks = LandingPage.getKicksOnLandingPage();
+        log.info("You have " + actualKicks + " kicks");
 
-        String expectedKicks = "2";
-        LandingPage landingPage = new LandingPage();
-        String actualKicks = landingPage.getKicksOnLandingPage();
+        CustomHooks.gotoAccountSettings();
+        String actualEmail = AccountSettings.getUserEmail();
 
-        assertEquals("KICKS in Landing Screen don't match ", expectedKicks, actualKicks);
-        runStatus = "passed";
-    }
-
-    @Test
-    public void Test2_logOutOfEmailAccount() {
-
-        testSectionName = "EmailAuthentication";
-        testName = "Test2_logOutOfEmailAccount";
+        assertEquals("Email's don't match in the Accounts Screen ", expectedEmail, actualEmail);
         CustomHooks.LogMeOut();
         assertTrue("Error Some buttons missing", SignInPage.areFacebookGoogleEmailButtonsVisible());
         runStatus = "passed";

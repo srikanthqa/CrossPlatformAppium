@@ -1,9 +1,11 @@
 package com.qa.shopkick.utils;
 
 import com.qa.shopkick.pages.*;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.support.PageFactory;
 
 public class CustomHooks extends ScreenBaseClass {
 
@@ -53,6 +55,34 @@ public class CustomHooks extends ScreenBaseClass {
             AccountSettings.clickAccountSettingsLogOut();
         } catch (Exception e) {
             log.error(e);
+        }
+    }
+
+    public static void gotoAccountSettings() {
+        // before calling method leave app state in stores screen
+        try {
+            LandingPage.openLeftNavSignedIn();
+            driver.scrollTo("Settings");
+            //click on settings
+            LeftNavBar.clickOnSettingsLeftNav();
+            LeftNavSettings.clicksettingsAccountSettings();
+            PageFactory.initElements(new AppiumFieldDecorator(driver), new AccountSettings());
+        } catch (Exception e) {
+            log.error(e);
+        }
+    }
+
+    public static String getUserName() {
+        // before calling method leave app state in stores screen
+        try {
+            LandingPage.openLeftNavSignedIn();
+            driver.scrollTo("Settings");
+            //click on settings
+            return LeftNavBar.getUserProfileText();
+
+        } catch (Exception e) {
+            log.error(e);
+            return "";
         }
     }
 

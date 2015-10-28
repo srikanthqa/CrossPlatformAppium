@@ -2,7 +2,7 @@ package com.qa.shopkick.tests.KicksCenter;
 
 import com.qa.shopkick.pages.*;
 import com.qa.shopkick.tests.Authentication.LoginHooks;
-import com.qa.shopkick.utils.AbstractTest;
+import com.qa.shopkick.tests.AbstractTest;
 import com.qa.shopkick.utils.CustomHooks;
 import org.junit.FixMethodOrder;
 import org.junit.Test;

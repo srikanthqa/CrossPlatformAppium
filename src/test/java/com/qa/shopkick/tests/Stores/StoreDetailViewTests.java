@@ -1,6 +1,6 @@
 package com.qa.shopkick.tests.Stores;
 
-import com.qa.shopkick.utils.AbstractTest;
+import com.qa.shopkick.tests.AbstractTest;
 
 public class StoreDetailViewTests extends AbstractTest{
 	

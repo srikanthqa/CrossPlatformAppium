@@ -4,7 +4,7 @@ import com.qa.shopkick.pages.DealAggregationPage;
 import com.qa.shopkick.pages.DealsPage;
 import com.qa.shopkick.pages.MySavesPage;
 import com.qa.shopkick.pages.ProductsPage;
-import com.qa.shopkick.utils.AbstractTest;
+import com.qa.shopkick.tests.AbstractTest;
 import com.qa.shopkick.utils.CustomHooks;
 import org.junit.FixMethodOrder;
 import org.junit.Test;

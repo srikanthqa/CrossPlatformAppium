@@ -16,7 +16,7 @@ public class LandingPage extends ScreenBaseClass {
     @iOSFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/kicks_amount\")")
     private static WebElement topCenterKicks;
 
-    public String getKicksOnLandingPage() {
+    public static String getKicksOnLandingPage() {
 
         String kicks = "";
         try {
@@ -35,6 +35,7 @@ public class LandingPage extends ScreenBaseClass {
         try {
             leftNavUserImage.click();
             waitFor(3);
+            log.info("leftNavUserImage clicked");
             PageFactory.initElements(new AppiumFieldDecorator(driver), new LeftNavBar());
         } catch (Exception e) {
             log.error(e);

@@ -9,12 +9,12 @@ Simple app using the TestRail API, provides bulk test-result reporting
 """
 __author__ = 'manish'
 
-import datetime
 import getpass
 import json
 import optparse
 import os
 import sys
+
 import testrail_api
 
 

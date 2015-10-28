@@ -1,7 +1,7 @@
 package com.qa.shopkick.tests.Authentication;
 
 import com.qa.shopkick.pages.*;
-import com.qa.shopkick.utils.AbstractTest;
+import com.qa.shopkick.tests.AbstractTest;
 import com.qa.shopkick.utils.CustomHooks;
 
 public class LoginHooks extends AbstractTest {
@@ -30,24 +30,28 @@ public class LoginHooks extends AbstractTest {
         CustomHooks.dismissMultiLoginMessage();
     }
 
-    public static void loginWithEmail() {
+    public static String loginWithEmail() {
         CustomHooks.dismissPotHoleError();
         SignInPage.clickEmailSignInButton();
 
         //Element issues, using two different methods to sign in
         if (platformType.equalsIgnoreCase("Android")) {
 
-            EmailSignInPage.typeEmailANDROID("qa@a.com");
+            String email = "auto@a.com";
+            EmailSignInPage.typeEmailANDROID(email);
             EmailSignInPage.typePasswordANDROID("123456");
             EmailSignInPage.clickLoginButton();
+            return email;
 
         } else {
-            EmailSignInPage.clickAndEnterEmailIOS("qa@i.com");
+            String email = "qa@i.com";
+            EmailSignInPage.clickAndEnterEmailIOS(email);
             EmailSignInPage.clickAndEnterPasswordIOS("123456");
             EmailSignInPage.clickLoginButton();
+            return email;
         }
 
-        CustomHooks.dismissMultiLoginMessage();
+
     }
 
     public static void GoThroughFirstUse() {

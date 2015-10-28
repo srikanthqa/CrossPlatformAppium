@@ -1,6 +1,6 @@
 package com.qa.shopkick.tests.Authentication;
 
-import com.qa.shopkick.utils.AbstractTest;
+import com.qa.shopkick.tests.AbstractTest;
 import com.qa.shopkick.utils.CustomHooks;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
