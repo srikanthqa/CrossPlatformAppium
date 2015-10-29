@@ -1,9 +1,9 @@
 package com.qa.shopkick.tests.Stores;
 
-import com.qa.shopkick.utils.AbstractTest;
+import com.qa.shopkick.appium.BaseTestCase;
 import org.junit.Test;
 
-public class StoresSearchTest extends AbstractTest {
+public class StoresSearchTest extends BaseTestCase {
 
     // Search for stores
     // Change city

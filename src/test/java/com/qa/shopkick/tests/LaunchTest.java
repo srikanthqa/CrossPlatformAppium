@@ -1,12 +1,12 @@
 package com.qa.shopkick.tests;
 
 import com.qa.shopkick.pages.*;
-import com.qa.shopkick.utils.AbstractTest;
+import com.qa.shopkick.appium.BaseTestCase;
 import com.qa.shopkick.utils.CustomHooks;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
-public class LaunchTest extends AbstractTest {
+public class LaunchTest extends BaseTestCase {
 
     /*TODO: Add more methods to verify change in kicks
      * */

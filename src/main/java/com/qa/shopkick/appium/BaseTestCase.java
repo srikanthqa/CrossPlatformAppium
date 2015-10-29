@@ -1,7 +1,8 @@
-package com.qa.shopkick.utils;
+package com.qa.shopkick.appium;
 
-import com.qa.shopkick.appium.AppiumManager;
 import com.qa.shopkick.pages.FirstUseDealsEducationPage;
+import com.qa.shopkick.utils.QaCalendar;
+import com.qa.shopkick.utils.QaConstants;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.remote.MobileCapabilityType;
@@ -19,14 +20,14 @@ import java.io.File;
 import java.io.FileWriter;
 import java.util.concurrent.TimeUnit;
 
-public class AbstractTest {
-    final private static Logger log = Logger.getLogger(String.valueOf(AbstractTest.class));
+public class BaseTestCase {
+    final private static Logger log = Logger.getLogger(String.valueOf(BaseTestCase.class));
     protected static String fileName = QaConstants.TEST_LODGE_RESULT_JSON;
     protected static String testLodgeDir = "testLodge_script";
     protected static String filePath = testLodgeDir + File.separator + fileName;
     protected static File file = new File(filePath);
     protected static String reportName = "";
-    protected static AppiumDriver driver = null;
+    public static AppiumDriver driver = null;
     protected static String packageName = "com.shopkick.app";
     protected static String launcherActivity = packageName + "." + "activity.AppScreenActivity";
     protected static String platformType = "Android";
@@ -45,6 +46,10 @@ public class AbstractTest {
     protected String testSectionName = "";
     protected String testName = "";
     private long startTime = 0;
+
+    public BaseTestCase() {
+
+    }
 
     public static AppiumDriver createAppiumDriver() {
 
@@ -125,7 +130,7 @@ public class AbstractTest {
             fileWriter.append(testLodgeJSON.toString());
             fileWriter.flush();
             fileWriter.close();
-            log.info("Result JSON Created ");
+            log.info("testLodgeJSON JSON Created ");
         } catch (Exception e) {
             log.error(e);
         } finally {
@@ -154,7 +159,7 @@ public class AbstractTest {
         log.info("<--------- Start afterMethod() Test --------------------------------------------------------->");
         try {
             log.info("SessionID : " + driver.getSessionId());
-            JSONObject eachResult = new org.json.simple.JSONObject();
+            JSONObject eachResult = new JSONObject();
             testName = name.getMethodName();
             long endTime = System.currentTimeMillis();
             long elapsed = (endTime - startTime) / 1000;

@@ -44,7 +44,6 @@ public class AppiumManager {
             log.info("Going to Create createAppiumDriver() ..." + dCount + " time ");
 
             log.info("Using: " + apk);
-            log.info("Some times you got to play the waiting game    ");
             File app = new File(appDir, apk);
 
             capabilities.setCapability("platformName", "Android");
@@ -56,6 +55,7 @@ public class AppiumManager {
             capabilities.setCapability("newCommandTimeout", 7200);
 
             log.info("Android" + " : " + deviceName + " : " + platformVersion);
+            log.info("Wait till the App gets installed .... ");
             driver = new AndroidDriver(new URL(ipAddress + port + "/wd/hub"), capabilities);
             log.info("Created Android Driver SessionId: " + driver.getSessionId());
             driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

@@ -1,6 +1,6 @@
 package com.qa.shopkick.pages;
 
-import com.qa.shopkick.utils.ScreenBaseClass;
+import com.qa.shopkick.appium.ScreenBaseClass;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
@@ -35,6 +35,7 @@ public class SignInPage extends ScreenBaseClass {
             if (signInFacebookSignIn.isDisplayed() &&
                     signInGooglePlusSignIn.isDisplayed() &&
                     signInEmailSignIn.isDisplayed()) {
+                log.info("All three buttons present Good to go ");
                 return true;
             } else {
                 return false;

@@ -1,14 +1,14 @@
 package com.qa.shopkick.tests;
 
 import com.qa.shopkick.pages.*;
-import com.qa.shopkick.utils.AbstractTest;
+import com.qa.shopkick.appium.BaseTestCase;
 import com.qa.shopkick.utils.CustomHooks;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.junit.Test;
 import org.openqa.selenium.support.PageFactory;
 
 
-public class AuthenticationTests extends AbstractTest {
+public class AuthenticationTests extends BaseTestCase {
 
     @Test
     void FirstUseFlow() {

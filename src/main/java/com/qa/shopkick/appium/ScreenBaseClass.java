@@ -1,28 +1,21 @@
-package com.qa.shopkick.utils;
+package com.qa.shopkick.appium;
 
 import io.appium.java_client.AppiumDriver;
-import org.openqa.selenium.support.PageFactory;
+import org.apache.log4j.Logger;
 
 /**
  * Created by Srikanth on 12/16/14.
  */
 public class ScreenBaseClass {
 
-    protected static AppiumDriver driver = AbstractTest.driver;
+    final private static Logger log = Logger.getLogger(ScreenBaseClass.class);
+    public static AppiumDriver driver = BaseTestCase.driver;
 
     public ScreenBaseClass() {
-
     }
-
-    public ScreenBaseClass(AppiumDriver driver) {
-
-        this.driver = driver;
-        //This initElements method will create all WebElements
-        PageFactory.initElements(driver, this);
-    }
-
 
     public static void pressBack() {
+        log.info("pressBack");
         driver.navigate().back();
     }
 

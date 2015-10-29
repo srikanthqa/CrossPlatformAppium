@@ -15,8 +15,8 @@ killall node ; appium > logs/appium.log &
 
 #killall node ; appium
 
-mvn -Dtest=EmailAuthentication test
+#mvn -Dtest=EmailAuthentication test
 #mvn -Dtest=com.qa.shopkick.tests.Authentication.EmailAuthentication test
 #mvn -Dtest=com.qa.shopkick.tests.Authentication.FacebookAuthentication test
 
-#mvn -DplatformType='Android' -DplatformVersion='5.0.1' -DdeviceName='GalaxyS5' -DdeviceUDID='null' -Dtest=*Authentication test
+mvn -DplatformType='Android' -DplatformVersion='5.0.1' -DdeviceName='GalaxyS5' -DdeviceUDID='null' -Dtest=EmailAuthentication test

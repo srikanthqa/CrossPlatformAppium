@@ -2,12 +2,12 @@ package com.qa.shopkick.tests.Stores;
 
 import com.qa.shopkick.pages.LandingPage;
 import com.qa.shopkick.pages.StoresPage;
-import com.qa.shopkick.utils.AbstractTest;
+import com.qa.shopkick.appium.BaseTestCase;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public class StoresListTest extends AbstractTest {
+public class StoresListTest extends BaseTestCase {
 
     public static String distanceInitial, distanceAfterLocationChange;
     public static String storeNameInital, storeNameAfterLocationChange;

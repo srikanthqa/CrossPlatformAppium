@@ -1,5 +1,6 @@
 package com.qa.shopkick.utils;
 
+import com.qa.shopkick.appium.ScreenBaseClass;
 import com.qa.shopkick.pages.*;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.apache.log4j.Logger;

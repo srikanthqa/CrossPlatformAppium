@@ -1,7 +1,7 @@
 package com.qa.shopkick.pages;
 
+import com.qa.shopkick.appium.ScreenBaseClass;
 import com.qa.shopkick.utils.CustomHooks;
-import com.qa.shopkick.utils.ScreenBaseClass;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
@@ -19,9 +19,6 @@ public class FirstUseDealsEducationPage extends ScreenBaseClass {
 
     public FirstUseDealsEducationPage() {
 
-        super(driver);
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
     }
 
     public static void clickGetStartedButton() {

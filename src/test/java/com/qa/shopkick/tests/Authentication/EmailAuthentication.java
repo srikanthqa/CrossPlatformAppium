@@ -4,7 +4,7 @@ import com.qa.shopkick.pages.AccountSettings;
 import com.qa.shopkick.pages.EmailSignInPage;
 import com.qa.shopkick.pages.LandingPage;
 import com.qa.shopkick.pages.SignInPage;
-import com.qa.shopkick.utils.AbstractTest;
+import com.qa.shopkick.appium.BaseTestCase;
 import com.qa.shopkick.utils.CustomHooks;
 import org.apache.log4j.Logger;
 import org.junit.FixMethodOrder;
@@ -17,7 +17,7 @@ import static junit.framework.TestCase.assertEquals;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
-public class EmailAuthentication extends AbstractTest {
+public class EmailAuthentication extends BaseTestCase {
     final private static Logger log = Logger.getLogger((EmailAuthentication.class));
     final private static String EXPECTED_ERROR = "Oh no, that email/password isn't right. Try again or tap to reset password.";
 

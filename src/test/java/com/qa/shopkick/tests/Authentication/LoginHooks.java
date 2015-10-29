@@ -1,10 +1,10 @@
 package com.qa.shopkick.tests.Authentication;
 
 import com.qa.shopkick.pages.*;
-import com.qa.shopkick.utils.AbstractTest;
+import com.qa.shopkick.appium.BaseTestCase;
 import com.qa.shopkick.utils.CustomHooks;
 
-public class LoginHooks extends AbstractTest {
+public class LoginHooks extends BaseTestCase {
 
     public static void loginWithFacebook() {
         //from first use flow log into facebook

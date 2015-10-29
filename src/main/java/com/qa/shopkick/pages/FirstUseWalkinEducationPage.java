@@ -1,6 +1,6 @@
 package com.qa.shopkick.pages;
 
-import com.qa.shopkick.utils.ScreenBaseClass;
+import com.qa.shopkick.appium.ScreenBaseClass;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
@@ -12,6 +12,11 @@ import org.openqa.selenium.support.PageFactory;
  * Created by Srikanth on 12/16/14.
  */
 public class FirstUseWalkinEducationPage extends ScreenBaseClass {
+
+    public FirstUseWalkinEducationPage() {
+
+    }
+
 
     @iOSFindBy(uiAutomator = ".buttons()[\"Learn how\"]")
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"LEARN HOW\")")
