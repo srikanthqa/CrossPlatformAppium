@@ -9,7 +9,7 @@ import org.apache.log4j.Logger;
 public class ScreenBaseClass {
 
     final private static Logger log = Logger.getLogger(ScreenBaseClass.class);
-    public static AppiumDriver driver = BaseTestCase.driver;
+    public static AppiumDriver driver = AbstractTestCase.driver;
 
     public ScreenBaseClass() {
     }

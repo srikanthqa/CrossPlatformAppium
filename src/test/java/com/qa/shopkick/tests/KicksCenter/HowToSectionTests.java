@@ -1,7 +1,7 @@
 package com.qa.shopkick.tests.KicksCenter;
 
 import com.qa.shopkick.pages.*;
-import com.qa.shopkick.appium.BaseTestCase;
+import com.qa.shopkick.appium.AbstractTestCase;
 import com.qa.shopkick.tests.Authentication.LoginHooks;
 import com.qa.shopkick.utils.CustomHooks;
 import org.junit.FixMethodOrder;
@@ -10,7 +10,7 @@ import org.junit.runners.MethodSorters;
 import org.openqa.selenium.By;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class HowToSectionTests extends BaseTestCase {
+public class HowToSectionTests extends AbstractTestCase {
 
     @Test
     public void Test1_verifyHowToWalkins() {

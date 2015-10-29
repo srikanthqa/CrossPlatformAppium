@@ -1,12 +1,12 @@
 package com.qa.shopkick.tests;
 
 import com.qa.shopkick.pages.*;
-import com.qa.shopkick.appium.BaseTestCase;
+import com.qa.shopkick.appium.AbstractTestCase;
 import com.qa.shopkick.utils.CustomHooks;
 import org.junit.After;
 import org.junit.Test;
 
-public class SmokeSuiteTwo extends BaseTestCase {
+public class SmokeSuiteTwo extends AbstractTestCase {
 
     @Test
     public void GooglePlusFlow() {

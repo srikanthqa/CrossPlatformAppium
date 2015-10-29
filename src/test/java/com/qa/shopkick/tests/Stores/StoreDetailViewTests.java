@@ -1,8 +1,8 @@
 package com.qa.shopkick.tests.Stores;
 
-import com.qa.shopkick.appium.BaseTestCase;
+import com.qa.shopkick.appium.AbstractTestCase;
 
-public class StoreDetailViewTests extends BaseTestCase {
+public class StoreDetailViewTests extends AbstractTestCase {
 
     //verify FSI
 

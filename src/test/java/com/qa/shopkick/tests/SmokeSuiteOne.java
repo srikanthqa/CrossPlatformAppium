@@ -1,14 +1,14 @@
 package com.qa.shopkick.tests;
 
 import com.qa.shopkick.pages.*;
-import com.qa.shopkick.appium.BaseTestCase;
+import com.qa.shopkick.appium.AbstractTestCase;
 import com.qa.shopkick.utils.CustomHooks;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
 import java.util.logging.Logger;
 
-public class SmokeSuiteOne extends BaseTestCase {
+public class SmokeSuiteOne extends AbstractTestCase {
     final private static Logger log = Logger.getLogger(String.valueOf(SmokeSuiteOne.class));
 
     @Test

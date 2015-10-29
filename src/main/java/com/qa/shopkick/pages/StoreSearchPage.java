@@ -37,7 +37,7 @@ public class StoreSearchPage extends ScreenBaseClass {
         //grab searchitem name
         String searchResultItem = searchResult.getText();
 
-        //check the list item is same as the one user searched for
+        //check the list item is same as the one username searched for
         if ((searchResultItem.equalsIgnoreCase(searchedStore))) {
             searchResult.click();
             PageFactory.initElements(new AppiumFieldDecorator(driver), new StoreViewPage());

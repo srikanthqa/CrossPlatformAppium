@@ -13,7 +13,7 @@ public class LeftNavBar extends ScreenBaseClass {
 
     final private static Logger log = Logger.getLogger((LeftNavBar.class));
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"GUEST\")")
-    @iOSFindBy(uiAutomator = ".buttons()[\"guest user circle\"]")
+    @iOSFindBy(uiAutomator = ".buttons()[\"guest username circle\"]")
     private static WebElement guestLeftNavBar;
 
     public static void clickGuestUserButton() {
@@ -24,7 +24,7 @@ public class LeftNavBar extends ScreenBaseClass {
 
 
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/row_text\")")
-    @iOSFindBy(uiAutomator = ".buttons()[\"guest user circle\"]")
+    @iOSFindBy(uiAutomator = ".buttons()[\"guest username circle\"]")
     private static WebElement userProfileText;
 
     public static String getUserProfileText() {

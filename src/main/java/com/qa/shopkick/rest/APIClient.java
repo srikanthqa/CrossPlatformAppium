@@ -23,9 +23,9 @@ import java.io.InputStreamReader;
 public class APIClient {
 
     protected final String USER_AGENT = "Mozilla/5.0";
-    protected String baseURL = "";
-    protected String user = "";
-    protected String pass = "";
+    protected String testLodgeUrl = "";
+    protected String username = "";
+    protected String password = "";
     protected HttpClient client = HttpClientBuilder.create().build();
     protected String jsonData = "";
     private Logger log = Logger.getLogger(TestLodgeMethods.class);
@@ -38,9 +38,9 @@ public class APIClient {
             Object obj = parser.parse(new FileReader(file));
             JSONObject jsonObject = (JSONObject) obj;
 
-            baseURL = (String) jsonObject.get("TL_Base_URL");
-            user = (String) jsonObject.get("TL_User_Name");
-            pass = (String) jsonObject.get("TL_User_PW");
+            testLodgeUrl = (String) jsonObject.get("TL_Base_URL");
+            username = (String) jsonObject.get("TL_User_Name");
+            password = (String) jsonObject.get("TL_User_PW");
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -53,7 +53,7 @@ public class APIClient {
         try {
             getTestLodgeCredentials();
             //Username password needs Encoding
-            String encodedAuthString = Base64.encodeBase64String((user + ":" + pass).getBytes());
+            String encodedAuthString = Base64.encodeBase64String((username + ":" + password).getBytes());
             HttpGet httpGet = new HttpGet(url);
             // add request header
             httpGet.addHeader("User-Agent", USER_AGENT);
@@ -86,7 +86,7 @@ public class APIClient {
         try {
             getTestLodgeCredentials();
             //Username password needs Encoding
-            String encodedAuthString = Base64.encodeBase64String((user + ":" + pass).getBytes());
+            String encodedAuthString = Base64.encodeBase64String((username + ":" + password).getBytes());
             // add request header
             HttpPost httpPost = new HttpPost(url);
             httpPost.addHeader("Content-type", "application/json");

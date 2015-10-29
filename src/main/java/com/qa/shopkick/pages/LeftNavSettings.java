@@ -20,7 +20,7 @@ public class LeftNavSettings extends ScreenBaseClass {
     private static WebElement settingsVibrate;
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/more_sound_button\").text(\"Sounds\")")
     private static WebElement settingsSounds;
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/more_local_notices_button\").text(\"New user notifications\")")
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/more_local_notices_button\").text(\"New username notifications\")")
     private static WebElement settingsNewUserNotifications;
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/more_geofencing_button\").text(\"Notifications near/in stores\")")
     private static WebElement settingsNotificationsNearInStores;

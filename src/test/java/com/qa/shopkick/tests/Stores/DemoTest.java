@@ -2,10 +2,10 @@ package com.qa.shopkick.tests.Stores;
 
 import com.qa.shopkick.pages.StoreViewPage;
 import com.qa.shopkick.pages.StoresPage;
-import com.qa.shopkick.appium.BaseTestCase;
+import com.qa.shopkick.appium.AbstractTestCase;
 import com.qa.shopkick.utils.CustomHooks;
 
-public class DemoTest extends BaseTestCase {
+public class DemoTest extends AbstractTestCase {
 
     public void StoresTest1() {
 

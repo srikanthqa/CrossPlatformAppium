@@ -1,12 +1,12 @@
 package com.qa.shopkick.tests;
 
 import com.qa.shopkick.pages.*;
-import com.qa.shopkick.appium.BaseTestCase;
+import com.qa.shopkick.appium.AbstractTestCase;
 import com.qa.shopkick.utils.CustomHooks;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
-public class LaunchTest extends BaseTestCase {
+public class LaunchTest extends AbstractTestCase {
 
     /*TODO: Add more methods to verify change in kicks
      * */
@@ -42,7 +42,7 @@ public class LaunchTest extends BaseTestCase {
         //tap on the 'Guest' button to open left nav bar
         LeftNavBar.clickGuestUserButton();
 
-        //Read current kicks so you can compare if the user has signed in and the kicks have been updated
+        //Read current kicks so you can compare if the username has signed in and the kicks have been updated
 
 
         //confirm password

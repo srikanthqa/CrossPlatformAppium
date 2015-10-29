@@ -20,25 +20,30 @@ import java.io.File;
 import java.io.FileWriter;
 import java.util.concurrent.TimeUnit;
 
-public class BaseTestCase {
-    final private static Logger log = Logger.getLogger(String.valueOf(BaseTestCase.class));
-    protected static String fileName = QaConstants.TEST_LODGE_RESULT_JSON;
-    protected static String testLodgeDir = "testLodge_script";
-    protected static String filePath = testLodgeDir + File.separator + fileName;
-    protected static File file = new File(filePath);
-    protected static String reportName = "";
-    public static AppiumDriver driver = null;
-    protected static String packageName = "com.shopkick.app";
-    protected static String launcherActivity = packageName + "." + "activity.AppScreenActivity";
-    protected static String platformType = "Android";
-    protected static String deviceUDID = "null";
+public class AbstractTestCase {
+    final private static Logger log = Logger.getLogger(String.valueOf(AbstractTestCase.class));
     private static QaCalendar calendar = QaCalendar.getInstance();
     private static FileWriter fileWriter = null;
     private static AppiumManager appiumManager = new AppiumManager();
     private static JSONObject testLodgeJSON = new org.json.simple.JSONObject();
     private static JSONArray resultsList = new JSONArray();
-    private static String buildNo = "1112";
-    private static File userDir = new File(System.getProperty("user.dir"));
+    private static String buildNo = "4.7.6-1112";
+    protected static String fileName = QaConstants.TEST_LODGE_RESULT_JSON;
+    protected static String testLodgeDir = QaConstants.TEST_LODGE_DIR;
+    protected static String filePath = testLodgeDir + File.separator + fileName;
+    protected static File file = new File(filePath);
+    protected static String reportName = "";
+    protected static String packageName = "com.shopkick.app";
+    protected static String launcherActivity = packageName + "." + "activity.AppScreenActivity";
+        protected static String platformType = "Android";
+
+    //Commented for debug purpose
+    public static String deviceName = System.getProperty("deviceName");
+//    public static String platformType = System.getProperty("platformType");
+    public static String platformVersion = System.getProperty("platformVersion");
+    public static String deviceUDID = System.getProperty("deviceUDID");
+
+    public static AppiumDriver driver = null;
     @Rule
     public TestName name = new TestName();
     protected String elapsedSec = "";
@@ -47,12 +52,7 @@ public class BaseTestCase {
     protected String testName = "";
     private long startTime = 0;
 
-    public BaseTestCase() {
-
-    }
-
     public static AppiumDriver createAppiumDriver() {
-
         try {
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, platformType);
@@ -64,11 +64,10 @@ public class BaseTestCase {
             switch (platformType) {
                 case "IOS": {
                     driver = appiumManager.createAndroidDriver(driver);
-
                     break;
                 }
                 case "Android": {
-                    driver = appiumManager.createAndroidDriver(driver); //app lauched here
+                    driver = appiumManager.createAndroidDriver(driver); //app launched here
                     break;
                 }
             }
@@ -89,7 +88,6 @@ public class BaseTestCase {
     }
 
     public static void closeAppiumDriver() {
-
         try {
             if (driver != null) {
                 log.info("Going to Quit Driver");
@@ -113,11 +111,11 @@ public class BaseTestCase {
             }
             fileWriter = new FileWriter(filePath);
             testLodgeJSON.put("resultsList", resultsList);
-            reportName = "Android" + "_" + calendar.getCurrentDate() + "_" + QaConstants.TEST_LODGE_RESULT_JSON;
+            reportName = platformType + "_" + calendar.getCurrentDateTime() + "_" + QaConstants.TEST_LODGE_RESULT_JSON;
             testLodgeJSON.put("reportName", reportName);
             log.info("reportName: " + reportName);
             testLodgeJSON.put("buildNo", buildNo);
-            log.info("buildNo: " + "4.7.6");
+            log.info("buildNo: " + buildNo);
         } catch (Exception e) {
             log.info(e);
         }

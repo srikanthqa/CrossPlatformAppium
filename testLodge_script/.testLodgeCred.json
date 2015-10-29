@@ -3,7 +3,7 @@
   "Default_Section_Name": "All_Tests",
   "Default_Suite_Name": "smoke_suite",
   "Default_Case_Type": "Automated",
-  "TL_Base_URL": "https://shopkick.api.testlodge.com/v1/",
+  "TL_Base_URL": "https://shopkick.api.testlodge.com/v1/projects/",
   "TL_User_Name": "manish@shopkick.com",
   "TL_User_PW": "shopkick123",
   "Tester_Name": "jenkins"

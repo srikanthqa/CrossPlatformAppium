@@ -96,7 +96,7 @@ public class QaReportProcessor {
                 driver.findElement(By.linkText(reportName)).click();
                 wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("breadcrumb")));
 
-                //get the Pass percentage pass and fail
+                //get the Pass percentage password and fail
                 List<WebElement> wLabels = driver.findElements(By.className("title"));
                 passed = wLabels.get(4).getText().trim();
                 failed = wLabels.get(7).getText().trim();

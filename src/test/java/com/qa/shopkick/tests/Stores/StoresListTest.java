@@ -2,17 +2,17 @@ package com.qa.shopkick.tests.Stores;
 
 import com.qa.shopkick.pages.LandingPage;
 import com.qa.shopkick.pages.StoresPage;
-import com.qa.shopkick.appium.BaseTestCase;
+import com.qa.shopkick.appium.AbstractTestCase;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public class StoresListTest extends BaseTestCase {
+public class StoresListTest extends AbstractTestCase {
 
     public static String distanceInitial, distanceAfterLocationChange;
     public static String storeNameInital, storeNameAfterLocationChange;
 
-    //Verify user is on the stores page
+    //Verify username is on the stores page
     //Check for the stores tab and look for its child if its highlighted
     @Test
     public void Test1_storestab() {
