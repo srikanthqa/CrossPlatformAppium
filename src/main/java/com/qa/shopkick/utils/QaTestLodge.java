@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import static com.jayway.restassured.RestAssured.given;
+import static junit.framework.TestCase.assertTrue;
 
 public class QaTestLodge {
     private Logger log = Logger.getLogger(QaTestLodge.class);
@@ -50,9 +51,8 @@ public class QaTestLodge {
                 JSONArray resultsList = (JSONArray) level1Object.get("resultsList");
 
                 for (int i = 0; i < resultsList.size(); i++) {
-
-                    String testName = ((JSONObject) resultsList.get(i)).get("runStatus").toString();
-                    String runStatus = ((JSONObject) resultsList.get(i)).get("testName").toString();
+                    String testName = ((JSONObject) resultsList.get(i)).get("testName").toString();
+                    String runStatus = ((JSONObject) resultsList.get(i)).get("runStatus").toString();
                     testCaseList.add(testName + ":" + runStatus);
                 }
             } catch (Exception e) {
@@ -61,52 +61,56 @@ public class QaTestLodge {
             return testCaseList;
         }
 
-        public Integer getTestCaseID(String TestCaseName, String runId) {
+        public Integer getTestCaseID(String TestCaseName, String testRunId) {
             try {
-                Response response = given().contentType(ContentType.URLENC).auth().basic(username, password).expect().statusCode(200).
-                        get(testLodgeUrl + projectId + "/runs/175745/executed_steps.json");
+                String getUrl = "https://shopkick.api.testlodge.com/v1/projects/" + projectId + "/runs/" + testRunId + "/executed_steps.json";
+                Response response = given().contentType(ContentType.URLENC).auth().basic(username, password).expect().statusCode(200).get(getUrl);
+
                 Integer tpages = response.getBody().path("pagination.total_pages");
                 ArrayList<Integer> tcid = new ArrayList<>();
                 ArrayList<String> tcname = new ArrayList<>();
                 for (int i = 1; i <= tpages; i++) {
-                    Response response1 = given().contentType(ContentType.URLENC).auth().basic(username, password).expect().statusCode(200).
-                            get(testLodgeUrl + projectId + "/runs/" + runId + "/executed_steps.json?page=" + i);
+                    String getUrl1 = "https://shopkick.api.testlodge.com/v1/projects/" + projectId + "/runs/" + testRunId + "/executed_steps.json?page=" + i;
+                    Response response1 = given().contentType(ContentType.URLENC).auth().basic(username, password).expect().statusCode(200).get(getUrl1);
                     ArrayList<Integer> temp_tid = response1.getBody().path("executed_steps.id");
-                    ArrayList<String> temp_tname = response1.getBody().path("executed_steps.step_number");
+                    //                    ArrayList<String> stepNo_tname = response1.getBody().path("executed_steps.step_number");
+                    ArrayList<String> title_tname = response1.getBody().path("executed_steps.title");
                     tcid.addAll(temp_tid);
-                    tcname.addAll(temp_tname);
+                    tcname.addAll(title_tname);
                 }
                 HashMap<String, Integer> map = new HashMap<>();
                 for (int j = 0; j < tcid.size(); j++) {
                     map.put(tcname.get(j), tcid.get(j));
                 }
-                return map.get(TestCaseName);
+                Integer tcID = map.get(TestCaseName);
+                return tcID;
             } catch (Exception e) {
                 e.printStackTrace();
-                return new Integer(0);
+                return 0;
             }
         }
 
         public boolean setTestCaseStatus(String testRunId, String testCaseName, String testResult) {
             try {
                 Integer testcaseId = getTestCaseID(testCaseName, testRunId);
-                RequestSpecification request = null;
-                if (testResult.equals("passed")) {
-                    request = given().contentType(ContentType.URLENC).with().parameters("executed_step[actual_result]", "passed", "executed_step[passed]", "1");
-                } else if (testResult.equals("failed")) {
-                    request = given().contentType(ContentType.URLENC).with().parameters("executed_step[actual_result]", "failed", "executed_step[passed]", "0");
+                if (testcaseId != null) {
+                    RequestSpecification request = null;
+                    if (testResult.equals("passed")) {
+                        request = given().contentType(ContentType.URLENC).with().parameters("executed_step[actual_result]", "passed", "executed_step[passed]", "1");
+                    } else if (testResult.equals("failed")) {
+                        request = given().contentType(ContentType.URLENC).with().parameters("executed_step[actual_result]", "failed", "executed_step[passed]", "0");
+                    }
+                    String patchUrl = testLodgeUrl + projectId + "/runs/" + testRunId + "/executed_steps/" + testcaseId + ".json";
+                    given(request).auth().basic(username, password).expect().statusCode(200).patch(patchUrl);
+                    log.info(testCaseName + " Updated on TestLodge");
+                    return true;
                 }
-                given(request).auth().basic(username, password).expect().statusCode(200).
-                        patch(testLodgeUrl + projectId + "/runs/" + testRunId + "/executed_steps/" + testcaseId + ".json");
-
-                log.info("testResult Updated");
-                return true;
             } catch (Exception e) {
                 log.info("ERROR in TestResult Update process ");
                 e.printStackTrace();
-
                 return false;
             }
+            return false;
         }
 
         public String createTestRun(String projectId, String suiteId) {
@@ -131,16 +135,18 @@ public class QaTestLodge {
 
         String projectId = "10019";
         String suiteId = "58074";
-
+        String testRunId = "";
         TestLodge testLodge = new TestLodge();
-        String testRunId = testLodge.createTestRun(projectId, suiteId);
+        testRunId = testLodge.createTestRun(projectId, suiteId);
+        log.info("testRunId: " + testRunId);
         ArrayList<String> testCaseList = testLodge.getTestResult();
 
         for (int i = 0; i < testCaseList.size(); i++) {
             String testCaseName = testCaseList.get(i).split(":")[0];
             String runStatus = testCaseList.get(i).split(":")[1];
 
-            testLodge.setTestCaseStatus(testRunId, testCaseName, runStatus);
+            log.info("testCaseName: " + testCaseName);
+            assertTrue(testLodge.setTestCaseStatus(testRunId, testCaseName, runStatus));
         }
     }
 }

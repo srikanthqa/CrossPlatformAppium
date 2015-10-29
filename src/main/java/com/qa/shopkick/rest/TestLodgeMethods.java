@@ -97,6 +97,7 @@ public class TestLodgeMethods extends APIClient {
         }
     }
 
+    //https://shopkick.api.testlodge.com/v1/projects/10019/runs/175961/executed_steps.json
     public void showTestRunsFromProjectAndRunId(String projectId, String runId) {
         String url = "https://shopkick.api.testlodge.com/v1/projects/" + projectId + "/runs/" + runId + ".json";
         //http://shopkick.testlodge.com/projects/10019/runs/175520
@@ -117,6 +118,24 @@ public class TestLodgeMethods extends APIClient {
             log.error(e);
         }
     }
+
+    public void showTestRunsCasesFromProjectAndRunId(String projectId, String runId) {
+        String url = "https://shopkick.api.testlodge.com/v1/projects/" + projectId + "/runs/" + runId + "/executed_steps.json";
+        try {
+            jsonData = executeHttpGet(url);
+            JSONParser parser = new JSONParser();
+            Object obj = parser.parse(jsonData);
+            JSONObject levelObject = (JSONObject) obj;
+
+            log.info("RunId: " + levelObject.get("id").toString() + ": step_number " + levelObject.get("step_number").toString());
+
+            log.info("run_id: " + levelObject.get("run_id").toString());
+
+        } catch (Exception e) {
+            log.error(e);
+        }
+    }
+
 
     public void createTestCases(String projectId, String suiteId) {
 
@@ -141,6 +160,6 @@ public class TestLodgeMethods extends APIClient {
         // Created Smoke Suite id = 58074
         //TestLodgeMethods.getInstance().showTestSuiteDetails("10019", "58074");
 
-        TestLodgeMethods.getInstance().showTestRunsFromProjectAndRunId("10019", "175520");
+        TestLodgeMethods.getInstance().showTestRunsCasesFromProjectAndRunId("10019", "175961");
     }
 }

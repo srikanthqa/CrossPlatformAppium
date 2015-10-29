@@ -25,10 +25,10 @@ import static junit.framework.TestCase.assertEquals;
 public class QaReportProcessor {
     public static Logger log = Logger.getLogger(QaReportProcessor.class);
     WebDriver driver = null;
-    String fromEmail = "avery-automation@seagate.com";
-    String fromName = "Avery Automation";
+    String fromEmail = "manish@shopkick.com";
+    String fromName = "Appium Automation";
     String toEmail = "manish@shopkick.com";
-    String toName = "LM-Avery-Automation";
+    String toName = "SK-Appium-Automation";
     private String reportName = "";
     private String reportDir = "";
     private String testrailReportPath = "";
@@ -40,8 +40,8 @@ public class QaReportProcessor {
     private String averybuildNo = "";
     private String reportTime = "";
     private boolean failuresFlag = false;
-    private String userName = "testrailreporter@lyveminds.com";
-    private String password = "2vhSJ5982Ge77d8pwW6H";
+    private String userName = "manish@shopkick.com";
+    private String password = "shopkick123";
 
     public String getRailsReportName() {
         JSONParser parser = new JSONParser();

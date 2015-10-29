@@ -4,13 +4,13 @@
       "elapsed": 70,
       "runStatus": "passed",
       "testSectionName": "EmailAuthentication",
-      "testName": "Test1_LoginWithEmailAccount"
+      "testName": "EmailAuthentication.Test1_LoginWithEmailAccount"
     },
     {
       "elapsed": 70,
       "runStatus": "passed",
       "testSectionName": "EmailAuthentication",
-      "testName": "Test2_Logout"
+      "testName": "EmailAuthentication.Test2_logOutOfEmailAccount"
     }
   ],
   "reportName": "Android_10-29-12:42_testLodge.json",
