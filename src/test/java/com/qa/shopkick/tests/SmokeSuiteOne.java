@@ -1,14 +1,14 @@
 package com.qa.shopkick.tests;
 
 import com.qa.shopkick.pages.*;
-import com.qa.shopkick.utils.AbstractTest;
+import com.qa.shopkick.appium.AbstractTestCase;
 import com.qa.shopkick.utils.CustomHooks;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
 import java.util.logging.Logger;
 
-public class SmokeSuiteOne extends AbstractTest {
+public class SmokeSuiteOne extends AbstractTestCase {
     final private static Logger log = Logger.getLogger(String.valueOf(SmokeSuiteOne.class));
 
     @Test
@@ -38,7 +38,7 @@ public class SmokeSuiteOne extends AbstractTest {
         //            FirstUseRegistrationIntroPage.clickSignUpOrSignInButton();
         //        }
 
-        SignInPage.clicksignInFacebookSignIn();
+        SignInPage.clickFacebookSignInButton();
 
         CustomHooks.waitFor(10);
 
@@ -66,16 +66,16 @@ public class SmokeSuiteOne extends AbstractTest {
         AccountSettings.clickAccountSettingsLogOut();
 
         //From logout screen hit on email to create an account
-        SignInPage.clicksignInEmailSignIn();
+        SignInPage.clickEmailSignInButton();
 
         //CREATE ACCOUNT
 
         if (platformType.equalsIgnoreCase("Android")) {
 
             //add email address
-            EmailSignInPage.clickAndEnterEmailANDROID("trest2@sk.com");
+            EmailSignInPage.typeEmailANDROID("trest2@sk.com");
             //add password
-            EmailSignInPage.clickAndEnterPswdANDROID("sktest123");
+            EmailSignInPage.typePasswordANDROID("sktest123");
         } else {
             EmailSignInPage.clickAndEnterEmailIOS("trest2s@sk.com");
 

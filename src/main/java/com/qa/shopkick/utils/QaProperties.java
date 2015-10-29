@@ -12,8 +12,8 @@ import java.util.Properties;
  * Created by mmadhusoodan on 10/26/15.
  */
 public class QaProperties { // singleton
-    public static Properties props = getProperty();
     private static Logger log = Logger.getLogger(QaProperties.class);
+    public static Properties props = getProperty();
     private static QaProperties instance;
     private static String language = "en";
     private static int numDevice = 1;

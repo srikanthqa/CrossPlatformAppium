@@ -1,6 +1,6 @@
 package com.qa.shopkick.pages;
 
-import com.qa.shopkick.utils.AbstractPage;
+import com.qa.shopkick.appium.ScreenBaseClass;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
@@ -11,7 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 /**
  * Created by Srikanth on 12/16/14.
  */
-public class FirstUseRegistrationIntroPage extends AbstractPage {
+public class FirstUseRegistrationIntroPage extends ScreenBaseClass {
 
     @iOSFindBy(uiAutomator = ".buttons()[\"No, thanks\"]")
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"NO, THANKS\")")

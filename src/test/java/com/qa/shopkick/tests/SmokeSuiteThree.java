@@ -1,116 +1,113 @@
 package com.qa.shopkick.tests;
 
 import com.qa.shopkick.pages.*;
-import com.qa.shopkick.utils.AbstractTest;
+import com.qa.shopkick.appium.AbstractTestCase;
 import com.qa.shopkick.utils.CustomHooks;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
-public class SmokeSuiteThree extends AbstractTest{
+public class SmokeSuiteThree extends AbstractTestCase {
 
-	@Test
-	public void SuiteThree(){
+    @Test
+    public void SuiteThree() {
 
-		CustomHooks.dismissPotHoleError();
+        CustomHooks.dismissPotHoleError();
 
-		//User logs in via email
-		SignInPage.clicksignInEmailSignIn();
+        //User logs in via email
+        SignInPage.clickEmailSignInButton();
 
-		//Element issues, using two different methods to sign in
+        //Element issues, using two different methods to sign in
 
-		if (platformType.equalsIgnoreCase("Android")) {
+        if (platformType.equalsIgnoreCase("Android")) {
 
-			//add email address
-			EmailSignInPage.clickAndEnterEmailANDROID("a@b.com");
-			//add password
-			EmailSignInPage.clickAndEnterPswdANDROID("aaaaaa");
-		}
-		else{
-			EmailSignInPage.clickAndEnterEmailIOS("a@b.com");
+            //add email address
+            EmailSignInPage.typeEmailANDROID("a@b.com");
+            //add password
+            EmailSignInPage.typePasswordANDROID("aaaaaa");
+        } else {
+            EmailSignInPage.clickAndEnterEmailIOS("a@b.com");
 
-			EmailSignInPage.clickAndEnterPasswordIOS("aaaaaa");
-		}
+            EmailSignInPage.clickAndEnterPasswordIOS("aaaaaa");
+        }
 
-		CustomHooks.dismissMultiLoginMessage();
+        CustomHooks.dismissMultiLoginMessage();
 
-		if(driver.findElement(By.name("Your settings")).isDisplayed()){
-			CustomHooks.pressBack();
-		}
+        if (driver.findElement(By.name("Your settings")).isDisplayed()) {
+            CustomHooks.pressBack();
+        }
 
-		//Goes to kick center
-		StoresPage.clickStoresPageKicksCenter();
+        //Goes to kick center
+        StoresPage.clickStoresPageKicksCenter();
 
-		//Learn how to get kicks
-		KicksCenterRewadsPage.clickOnLearnHowToGetKicks();
+        //Learn how to get kicks
+        KicksCenterRewadsPage.clickOnLearnHowToGetKicks();
 
-		if(platformType.equalsIgnoreCase("Android")){
-			//on screen back button 
-			LearnHowGetMoreKicks.clickOnBackButton();
-		}
-		else{
-			//if iOS
-			CustomHooks.pressBack();
-		}
+        if (platformType.equalsIgnoreCase("Android")) {
+            //on screen back button
+            LearnHowGetMoreKicks.clickOnBackButton();
+        } else {
+            //if iOS
+            CustomHooks.pressBack();
+        }
 
-		//Verify change rewards
-		KicksCenterRewadsPage.clickOnChangeReward();
+        //Verify change rewards
+        KicksCenterRewadsPage.clickOnChangeReward();
 
-		driver.scrollTo("1875000");
+        driver.scrollTo("1875000");
 
-		RewardsPickerPage.clickVespaReward();
+        RewardsPickerPage.clickVespaReward();
 
-		RewardsPickerPage.clickOnBackButton();
+        RewardsPickerPage.clickOnBackButton();
 
-		//Verify rewards displayed
+        //Verify rewards displayed
 
-		KicksCenterRewadsPage.clickOnseeAllRewardsHalfWidth();
+        KicksCenterRewadsPage.clickOnseeAllRewardsHalfWidth();
 
-		//Rewards Mall 
-		//Scroll to bottom
-		driver.scrollTo("SOLD OUT");
-		//Scroll back to top
-		driver.scrollTo("You earned");
+        //Rewards Mall
+        //Scroll to bottom
+        driver.scrollTo("SOLD OUT");
+        //Scroll back to top
+        driver.scrollTo("You earned");
 
-		//Go back
-		CustomHooks.pressBack();
+        //Go back
+        CustomHooks.pressBack();
 
-		//Go back
-		CustomHooks.pressBack();
+        //Go back
+        CustomHooks.pressBack();
 
-		//Redeem a reward (from kick center)
-		//TODO: Redeem reward flo
+        //Redeem a reward (from kick center)
+        //TODO: Redeem reward flo
 
-		//Open left nav
-		LandingPage.openLeftNavSignedIn();
+        //Open left nav
+        LandingPage.openLeftNavSignedIn();
 
-		CustomHooks.waitFor(3);
+        CustomHooks.waitFor(3);
 
-		//Go to invite friends
-		LeftNavBar.clickOnInviteLeftNav();
+        //Go to invite friends
+        LeftNavBar.clickOnInviteLeftNav();
 
-		CustomHooks.waitFor(3);
+        CustomHooks.waitFor(3);
 
-		InviteAndGetKicksPage.clickOninviteFrendsButton();
+        InviteAndGetKicksPage.clickOninviteFrendsButton();
 
-		if(platformType.equalsIgnoreCase("Android")){
-			//on screen back button 
-			InviteAndGetKicksPage.clickOnBackButton();
-		}
-		else{
-			//if iOS
-			CustomHooks.pressBack();
-		}
+        if (platformType.equalsIgnoreCase("Android")) {
+            //on screen back button
+            InviteAndGetKicksPage.clickOnBackButton();
+        } else {
+            //if iOS
+            CustomHooks.pressBack();
+        }
 
 
-		//Logout
-		LandingPage.openLeftNavSignedIn();
+        //Logout
+        LandingPage.openLeftNavSignedIn();
 
-		driver.scrollTo("Settings");
+        driver.scrollTo("Settings");
 
-		LeftNavBar.clickOnSettingsLeftNav();
+        LeftNavBar.clickOnSettingsLeftNav();
 
-		LeftNavSettings.clicksettingsAccountSettings();
+        LeftNavSettings.clicksettingsAccountSettings();
 
-		AccountSettings.clickAccountSettingsLogOut();
-	}
+        AccountSettings.clickAccountSettingsLogOut();
+    }
 }

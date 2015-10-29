@@ -1,19 +1,19 @@
 package com.qa.shopkick.tests;
 
 import com.qa.shopkick.pages.*;
-import com.qa.shopkick.utils.AbstractTest;
+import com.qa.shopkick.appium.AbstractTestCase;
 import com.qa.shopkick.utils.CustomHooks;
 import org.junit.After;
 import org.junit.Test;
 
-public class SmokeSuiteTwo extends AbstractTest {
+public class SmokeSuiteTwo extends AbstractTestCase {
 
     @Test
     public void GooglePlusFlow() {
         CustomHooks.dismissPotHoleError();
 
         //tap on the 'Guest' button to open left nav bar
-        SignInPage.clicksignInGooglePlusSignIn();
+        SignInPage.clickGooglePlusSignInButton();
 
         CustomHooks.dismissMultiLoginMessage();
 
@@ -98,7 +98,7 @@ public class SmokeSuiteTwo extends AbstractTest {
 
         //Tap My Saves
         ProductsPage.clickProductsPageMySaves();
-		
+
 		/*
 		 *TODO: Add logic to tap on products tab under my saves
 		 * */

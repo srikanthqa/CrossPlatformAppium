@@ -1,23 +1,22 @@
 package com.qa.shopkick.tests.Authentication;
 
-import com.qa.shopkick.utils.AbstractTest;
+import com.qa.shopkick.appium.AbstractTestCase;
 import com.qa.shopkick.utils.CustomHooks;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class GoogleAuthentication extends AbstractTest{
+public class GoogleAuthentication extends AbstractTestCase {
 
-	@Test
-	public void Test1_GooglePlusSignIn()
-	{
-		LoginHooks.LoginWithGplus();
-	}
-	
-	@Test
-	public void Test2_logOutOfFacebook(){
-		CustomHooks.LogMeOut();
-	}
+    @Test
+    public void Test1_GooglePlusSignIn() {
+        LoginHooks.loginWithGoogleplus();
+    }
+
+    @Test
+    public void Test2_logOutOfFacebook() {
+        CustomHooks.LogMeOut();
+    }
 
 }

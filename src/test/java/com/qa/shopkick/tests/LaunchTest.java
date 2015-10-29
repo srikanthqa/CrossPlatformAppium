@@ -1,169 +1,170 @@
 package com.qa.shopkick.tests;
 
 import com.qa.shopkick.pages.*;
-import com.qa.shopkick.utils.AbstractTest;
+import com.qa.shopkick.appium.AbstractTestCase;
 import com.qa.shopkick.utils.CustomHooks;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
-public class LaunchTest extends AbstractTest {
+public class LaunchTest extends AbstractTestCase {
 
-	/*TODO: Add more methods to verify change in kicks
-	 * */
-	public static String currentKicksBeforeLogin, currentKicksAfterLogin;
+    /*TODO: Add more methods to verify change in kicks
+     * */
+    public static String currentKicksBeforeLogin, currentKicksAfterLogin;
 
-	@Test 
-	public void FirstUseFlow(){
+    @Test
+    public void FirstUseFlow() {
 
-		//Go through the first use flow
-		FirstUseDealsEducationPage.clickGetStartedButton();
-		CustomHooks.waitFor(2);
+        //Go through the first use flow
+        FirstUseDealsEducationPage.clickGetStartedButton();
+        CustomHooks.waitFor(2);
 
-		if(platformType.equals("IOS")){
-			CountryPickerPage.clickCountryUSA();
-			CountryPickerPage.clickNextButton();
-		}
-		FirstUseWalkinEducationPage.clickNextButton();
-		FirstUseRewardsEducationPage.clickPickARewardButton();
+        if (platformType.equals("IOS")) {
+            CountryPickerPage.clickCountryUSA();
+            CountryPickerPage.clickNextButton();
+        }
+        FirstUseWalkinEducationPage.clickNextButton();
+        FirstUseRewardsEducationPage.clickPickARewardButton();
 
-		//Pick default reward
-		RewardsPickerPage.clickSelectRewardButton();
+        //Pick default reward
+        RewardsPickerPage.clickSelectRewardButton();
 
-		FirstUseAlternateScreen.clickOnContinueAsGuestButton();
+        FirstUseAlternateScreen.clickOnContinueAsGuestButton();
 
-		//CustomHooks.dismissPotHoleError();
-		//if iOS and if mic permission is asked, give the permission
-		if(platformType.equals("IOS")){
-			MicrophonePermissionPage.clickOKButton();
-		}
+        //CustomHooks.dismissPotHoleError();
+        //if iOS and if mic permission is asked, give the permission
+        if (platformType.equals("IOS")) {
+            MicrophonePermissionPage.clickOKButton();
+        }
 
-		CustomHooks.waitFor(3);
+        CustomHooks.waitFor(3);
 
-		//tap on the 'Guest' button to open left nav bar
-		LeftNavBar.clickGuestUserButton();
+        //tap on the 'Guest' button to open left nav bar
+        LeftNavBar.clickGuestUserButton();
 
-		//Read current kicks so you can compare if the user has signed in and the kicks have been updated
+        //Read current kicks so you can compare if the username has signed in and the kicks have been updated
 
 
-		//confirm password
-		EmailSignInPage.enterConfirmPassword();
+        //confirm password
+        EmailSignInPage.enterConfirmPassword();
 
-		//Add first and last name
-		EmailSignInPage.clickAndEnterFirstName();
-		EmailSignInPage.clickAndEnterLastName();
+        //Add first and last name
+        EmailSignInPage.clickAndEnterFirstName();
+        EmailSignInPage.clickAndEnterLastName();
 
-		//Hit sign up
-		EmailSignInPage.clickOnSignUpButton();
+        //Hit sign up
+        EmailSignInPage.clickOnSignUpButton();
 
-		CustomHooks.waitFor(5);
+        CustomHooks.waitFor(5);
 
-		//Phone number screen
+        //Phone number screen
 
-		//add phone number
-		LinkPhonePage.clickAndEnterPhoneNumber();
+        //add phone number
+        LinkPhonePage.clickAndEnterPhoneNumber();
 
-		//Add zipcode
-		LinkPhonePage.clickAndEnterZipcode();
+        //Add zipcode
+        LinkPhonePage.clickAndEnterZipcode();
 
-		//hit continue
-		LinkPhonePage.clickOnCompleteRegistration();
+        //hit continue
+        LinkPhonePage.clickOnCompleteRegistration();
 
-		CustomHooks.waitFor(10);
+        CustomHooks.waitFor(10);
 
-		//Hit Not right now in verify phone number page
-		VerifyMobileNumber.clickNotNowForVerifyPhone();
+        //Hit Not right now in verify phone number page
+        VerifyMobileNumber.clickNotNowForVerifyPhone();
 
-		//From landing page [stores tab]
+        //From landing page [stores tab]
 
-		if(!driver.findElement(By.name("Your settings")).isDisplayed()){
-			//Go to left nav bar
-			LandingPage.openLeftNavSignedIn();
+        if (!driver.findElement(By.name("Your settings")).isDisplayed()) {
+            //Go to left nav bar
+            LandingPage.openLeftNavSignedIn();
 
-			//Go to settings
-			LeftNavBar.clickOnSettingsLeftNav();
+            //Go to settings
+            LeftNavBar.clickOnSettingsLeftNav();
 
-		}
+        }
 
-		//Go to Account settings
-		LeftNavSettings.clicksettingsAccountSettings();
+        //Go to Account settings
+        LeftNavSettings.clicksettingsAccountSettings();
 
-		//Tap on delete account
-		AccountSettings.clickAccountSettingsDeleteAccount();
+        //Tap on delete account
+        AccountSettings.clickAccountSettingsDeleteAccount();
 
-		//In delete account tap on confirm delete account
-		DeleteAccountPage.clickAndDeleteAccountWithPassword();
+        //In delete account tap on confirm delete account
+        DeleteAccountPage.clickAndDeleteAccountWithPassword();
 
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		//Tap on top left corner to proceed with delete
-		DeleteAccountPage.clickToProceedDelete();
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        //Tap on top left corner to proceed with delete
+        DeleteAccountPage.clickToProceedDelete();
 
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 
-		//Comfirm delete account
-		ConfirmDeleteAccountPage.clickOnDeleteAccountConfirm();
-	}
+        //Comfirm delete account
+        ConfirmDeleteAccountPage.clickOnDeleteAccountConfirm();
+    }
 
-	/**** SUITE TWO****/
+    /****
+     * SUITE TWO
+     ****/
 
-	@Test
-	public void GooglePlusFlow()
-	{
-		//		CustomHooks.dismissPotHoleError();
+    @Test
+    public void GooglePlusFlow() {
+        //		CustomHooks.dismissPotHoleError();
 
-		//tap on the 'Guest' button to open left nav bar
-		SignInPage.clicksignInGooglePlusSignIn();		
+        //tap on the 'Guest' button to open left nav bar
+        SignInPage.clickGooglePlusSignInButton();
 
-		CustomHooks.dismissMultiLoginMessage();
+        CustomHooks.dismissMultiLoginMessage();
 
-		//Go to Stores
-		LandingPage.clicktabTitleStores();
+        //Go to Stores
+        LandingPage.clicktabTitleStores();
 
-		//Open a store
-		StoresPage.clickStoresPageNameAndKickInformation();
+        //Open a store
+        StoresPage.clickStoresPageNameAndKickInformation();
 
-		//wait for tool tips to load
-		CustomHooks.waitFor(10);
+        //wait for tool tips to load
+        CustomHooks.waitFor(10);
 
-		//Close tool tips
-		ToolTipsPage.clickToolTipCloseButton();
+        //Close tool tips
+        ToolTipsPage.clickToolTipCloseButton();
 
-		driver.scrollTo("Trending on shopkick");
+        driver.scrollTo("Trending on shopkick");
 
-		//Go to product
-		StoresPage.clickStoresPageOfferCellLeft();
+        //Go to product
+        StoresPage.clickStoresPageOfferCellLeft();
 
-		//Save product
-		RelatedOfferPage.clickRelatedOfferSaveOffer();
+        //Save product
+        RelatedOfferPage.clickRelatedOfferSaveOffer();
 
-		//Go back to store view
-		CustomHooks.pressBack();
+        //Go back to store view
+        CustomHooks.pressBack();
 
-		//Go back to store tab
-		CustomHooks.pressBack();
+        //Go back to store tab
+        CustomHooks.pressBack();
 
-		//Go to Deals Tab
-		LandingPage.clicktabTitleDeals();
+        //Go to Deals Tab
+        LandingPage.clicktabTitleDeals();
 
-		//CustomHooks.dismissPotHoleError();
+        //CustomHooks.dismissPotHoleError();
 
-		CustomHooks.waitFor(3);
+        CustomHooks.waitFor(3);
 
-		DealsPage.clickOnSearchBar();
+        DealsPage.clickOnSearchBar();
 
-		CustomHooks.pressBack();
+        CustomHooks.pressBack();
 
-		DealsListSearchPage.clickOnDealsAvailable();
-		/*
+        DealsListSearchPage.clickOnDealsAvailable();
+        /*
 		 * TODO: Make tappign on deals more generic, not hardcoded
 		 *  //Click on search bar
 		 * search for a store
@@ -171,155 +172,157 @@ public class LaunchTest extends AbstractTest {
 		//Search for store with deals available
 		 */
 
-		//Tap to open the deal use deal titile and index
-		DealAggregationPage.clickOnDealTile();
+        //Tap to open the deal use deal titile and index
+        DealAggregationPage.clickOnDealTile();
 
-		DealDetailpage.clickOnSaveDeal();
-
-
-		//Back to Deals Tab
-		CustomHooks.pressBack();
-		CustomHooks.pressBack();
-
-		//Go to Products Tab
-		LandingPage.clicktabTitleProducts();
-
-		//CustomHooks.dismissPotHoleError();
-
-		//Open lookbook
-		ProductsPage.clickProductsPageLookbookCover();
-
-		//Save offer in lookbook
-		LookbookPage.clickLookbookPageLookbookOfferSaveHeart();
-
-		//Back to Products Tab
-		CustomHooks.pressBack();
-
-		//Tap My Saves
-		ProductsPage.clickProductsPageMySaves();
-
-		//Tap on a product
-		MySavesPage.clickMySavesANYOfferTile();
-
-		//Unsave Product Page
-		OfferPage.clickOfferPageOfferSaveButton();
-
-		//Back to My Saves
-		CustomHooks.pressBack();
-
-		//Back to Products
-		CustomHooks.pressBack();
-
-		MySavesPage.clickOnBackButton();
-		
-		//TODO: Add verification
-		//Back to My Saves
-		//ProductsPage.clickProductsPageMySaves();
-
-		//Logout
-		LandingPage.openLeftNavSignedIn();
-
-		driver.scrollTo("Settings");
-
-		LeftNavBar.clickOnSettingsLeftNav();
-
-		LeftNavSettings.clicksettingsAccountSettings();
-
-		AccountSettings.clickAccountSettingsLogOut();
-
-	}
-
-	/***** SUITE THREE ****/
-
-	@Test
-	public void EmailLoginTest(){
-
-		//CustomHooks.dismissPotHoleError();
-
-		//User logs in via email
-		SignInPage.clicksignInEmailSignIn();
-		EmailSignInPage.clickAndEnterEmailANDROID("a@b.com");
-		EmailSignInPage.clickAndEnterPswdANDROID("aaaaaa");
-		EmailSignInPage.clickOnSignUpButton();
-
-		CustomHooks.dismissMultiLoginMessage();
-
-		//Goes to kick center
-		StoresPage.clickStoresPageKicksCenter();
-
-		//Add a dismiss congratulations message
-		CustomHooks.dismissRedeemRewardMessage();
-
-		//Learn how to get kicks
-		KicksCenterRewadsPage.clickOnLearnHowToGetKicks();
-
-		//verify all items are displayed
-		//TODO: Figure out elements to verify in this flow
-
-		//Go back
-		CustomHooks.pressBack();
-
-		//Verify change rewards
-		KicksCenterRewadsPage.clickOnChangeReward();
-
-		driver.scrollTo("3400");
-		if(driver.findElement(By.name("3400")).isDisplayed()){
-			RewardsPickerPage.clickGasReward();
-		}
-
-		if(driver.findElement(By.name("1875000")).isDisplayed()){
-			RewardsPickerPage.clickVespaReward();
-		}
+        DealDetailpage.clickOnSaveDeal();
 
 
-		CustomHooks.pressBack();
+        //Back to Deals Tab
+        CustomHooks.pressBack();
+        CustomHooks.pressBack();
 
-		//Verify rewards displayed
+        //Go to Products Tab
+        LandingPage.clicktabTitleProducts();
 
-		KicksCenterRewadsPage.clickOnseeAllRewardsFullWidth();
+        //CustomHooks.dismissPotHoleError();
 
-		//Rewards Mall 
-		//Scroll to bottom
-		driver.scrollTo("1875000");
-		//Scroll back to top
-		driver.scrollTo("You earned");
+        //Open lookbook
+        ProductsPage.clickProductsPageLookbookCover();
 
-		//Go back
-		CustomHooks.pressBack();
+        //Save offer in lookbook
+        LookbookPage.clickLookbookPageLookbookOfferSaveHeart();
 
-		//Go back
-		CustomHooks.pressBack();
+        //Back to Products Tab
+        CustomHooks.pressBack();
 
-		//Redeem a reward (from kick center)
-		//TODO: Redeem reward flo
+        //Tap My Saves
+        ProductsPage.clickProductsPageMySaves();
 
-		//Open left nav
-		LandingPage.openLeftNavSignedIn();
+        //Tap on a product
+        MySavesPage.clickMySavesANYOfferTile();
+
+        //Unsave Product Page
+        OfferPage.clickOfferPageOfferSaveButton();
+
+        //Back to My Saves
+        CustomHooks.pressBack();
+
+        //Back to Products
+        CustomHooks.pressBack();
+
+        MySavesPage.clickOnBackButton();
+
+        //TODO: Add verification
+        //Back to My Saves
+        //ProductsPage.clickProductsPageMySaves();
+
+        //Logout
+        LandingPage.openLeftNavSignedIn();
+
+        driver.scrollTo("Settings");
+
+        LeftNavBar.clickOnSettingsLeftNav();
+
+        LeftNavSettings.clicksettingsAccountSettings();
+
+        AccountSettings.clickAccountSettingsLogOut();
+
+    }
+
+    /*****
+     * SUITE THREE
+     ****/
+
+    @Test
+    public void EmailLoginTest() {
+
+        //CustomHooks.dismissPotHoleError();
+
+        //User logs in via email
+        SignInPage.clickEmailSignInButton();
+        EmailSignInPage.typeEmailANDROID("a@b.com");
+        EmailSignInPage.typePasswordANDROID("aaaaaa");
+        EmailSignInPage.clickOnSignUpButton();
+
+        CustomHooks.dismissMultiLoginMessage();
+
+        //Goes to kick center
+        StoresPage.clickStoresPageKicksCenter();
+
+        //Add a dismiss congratulations message
+        CustomHooks.dismissRedeemRewardMessage();
+
+        //Learn how to get kicks
+        KicksCenterRewadsPage.clickOnLearnHowToGetKicks();
+
+        //verify all items are displayed
+        //TODO: Figure out elements to verify in this flow
+
+        //Go back
+        CustomHooks.pressBack();
+
+        //Verify change rewards
+        KicksCenterRewadsPage.clickOnChangeReward();
+
+        driver.scrollTo("3400");
+        if (driver.findElement(By.name("3400")).isDisplayed()) {
+            RewardsPickerPage.clickGasReward();
+        }
+
+        if (driver.findElement(By.name("1875000")).isDisplayed()) {
+            RewardsPickerPage.clickVespaReward();
+        }
 
 
-		//Go to invite friends
-		LeftNavBar.clickOnInviteLeftNav();
-		InviteAndGetKicksPage.clickOninviteFrendsButton();
+        CustomHooks.pressBack();
 
-		//Verify all elements
-		CustomHooks.pressBack();
-		CustomHooks.pressBack();
+        //Verify rewards displayed
 
-		//Logout
-		LandingPage.openLeftNavSignedIn();
+        KicksCenterRewadsPage.clickOnseeAllRewardsFullWidth();
 
-		driver.scrollTo("Settings");
+        //Rewards Mall
+        //Scroll to bottom
+        driver.scrollTo("1875000");
+        //Scroll back to top
+        driver.scrollTo("You earned");
 
-		LeftNavBar.clickOnSettingsLeftNav();
+        //Go back
+        CustomHooks.pressBack();
 
-		LeftNavSettings.clicksettingsAccountSettings();
+        //Go back
+        CustomHooks.pressBack();
 
-		AccountSettings.clickAccountSettingsLogOut();
-	}
+        //Redeem a reward (from kick center)
+        //TODO: Redeem reward flo
 
-	//@After
-	public void teardown(){
-		//driver.resetApp();
-	}
+        //Open left nav
+        LandingPage.openLeftNavSignedIn();
+
+
+        //Go to invite friends
+        LeftNavBar.clickOnInviteLeftNav();
+        InviteAndGetKicksPage.clickOninviteFrendsButton();
+
+        //Verify all elements
+        CustomHooks.pressBack();
+        CustomHooks.pressBack();
+
+        //Logout
+        LandingPage.openLeftNavSignedIn();
+
+        driver.scrollTo("Settings");
+
+        LeftNavBar.clickOnSettingsLeftNav();
+
+        LeftNavSettings.clicksettingsAccountSettings();
+
+        AccountSettings.clickAccountSettingsLogOut();
+    }
+
+    //@After
+    public void teardown() {
+        //driver.resetApp();
+    }
 
 }

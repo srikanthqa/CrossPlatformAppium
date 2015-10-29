@@ -1,6 +1,6 @@
 package com.qa.shopkick.pages;
 
-import com.qa.shopkick.utils.AbstractPage;
+import com.qa.shopkick.appium.ScreenBaseClass;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
@@ -10,39 +10,38 @@ import org.openqa.selenium.support.PageFactory;
 /**
  * Created by Srikanth on 12/16/14.
  */
-public class CountryPickerPage extends AbstractPage{
+public class CountryPickerPage extends ScreenBaseClass {
 
-	@iOSFindBy(uiAutomator = ".buttons()[3]")
-	private static WebElement countryUSA;
+    @iOSFindBy(uiAutomator = ".buttons()[3]")
+    private static WebElement countryUSA;
 
-	@iOSFindBy(uiAutomator = ".buttons()[2]")
-	private static WebElement countryGermany;
+    @iOSFindBy(uiAutomator = ".buttons()[2]")
+    private static WebElement countryGermany;
 
-	@iOSFindBy(uiAutomator = ".buttons()[\"Next\"]")
-	private static WebElement nextButton;
+    @iOSFindBy(uiAutomator = ".buttons()[\"Next\"]")
+    private static WebElement nextButton;
 
-	@iOSFindBy(uiAutomator = ".staticTexts()[\"Tell us where you want to see deals.\"]")
-	private static MobileElement countryPickerText;
+    @iOSFindBy(uiAutomator = ".staticTexts()[\"Tell us where you want to see deals.\"]")
+    private static MobileElement countryPickerText;
 
-	public static void clickCountryUSA(){
-		countryUSA.click();
-	}
+    public static void clickCountryUSA() {
+        countryUSA.click();
+    }
 
-	public static void clickCountryGermany(){
-		countryGermany.click();
-	}
+    public static void clickCountryGermany() {
+        countryGermany.click();
+    }
 
-	public static void clickNextButton(){
-		nextButton.click();
-		PageFactory.initElements(new AppiumFieldDecorator(driver),new FirstUseWalkinEducationPage());
-	}
+    public static void clickNextButton() {
+        nextButton.click();
+        PageFactory.initElements(new AppiumFieldDecorator(driver), new FirstUseWalkinEducationPage());
+    }
 
-	public static boolean clickAndProceedUSA() {
-		if(countryPickerText.isDisplayed()){
-			return true;
-		}
-		else{
-			return false;
-		}
-	}
+    public static boolean clickAndProceedUSA() {
+        if (countryPickerText.isDisplayed()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

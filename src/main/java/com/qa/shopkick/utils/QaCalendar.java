@@ -14,9 +14,10 @@ public class QaCalendar {
     public static Logger log = Logger.getLogger(QaCalendar.class);
 
     private static SimpleDateFormat mmddFormat = new SimpleDateFormat("MM-dd");
-    private static SimpleDateFormat mmddyyyyyHHMMFormat = new SimpleDateFormat("MM-dd-yyyy-hh:mm");
+    private static SimpleDateFormat mmddyyyyyHHMMFormat = new SimpleDateFormat("MM-dd-hh:mm");
     private static SimpleDateFormat hyphenDateFormat = new SimpleDateFormat("MM-dd-yyyy");
     private static SimpleDateFormat slashDateFormat = new SimpleDateFormat("MM/dd/yyyy");
+    private static SimpleDateFormat mmddhhmm = new SimpleDateFormat("MM/dd_hh:mm");
     private static Calendar calendar = Calendar.getInstance();
     private static QaCalendar instance;
 
@@ -69,6 +70,12 @@ public class QaCalendar {
     public String getCurrentDate() {
 
         final String captureDate = mmddFormat.format(calendar.getTime());
+        return captureDate;
+    }
+
+    public String getDateTime() {
+
+        final String captureDate = mmddhhmm.format(calendar.getTime());
         return captureDate;
     }
 

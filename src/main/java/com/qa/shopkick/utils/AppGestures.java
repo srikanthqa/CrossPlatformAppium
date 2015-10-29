@@ -1,7 +1,8 @@
 package com.qa.shopkick.utils;
 
-public class AppGestures extends AbstractPage{
-	
-	
+import com.qa.shopkick.appium.ScreenBaseClass;
+
+public class AppGestures extends ScreenBaseClass {
+
 
 }

@@ -24,7 +24,11 @@ import static junit.framework.TestCase.assertEquals;
  */
 public class QaReportProcessor {
     public static Logger log = Logger.getLogger(QaReportProcessor.class);
-
+    WebDriver driver = null;
+    String fromEmail = "avery-automation@seagate.com";
+    String fromName = "Avery Automation";
+    String toEmail = "manish@shopkick.com";
+    String toName = "LM-Avery-Automation";
     private String reportName = "";
     private String reportDir = "";
     private String testrailReportPath = "";
@@ -38,16 +42,11 @@ public class QaReportProcessor {
     private boolean failuresFlag = false;
     private String userName = "testrailreporter@lyveminds.com";
     private String password = "2vhSJ5982Ge77d8pwW6H";
-    WebDriver driver = null;
-    String fromEmail = "avery-automation@seagate.com";
-    String fromName = "Avery Automation";
-    String toEmail = "manish@shopkick.com";
-    String toName = "LM-Avery-Automation";
 
     public String getRailsReportName() {
         JSONParser parser = new JSONParser();
         try {
-            Object obj = parser.parse(new FileReader(QaConstants.TEST_LODGE_FILE_JSON + File.separator + QaConstants.TEST_LODGE_FILE_JSON));
+            Object obj = parser.parse(new FileReader(QaConstants.TEST_LODGE_RESULT_JSON + File.separator + QaConstants.TEST_LODGE_RESULT_JSON));
             JSONObject jsonObject = (JSONObject) obj;
             reportName = (String) jsonObject.get("reportName");
             log.info("reportName: " + reportName);
@@ -97,7 +96,7 @@ public class QaReportProcessor {
                 driver.findElement(By.linkText(reportName)).click();
                 wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("breadcrumb")));
 
-                //get the Pass percentage pass and fail
+                //get the Pass percentage password and fail
                 List<WebElement> wLabels = driver.findElements(By.className("title"));
                 passed = wLabels.get(4).getText().trim();
                 failed = wLabels.get(7).getText().trim();
