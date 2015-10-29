@@ -4,7 +4,7 @@ import io.appium.java_client.AppiumDriver;
 import org.apache.log4j.Logger;
 
 /**
- * Created by Srikanth on 12/16/14.
+ * Created by Manish on 10/28/15.
  */
 public class ScreenBaseClass {
 
