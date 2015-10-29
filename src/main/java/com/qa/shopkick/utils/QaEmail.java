@@ -1,9 +1,9 @@
 package com.qa.shopkick.utils;
 
-import org.apache.log4j.Logger;
 import org.apache.commons.mail.EmailAttachment;
 import org.apache.commons.mail.HtmlEmail;
 import org.apache.commons.mail.MultiPartEmail;
+import org.apache.log4j.Logger;
 
 /**
  * Created by mmadhusoodan on 10/26/15.

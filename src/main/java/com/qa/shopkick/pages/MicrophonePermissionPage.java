@@ -14,18 +14,17 @@ public class MicrophonePermissionPage extends ScreenBaseClass {
     @iOSFindBy(uiAutomator = ".buttons()[\"OK\"]")
     private static WebElement okButton;
 
-    public static boolean isMicroPhonePermissionRequired(){
-    	
-    	if(okButton.isDisplayed()){
-    		return true;
-    	}
-    	else{
-    		return false;
-    	}
-    	
+    public static boolean isMicroPhonePermissionRequired() {
+
+        if (okButton.isDisplayed()) {
+            return true;
+        } else {
+            return false;
+        }
+
     }
-    
-    public static void clickOKButton(){
+
+    public static void clickOKButton() {
         okButton.click();
         PageFactory.initElements(new AppiumFieldDecorator(driver), new LandingPage());
     }

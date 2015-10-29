@@ -12,37 +12,36 @@ import org.openqa.selenium.support.PageFactory;
  */
 public class CountryPickerPage extends ScreenBaseClass {
 
-	@iOSFindBy(uiAutomator = ".buttons()[3]")
-	private static WebElement countryUSA;
+    @iOSFindBy(uiAutomator = ".buttons()[3]")
+    private static WebElement countryUSA;
 
-	@iOSFindBy(uiAutomator = ".buttons()[2]")
-	private static WebElement countryGermany;
+    @iOSFindBy(uiAutomator = ".buttons()[2]")
+    private static WebElement countryGermany;
 
-	@iOSFindBy(uiAutomator = ".buttons()[\"Next\"]")
-	private static WebElement nextButton;
+    @iOSFindBy(uiAutomator = ".buttons()[\"Next\"]")
+    private static WebElement nextButton;
 
-	@iOSFindBy(uiAutomator = ".staticTexts()[\"Tell us where you want to see deals.\"]")
-	private static MobileElement countryPickerText;
+    @iOSFindBy(uiAutomator = ".staticTexts()[\"Tell us where you want to see deals.\"]")
+    private static MobileElement countryPickerText;
 
-	public static void clickCountryUSA(){
-		countryUSA.click();
-	}
+    public static void clickCountryUSA() {
+        countryUSA.click();
+    }
 
-	public static void clickCountryGermany(){
-		countryGermany.click();
-	}
+    public static void clickCountryGermany() {
+        countryGermany.click();
+    }
 
-	public static void clickNextButton(){
-		nextButton.click();
-		PageFactory.initElements(new AppiumFieldDecorator(driver),new FirstUseWalkinEducationPage());
-	}
+    public static void clickNextButton() {
+        nextButton.click();
+        PageFactory.initElements(new AppiumFieldDecorator(driver), new FirstUseWalkinEducationPage());
+    }
 
-	public static boolean clickAndProceedUSA() {
-		if(countryPickerText.isDisplayed()){
-			return true;
-		}
-		else{
-			return false;
-		}
-	}
+    public static boolean clickAndProceedUSA() {
+        if (countryPickerText.isDisplayed()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

@@ -7,15 +7,15 @@ import org.openqa.selenium.WebElement;
 
 public class DealDetailpage extends ScreenBaseClass {
 
-	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/save_button\")")
-	@iOSFindBy(uiAutomator = ".elements()[6]")
-	private static WebElement saveOfferButton;
-	
-	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/save_button\")")
-	@iOSFindBy(uiAutomator = ".elements()[6]")
-	private static WebElement unSaveOfferButton;
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/save_button\")")
+    @iOSFindBy(uiAutomator = ".elements()[6]")
+    private static WebElement saveOfferButton;
 
-	public static void clickOnSaveDeal(){
-		saveOfferButton.click();
-	}
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/save_button\")")
+    @iOSFindBy(uiAutomator = ".elements()[6]")
+    private static WebElement unSaveOfferButton;
+
+    public static void clickOnSaveDeal() {
+        saveOfferButton.click();
+    }
 }

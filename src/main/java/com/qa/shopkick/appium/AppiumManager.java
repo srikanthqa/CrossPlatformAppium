@@ -16,17 +16,8 @@ import java.util.concurrent.TimeUnit;
  */
 public class AppiumManager {
     final private static Logger log = Logger.getLogger(AppiumManager.class);
-    private static String ipAddress = "http://127.0.0.1:";
-    private static String port = "4723";
     protected static String appPackage = "com.shopkick.app";
     protected static String appActivity = appPackage + "." + "activity.AppScreenActivity";
-    private DesiredCapabilities capabilities = new DesiredCapabilities();
-    File userDir = new File(System.getProperty("user.dir"));
-    File appDir = new File(userDir, "APK/");
-    private static int dCount = 0;
-
-    String apk = "Shopkick_release_production_v_4_7_6_Beta2.apk";
-
     /*Commented for debug purpose
         public static String deviceName = System.getProperty("deviceName");
         public static String platformType = System.getProperty("platformType");
@@ -36,7 +27,13 @@ public class AppiumManager {
     */
     protected static String deviceName = "S5";
     protected static String platformVersion = "5.0.1";
-
+    private static String ipAddress = "http://127.0.0.1:";
+    private static String port = "4723";
+    private static int dCount = 0;
+    File userDir = new File(System.getProperty("user.dir"));
+    File appDir = new File(userDir, "APK/");
+    String apk = "Shopkick_release_production_v_4_7_6_Beta2.apk";
+    private DesiredCapabilities capabilities = new DesiredCapabilities();
 
     /**
      * Create Android Driver port and APK name

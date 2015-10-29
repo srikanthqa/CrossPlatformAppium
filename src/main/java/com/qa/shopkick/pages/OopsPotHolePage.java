@@ -11,18 +11,18 @@ import org.openqa.selenium.support.PageFactory;
 
 public class OopsPotHolePage extends ScreenBaseClass {
 
-	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"android:id/button1\").text(\"OK\")")
-	@iOSFindBy(uiAutomator = ".buttons()[\"OK\"]")
-	private static WebElement errorMessageOkButtonWebElement;
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"android:id/button1\").text(\"OK\")")
+    @iOSFindBy(uiAutomator = ".buttons()[\"OK\"]")
+    private static WebElement errorMessageOkButtonWebElement;
 
-	public static void clickOnOkToDismissError(){
-		MobileElement errorMessageOkButton = (MobileElement) driver.findElement(By.name("OK"));
-		errorMessageOkButton.click();
-		PageFactory.initElements(new AppiumFieldDecorator(driver), new SignInPage());
-		PageFactory.initElements(new AppiumFieldDecorator(driver), new LandingPage());
-		PageFactory.initElements(new AppiumFieldDecorator(driver), new DealsPage());
-		PageFactory.initElements(new AppiumFieldDecorator(driver), new StoresPage());
-		PageFactory.initElements(new AppiumFieldDecorator(driver), new ProductsPage());
-	}
+    public static void clickOnOkToDismissError() {
+        MobileElement errorMessageOkButton = (MobileElement) driver.findElement(By.name("OK"));
+        errorMessageOkButton.click();
+        PageFactory.initElements(new AppiumFieldDecorator(driver), new SignInPage());
+        PageFactory.initElements(new AppiumFieldDecorator(driver), new LandingPage());
+        PageFactory.initElements(new AppiumFieldDecorator(driver), new DealsPage());
+        PageFactory.initElements(new AppiumFieldDecorator(driver), new StoresPage());
+        PageFactory.initElements(new AppiumFieldDecorator(driver), new ProductsPage());
+    }
 
 }

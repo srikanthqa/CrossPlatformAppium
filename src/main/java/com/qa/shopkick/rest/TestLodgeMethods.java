@@ -13,8 +13,8 @@ import org.junit.Test;
 
 public class TestLodgeMethods extends APIClient {
 
-    private Logger log = Logger.getLogger(TestLodgeMethods.class);
     private static TestLodgeMethods instance;
+    private Logger log = Logger.getLogger(TestLodgeMethods.class);
     private String passed = "", failed = "", skipped = "";
 
     public static synchronized TestLodgeMethods getInstance() {

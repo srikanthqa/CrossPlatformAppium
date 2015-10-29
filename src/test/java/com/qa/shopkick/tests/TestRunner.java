@@ -13,8 +13,7 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({
         //
 
-        FacebookAuthentication.class,
-        EmailAuthentication.class
+        FacebookAuthentication.class, EmailAuthentication.class
 
 })
 

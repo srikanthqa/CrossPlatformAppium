@@ -8,14 +8,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 public class DidYouKnowPage extends ScreenBaseClass {
-	
-	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/main_overlay_view\")")
-	@iOSFindBy(uiAutomator = "")
-	private static WebElement didYouKnowText;
-	
-	public static void tapOnDidYouKnow(){
-		didYouKnowText.click();
-		PageFactory.initElements(new AppiumFieldDecorator(driver),new LandingPage());
-		PageFactory.initElements(new AppiumFieldDecorator(driver),new LeftNavBar());
-	}
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/main_overlay_view\")")
+    @iOSFindBy(uiAutomator = "")
+    private static WebElement didYouKnowText;
+
+    public static void tapOnDidYouKnow() {
+        didYouKnowText.click();
+        PageFactory.initElements(new AppiumFieldDecorator(driver), new LandingPage());
+        PageFactory.initElements(new AppiumFieldDecorator(driver), new LeftNavBar());
+    }
 }

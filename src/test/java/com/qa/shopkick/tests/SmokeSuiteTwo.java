@@ -98,7 +98,7 @@ public class SmokeSuiteTwo extends AbstractTest {
 
         //Tap My Saves
         ProductsPage.clickProductsPageMySaves();
-		
+
 		/*
 		 *TODO: Add logic to tap on products tab under my saves
 		 * */

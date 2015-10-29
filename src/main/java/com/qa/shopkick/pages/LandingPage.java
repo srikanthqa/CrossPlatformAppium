@@ -15,8 +15,20 @@ public class LandingPage extends ScreenBaseClass {
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/kicks_amount\")")
     @iOSFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/kicks_amount\")")
     private static WebElement topCenterKicks;
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/left_nav_user_image\")")
+    @iOSFindBy(uiAutomator = ".tableViews()[0].cells()[0].buttons()[0]")        //<- double check this guy
+    private static WebElement leftNavUserImage;
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/tab_title\").text(\"PRODUCTS\")")
+    @iOSFindBy(uiAutomator = ".tabBar().buttons()[\"Products\"]")
+    private static WebElement tabTitleProducts;
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/tab_title\").text(\"STORES\")")
+    @iOSFindBy(uiAutomator = ".tabBar().buttons()[\"Stores\")")
+    private static WebElement tabTitleStores;
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/tab_title\").text(\"DEALS\")")
+    @iOSFindBy(uiAutomator = ".tabBar().buttons()[\"Deals\"]")
+    private static WebElement tabTitleDeals;
 
-    public String getKicksOnLandingPage() {
+    public static String getKicksOnLandingPage() {
 
         String kicks = "";
         try {
@@ -26,10 +38,6 @@ public class LandingPage extends ScreenBaseClass {
         }
         return kicks;
     }
-
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/left_nav_user_image\")")
-    @iOSFindBy(uiAutomator = ".tableViews()[0].cells()[0].buttons()[0]")        //<- double check this guy
-    private static WebElement leftNavUserImage;
 
     public static void openLeftNavSignedIn() {
         try {
@@ -41,27 +49,15 @@ public class LandingPage extends ScreenBaseClass {
         }
     }
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/tab_title\").text(\"PRODUCTS\")")
-    @iOSFindBy(uiAutomator = ".tabBar().buttons()[\"Products\"]")
-    private static WebElement tabTitleProducts;
-
     public static void clicktabTitleProducts() {
         tabTitleProducts.click();
         PageFactory.initElements(new AppiumFieldDecorator(driver), new ProductsPage());
     }
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/tab_title\").text(\"STORES\")")
-    @iOSFindBy(uiAutomator = ".tabBar().buttons()[\"Stores\")")
-    private static WebElement tabTitleStores;
-
     public static void clicktabTitleStores() {
         tabTitleStores.click();
         PageFactory.initElements(new AppiumFieldDecorator(driver), new StoresPage());
     }
-
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/tab_title\").text(\"DEALS\")")
-    @iOSFindBy(uiAutomator = ".tabBar().buttons()[\"Deals\"]")
-    private static WebElement tabTitleDeals;
 
     public static void clicktabTitleDeals() {
         tabTitleDeals.click();

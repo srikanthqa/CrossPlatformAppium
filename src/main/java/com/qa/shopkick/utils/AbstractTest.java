@@ -21,35 +21,30 @@ import java.util.concurrent.TimeUnit;
 
 public class AbstractTest {
     final private static Logger log = Logger.getLogger(String.valueOf(AbstractTest.class));
-    private static QaCalendar calendar = QaCalendar.getInstance();
-
-    private static FileWriter fileWriter = null;
-    private long startTime = 0;
-
-    @Rule
-    public TestName name = new TestName();
-    private static AppiumManager appiumManager = new AppiumManager();
-
-    protected String elapsedSec = "";
-    protected String runStatus = "failed";
-    protected String testSectionName = "";
-    protected String testName = "";
     protected static String fileName = QaConstants.TEST_LODGE_RESULT_JSON;
     protected static String testLodgeDir = "testLodge_script";
     protected static String filePath = testLodgeDir + File.separator + fileName;
     protected static File file = new File(filePath);
     protected static String reportName = "";
     protected static AppiumDriver driver = null;
-    private static JSONObject testLodgeJSON = new org.json.simple.JSONObject();
-    private static JSONArray resultsList = new JSONArray();
-
-    private static String buildNo = "1112";
-    private static File userDir = new File(System.getProperty("user.dir"));
     protected static String packageName = "com.shopkick.app";
     protected static String launcherActivity = packageName + "." + "activity.AppScreenActivity";
-
     protected static String platformType = "Android";
     protected static String deviceUDID = "null";
+    private static QaCalendar calendar = QaCalendar.getInstance();
+    private static FileWriter fileWriter = null;
+    private static AppiumManager appiumManager = new AppiumManager();
+    private static JSONObject testLodgeJSON = new org.json.simple.JSONObject();
+    private static JSONArray resultsList = new JSONArray();
+    private static String buildNo = "1112";
+    private static File userDir = new File(System.getProperty("user.dir"));
+    @Rule
+    public TestName name = new TestName();
+    protected String elapsedSec = "";
+    protected String runStatus = "failed";
+    protected String testSectionName = "";
+    protected String testName = "";
+    private long startTime = 0;
 
     public static AppiumDriver createAppiumDriver() {
 

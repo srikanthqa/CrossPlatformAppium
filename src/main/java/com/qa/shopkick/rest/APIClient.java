@@ -22,14 +22,13 @@ import java.io.InputStreamReader;
  */
 public class APIClient {
 
-    private Logger log = Logger.getLogger(TestLodgeMethods.class);
-
+    protected final String USER_AGENT = "Mozilla/5.0";
     protected String baseURL = "";
     protected String user = "";
     protected String pass = "";
-    protected final String USER_AGENT = "Mozilla/5.0";
     protected HttpClient client = HttpClientBuilder.create().build();
     protected String jsonData = "";
+    private Logger log = Logger.getLogger(TestLodgeMethods.class);
 
     public void getTestLodgeCredentials() {
         JSONParser parser = new JSONParser();

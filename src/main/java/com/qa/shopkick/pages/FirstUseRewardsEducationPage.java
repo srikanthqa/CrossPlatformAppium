@@ -16,9 +16,9 @@ public class FirstUseRewardsEducationPage extends ScreenBaseClass {
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"PICK A REWARD\")")
     private static WebElement pickAReward;
 
-    public static void clickPickARewardButton(){
+    public static void clickPickARewardButton() {
         pickAReward.click();
-        PageFactory.initElements(new AppiumFieldDecorator(driver),new RewardsPickerPage());
+        PageFactory.initElements(new AppiumFieldDecorator(driver), new RewardsPickerPage());
     }
 
 

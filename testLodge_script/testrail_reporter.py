@@ -9,12 +9,12 @@ Simple app using the TestRail API, provides bulk test-result reporting
 """
 __author__ = 'manish'
 
-import datetime
 import getpass
 import json
 import optparse
 import os
 import sys
+
 import testrail_api
 
 
@@ -281,6 +281,7 @@ class TestRailReporter(object):
             except AttributeError:
                 print "WARNING: Failed to get result information for test '%s'. Perhaps that test was not run this time?" % case_title
         self.testrail.close_run(run_id)
+
 
 ###################
 #

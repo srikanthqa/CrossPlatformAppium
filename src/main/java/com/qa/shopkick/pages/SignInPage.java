@@ -27,6 +27,8 @@ public class SignInPage extends ScreenBaseClass {
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"GOOGLE\")")
     @iOSFindBy(uiAutomator = ".buttons()[\"Google\"]")
     private static WebElement signInGooglePlusSignIn;
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/facebook_flow_text\").text(\"We will never post anything without your permission.\")")
+    private static WebElement signInFacebookFlowText;
 
     public static boolean areFacebookGoogleEmailButtonsVisible() {
         try {
@@ -65,7 +67,6 @@ public class SignInPage extends ScreenBaseClass {
         }
     }
 
-
     public static void clickEmailSignInButton() {
         try {
             signInEmailSignIn.click();
@@ -76,8 +77,5 @@ public class SignInPage extends ScreenBaseClass {
             log.error(e);
         }
     }
-
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/facebook_flow_text\").text(\"We will never post anything without your permission.\")")
-    private static WebElement signInFacebookFlowText;
 
 }

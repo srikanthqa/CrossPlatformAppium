@@ -11,42 +11,42 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class DealsTests extends AbstractTest{
-	
-	@Test
-	public void Test1_ViewAggregatedDeals(){
-		//Click on Target
-		driver.scrollTo("Target");
-		DealsPage.clickDealsPageTarget();
-	}
+public class DealsTests extends AbstractTest {
 
-	@Test
-	public void Test2_SaveDealFromAggregatedDeal(){
-		//Save Deal
-		DealAggregationPage.clickDealAggregationSaveHeart();
-	}
-	
-	@Test
-	public void Test3_ViewSavedDealUnSaveDeal(){
-		CustomHooks.pressBack();
-		ProductsPage.clickProductsPageMySaves();
-		MySavesPage.clickOnMySavesDealHeart();
-	}
-	
-	@Test
-	public void Test4_ScrollDeals(){
-		//scrolling down then back up
-		CustomHooks.pressBack();
-		driver.scrollTo("Michaels");
-		driver.scrollTo("Target");
-	}
-	
-	@Test
-	public void Tesst5_SearchDeals(){
-		//searching Old Navy in Deals
-		DealsPage.clickOnSearchBar();
-		//driver.sendKeys("Old Navy");
-		DealsPage.searchInStoresSearchBar("Old Navy");
-		
-	}
+    @Test
+    public void Test1_ViewAggregatedDeals() {
+        //Click on Target
+        driver.scrollTo("Target");
+        DealsPage.clickDealsPageTarget();
+    }
+
+    @Test
+    public void Test2_SaveDealFromAggregatedDeal() {
+        //Save Deal
+        DealAggregationPage.clickDealAggregationSaveHeart();
+    }
+
+    @Test
+    public void Test3_ViewSavedDealUnSaveDeal() {
+        CustomHooks.pressBack();
+        ProductsPage.clickProductsPageMySaves();
+        MySavesPage.clickOnMySavesDealHeart();
+    }
+
+    @Test
+    public void Test4_ScrollDeals() {
+        //scrolling down then back up
+        CustomHooks.pressBack();
+        driver.scrollTo("Michaels");
+        driver.scrollTo("Target");
+    }
+
+    @Test
+    public void Tesst5_SearchDeals() {
+        //searching Old Navy in Deals
+        DealsPage.clickOnSearchBar();
+        //driver.sendKeys("Old Navy");
+        DealsPage.searchInStoresSearchBar("Old Navy");
+
+    }
 }

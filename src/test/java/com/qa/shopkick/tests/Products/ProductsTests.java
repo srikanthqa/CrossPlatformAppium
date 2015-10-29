@@ -13,55 +13,56 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class ProductsTests extends AbstractTest{
+public class ProductsTests extends AbstractTest {
 
-	@Test
-	public void Test1_SwitchToProductsTab(){
+    @Test
+    public void Test1_SwitchToProductsTab() {
 
-		//From stores tab to products tab
-		LandingPage.clicktabTitleProducts();
-	}
-	@Test
-	public void Test2_Savelookbook(){
+        //From stores tab to products tab
+        LandingPage.clicktabTitleProducts();
+    }
 
-		//Navigate to Lookbook details
-		OpenLookBookTest();
+    @Test
+    public void Test2_Savelookbook() {
 
-		//Save lookbook
-		LookbookPage.clickToSaveLookBook();
-	}
+        //Navigate to Lookbook details
+        OpenLookBookTest();
 
-	@Test
-	public void Test3_SaveOffer(){
+        //Save lookbook
+        LookbookPage.clickToSaveLookBook();
+    }
 
-		//Save offer
-		LookbookPage.clickLookbookPageLookbookOfferSaveHeart();
+    @Test
+    public void Test3_SaveOffer() {
 
-		CustomHooks.pressBack();
-	}
+        //Save offer
+        LookbookPage.clickLookbookPageLookbookOfferSaveHeart();
 
-	@Test
-	public void Test4_VerifyLookbookState(){
+        CustomHooks.pressBack();
+    }
 
-		//Verify checkmark for read lookbooks
-		ProductsPage.verifyCheckMarkForLookBooks();
-	}
+    @Test
+    public void Test4_VerifyLookbookState() {
 
-	//Scroll down then back up (to do)
+        //Verify checkmark for read lookbooks
+        ProductsPage.verifyCheckMarkForLookBooks();
+    }
 
-	@Test
-	public void Test5_SwitchCategory(){
-		//Switch to Women category
-		ProductsPage.clickProductsPageWomenTab();
-		//Switch back to Trending tab
-		ProductsPage.clickProductsPageTrendingTab();
+    //Scroll down then back up (to do)
 
-	}
+    @Test
+    public void Test5_SwitchCategory() {
+        //Switch to Women category
+        ProductsPage.clickProductsPageWomenTab();
+        //Switch back to Trending tab
+        ProductsPage.clickProductsPageTrendingTab();
 
-	public void OpenLookBookTest(){
-		MobileElement LookBookElementone =  (MobileElement) driver.findElements(MobileBy.AndroidUIAutomator("new UiSelector().resourceId(\"com.shopkick.app:id/browse_feed_recycler_view\").childSelector(new UiSelector().className(\"android.widget.RelativeLayout\").index(1).childSelector(new UiSelector().resourceId(\"com.shopkick.app:id/lookbook_image\")"));
-		LookBookElementone.click();
+    }
 
-	}
+    public void OpenLookBookTest() {
+        MobileElement LookBookElementone = (MobileElement) driver.findElements(MobileBy.AndroidUIAutomator("new UiSelector().resourceId(\"com.shopkick.app:id/browse_feed_recycler_view\").childSelector(new UiSelector().className(\"android.widget.RelativeLayout\").index(1).childSelector(new UiSelector().resourceId(\"com.shopkick.app:id/lookbook_image\")"));
+        LookBookElementone.click();
+
+    }
 
 }

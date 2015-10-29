@@ -14,9 +14,9 @@ import static com.jayway.restassured.RestAssured.given;
 
 
 public class RunTestCase {
-    private Logger log = Logger.getLogger(RunTestCase.class);
     String projectID = "10019";
     String suiteId = "58074";
+    private Logger log = Logger.getLogger(RunTestCase.class);
 
     public Integer getTestCaseID(String testCaseName) {
         HashMap<String, Integer> map = new HashMap<>();

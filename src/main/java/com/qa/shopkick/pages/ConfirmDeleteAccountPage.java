@@ -11,23 +11,23 @@ import org.openqa.selenium.support.PageFactory;
 
 public class ConfirmDeleteAccountPage extends ScreenBaseClass {
 
-	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/app_screen_header\").text(\"Confirm Account Deletion\")")
-	private static WebElement deleteAccountHeader;
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/app_screen_header\").text(\"Confirm Account Deletion\")")
+    private static WebElement deleteAccountHeader;
 
 
-	@iOSFindBy(uiAutomator = ".buttons()[\"Delete\"]")
-	private static WebElement deleteAccountButton;
+    @iOSFindBy(uiAutomator = ".buttons()[\"Delete\"]")
+    private static WebElement deleteAccountButton;
 
-	public static void clickOnConfirmDeleteIOS(){
-		deleteAccountButton.click();
-		PageFactory.initElements(new AppiumFieldDecorator(driver),new SignInPage());
-	}
+    public static void clickOnConfirmDeleteIOS() {
+        deleteAccountButton.click();
+        PageFactory.initElements(new AppiumFieldDecorator(driver), new SignInPage());
+    }
 
-	//used mobile element since its a hybrid view
-	public static void clickOnDeleteAccountConfirm(){
-		MobileElement confirmDelete = (MobileElement) driver.findElement(By.name("DELETE"));
-		confirmDelete.click();
-		PageFactory.initElements(new AppiumFieldDecorator(driver),new SignInPage());
-	}
+    //used mobile element since its a hybrid view
+    public static void clickOnDeleteAccountConfirm() {
+        MobileElement confirmDelete = (MobileElement) driver.findElement(By.name("DELETE"));
+        confirmDelete.click();
+        PageFactory.initElements(new AppiumFieldDecorator(driver), new SignInPage());
+    }
 
 }

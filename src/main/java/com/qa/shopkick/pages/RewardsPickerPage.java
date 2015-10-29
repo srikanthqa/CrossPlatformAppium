@@ -15,6 +15,14 @@ public class RewardsPickerPage extends ScreenBaseClass {
     @iOSFindBy(uiAutomator = ".buttons()[\"Select Reward\"]")
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"SELECT REWARD\")")
     private static WebElement selectReward;
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/kick_amount\").text(\"3400\")")
+    private static WebElement RewardsPickerPageGasReward;
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/kick_amount\").text(\"1875000\")")
+    @iOSFindBy(uiAutomator = ".cells().firstWithName(\"1875000\")")
+    private static WebElement RewardsPickerPageVespaReward;
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/app_screen_back_button\")")
+    @iOSFindBy(uiAutomator = ".buttons()[0]")
+    private static WebElement changeRewardBack;
 
     public static void clickSelectRewardButton() {
         try {
@@ -27,13 +35,6 @@ public class RewardsPickerPage extends ScreenBaseClass {
         }
     }
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/kick_amount\").text(\"3400\")")
-    private static WebElement RewardsPickerPageGasReward;
-
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/kick_amount\").text(\"1875000\")")
-    @iOSFindBy(uiAutomator = ".cells().firstWithName(\"1875000\")")
-    private static WebElement RewardsPickerPageVespaReward;
-
     public static void clickGasReward() {
         RewardsPickerPageGasReward.click();
     }
@@ -41,10 +42,6 @@ public class RewardsPickerPage extends ScreenBaseClass {
     public static void clickVespaReward() {
         RewardsPickerPageVespaReward.click();
     }
-
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/app_screen_back_button\")")
-    @iOSFindBy(uiAutomator = ".buttons()[0]")
-    private static WebElement changeRewardBack;
 
     public static void clickOnBackButton() {
         changeRewardBack.click();

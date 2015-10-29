@@ -8,6 +8,7 @@ Provides access to TestRail web API
 __author__ = 'jblack'
 
 import json
+
 import requests
 
 
@@ -81,7 +82,7 @@ class TestRailApi(object):
         response = requests.get(the_url,
                                 headers=headers,
                                 auth=(self.user_name, self.user_password),
-                                verify=False)    # Prevent certificate problems
+                                verify=False)  # Prevent certificate problems
         return response.json()
 
     def post_request(self, url_frag, post_data_dict, additional_headers=None):
@@ -100,7 +101,7 @@ class TestRailApi(object):
                                  data=post_data,
                                  headers=headers,
                                  auth=(self.user_name, self.user_password),
-                                 verify=False)    # Prevent certificate problems
+                                 verify=False)  # Prevent certificate problems
         return response.json()
 
     ###################
