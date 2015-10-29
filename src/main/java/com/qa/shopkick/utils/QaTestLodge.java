@@ -4,6 +4,7 @@ import com.jayway.restassured.http.ContentType;
 import com.jayway.restassured.response.Response;
 import com.jayway.restassured.specification.RequestSpecification;
 import org.apache.log4j.Logger;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.junit.Test;
@@ -14,7 +15,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import static com.jayway.restassured.RestAssured.given;
-
 
 public class QaTestLodge {
     private Logger log = Logger.getLogger(QaTestLodge.class);
@@ -40,20 +40,25 @@ public class QaTestLodge {
             }
         }
 
-        public void readTestResult() {
-
-            JSONParser parser = new JSONParser();
+        public ArrayList<String> getTestResult() {
+            ArrayList<String> testCaseList = new ArrayList<>();
             try {
+                JSONParser parser = new JSONParser();
                 File file = new File(QaConstants.TEST_LODGE_DIR + "/" + QaConstants.TEST_LODGE_RESULT_JSON);
                 Object obj = parser.parse(new FileReader(file));
-                JSONObject jsonObject = (JSONObject) obj;
+                JSONObject level1Object = (JSONObject) obj;
+                JSONArray resultsList = (JSONArray) level1Object.get("resultsList");
 
-                testLodgeUrl = (String) jsonObject.get("TL_Base_URL");
-                username = (String) jsonObject.get("TL_User_Name");
-                password = (String) jsonObject.get("TL_User_PW");
+                for (int i = 0; i < resultsList.size(); i++) {
+
+                    String testName = ((JSONObject) resultsList.get(i)).get("runStatus").toString();
+                    String runStatus = ((JSONObject) resultsList.get(i)).get("testName").toString();
+                    testCaseList.add(testName + ":" + runStatus);
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
+            return testCaseList;
         }
 
         public Integer getTestCaseID(String TestCaseName, String runId) {
@@ -129,10 +134,13 @@ public class QaTestLodge {
 
         TestLodge testLodge = new TestLodge();
         String testRunId = testLodge.createTestRun(projectId, suiteId);
-        String[] testCaseNameList = {"TC1200", "TC1201"};
-        String status = "passed";
+        ArrayList<String> testCaseList = testLodge.getTestResult();
 
-        for (String testCaseName : testCaseNameList)
-            testLodge.setTestCaseStatus(testRunId, testCaseName, status);
+        for (int i = 0; i < testCaseList.size(); i++) {
+            String testCaseName = testCaseList.get(i).split(":")[0];
+            String runStatus = testCaseList.get(i).split(":")[1];
+
+            testLodge.setTestCaseStatus(testRunId, testCaseName, runStatus);
+        }
     }
 }

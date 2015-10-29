@@ -1,10 +1,12 @@
 package com.qa.shopkick.tests;
 
+import com.qa.shopkick.utils.QaConstants;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.File;
+import java.io.FileReader;
 import java.util.logging.Logger;
 
 /**
@@ -16,35 +18,21 @@ public class HelloSK {
     final private static Logger log = Logger.getLogger("");
 
     public static void main(String[] args) {
-
         try {
-            log.info("Good Morining ");
-            JSONObject obj = new JSONObject();
-            obj.put("name", "mkyong.com");
-            obj.put("age", new Integer(100));
+            JSONParser parser = new JSONParser();
+            File file = new File(QaConstants.TEST_LODGE_DIR + "/" + QaConstants.TEST_LODGE_RESULT_JSON);
+            Object obj = parser.parse(new FileReader(file));
+            JSONObject level1Object = (JSONObject) obj;
+            JSONArray resultsList = (JSONArray) level1Object.get("resultsList");
 
-            JSONArray list = new JSONArray();
-            list.add("msg 1");
-            list.add("msg 2");
-            list.add("msg 3");
+            for (int i = 0; i < resultsList.size(); i++) {
 
-            obj.put("messages", list);
-            try {
+                ((JSONObject) resultsList.get(i)).get("runStatus").toString();
+                ((JSONObject) resultsList.get(i)).get("testName").toString();
 
-                FileWriter file = new FileWriter("c:\\test.json");
-                file.write(obj.toJSONString());
-                file.flush();
-                file.close();
-                log.info(obj.toJSONString());
-            } catch (IOException e) {
-                e.printStackTrace();
             }
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 }
-
