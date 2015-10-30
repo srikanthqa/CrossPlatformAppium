@@ -1,4 +1,4 @@
-package com.qa.shopkick.rest;
+package com.qa.shopkick.reports;
 
 import org.apache.log4j.Logger;
 import org.json.simple.JSONArray;

@@ -1,4 +1,4 @@
-package com.qa.shopkick.rest;
+package com.qa.shopkick.reports;
 
 import com.qa.shopkick.utils.QaConstants;
 import org.apache.commons.codec.binary.Base64;

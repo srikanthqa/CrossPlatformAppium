@@ -20,3 +20,5 @@ killall node ; appium > logs/appium.log &
 #mvn -Dtest=com.qa.shopkick.tests.Authentication.FacebookAuthentication test
 
 mvn -DplatformType='Android' -DplatformVersion='5.0.1' -DdeviceName='GalaxyS5' -DdeviceUDID='null' -Dtest=EmailAuthentication test
+
+#mvn -Dtest=UpdateTestLodge test

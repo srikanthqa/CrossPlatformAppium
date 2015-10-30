@@ -1,9 +1,11 @@
-package com.qa.shopkick.utils;
+package com.qa.shopkick.reports;
 
+import com.qa.shopkick.utils.QaConstants;
+import com.qa.shopkick.utils.QaFileWriter;
+import com.qa.shopkick.utils.QaScreenshot;
 import org.apache.log4j.Logger;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -25,16 +27,12 @@ import static junit.framework.TestCase.assertEquals;
 public class QaReportProcessor {
     public static Logger log = Logger.getLogger(QaReportProcessor.class);
     WebDriver driver = null;
-    String fromEmail = "manish@shopkick.com";
-    String fromName = "Appium Automation";
-    String toEmail = "manish@shopkick.com";
-    String toName = "SK-Appium-Automation";
-    private String reportName = "";
     private String reportDir = "";
-    private String testrailReportPath = "";
+    private String tesLodgeReportPath = "";
     private String TestrailURL = "";
     private String testResult = "";
     private String passed = "";
+    private String reportName = "";
     private String failed = "";
     private String percentagePass = "";
     private String averybuildNo = "";
@@ -43,7 +41,9 @@ public class QaReportProcessor {
     private String userName = "manish@shopkick.com";
     private String password = "shopkick123";
 
-    public String getRailsReportName() {
+    public String projectId = System.getProperty("projectId");
+
+    public String getTestLodgeReportName() {
         JSONParser parser = new JSONParser();
         try {
             Object obj = parser.parse(new FileReader(QaConstants.TEST_LODGE_RESULT_JSON + File.separator + QaConstants.TEST_LODGE_RESULT_JSON));
@@ -63,13 +63,12 @@ public class QaReportProcessor {
      * take a screen and place it in the reports directory
      */
 
-    public String LaunchTestRailsAndScreenGrab() throws Exception {
-
-        reportName = getRailsReportName();
-
+    public String LaunchTestLodgeAndScreenGrab() throws Exception {
+        String BaseURL = "http://shopkick.testlodge.com/projects/" + projectId + "/runs/176030";
+        reportName = getTestLodgeReportName();
         if (!reportName.isEmpty()) {
             try {
-                //                System.setProperty("webdriver.chrome.driver", QaConstants.MAC_CHROME_DRIVER_LOCATION);
+                // System.setProperty("webdriver.chrome.driver", QaConstants.MAC_CHROME_DRIVER_LOCATION);
                 driver = new FirefoxDriver();
 
                 WebDriverWait wait = new WebDriverWait(driver, 5);
@@ -78,7 +77,6 @@ public class QaReportProcessor {
                 reportDir = reportName.split("_t")[0].trim();
                 reportDir = reportDir.replace(":", "_");
                 QaScreenshot screenShot = new QaScreenshot(driver);
-                String BaseURL = "https://testrail.blackpearlsystems.com/index.php?/projects/overview/16";
 
                 driver.navigate().to(BaseURL);
                 driver.manage().window().maximize();
@@ -86,8 +84,10 @@ public class QaReportProcessor {
                 driver.findElement(By.name("name")).sendKeys(userName);
                 driver.findElement(By.name("password")).sendKeys(password);
 
-                driver.findElement(By.className("positive")).click(); // SignIn button is called positive :)
+                // LogIn button is called positive :)
+                driver.findElement(By.className("submit")).click();
                 wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("id")));
+
 
                 assertEquals("P16", driver.findElement(By.className("id")).getText().trim());
 
@@ -118,8 +118,8 @@ public class QaReportProcessor {
                     log.info("Something went wring with testRails");
                 } else {
 
-                    testrailReportPath = screenShot.reportCapture(driver, reportDir);
-                    log.info("testrailReportPath: " + testrailReportPath);
+                    tesLodgeReportPath = screenShot.reportCapture(driver, reportDir);
+                    log.info("tesLodgeReportPath: " + tesLodgeReportPath);
                 }
             } catch (NoSuchElementException nse) {
                 log.info(reportName + " Not Found, Probably report was not uploaded ... Exiting");
@@ -131,7 +131,7 @@ public class QaReportProcessor {
         } else {
             log.info("reportName is Empty check testrails.json");
         }
-        return testrailReportPath;
+        return tesLodgeReportPath;
     }
 
     public String getHumanReadableReportTime(String reportScreenshotPath) {
@@ -169,17 +169,17 @@ public class QaReportProcessor {
             return execTime;
         }
     */
-    public void sendFailedEmail() throws Exception {
+/*    public void sendFailedEmail() throws Exception {
 
         try {
-            reportTime = getHumanReadableReportTime(testrailReportPath);
+            reportTime = getHumanReadableReportTime(tesLodgeReportPath);
             String subject = "[ " + failed.toUpperCase() + " ] " + reportTime + " Avery Automation FAILED";
             String body = "<html><font face='verdana' size='2'><b>Lyve Suite Automation Run:</b> " + reportTime + "\n\n";
             body += "Failed Test Cases\n\n";
             //            body += getEmailBodyWithFailedTestCases();
             body += "</html>";
 
-            reportName = getRailsReportName();
+            reportName = getTestLodgeReportName();
             QaEmail qaEmail = new QaEmail();
             if (failuresFlag)
                 qaEmail.sendEmail(fromEmail, fromName, toEmail, toName, subject, body);
@@ -188,42 +188,5 @@ public class QaReportProcessor {
             System.exit(1);
         }
     }
-
-    @Test
-    public void sendEmailWithAttachment() throws Exception {
-
-        testrailReportPath = LaunchTestRailsAndScreenGrab();
-        if ("".equalsIgnoreCase(testrailReportPath)) {
-            log.info("Reports Path is empty, possibly not found on testrail ...NO EMAIL would be sent ... exiting ");
-        } else {
-            String subject = "";
-            String body = "";
-            try {
-                reportTime = getHumanReadableReportTime(testrailReportPath);
-                //                subject = "Avery " + QaProperties.getSuiteType() + " Automation Results: [" + QaProperties.getStack() + "] [Build: " + averybuildNo + "] [" + percentagePass + " Pass] ";
-                body = "<html><font face='verdana' size='2'><b>Avery Automation Time of Execution:</b> " + reportTime + "\n\n";
-                body += "<b><u>Environment:</b></u>" + "\n";
-                //                body += "Stack: " + QaProperties.getStack() + "\n";
-                body += "Avery Build #: " + averybuildNo + "\n";
-                //                body += "Execution Time: " + getExecutionTime() + "\n\n";
-                body += "<b><u>Test Results</b></u>" + "\n";
-                body += testResult + "\n";
-                if (failuresFlag) {
-                    body += "<b><u>Failed Test Cases</b></u> \n\n";
-                    //                    body += getEmailBodyWithFailedTestCases() + "\n";
-                }
-                body += "For complete execution details, use the link below:\n" + TestrailURL + "\n\n";
-                body += "<b><u>TestRails SignIn:</b></u>\n" + "Username: trguest2@blackpearlsystems.com \nPassword: TRGuestUser2\n";
-                body += "</html>";
-                reportName = getRailsReportName();
-                QaEmail qaEmail = new QaEmail();
-                qaEmail.sendEmailAttachment(fromEmail, fromName, toEmail, toName, subject, body, testrailReportPath);
-            } catch (Exception e) {
-                log.error(e);
-                System.exit(1);
-            } finally {
-                //                sendFailedEmail();
-            }
-        }
-    }
+*/
 }
