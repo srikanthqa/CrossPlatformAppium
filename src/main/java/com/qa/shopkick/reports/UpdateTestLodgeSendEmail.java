@@ -14,6 +14,11 @@ import static junit.framework.TestCase.assertTrue;
 public class UpdateTestLodgeSendEmail {
 
     final private static Logger log = Logger.getLogger(UpdateTestLodgeSendEmail.class);
+    String fromEmail = "manish@shopkick.com";
+    String fromName = "Appium Automation";
+    String toEmail = "manish@shopkick.com";
+    String toName = "SK-Appium-Automation";
+    QaReportProcessor qaReportProcessor = new QaReportProcessor();
     private String tesLodgeReportPath = "";
     private String reportName = "";
     private String reportDir = "";
@@ -24,12 +29,6 @@ public class UpdateTestLodgeSendEmail {
     private String failed = "";
     private String percentagePass = "";
     private boolean failuresFlag = false;
-    String fromEmail = "manish@shopkick.com";
-    String fromName = "Appium Automation";
-    String toEmail = "manish@shopkick.com";
-    String toName = "SK-Appium-Automation";
-
-    QaReportProcessor qaReportProcessor = new QaReportProcessor();
 
     @Test
     public void TestHello() {

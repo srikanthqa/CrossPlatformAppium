@@ -1,7 +1,7 @@
 package com.qa.shopkick.tests;
 
-import com.qa.shopkick.pages.*;
 import com.qa.shopkick.appium.AbstractTestCase;
+import com.qa.shopkick.pages.*;
 import com.qa.shopkick.utils.CustomHooks;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.junit.Test;

@@ -26,6 +26,7 @@ import static junit.framework.TestCase.assertEquals;
  */
 public class QaReportProcessor {
     public static Logger log = Logger.getLogger(QaReportProcessor.class);
+    public String projectId = System.getProperty("projectId");
     WebDriver driver = null;
     private String reportDir = "";
     private String tesLodgeReportPath = "";
@@ -40,8 +41,6 @@ public class QaReportProcessor {
     private boolean failuresFlag = false;
     private String userName = "manish@shopkick.com";
     private String password = "shopkick123";
-
-    public String projectId = System.getProperty("projectId");
 
     public String getTestLodgeReportName() {
         JSONParser parser = new JSONParser();

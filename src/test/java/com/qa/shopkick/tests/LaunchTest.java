@@ -1,7 +1,7 @@
 package com.qa.shopkick.tests;
 
-import com.qa.shopkick.pages.*;
 import com.qa.shopkick.appium.AbstractTestCase;
+import com.qa.shopkick.pages.*;
 import com.qa.shopkick.utils.CustomHooks;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -165,7 +165,7 @@ public class LaunchTest extends AbstractTestCase {
 
         DealsListSearchPage.clickOnDealsAvailable();
         /*
-		 * TODO: Make tappign on deals more generic, not hardcoded
+         * TODO: Make tappign on deals more generic, not hardcoded
 		 *  //Click on search bar
 		 * search for a store
 		//close the keyboard

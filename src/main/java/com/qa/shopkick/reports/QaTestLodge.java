@@ -19,8 +19,8 @@ import static com.jayway.restassured.RestAssured.given;
 
 public class QaTestLodge {
 
-    private Logger log = Logger.getLogger(QaTestLodge.class);
     private static String projectId = "10019";
+    private Logger log = Logger.getLogger(QaTestLodge.class);
     private String testLodgeUrl;
     private String username;
     private String password;

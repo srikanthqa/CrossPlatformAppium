@@ -15,13 +15,13 @@ import java.util.concurrent.TimeUnit;
  */
 public class AppiumManager {
     final private static Logger log = Logger.getLogger(AppiumManager.class);
-    protected static String appPackage = "com.shopkick.app";
-    protected static String appActivity = appPackage + "." + "activity.AppScreenActivity";
     //Commented for debug purpose
     public static String deviceName = System.getProperty("deviceName");
     public static String platformType = System.getProperty("platformType");
     public static String platformVersion = System.getProperty("platformVersion");
     public static String deviceUDID = System.getProperty("deviceUDID");
+    protected static String appPackage = "com.shopkick.app";
+    protected static String appActivity = appPackage + "." + "activity.AppScreenActivity";
     protected static String bundleID = "com.shopkick.debug-qa";
     //    protected static String deviceName = "S5";
     //    protected static String platformVersion = "5.0.1";
