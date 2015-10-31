@@ -1,7 +1,6 @@
 package com.qa.shopkick.reports;
 
 import com.qa.shopkick.utils.QaConstants;
-import com.qa.shopkick.utils.QaFileWriter;
 import com.qa.shopkick.utils.QaScreenshot;
 import org.apache.log4j.Logger;
 import org.json.simple.JSONObject;
@@ -9,15 +8,12 @@ import org.json.simple.parser.JSONParser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.util.List;
 
 import static junit.framework.TestCase.assertEquals;
 
@@ -28,8 +24,9 @@ public class QaReportProcessor {
     public static Logger log = Logger.getLogger(QaReportProcessor.class);
     public String projectId = System.getProperty("projectId");
     WebDriver driver = null;
-    private String reportDir = "";
-    private String tesLodgeReportPath = "";
+    private String testLodgeReportDir = "";
+    private String testLodgeReportPath = "";
+    private String reportScreenshotPath = "";
     private String TestrailURL = "";
     private String testResult = "";
     private String passed = "";
@@ -41,16 +38,16 @@ public class QaReportProcessor {
     private boolean failuresFlag = false;
     private String userName = "manish@shopkick.com";
     private String password = "shopkick123";
+    public static String platformType = "Android";
+//            System.getProperty("platformType");
 
     public String getTestLodgeReportName() {
         JSONParser parser = new JSONParser();
         try {
-            Object obj = parser.parse(new FileReader(QaConstants.TEST_LODGE_RESULT_JSON + File.separator + QaConstants.TEST_LODGE_RESULT_JSON));
+            Object obj = parser.parse(new FileReader(QaConstants.TEST_LODGE_DIR + File.separator + QaConstants.TEST_LODGE_RESULT_JSON));
             JSONObject jsonObject = (JSONObject) obj;
             reportName = (String) jsonObject.get("reportName");
             log.info("reportName: " + reportName);
-        } catch (FileNotFoundException e) {
-            log.error(e);
         } catch (Exception e) {
             log.error(e);
         }
@@ -58,89 +55,69 @@ public class QaReportProcessor {
     }
 
     /**
-     * launch Testrails and SignIn and go to the test results pace and
+     * launch TestLodge and SignIn and go to the test results pace and
      * take a screen and place it in the reports directory
      */
 
-    public String LaunchTestLodgeAndScreenGrab() throws Exception {
-        String BaseURL = "http://shopkick.testlodge.com/projects/" + projectId + "/runs/176030";
+    public String LaunchTestLodgeAndGrabValues(String url, String testRunName) throws Exception {
+
         reportName = getTestLodgeReportName();
+        QaScreenshot screenShot = new QaScreenshot(driver);
         if (!reportName.isEmpty()) {
             try {
-                // System.setProperty("webdriver.chrome.driver", QaConstants.MAC_CHROME_DRIVER_LOCATION);
-                driver = new FirefoxDriver();
-
+                testLodgeReportDir = reportName.split("_t")[0].trim();
+                testLodgeReportDir = testLodgeReportDir.replace(":", "_");
+                System.setProperty("webdriver.chrome.driver", QaConstants.MAC_CHROME_DRIVER_LOCATION);
+                driver = new ChromeDriver();
                 WebDriverWait wait = new WebDriverWait(driver, 5);
-                averybuildNo = reportName.split("_")[0];
-                averybuildNo = averybuildNo.split("-")[3];
-                reportDir = reportName.split("_t")[0].trim();
-                reportDir = reportDir.replace(":", "_");
-                QaScreenshot screenShot = new QaScreenshot(driver);
-
-                driver.navigate().to(BaseURL);
+                driver.navigate().to("http://shopkick.testlodge.com/projects/10019/runs/176127");
                 driver.manage().window().maximize();
 
-                driver.findElement(By.name("name")).sendKeys(userName);
+                driver.findElement(By.name("email")).sendKeys(userName);
                 driver.findElement(By.name("password")).sendKeys(password);
 
-                // LogIn button is called positive :)
                 driver.findElement(By.className("submit")).click();
-                wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("id")));
 
+                Thread.sleep(5000);
+                wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("second")));
 
-                assertEquals("P16", driver.findElement(By.className("id")).getText().trim());
+                assertEquals("Welcome", driver.findElement(By.className("first")).getText().trim());
+                log.info(driver.findElement(By.className("first")).getText() + " " + driver.findElement(By.className("second")).getText());
+                String a = driver.findElement(By.className("test_run")).getText().trim();
 
-                assertEquals("Report Not Present", true, driver.findElement(By.linkText(reportName)).isDisplayed());
+                assertEquals("Report NOT Complete", "Complete", driver.findElement(By.className("details")).getText().trim());
 
-                driver.findElement(By.linkText(reportName)).click();
-                wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("breadcrumb")));
+                log.info("Report is Complete");
+                String notRun = driver.findElements(By.className("count_cont")).get(0).getText().trim();
+                String passed = driver.findElements(By.className("count_cont")).get(1).getText().trim();
+                String failed = driver.findElements(By.className("count_cont")).get(2).getText().trim();
 
-                //get the Pass percentage password and fail
-                List<WebElement> wLabels = driver.findElements(By.className("title"));
-                passed = wLabels.get(4).getText().trim();
-                failed = wLabels.get(7).getText().trim();
-                percentagePass = wLabels.get(8).getText().trim();
+                testResult = "\npassed: " + passed + "\n" + "failed " + failed + "\n" + "notRun " + notRun + "\n";
+                reportScreenshotPath = screenShot.reportCapture(driver, testLodgeReportDir);
 
-                if (null != failed && Integer.valueOf(failed.split(" ")[0]) > 0) {
-                    failuresFlag = true;
-                }
-                testResult = passed + "\n" + failed + "\n\n" + "Pass Percentage: " + percentagePass + "\n";
-                String testStatus = passed.toUpperCase() + "\n" + failed.toLowerCase();
-                log.info("testStatus: " + testStatus);
+                log.info(testResult);
 
-                QaFileWriter.appendToFile(QaConstants.BUILD_STATUS, testResult);
-                String TestReportRun = driver.findElement(By.id("breadcrumb")).getText().trim();
-                TestrailURL = driver.getCurrentUrl();
-                log.info("TestrailURL: " + TestrailURL);
-
-                if (TestReportRun.isEmpty() || !TestReportRun.contains(reportName)) {
-                    log.info("Something went wring with testRails");
-                } else {
-
-                    tesLodgeReportPath = screenShot.reportCapture(driver, reportDir);
-                    log.info("tesLodgeReportPath: " + tesLodgeReportPath);
-                }
             } catch (NoSuchElementException nse) {
                 log.info(reportName + " Not Found, Probably report was not uploaded ... Exiting");
             } catch (Exception e) {
-                log.error(e);
+                e.printStackTrace();
             } finally {
-                driver.quit();
+                if (driver != null)
+                    driver.quit();
             }
         } else {
-            log.info("reportName is Empty check testrails.json");
+            log.info("reportName is Empty check testLodge.json");
         }
-        return tesLodgeReportPath;
+        return reportScreenshotPath;
     }
 
     public String getHumanReadableReportTime(String reportScreenshotPath) {
 
         try {
             reportTime = (reportScreenshotPath.split("/screenshot")[0]);
-            reportTime = reportTime.split("reports//avery-dogfood-debug-")[1];
-            reportTime = reportTime.split(averybuildNo + "_")[1];
+            reportTime = reportTime.split(platformType+"_")[1];
             reportTime = reportTime.replace("_", ":");
-            reportTime = reportTime.split("-")[3];
+//            reportTime = reportTime.split("-")[3];
         } catch (Exception e) {
             log.error(e);
         }
@@ -164,14 +141,14 @@ public class QaReportProcessor {
         public String getExecutionTime() {
 
             QaFileReader qaFileReader = new QaFileReader();
-            String execTime = qaFileReader.getExecutionTimeInHHMMSSFromTestrailsJSON();
+            String execTime = qaFileReader.getExecutionTimeInHHMMSSFromTestLodgeJSON();
             return execTime;
         }
     */
 /*    public void sendFailedEmail() throws Exception {
 
         try {
-            reportTime = getHumanReadableReportTime(tesLodgeReportPath);
+            reportTime = getHumanReadableReportTime(testLodgeReportPath);
             String subject = "[ " + failed.toUpperCase() + " ] " + reportTime + " Avery Automation FAILED";
             String body = "<html><font face='verdana' size='2'><b>Lyve Suite Automation Run:</b> " + reportTime + "\n\n";
             body += "Failed Test Cases\n\n";

@@ -156,7 +156,6 @@ public class AbstractTestCase {
         try {
             log.info("SessionID : " + driver.getSessionId());
             JSONObject eachResult = new JSONObject();
-            testName = name.getMethodName();
             long endTime = System.currentTimeMillis();
             long elapsed = (endTime - startTime) / 1000;
             eachResult.put("elapsed", elapsed);

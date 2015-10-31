@@ -24,7 +24,7 @@ public class EmailAuthentication extends AbstractTestCase {
     @Test
     public void Test1_LoginWithEmailAccount() {
         testSectionName = "EmailAuthentication";
-        testName = "Test1_LoginWithEmailAccount";
+        testName = "EmailAuthentication.Test1_LoginWithEmailAccount";
 
         //Go thorough first use
         LoginHooks.GoThroughFirstUse();

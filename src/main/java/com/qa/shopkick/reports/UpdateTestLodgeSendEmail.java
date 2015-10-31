@@ -19,28 +19,28 @@ public class UpdateTestLodgeSendEmail {
     String toEmail = "manish@shopkick.com";
     String toName = "SK-Appium-Automation";
     QaReportProcessor qaReportProcessor = new QaReportProcessor();
-    private String tesLodgeReportPath = "";
+    private String testLodgeReportPath = "";
     private String reportName = "";
     private String reportDir = "";
     private String reportTime = "";
-    private String TestrailURL = "";
+    private String TestLodgeURL = "";
     private String testResult = "";
     private String passed = "";
     private String failed = "";
     private String percentagePass = "";
     private boolean failuresFlag = false;
 
-    @Test
-    public void TestHello() {
-    }
+    String projectId = "10019";
+    String suiteId = "58074";
+    public String testRunId = "176141";
+    public String testRunName = "Android_4.7.5_10/30_10:45";
 
-    @Test
-    public void TestSetTestCaseStatus() {
-        String projectId = "10019";
-        String suiteId = "58074";
-        String testRunId = "";
+    public void uploadResultsToTestLodge() {
+
         QaTestLodge testLodge = new QaTestLodge();
-        testRunId = testLodge.createTestRun(projectId, suiteId);
+        String run = testLodge.createTestRun("Android", projectId, suiteId);
+        testRunId = run.split(":")[0];
+        testRunName = run.split(":")[1];
         log.info("Test Run Created with testRunId: " + testRunId);
         ArrayList<String> testCaseList = testLodge.getTestResult();
 
@@ -53,15 +53,21 @@ public class UpdateTestLodgeSendEmail {
 
     @Test
     public void sendEmailWithAttachment() throws Exception {
-        tesLodgeReportPath = qaReportProcessor.LaunchTestLodgeAndScreenGrab();
-        if ("".equalsIgnoreCase(tesLodgeReportPath)) {
+
+        uploadResultsToTestLodge();
+
+        String testLodgeUrl = "http://shopkick.testlodge.com/projects/" + projectId + "/runs/" + testRunId;
+        testLodgeReportPath = qaReportProcessor.LaunchTestLodgeAndGrabValues(testLodgeUrl, testRunName);
+        log.info(testLodgeReportPath);
+        if ("".equalsIgnoreCase(testLodgeReportPath)) {
             log.info("Reports Path is empty, possibly not found on testLodge ...NO EMAIL would be sent ... exiting ");
         } else {
             String subject = "";
             String body = "";
             try {
-                reportTime = qaReportProcessor.getHumanReadableReportTime(tesLodgeReportPath);
-                //                subject = "Avery " + QaProperties.getSuiteType() + " Automation Results: [" + QaProperties.getStack() + "] [Build: " + averybuildNo + "] [" + percentagePass + " Pass] ";
+                reportTime = qaReportProcessor.getHumanReadableReportTime(testLodgeReportPath);
+                log.info("reportTime: " + reportTime);
+                subject = "Appium " + " Automation Results: [Build: " + "BuildNo" + "] [" + percentagePass + " Pass] ";
                 body = "<html><font face='verdana' size='2'><b>Appium Automation Time of Execution:</b> " + reportTime + "\n\n";
                 body += "<b><u>Environment:</b></u>" + "\n";
                 //                body += "Stack: " + QaProperties.getStack() + "\n";
@@ -72,12 +78,12 @@ public class UpdateTestLodgeSendEmail {
                     body += "<b><u>Failed Test Cases</b></u> \n\n";
                     //                    body += getEmailBodyWithFailedTestCases() + "\n";
                 }
-                body += "For complete execution details, use the link below:\n" + TestrailURL + "\n\n";
-                //                body += "<b><u>TestRails SignIn:</b></u>\n" + "Username: trguest2@blackpearlsystems.com \nPassword: TRGuestUser2\n";
+                body += "For complete execution details, use the link below:\n" + TestLodgeURL + "\n\n";
                 body += "</html>";
                 reportName = qaReportProcessor.getTestLodgeReportName();
+                log.info("reportName: " + reportName);
                 QaEmail qaEmail = new QaEmail();
-                qaEmail.sendEmailAttachment(fromEmail, fromName, toEmail, toName, subject, body, tesLodgeReportPath);
+                //                qaEmail.sendEmailAttachment(fromEmail, fromName, toEmail, toName, subject, body, testLodgeReportPath);
             } catch (Exception e) {
                 log.error(e);
                 System.exit(1);

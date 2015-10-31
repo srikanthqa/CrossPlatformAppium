@@ -20,6 +20,7 @@ import static com.jayway.restassured.RestAssured.given;
 public class QaTestLodge {
 
     private static String projectId = "10019";
+
     private Logger log = Logger.getLogger(QaTestLodge.class);
     private String testLodgeUrl;
     private String username;
@@ -109,16 +110,17 @@ public class QaTestLodge {
         return false;
     }
 
-    public String createTestRun(String projectId, String suiteId) {
+    public String createTestRun(String os, String projectId, String suiteId) {
         try {
-            String runName = "automated Test Run " + QaCalendar.getInstance().getDateTime();
+            String runName = os +"_4.7.5_" + QaCalendar.getInstance().getDateTime();
             RequestSpecification request = given().contentType(ContentType.URLENC).with().
                     parameters("run[name]", runName, "run[plan_id]", "11001", "run[suite_ids][]", suiteId);
             Response resp = given(request).auth().basic(username, password).expect().statusCode(201).
                     post(testLodgeUrl + projectId + "/runs.json");
             String runId = resp.getBody().path("id").toString();
             log.info("runId: " + runId);
-            return runId;
+            log.info("runName: " + runName);
+            return runId + ":" + runName;
         } catch (Exception e) {
             e.printStackTrace();
             return "";
