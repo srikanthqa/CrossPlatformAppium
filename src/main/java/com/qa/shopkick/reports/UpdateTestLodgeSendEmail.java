@@ -14,10 +14,10 @@ import static junit.framework.TestCase.assertTrue;
 public class UpdateTestLodgeSendEmail {
 
     final private static Logger log = Logger.getLogger(UpdateTestLodgeSendEmail.class);
-    String fromEmail = "manish@shopkick.com";
+    String fromEmail = "Appium.Automation@shopkick.com";
     String fromName = "Appium Automation";
     String toEmail = "manish@shopkick.com";
-    String toName = "SK-Appium-Automation";
+    String toName = "Appium-Automation";
     QaReportProcessor qaReportProcessor = new QaReportProcessor();
     private String testLodgeReportPath = "";
     private String reportName = "";
@@ -35,26 +35,31 @@ public class UpdateTestLodgeSendEmail {
     public String testRunId = "176141";
     public String testRunName = "Android_4.7.5_10/30_10:45";
 
-    public void uploadResultsToTestLodge() {
+    public boolean uploadResultsToTestLodge() {
+        try {
+            QaTestLodge testLodge = new QaTestLodge();
+            String run = testLodge.createTestRun("Android", projectId, suiteId);
+            testRunId = run.split(":")[0];
+            testRunName = run.split(":")[1];
+            log.info("Test Run Created with testRunId: " + testRunId);
+            ArrayList<String> testCaseList = testLodge.getTestResult();
 
-        QaTestLodge testLodge = new QaTestLodge();
-        String run = testLodge.createTestRun("Android", projectId, suiteId);
-        testRunId = run.split(":")[0];
-        testRunName = run.split(":")[1];
-        log.info("Test Run Created with testRunId: " + testRunId);
-        ArrayList<String> testCaseList = testLodge.getTestResult();
-
-        for (int i = 0; i < testCaseList.size(); i++) {
-            String testCaseName = testCaseList.get(i).split(":")[0];
-            String runStatus = testCaseList.get(i).split(":")[1];
-            assertTrue("Uploading results to Test Lodge Failed ", testLodge.setTestCaseStatus(testRunId, testCaseName, runStatus));
+            for (int i = 0; i < testCaseList.size(); i++) {
+                String testCaseName = testCaseList.get(i).split(":")[0];
+                String runStatus = testCaseList.get(i).split(":")[1];
+                assertTrue("Uploading results to Test Lodge Failed ", testLodge.setTestCaseStatus(testRunId, testCaseName, runStatus));
+            }
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
         }
     }
 
     @Test
     public void sendEmailWithAttachment() throws Exception {
 
-        uploadResultsToTestLodge();
+        assertTrue(uploadResultsToTestLodge());
 
         String testLodgeUrl = "http://shopkick.testlodge.com/projects/" + projectId + "/runs/" + testRunId;
         testLodgeReportPath = qaReportProcessor.LaunchTestLodgeAndGrabValues(testLodgeUrl, testRunName);
@@ -70,13 +75,13 @@ public class UpdateTestLodgeSendEmail {
                 subject = "Appium " + " Automation Results: [Build: " + "BuildNo" + "] [" + percentagePass + " Pass] ";
                 body = "<html><font face='verdana' size='2'><b>Appium Automation Time of Execution:</b> " + reportTime + "\n\n";
                 body += "<b><u>Environment:</b></u>" + "\n";
-                //                body += "Stack: " + QaProperties.getStack() + "\n";
-                //                body += "Execution Time: " + getExecutionTime() + "\n\n";
+                //  body += "Stack: " + QaProperties.getStack() + "\n";
+                //  body += "Execution Time: " + getExecutionTime() + "\n\n";
                 body += "<b><u>Test Results</b></u>" + "\n";
                 body += testResult + "\n";
                 if (failuresFlag) {
                     body += "<b><u>Failed Test Cases</b></u> \n\n";
-                    //                    body += getEmailBodyWithFailedTestCases() + "\n";
+                    //  body += getEmailBodyWithFailedTestCases() + "\n";
                 }
                 body += "For complete execution details, use the link below:\n" + TestLodgeURL + "\n\n";
                 body += "</html>";
@@ -88,7 +93,7 @@ public class UpdateTestLodgeSendEmail {
                 log.error(e);
                 System.exit(1);
             } finally {
-                //                sendFailedEmail();
+                //sendFailedEmail();
             }
         }
     }

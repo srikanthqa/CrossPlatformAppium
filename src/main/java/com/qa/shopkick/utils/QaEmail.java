@@ -12,20 +12,19 @@ public class QaEmail {
     private static Logger log = Logger.getLogger(QaEmail.class);
 
     public void sendEmail(String fromEmail, String senderName, String toEmail, String toName, String subject, String body) throws Exception {
-
         try {
             MultiPartEmail email = new HtmlEmail();
             email.setHostName("smtp.gmail.com");
-            //465
             email.setSSL(true);
             email.setSmtpPort(465);
-            email.setAuthentication("mmadhusoodan@shopkick.com", "SKrox2015!");
+//            email.setAuthentication("mmadhusoodan@shopkick.com", "SKrox2015!");
+            email.setAuthentication("naanu.nane@gmail.com", "hsinam123");
             email.setFrom(fromEmail, senderName);
             email.addTo(toEmail, toName);
             email.setSubject(subject);
             email.setMsg(body);
             email.send();
-            log.info("Sent message successfully....sendEmailAttachment");
+            log.info("Sent message successfully....");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -36,25 +35,19 @@ public class QaEmail {
         try {
             // Create the attachment
             EmailAttachment attachment = new EmailAttachment();
-
             attachment.setPath(reportPath);
             attachment.setDisposition(EmailAttachment.ATTACHMENT);
             attachment.setName("CrossPlatform Appium" + reportPath);
-
             // Create the email message
             MultiPartEmail email = new HtmlEmail();
-            email.setHostName("smtp.corp.shopkick.com");
-
+            email.setHostName("smtp.gmail.com");
+            email.setSSL(true);
+            email.setSmtpPort(465);
+            email.setAuthentication("naanu.nane@gmail.com", "hsinam123");
             email.setFrom(fromEmail, senderName);
             email.addTo(toEmail, toName);
-
             email.setSubject(subject);
-
             email.setMsg(body);
-            // add the attachment
-            email.attach(attachment);
-
-            // send the email
             email.send();
             log.info("Sent message successfully....sendEmailAttachment");
         } catch (Exception e) {

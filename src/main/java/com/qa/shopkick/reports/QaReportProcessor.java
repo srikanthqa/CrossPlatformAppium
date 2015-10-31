@@ -117,7 +117,6 @@ public class QaReportProcessor {
             reportTime = (reportScreenshotPath.split("/screenshot")[0]);
             reportTime = reportTime.split(platformType+"_")[1];
             reportTime = reportTime.replace("_", ":");
-//            reportTime = reportTime.split("-")[3];
         } catch (Exception e) {
             log.error(e);
         }
