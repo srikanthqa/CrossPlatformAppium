@@ -83,13 +83,24 @@ public class UpdateTestLodgeSendEmail {
                 reportName = qaReportProcessor.getTestLodgeReportName();
                 log.info("reportName: " + reportName);
                 QaEmail qaEmail = new QaEmail();
-                //                qaEmail.sendEmailAttachment(fromEmail, fromName, toEmail, toName, subject, body, testLodgeReportPath);
+                qaEmail.sendEmailAttachment(fromEmail, fromName, toEmail, toName, subject, body, testLodgeReportPath);
             } catch (Exception e) {
                 log.error(e);
                 System.exit(1);
             } finally {
                 //                sendFailedEmail();
             }
+        }
+    }
+
+    @Test
+    public void sendEmail() {
+        try {
+            QaEmail qaEmail = new QaEmail();
+            testLodgeReportPath = "Android_10-30-02_17/screenshot427682324976688115.png";
+            qaEmail.sendEmail(fromEmail, fromName, toEmail, toName, "abc", "Abc");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
