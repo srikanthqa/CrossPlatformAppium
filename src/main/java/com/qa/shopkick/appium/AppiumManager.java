@@ -39,7 +39,7 @@ public class AppiumManager {
             log.info("Going to Create createAppiumDriver() ..." + dCount + " time ");
             File userDir = new File(System.getProperty("user.dir"));
             File appDir = new File(userDir, "APK/");
-            String apk = "Shopkick_debug_qa_0dc4b9029fd7f1cb5c32172e8d2e1d79764922e2.apk";
+            String apk = "Shopkick_debug_qa_1dffb561b83e53e7832fdeb24ef289e290099945.apk";
             log.info("Using: " + apk);
             File app = new File(appDir, apk);
             capabilities.setCapability("platformName", "Android");

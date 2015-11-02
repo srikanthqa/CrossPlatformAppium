@@ -81,7 +81,7 @@ public class QaScreenshot extends TestWatcher {
             File source = ((TakesScreenshot) augmentedDriver).getScreenshotAs(OutputType.FILE);
 
             reportsPath = reportsDir + File.separator + reportSubDir + File.separator + source.getName();
-            log.info("reportsPath " + reportsPath);
+            log.info("reportsPath: " + reportsPath);
             FileUtils.copyFile(source, new File(reportsPath));
         } catch (IOException e) {
             reportsPath = "Failed to capture screenshot: " + e.getMessage();
@@ -90,5 +90,4 @@ public class QaScreenshot extends TestWatcher {
         }
         return reportsPath;
     }
-
 }
