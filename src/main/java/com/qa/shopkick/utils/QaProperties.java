@@ -80,11 +80,19 @@ public class QaProperties { // singleton
         }
     }
 
-    public static String getBrowser() throws NullPointerException {
-        if (props.getProperty("portal.browser") == null) {
+    public static String getReporterEmail() throws NullPointerException {
+        if (props.getProperty("Reporter.Email") == null) {
             return "firefox";
         } else {
-            return props.getProperty("portal.browser").trim();
+            return props.getProperty("Reporter.Email").trim();
+        }
+    }
+
+    public static String getReporterPassword() throws NullPointerException {
+        if (props.getProperty("Reporter.Password") == null) {
+            return "firefox";
+        } else {
+            return props.getProperty("Reporter.Password").trim();
         }
     }
 

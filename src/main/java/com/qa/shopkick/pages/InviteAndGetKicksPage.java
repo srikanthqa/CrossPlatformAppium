@@ -27,7 +27,7 @@ public class InviteAndGetKicksPage extends ScreenBaseClass {
     public static void clickOninviteFrendsButton() {
         inviteFriendsButton.click();
         /* TODO: Should go to contact picker page from here
-		 * PageFactory.initElements(new AppiumFieldDecorator(driver),new FirstUseWalkinEducationPage());
+         * PageFactory.initElements(new AppiumFieldDecorator(driver),new FirstUseWalkinEducationPage());
 		 * */
         PageFactory.initElements(new AppiumFieldDecorator(driver), new FacebookInvitePage());
     }

@@ -1,10 +1,10 @@
 package com.qa.shopkick.tests.Authentication;
 
+import com.qa.shopkick.appium.AbstractTestCase;
 import com.qa.shopkick.pages.AccountSettings;
 import com.qa.shopkick.pages.EmailSignInPage;
 import com.qa.shopkick.pages.LandingPage;
 import com.qa.shopkick.pages.SignInPage;
-import com.qa.shopkick.appium.AbstractTestCase;
 import com.qa.shopkick.utils.CustomHooks;
 import org.apache.log4j.Logger;
 import org.junit.FixMethodOrder;
@@ -24,7 +24,7 @@ public class EmailAuthentication extends AbstractTestCase {
     @Test
     public void Test1_LoginWithEmailAccount() {
         testSectionName = "EmailAuthentication";
-        testName = "Test1_LoginWithEmailAccount";
+        testName = "EmailAuthentication.Test1_LoginWithEmailAccount";
 
         //Go thorough first use
         LoginHooks.GoThroughFirstUse();
@@ -38,11 +38,13 @@ public class EmailAuthentication extends AbstractTestCase {
         CustomHooks.gotoAccountSettings();
         String actualEmail = AccountSettings.getUserEmail();
 
-        assertEquals("Email's don't match in the Accounts Screen ", expectedEmail, actualEmail);
+        assertEquals("Emails don't match in the Accounts Screen ", expectedEmail, actualEmail);
+        log.info("all is well, going to log out");
         CustomHooks.LogMeOut();
         assertTrue("Error Some buttons missing", SignInPage.areFacebookGoogleEmailButtonsVisible());
         runStatus = "passed";
     }
+}
 
 /*    @Test
     public void Test3_DeleteEmailAccount() {
@@ -80,5 +82,3 @@ public class EmailAuthentication extends AbstractTestCase {
 
     }
 */
-
-}

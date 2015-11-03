@@ -15,13 +15,13 @@ import java.util.concurrent.TimeUnit;
  */
 public class AppiumManager {
     final private static Logger log = Logger.getLogger(AppiumManager.class);
-    protected static String appPackage = "com.shopkick.app";
-    protected static String appActivity = appPackage + "." + "activity.AppScreenActivity";
     //Commented for debug purpose
     public static String deviceName = System.getProperty("deviceName");
     public static String platformType = System.getProperty("platformType");
     public static String platformVersion = System.getProperty("platformVersion");
     public static String deviceUDID = System.getProperty("deviceUDID");
+    protected static String appPackage = "com.shopkick.app";
+    protected static String appActivity = appPackage + "." + "activity.AppScreenActivity";
     protected static String bundleID = "com.shopkick.debug-qa";
     //    protected static String deviceName = "S5";
     //    protected static String platformVersion = "5.0.1";
@@ -39,7 +39,7 @@ public class AppiumManager {
             log.info("Going to Create createAppiumDriver() ..." + dCount + " time ");
             File userDir = new File(System.getProperty("user.dir"));
             File appDir = new File(userDir, "APK/");
-            String apk = "Shopkick_debug_qa_0dc4b9029fd7f1cb5c32172e8d2e1d79764922e2.apk";
+            String apk = "Shopkick_debug_qa_1dffb561b83e53e7832fdeb24ef289e290099945.apk";
             log.info("Using: " + apk);
             File app = new File(appDir, apk);
             capabilities.setCapability("platformName", "Android");

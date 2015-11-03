@@ -22,12 +22,12 @@ import java.util.concurrent.TimeUnit;
 
 public class AbstractTestCase {
     final private static Logger log = Logger.getLogger(String.valueOf(AbstractTestCase.class));
-    private static QaCalendar calendar = QaCalendar.getInstance();
-    private static FileWriter fileWriter = null;
-    private static AppiumManager appiumManager = new AppiumManager();
-    private static JSONObject testLodgeJSON = new org.json.simple.JSONObject();
-    private static JSONArray resultsList = new JSONArray();
-    private static String buildNo = "4.7.6-1112";
+    //Commented for debug purpose
+    public static String deviceName = System.getProperty("deviceName");
+    //    public static String platformType = System.getProperty("platformType");
+    public static String platformVersion = System.getProperty("platformVersion");
+    public static String deviceUDID = System.getProperty("deviceUDID");
+    public static AppiumDriver driver = null;
     protected static String fileName = QaConstants.TEST_LODGE_RESULT_JSON;
     protected static String testLodgeDir = QaConstants.TEST_LODGE_DIR;
     protected static String filePath = testLodgeDir + File.separator + fileName;
@@ -35,15 +35,13 @@ public class AbstractTestCase {
     protected static String reportName = "";
     protected static String packageName = "com.shopkick.app";
     protected static String launcherActivity = packageName + "." + "activity.AppScreenActivity";
-        protected static String platformType = "Android";
-
-    //Commented for debug purpose
-    public static String deviceName = System.getProperty("deviceName");
-//    public static String platformType = System.getProperty("platformType");
-    public static String platformVersion = System.getProperty("platformVersion");
-    public static String deviceUDID = System.getProperty("deviceUDID");
-
-    public static AppiumDriver driver = null;
+    protected static String platformType = "Android";
+    private static QaCalendar calendar = QaCalendar.getInstance();
+    private static FileWriter fileWriter = null;
+    private static AppiumManager appiumManager = new AppiumManager();
+    private static JSONObject testLodgeJSON = new org.json.simple.JSONObject();
+    private static JSONArray resultsList = new JSONArray();
+    private static String buildNo = "4.7.6-1112";
     @Rule
     public TestName name = new TestName();
     protected String elapsedSec = "";
@@ -158,7 +156,6 @@ public class AbstractTestCase {
         try {
             log.info("SessionID : " + driver.getSessionId());
             JSONObject eachResult = new JSONObject();
-            testName = name.getMethodName();
             long endTime = System.currentTimeMillis();
             long elapsed = (endTime - startTime) / 1000;
             eachResult.put("elapsed", elapsed);

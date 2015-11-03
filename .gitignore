@@ -2,7 +2,7 @@
 /target/
 /bin/
 /build/
-
+*/.DS_Store
 #Do not need jars
 *.jar
 

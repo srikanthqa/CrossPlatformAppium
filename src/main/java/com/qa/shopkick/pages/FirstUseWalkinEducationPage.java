@@ -13,22 +13,18 @@ import org.openqa.selenium.support.PageFactory;
  */
 public class FirstUseWalkinEducationPage extends ScreenBaseClass {
 
-    public FirstUseWalkinEducationPage() {
-
-    }
-
-
     @iOSFindBy(uiAutomator = ".buttons()[\"Learn how\"]")
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"LEARN HOW\")")
     private static MobileElement learnHowButton;
-
     @iOSFindBy(uiAutomator = ".buttons()[\"Next\"]")
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"NEXT\")")
     private static WebElement nextButton;
-
     @iOSFindBy(uiAutomator = ".staticTexts()[\"Get points just for walking into stores.\"]")
     private static MobileElement getPointsText;
 
+    public FirstUseWalkinEducationPage() {
+
+    }
 
     public static boolean isGetPointsScreen() {
         if (nextButton.isDisplayed()) {
