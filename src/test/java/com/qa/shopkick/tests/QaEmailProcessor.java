@@ -2,10 +2,13 @@ package com.qa.shopkick.tests;
 
 import com.qa.shopkick.reports.QaReportProcessor;
 import com.qa.shopkick.utils.QaEmail;
+import com.qa.shopkick.utils.QaFileReader;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 
 import java.util.HashMap;
+import java.util.List;
+import java.util.ListIterator;
 
 import static junit.framework.Assert.assertNotNull;
 
@@ -42,53 +45,69 @@ public class QaEmailProcessor {
     @Test
     public void sendEmailWithAttachment() throws Exception {
 
-        QaReportProcessor qaReportProcessor = new QaReportProcessor();
+        HashMap<String, String> resultMap;
+        try {
+            QaReportProcessor qaReportProcessor = new QaReportProcessor();
+            testRunId = qaReportProcessor.uploadResultsToTestLodge();
+            assertNotNull("TestRun Empty ", testRunId);
+            String testLodgeUrl = "http://shopkick.testlodge.com/projects/" + projectId + "/runs/" + testRunId;
 
-        testRunId = qaReportProcessor.uploadResultsToTestLodge();
-        assertNotNull("TestRun Empty ", testRunId);
-        String testLodgeUrl = "http://shopkick.testlodge.com/projects/" + projectId + "/runs/" + testRunId;
-
-        HashMap<String, String> resultMap = qaReportProcessor.LaunchTestLodgeAndGrabValues(testLodgeUrl, testRunName);
-        percentagePass = resultMap.get("percentagePass");
-        testLodgeReportPath = resultMap.get("reportScreenshotPath");
-        log.info(testLodgeReportPath);
-        if ("".equalsIgnoreCase(testLodgeReportPath)) {
-            log.info("Reports Path is empty, possibly not found on testLodge ...NO EMAIL would be sent ... exiting ");
-        } else {
-            String subject = "";
-            String body = "";
-            try {
+            resultMap = qaReportProcessor.LaunchTestLodgeAndGrabValues(testLodgeUrl, testRunName);
+            percentagePass = resultMap.get("percentagePass");
+            testLodgeReportPath = resultMap.get("reportScreenshotPath");
+            log.info(testLodgeReportPath);
+            if ("".equalsIgnoreCase(testLodgeReportPath)) {
+                log.info("Reports Path is empty, possibly not found on testLodge ...NO EMAIL would be sent ... exiting ");
+            } else {
+                String subject = "";
+                String body = "";
                 reportTime = qaReportProcessor.getHumanReadableReportTime(testLodgeReportPath);
                 testLodgeResult = qaReportProcessor.getTestLodgeResults();
                 assertNotNull("ReportTime Empty ", reportTime);
                 log.info("reportTime: " + reportTime);
                 subject = "Appium" + " Automation Results: [RC Build: " + buildNo + "] [" + percentagePass + "% Pass] ";
-                body = "<html><font face='verdana' size='2'><b>Time of Execution:</b> " + reportTime + "\n\n";
-                body += "[RC Build: " + buildNo + "]";
-                body += "<b><u>Test Results</b></u>" + "\n";
+
+                body = "<html><font face='verdana' size='2'><b>Time of Execution:</b> " + reportTime + "\n  ";
+                body += "<b>[RC Build: </b>" + buildNo + "]";
+                body += "\n \n<b><u>Test Results</b></u>" + "\n";
 
                 body += testLodgeResult + "\n";
                 if (failuresFlag) {
                     body += "<b><u>Failed Test Cases</b></u> \n\n";
                     //  body += getEmailBodyWithFailedTestCases() + "\n";
                 }
-                body += "For complete execution details, use the link below:\n" + TestLodgeURL + "\n\n";
+                body += "For complete execution details, use the link below:\n" + testLodgeUrl + "\n\n";
+                body += "Click on the attachment to view the results";
                 body += "</html>";
                 reportName = qaReportProcessor.getTestLodgeReportName();
                 log.info("reportName: " + reportName);
                 QaEmail qaEmail = new QaEmail();
                 qaEmail.sendEmailAttachment(fromEmail, fromName, toEmail, toName, subject, body, testLodgeReportPath);
-            } catch (Exception e) {
-                log.error(e);
-                System.exit(1);
-            } finally {
-                //sendFailedEmail();
             }
+        } catch (Exception e) {
+            log.error(e);
+            System.exit(1);
+        } finally {
+            //sendFailedEmail();
         }
     }
 
-    /*
     @Test
+    public void getEmailBodyWithFailedTestCases() {
+
+        QaFileReader qaFileReader = new QaFileReader();
+        String body = "";
+        List<String> testcaseList = qaFileReader.getFailedTestCaseListFromTestrailJSON();
+
+        ListIterator<String> iterator = testcaseList.listIterator();
+        while (iterator.hasNext()) {
+            body = body + iterator.next() + "\n";
+        }
+        log.info(body);
+//        return body;
+    }
+
+/*    @Test
     public void sendEmail() {
         try {
             QaEmail qaEmail = new QaEmail();
@@ -115,8 +134,7 @@ public class QaEmailProcessor {
             e.printStackTrace();
         }
     }
-    */
-
+*/
     /*body += "<b><u>Environment:</b></u>" + "\n";
                   body += "Stack: " + QaProperties.getStack() + "\n";
                   body += "Execution Time: " + getExecutionTime() + "\n\n";

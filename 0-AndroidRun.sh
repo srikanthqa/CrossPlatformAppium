@@ -1,5 +1,20 @@
 #!/usr/bin/env bash
 
+########################## CHECK DEVICES #############
+
+NOT_PRESENT="List of devices attached"
+ADB_FOUND=`adb devices | tail -2 | head -1 | cut -f 1 | sed 's/ *$//g'`
+
+if [[ ${ADB_FOUND} == ${NOT_PRESENT} ]]; then
+echo "Android device seems to be missing."
+echo "*****************"
+echo "********Exiting*********"
+exit
+else
+echo "Android device found. Starting Tests"
+echo "*****************"
+fi
+
 mkdir logs
 mkdir reports
 mkdir screenshots

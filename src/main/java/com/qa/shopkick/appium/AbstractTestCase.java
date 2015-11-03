@@ -3,6 +3,7 @@ package com.qa.shopkick.appium;
 import com.qa.shopkick.pages.FirstUseDealsEducationPage;
 import com.qa.shopkick.utils.QaCalendar;
 import com.qa.shopkick.utils.QaConstants;
+import com.qa.shopkick.utils.QaProperties;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.remote.MobileCapabilityType;
@@ -41,7 +42,7 @@ public class AbstractTestCase {
     private static AppiumManager appiumManager = new AppiumManager();
     private static JSONObject testLodgeJSON = new org.json.simple.JSONObject();
     private static JSONArray resultsList = new JSONArray();
-    private static String buildNo = "4.7.6-1112";
+    private static String buildNo = QaProperties.getVersion() + "-" + "1125";
     @Rule
     public TestName name = new TestName();
     protected String elapsedSec = "";
