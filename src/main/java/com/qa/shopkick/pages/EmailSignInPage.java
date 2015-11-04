@@ -18,25 +18,42 @@ public class EmailSignInPage extends ScreenBaseClass {
     private static WebElement ErrorEmailPassword;
     @iOSFindBy(uiAutomator = ".textFields()[\"Email Address\"]")
     private static WebElement eMailField;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/password\")")
     @iOSFindBy(uiAutomator = ".scrollViews()[0].secureTextFields()[0]")
     private static WebElement emailsigninPassword;
+
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/password_confirmation\")")
     @iOSFindBy(uiAutomator = ".secureTextFields().firstWithPredicate(\"value like 'Confirm Password'\")")
     private static WebElement emailConfirmPassword;
+
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"SIGN IN OR SIGN UP\")")
-    private static WebElement emailsigninSignInOrSignUpButton;
+    private static WebElement emailSignUpButton;
+
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/first_name\").text(\"First name\")")
     @iOSFindBy(uiAutomator = ".scrollViews()[0].textFields().firstWithPredicate(\"value like 'First name'\")")
     private static WebElement emailSignUpFirstName;
+
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/last_name\").text(\"Last name\")")
     @iOSFindBy(uiAutomator = ".scrollViews()[0].textFields().firstWithPredicate(\"value like 'Last name'\")")
     private static WebElement emailSignUpLastName;
+
     @iOSFindBy(uiAutomator = ".scrollViews()[0].buttons().firstWithPredicate(\"value like 'Sign'\"))")
     private static WebElement signInSignUpIOS;
+
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/forgot_password\").text(\"Forgot password?\")")
     private static WebElement emailsigninForgotYourPassword;
+
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"LOG IN\")")
     private static WebElement logInEmailButton;
+
+    public static void typeFullNameANDROID(String emailLogin) {
+        MobileElement fullName = (MobileElement) driver.findElement(By.id("com.shopkick.app:id/name"));
+        fullName.click();
+        fullName.clear();
+        fullName.sendKeys(emailLogin);
+        log.info("Type Full Name:" + fullName);
+    }
 
     public static void typeEmailANDROID(String emailLogin) {
         MobileElement emailAddress = (MobileElement) driver.findElement(By.id("com.shopkick.app:id/email"));
@@ -48,6 +65,14 @@ public class EmailSignInPage extends ScreenBaseClass {
 
     public static void typePasswordANDROID(String passwordLogin) {
         MobileElement passwordField = (MobileElement) driver.findElement(By.id("com.shopkick.app:id/password"));
+        passwordField.click();
+        passwordField.clear();
+        passwordField.sendKeys(passwordLogin);
+        log.info("Type Password: " + passwordLogin);
+    }
+
+    public static void typePasswordConfirmANDROID(String passwordLogin) {
+        MobileElement passwordField = (MobileElement) driver.findElement(By.id("com.shopkick.app:id/password_password"));
         passwordField.click();
         passwordField.clear();
         passwordField.sendKeys(passwordLogin);
@@ -84,14 +109,14 @@ public class EmailSignInPage extends ScreenBaseClass {
         PageFactory.initElements(new AppiumFieldDecorator(driver), new EmailSignInPage());
     }
 
-    public static void clickAndEnterFirstName() {
+    public static void clickAndEnterFirstName(String firstName) {
         emailSignUpFirstName.click();
-        emailSignUpFirstName.sendKeys("Name");
+        emailSignUpFirstName.sendKeys(firstName);
     }
 
-    public static void clickAndEnterLastName() {
+    public static void clickAndEnterLastName(String lastName) {
         emailSignUpLastName.click();
-        emailSignUpLastName.sendKeys("Laster");
+        emailSignUpLastName.sendKeys(lastName);
     }
 
     public static void clickSignInIOS() {
@@ -105,8 +130,7 @@ public class EmailSignInPage extends ScreenBaseClass {
 
     public static void clickOnSignUpButton() {
         driver.hideKeyboard();
-        MobileElement signUpSubmitButton = (MobileElement) driver.findElement(By.id("com.shopkick.app:id/submit"));
-        signUpSubmitButton.click();
+        emailSignUpButton.click();
         PageFactory.initElements(new AppiumFieldDecorator(driver), new DidYouKnowPage());
         PageFactory.initElements(new AppiumFieldDecorator(driver), new LinkPhonePage());
         PageFactory.initElements(new AppiumFieldDecorator(driver), new LandingPage());

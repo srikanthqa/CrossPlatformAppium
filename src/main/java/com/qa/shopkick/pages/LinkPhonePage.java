@@ -22,20 +22,32 @@ public class LinkPhonePage extends ScreenBaseClass {
     @iOSFindBy(uiAutomator = ".buttons()[\"Complete registration\"]")
     private static WebElement completeRegistration;
 
-    public static void clickAndEnterPhoneNumber() {
-        enterPhoneToLink.click();
-        enterPhoneToLink.clear();
-        enterPhoneToLink.sendKeys("6507438891");
+    public static void clickAndEnterPhoneNumber(String ph) {
+        try {
+            enterPhoneToLink.click();
+            enterPhoneToLink.clear();
+            enterPhoneToLink.sendKeys(ph);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static void clickAndEnterZipcode() {
-        enterZipCode.click();
-        enterZipCode.sendKeys("95131");
+        try {
+            enterZipCode.click();
+            enterZipCode.sendKeys("94040");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static void clickOnCompleteRegistration() {
-        completeRegistration.click();
-        PageFactory.initElements(new AppiumFieldDecorator(driver), new VerifyMobileNumber());
+        try {
+            completeRegistration.click();
+            waitFor(5);
+            PageFactory.initElements(new AppiumFieldDecorator(driver), new VerifyMobileNumber());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
-
 }

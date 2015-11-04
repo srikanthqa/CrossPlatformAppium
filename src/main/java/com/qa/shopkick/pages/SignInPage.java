@@ -73,7 +73,7 @@ public class SignInPage extends ScreenBaseClass {
             signInEmailSignIn.click();
             log.info("Click clickEmailSignInButton");
             PageFactory.initElements(new AppiumFieldDecorator(driver), new EmailSignInPage());
-            PageFactory.initElements(new AppiumFieldDecorator(driver), new EmailSignUp());
+            PageFactory.initElements(new AppiumFieldDecorator(driver), new CreateAccountPage());
         } catch (Exception e) {
             log.error(e);
         }

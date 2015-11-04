@@ -85,8 +85,8 @@ public class SmokeSuiteOne extends AbstractTestCase {
         EmailSignInPage.enterConfirmPassword();
 
         //Add first and last name
-        EmailSignInPage.clickAndEnterFirstName();
-        EmailSignInPage.clickAndEnterLastName();
+        EmailSignInPage.clickAndEnterFirstName("FN");
+        EmailSignInPage.clickAndEnterLastName("LN");
 
         driver.hideKeyboard();
 
@@ -101,7 +101,7 @@ public class SmokeSuiteOne extends AbstractTestCase {
         //Phone number screen
 
         //add phone number
-        LinkPhonePage.clickAndEnterPhoneNumber();
+        LinkPhonePage.clickAndEnterPhoneNumber("12345665");
 
         //Add zipcode
         LinkPhonePage.clickAndEnterZipcode();

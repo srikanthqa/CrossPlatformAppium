@@ -50,6 +50,7 @@ public class LeftNavBar extends ScreenBaseClass {
     private static WebElement myFriendsLeftNav;
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/row_text\").text(\"Questions?\")")
     private static WebElement questionsLeftNav;
+
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/row_text\").text(\"Settings\")")
     @iOSFindBy(uiAutomator = ".tableViews()[0].cells()[\"Settings\"]")
     private static WebElement settingsLeftNav;

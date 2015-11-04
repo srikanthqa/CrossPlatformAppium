@@ -12,6 +12,11 @@ public class CustomHooks extends ScreenBaseClass {
 
     final private static Logger log = Logger.getLogger(String.valueOf(CustomHooks.class));
 
+    public static void pressBack() {
+        log.info("pressBack");
+        driver.navigate().back();
+    }
+
     public static void dismissMultiLoginMessage() {
         try {
             waitFor(3);
@@ -45,7 +50,21 @@ public class CustomHooks extends ScreenBaseClass {
         }
     }
 
-    public static void LogMeOut() {
+    public static void gotoSignInOrSignUp() {
+        try {
+            waitFor(5);
+            //driver.fi
+            PageFactory.initElements(new AppiumFieldDecorator(driver), new LandingPage());
+            waitTillGuestIconPresent();
+            LandingPage.openLeftNavSignedIn();
+            driver.scrollTo("ENTER MANUALLY").click();
+            log.info("In gotoSignInOrSignUp");
+        } catch (Exception e) {
+            log.error(e);
+        }
+    }
+
+    public static boolean logMeOut() {
         // before calling method leave app state in stores screen
         try {
             LandingPage.openLeftNavSignedIn();
@@ -54,8 +73,29 @@ public class CustomHooks extends ScreenBaseClass {
             LeftNavBar.clickOnSettingsLeftNav();
             LeftNavSettings.clicksettingsAccountSettings();
             AccountSettings.clickAccountSettingsLogOut();
+            QaScreenshot.getInstance().capture(driver);
+            return true;
         } catch (Exception e) {
             log.error(e);
+            return false;
+        }
+    }
+
+    public static boolean deleteAccount() {
+        // before calling method leave app state in stores screen
+        try {
+            LandingPage.openLeftNavSignedIn();
+            driver.scrollTo("Settings");
+            //click on settings
+            LeftNavBar.clickOnSettingsLeftNav();
+            LeftNavSettings.clicksettingsAccountSettings();
+            AccountSettings.clickAccountSettingsDeleteAccount();
+
+            QaScreenshot.getInstance().capture(driver);
+            return true;
+        } catch (Exception e) {
+            log.error(e);
+            return false;
         }
     }
 

@@ -22,7 +22,6 @@ mkdir screenshots
 adb uninstall com.shopkick.app
 Echo "Old App Uninstalled"
 
-#adb install -r Shopkick_release_production_v_4_7_6_Beta2.apk
 Echo "App Installed"
 #adb shell getprop ro.product.model > src/main/resources/local.properties
 ########################## Start Appium #########################
@@ -36,4 +35,4 @@ killall node ; appium > logs/appium.log &
 
 mvn -DplatformType='Android' -DplatformVersion='5.0.1' -DdeviceName='GalaxyS5' -DdeviceUDID='null' -Dtest=EmailAuthentication test
 
-mvn -Dtest=QaEmailProcessor test
+#mvn -Dtest=QaEmailProcessor test
