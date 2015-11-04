@@ -61,17 +61,19 @@ public class AbstractTestCase {
             capabilities.setCapability("newCommandTimeout", 7200);
 
             switch (platformType) {
-                case "IOS": {
-                    driver = appiumManager.createAndroidDriver(driver);
-                    break;
-                }
                 case "Android": {
                     driver = appiumManager.createAndroidDriver(driver); //app launched here
+                    break;
+                }
+                case "IOS": {
+                    driver = appiumManager.createIOSDriver(driver);
                     break;
                 }
             }
             driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
             log.info("SessionId: " + driver.getSessionId());
+            driver.closeApp();
+            driver.launchApp();
             PageFactory.initElements(new AppiumFieldDecorator(driver), new FirstUseDealsEducationPage());
         } catch (UnreachableBrowserException ube) {
             log.info(ube.getMessage());
@@ -91,8 +93,6 @@ public class AbstractTestCase {
             if (driver != null) {
                 log.info("Going to Quit Driver");
                 driver.closeApp();
-                driver.quit();
-                driver = null;
             }
         } catch (Exception e) {
             log.error(e);
@@ -102,7 +102,6 @@ public class AbstractTestCase {
     @BeforeClass
     public static void createEnvironment() {
         try {
-            createAppiumDriver();
             if (!file.exists()) {
                 log.info(fileName + " doesn't exist : So creating it at " + filePath);
                 file.createNewFile();
@@ -131,7 +130,11 @@ public class AbstractTestCase {
         } catch (Exception e) {
             log.error(e);
         } finally {
-            closeAppiumDriver();
+            log.info(driver.getSessionId());
+            if (driver != null) {
+                driver.closeApp();
+                driver.quit();
+            }
             log.info("<--------- End tearDownEnvironment() Test --------->");
         }
     }
@@ -140,6 +143,7 @@ public class AbstractTestCase {
     public void beforeMethod() {
         log.info("<--------- Start beforeMethod() Test ------------------------------------------------------>");
         try {
+            createAppiumDriver();
             runStatus = "failed";
             log.info("SessionID : " + driver.getSessionId());
             testName = "";
@@ -165,6 +169,7 @@ public class AbstractTestCase {
             eachResult.put("testName", testName);
             resultsList.add(eachResult);
             log.info(testName + " : " + runStatus + " : Took " + elapsed + " Seconds ");
+            closeAppiumDriver();
         } catch (Exception e) {
             log.error(e);
         }

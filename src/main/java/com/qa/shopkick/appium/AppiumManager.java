@@ -39,7 +39,7 @@ public class AppiumManager {
             log.info("Going to Create createAppiumDriver() ..." + dCount + " time ");
             File userDir = new File(System.getProperty("user.dir"));
             File appDir = new File(userDir, "APK/");
-            String apk = "Shopkick_debug_qa_1dffb561b83e53e7832fdeb24ef289e290099945.apk";
+            String apk = "Shopkick_debug_qa_70b2e40ff42f020af518358c84000b07f7dbc793.apk";
             log.info("Using: " + apk);
             File app = new File(appDir, apk);
             capabilities.setCapability("platformName", "Android");
@@ -52,18 +52,20 @@ public class AppiumManager {
 
             log.info("Android" + " : " + deviceName + " : " + platformVersion);
             log.info("Wait till the App gets installed .... ");
-            driver = new AndroidDriver(new URL(ipAddress + port + "/wd/hub"), capabilities);
+            if (null == driver || driver.getSessionId() == null)
+                driver = new AndroidDriver(new URL(ipAddress + port + "/wd/hub"), capabilities);
             log.info("Created Android Driver SessionId: " + driver.getSessionId());
             driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         } catch (Exception e) {
-            log.error(e);
+            e.printStackTrace();
             System.exit(1);
         }
         return driver;
     }
 
     /**
-     * Create Android Driver port and APK name
+     * Commented for Now Untill further notice
+     * Create IOS Driver
      */
     public AppiumDriver createIOSDriver(AppiumDriver driver) {
         //        dCount++;

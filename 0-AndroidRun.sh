@@ -36,3 +36,6 @@ killall node ; appium > logs/appium.log &
 mvn -DplatformType='Android' -DplatformVersion='5.0.1' -DdeviceName='GalaxyS5' -DdeviceUDID='null' -Dtest=EmailAuthentication test
 
 #mvn -Dtest=QaEmailProcessor test
+
+adb uninstall com.shopkick.app
+Echo "Old App Uninstalled"

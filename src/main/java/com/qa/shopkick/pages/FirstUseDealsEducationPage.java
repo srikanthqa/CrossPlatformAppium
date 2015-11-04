@@ -26,7 +26,7 @@ public class FirstUseDealsEducationPage extends ScreenBaseClass {
         try {
             getStartedFirstUse.click();
             log.info("click() getStartedFirstUse");
-            CustomHooks.waitFor(2);
+            CustomHooks.waitFor(5);
             PageFactory.initElements(new AppiumFieldDecorator(driver), new CountryPickerPage());
             PageFactory.initElements(new AppiumFieldDecorator(driver), new FirstUseWalkinEducationPage());
         } catch (Exception e) {
