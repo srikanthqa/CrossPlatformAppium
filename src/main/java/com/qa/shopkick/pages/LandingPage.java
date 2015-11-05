@@ -32,6 +32,9 @@ public class LandingPage extends ScreenBaseClass {
 
         String kicks = "";
         try {
+            while (!topCenterKicks.isDisplayed()) {
+                waitFor(5);
+            }
             kicks = topCenterKicks.getText().toString();
         } catch (Exception e) {
             log.error(e);

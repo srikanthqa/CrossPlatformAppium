@@ -1,6 +1,8 @@
 package com.qa.shopkick.tests.Authentication;
 
 import com.qa.shopkick.appium.AbstractTestCase;
+import com.qa.shopkick.appium.ScreenBaseClass;
+import com.qa.shopkick.overlay.WalkInBubble;
 import com.qa.shopkick.pages.*;
 import com.qa.shopkick.utils.CustomHooks;
 import com.qa.shopkick.utils.QaRandom;
@@ -55,61 +57,66 @@ public class LoginHooks extends AbstractTestCase {
     }
 
     public static String CreateAccountWithEmail() {
-        CustomHooks.dismissPotHoleError();
+        try {
+            CustomHooks.dismissPotHoleError();
+            if ("Android".equalsIgnoreCase(platformType)) {
+                String email = "auto" + QaRandom.getInstance().getRandomInteger(2) + "@a.com";
+                String password = "123456";
+                String fName = QaRandom.getInstance().getRandomInteger(2);
+                String lName = QaRandom.getInstance().getRandomInteger(2);
 
-        if ("Android".equalsIgnoreCase(platformType)) {
-            String email = "auto" + QaRandom.getInstance().getRandomInteger(2) + "@a.com";
-            String password = "123456";
-            String fName = QaRandom.getInstance().getRandomInteger(2);
-            String lName = QaRandom.getInstance().getRandomInteger(2);
+                CreateAccountPage.typeEmailANDROID(email);
+                CreateAccountPage.typePasswordANDROID(password);
+                CreateAccountPage.typePasswordConfirmANDROID(password);
+                CreateAccountPage.typeFirstAndLastNameANDROID(fName, lName);
+                CreateAccountPage.clickOnSignUpButton();
 
-            CreateAccountPage.typeEmailANDROID(email);
-            CreateAccountPage.typePasswordANDROID(password);
-            CreateAccountPage.typePasswordConfirmANDROID(password);
-            CreateAccountPage.typeFirstAndLastNameANDROID(fName, lName);
-            CreateAccountPage.clickOnSignUpButton();
+                PageFactory.initElements(new AppiumFieldDecorator(driver), new LinkPhonePage());
+                log.info("Now in LinkPhonePage");
 
-            PageFactory.initElements(new AppiumFieldDecorator(driver), new LinkPhonePage());
-            log.info("Now in LinkPhonePage");
-
-            String expectedPhone = "1847848" + QaRandom.getInstance().getRandomInteger(4);
-            LinkPhonePage.clickAndEnterPhoneNumber(expectedPhone);
-            LinkPhonePage.clickAndEnterZipcode();
-            LinkPhonePage.clickOnCompleteRegistration();
-
-            //            String actualPhone = VerifyMobileNumber.getPhoneNumber();
-            //            assertEquals("Phone no don't match ", expectedPhone, actualPhone);
-            log.info("Going to Ignore the Phone verification for now ");
-            CustomHooks.pressBack();
-            PageFactory.initElements(new AppiumFieldDecorator(driver), new EmailSignInPage());
-            return email;
-        } else {
-            String email = "qa@i.com";
-            EmailSignInPage.clickAndEnterEmailIOS(email);
-            EmailSignInPage.clickAndEnterPasswordIOS("123456");
-            EmailSignInPage.clickLoginButton();
-            return email;
+                String expectedPhone = "1847848" + QaRandom.getInstance().getRandomInteger(4);
+                LinkPhonePage.clickAndEnterPhoneNumber(expectedPhone);
+                LinkPhonePage.clickAndEnterZipcode();
+                LinkPhonePage.clickOnCompleteRegistration();
+                WalkInBubble.handleWalkBubble();
+                //            String actualPhone = VerifyMobileNumber.getPhoneNumber();
+                //            assertEquals("Phone no don't match ", expectedPhone, actualPhone);
+                log.info("Going to Ignore the Phone verification for now ");
+                CustomHooks.pressBack();
+                ScreenBaseClass.waitTillUserIconPresent();
+                PageFactory.initElements(new AppiumFieldDecorator(driver), new EmailSignInPage());
+                return email;
+            } else {
+                String email = "qa@i.com";
+                EmailSignInPage.clickAndEnterEmailIOS(email);
+                EmailSignInPage.clickAndEnterPasswordIOS("123456");
+                EmailSignInPage.clickLoginButton();
+                return email;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "";
         }
     }
 
     public static void GoThroughFirstUse() {
         //Go through the first use flow
-        FirstUseDealsEducationPage.clickGetStartedButton();
-
-        if (platformType.equals("IOS")) {
-            CountryPickerPage.clickCountryUSA();
-            CountryPickerPage.clickNextButton();
+        try {
+            FirstUseDealsEducationPage.clickGetStartedButton();
+            if (platformType.equals("IOS")) {
+                CountryPickerPage.clickCountryUSA();
+                CountryPickerPage.clickNextButton();
+            }
+            //Redeem your kicks for rewards screen
+            FirstUseWalkinEducationPage.clickNextButton();
+            //User has to tap on pick a reward
+            FirstUseRewardsEducationPage.clickPickARewardButton();
+            //Pick default reward
+            RewardsPickerPage.clickSelectRewardButton();
+            //Click on Login button
+            // FirstUseRegistrationIntroPage.clickLoginButton();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        //Redeem your kicks for rewards screen
-        FirstUseWalkinEducationPage.clickNextButton();
-
-        //User has to tap on pick a reward
-        FirstUseRewardsEducationPage.clickPickARewardButton();
-
-        //Pick default reward
-        RewardsPickerPage.clickSelectRewardButton();
-
-        //Click on Login button
-        //        FirstUseRegistrationIntroPage.clickLoginButton();
     }
 }

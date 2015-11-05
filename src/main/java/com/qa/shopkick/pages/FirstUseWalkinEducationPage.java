@@ -22,10 +22,6 @@ public class FirstUseWalkinEducationPage extends ScreenBaseClass {
     @iOSFindBy(uiAutomator = ".staticTexts()[\"Get points just for walking into stores.\"]")
     private static MobileElement getPointsText;
 
-    public FirstUseWalkinEducationPage() {
-
-    }
-
     public static boolean isGetPointsScreen() {
         if (nextButton.isDisplayed()) {
             return true;
@@ -36,7 +32,8 @@ public class FirstUseWalkinEducationPage extends ScreenBaseClass {
 
     public static void clickNextButton() {
         try {
-            nextButton.click();
+            if (nextButton.isDisplayed())
+                nextButton.click();
             PageFactory.initElements(new AppiumFieldDecorator(driver), new FirstUseRewardsEducationPage());
         } catch (Exception e) {
             e.printStackTrace();

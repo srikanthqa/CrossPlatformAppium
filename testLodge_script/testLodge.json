@@ -1,18 +1,1 @@
-{
-  "resultsList": [
-    {
-      "elapsed": 71,
-      "runStatus": "passed",
-      "testSectionName": "EmailAuthentication",
-      "testName": "EmailAuthentication.Test1_LoginWithEmailAccount"
-    },
-    {
-      "elapsed": 143,
-      "runStatus": "passed",
-      "testSectionName": "EmailAuthentication",
-      "testName": "EmailAuthentication.Test2_CreateAccountWithEmailAccount"
-    }
-  ],
-  "reportName": "Android_11-04-01:13_testLodge.json",
-  "buildNo": "4.7.6-1125"
-}
+{"resultsList":[{"elapsed":285,"runStatus":"failed","testSectionName":"EmailAuthentication","testName":"EmailAuthentication.Test2_CreateAccountWithEmailAccount"}],"reportName":"Android_11-04-05:47_testLodge.json","buildNo":"4.7.6-1125"}

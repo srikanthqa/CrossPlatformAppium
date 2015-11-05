@@ -43,7 +43,8 @@ public class LinkPhonePage extends ScreenBaseClass {
 
     public static void clickOnCompleteRegistration() {
         try {
-            completeRegistration.click();
+            if (completeRegistration.isEnabled())
+                completeRegistration.click();
             waitFor(5);
             PageFactory.initElements(new AppiumFieldDecorator(driver), new VerifyMobileNumber());
         } catch (Exception e) {

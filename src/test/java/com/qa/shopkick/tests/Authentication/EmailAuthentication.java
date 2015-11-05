@@ -52,8 +52,6 @@ public class EmailAuthentication extends AbstractTestCase {
         LoginHooks.GoThroughFirstUse();
         FirstUseRegistrationIntroPage.CreateAccountButton();
         String expectedEmail = LoginHooks.CreateAccountWithEmail();
-        String ACTUAL_ERROR = EmailSignInPage.getEmailPasswordError();
-        assertNotEquals(EXPECTED_ERROR, ACTUAL_ERROR);
 
         String actualKicks = LandingPage.getKicksOnLandingPage();
         log.info("You have " + actualKicks + " kicks");

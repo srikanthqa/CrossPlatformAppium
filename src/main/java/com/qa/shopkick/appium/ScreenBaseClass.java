@@ -37,9 +37,10 @@ public class ScreenBaseClass {
 
     public static boolean waitTillUserIconPresent() {
         try {
+            int count = 0;
             do {
                 Thread.sleep(300);
-            } while (userIcon.isDisplayed());
+            } while (count == 10 || userIcon.isDisplayed());
             return true;
         } catch (Exception e) {
             log.info(e);

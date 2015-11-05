@@ -74,6 +74,7 @@ public class AbstractTestCase {
             log.info("SessionId: " + driver.getSessionId());
             driver.closeApp();
             driver.launchApp();
+            log.info("driver.launchApp()");
             PageFactory.initElements(new AppiumFieldDecorator(driver), new FirstUseDealsEducationPage());
         } catch (UnreachableBrowserException ube) {
             log.info(ube.getMessage());
@@ -99,6 +100,9 @@ public class AbstractTestCase {
         }
     }
 
+    /**
+     * Initializes the testLodgeJSON and creates if not present
+     */
     @BeforeClass
     public static void createEnvironment() {
         try {
@@ -119,6 +123,11 @@ public class AbstractTestCase {
         }
     }
 
+
+    /**
+     * The testLodgeJSON is written with the Test Results
+     * to be consumed for the TestLodge Reporting
+     */
     @AfterClass
     public static void tearDownEnvironment() {
         log.info("<--------- Start tearDownEnvironment() Test --------->");
@@ -139,6 +148,11 @@ public class AbstractTestCase {
         }
     }
 
+    /**
+     * Apppium Driver is created on the Before Class,
+     * i.e before each test case
+     * via : createAppiumDriver();
+     */
     @Before
     public void beforeMethod() {
         log.info("<--------- Start beforeMethod() Test ------------------------------------------------------>");
@@ -155,6 +169,10 @@ public class AbstractTestCase {
         log.info("<--------- End beforeMethod() Test --------------------------------------------------------->");
     }
 
+    /**
+     * Appium driver is closed after each test case
+     * via : closeAppiumDriver();
+     */
     @After
     public void afterMethod() {
         log.info("<--------- Start afterMethod() Test --------------------------------------------------------->");

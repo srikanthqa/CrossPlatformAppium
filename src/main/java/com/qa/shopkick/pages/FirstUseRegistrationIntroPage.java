@@ -1,6 +1,7 @@
 package com.qa.shopkick.pages;
 
 import com.qa.shopkick.appium.ScreenBaseClass;
+import com.qa.shopkick.overlay.WalkInBubble;
 import com.qa.shopkick.utils.CustomHooks;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -55,17 +56,27 @@ public class FirstUseRegistrationIntroPage extends ScreenBaseClass {
     }
 
     public static void CreateAccountButton() {
-        createAccountButton.click();
-        //HACK , because we login as Guest by default via automation
-        CustomHooks.gotoSignInOrSignUp();
-        waitFor(4);
-        PageFactory.initElements(new AppiumFieldDecorator(driver), new CreateAccountPage());
-        log.info("Create Account Button clicked ");
+        try {
+            createAccountButton.click();
+            PageFactory.initElements(new AppiumFieldDecorator(driver), new WalkInBubble());
+            //HACK , because we login as Guest by default via automation
+            WalkInBubble.handleWalkBubble();
+            CustomHooks.gotoSignInOrSignUp();
+            waitFor(4);
+            PageFactory.initElements(new AppiumFieldDecorator(driver), new CreateAccountPage());
+            log.info("Create Account Button clicked ");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static void clickLoginButton() {
-        logInButton.click();
-        PageFactory.initElements(new AppiumFieldDecorator(driver), new SignInPage());
+        try {
+            logInButton.click();
+            PageFactory.initElements(new AppiumFieldDecorator(driver), new SignInPage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

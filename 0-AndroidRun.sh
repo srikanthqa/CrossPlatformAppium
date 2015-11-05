@@ -33,9 +33,19 @@ killall node ; appium > logs/appium.log &
 #mvn -Dtest=com.qa.shopkick.tests.Authentication.EmailAuthentication test
 #mvn -Dtest=com.qa.shopkick.tests.Authentication.FacebookAuthentication test
 
-mvn -DplatformType='Android' -DplatformVersion='5.0.1' -DdeviceName='GalaxyS5' -DdeviceUDID='null' -Dtest=EmailAuthentication test
-
-#mvn -Dtest=QaEmailProcessor test
+mvn -DplatformType='Android' -DplatformVersion='5.0.1' -DdeviceName='GalaxyS5' -DdeviceUDID='null' -Dtest=EmailAuthentication test || echo "BUILD FAILED"> logs/build.status
 
 adb uninstall com.shopkick.app
 Echo "Old App Uninstalled"
+
+echo "Update TestLodge"
+if [ -s  testLodge_script/testLodge.json ]
+then
+    mvn -Dtest=QaEmailProcessor test
+    echo "Email Sent"
+else
+    echo "BUILD FAILED"
+fi
+
+
+
