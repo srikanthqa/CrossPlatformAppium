@@ -1,6 +1,7 @@
 package com.qa.shopkick.utils;
 
 import com.qa.shopkick.appium.ScreenBaseClass;
+import com.qa.shopkick.overlay.ErrorOverlay;
 import com.qa.shopkick.pages.*;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.apache.log4j.Logger;
@@ -21,7 +22,7 @@ public class CustomHooks extends ScreenBaseClass {
         try {
             waitFor(3);
             if (driver.findElement(By.name("Did you know?")).isDisplayed()) {
-                DidYouKnowPage.tapOnDidYouKnow();
+                ErrorOverlay.tapOnDidYouKnow();
             }
         } catch (NoSuchElementException nse) {
             log.info("Lucky No MultiLoginMessage");
@@ -103,6 +104,7 @@ public class CustomHooks extends ScreenBaseClass {
         // before calling method leave app state in stores screen
         try {
             LandingPage.openLeftNavSignedIn();
+            driver.scrollTo("Questions?");
             driver.scrollTo("Settings");
             //click on settings
             LeftNavBar.clickOnSettingsLeftNav();

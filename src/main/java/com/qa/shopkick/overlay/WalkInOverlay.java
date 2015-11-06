@@ -9,9 +9,9 @@ import org.openqa.selenium.WebElement;
 /**
  * Created by mmadhusoodan on 11/4/15.
  */
-public class WalkInBubble extends BaseOverlays {
+public class WalkInOverlay extends BaseOverlays {
 
-    final private static Logger log = Logger.getLogger((WalkInBubble.class));
+    final private static Logger log = Logger.getLogger((WalkInOverlay.class));
 
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/ball_image_outer\")")
     private static WebElement walkInBubble;

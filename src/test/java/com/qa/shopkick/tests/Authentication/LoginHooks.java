@@ -2,7 +2,7 @@ package com.qa.shopkick.tests.Authentication;
 
 import com.qa.shopkick.appium.AbstractTestCase;
 import com.qa.shopkick.appium.ScreenBaseClass;
-import com.qa.shopkick.overlay.WalkInBubble;
+import com.qa.shopkick.overlay.WalkInOverlay;
 import com.qa.shopkick.pages.*;
 import com.qa.shopkick.utils.CustomHooks;
 import com.qa.shopkick.utils.QaRandom;
@@ -60,7 +60,7 @@ public class LoginHooks extends AbstractTestCase {
         try {
             CustomHooks.dismissPotHoleError();
             if ("Android".equalsIgnoreCase(platformType)) {
-                String email = "auto" + QaRandom.getInstance().getRandomInteger(2) + "@a.com";
+                String email = "auto" + QaRandom.getInstance().getRandomInteger(4) + "@and.com";
                 String password = "123456";
                 String fName = QaRandom.getInstance().getRandomInteger(2);
                 String lName = QaRandom.getInstance().getRandomInteger(2);
@@ -78,7 +78,7 @@ public class LoginHooks extends AbstractTestCase {
                 LinkPhonePage.clickAndEnterPhoneNumber(expectedPhone);
                 LinkPhonePage.clickAndEnterZipcode();
                 LinkPhonePage.clickOnCompleteRegistration();
-                WalkInBubble.handleWalkBubble();
+                WalkInOverlay.handleWalkBubble();
                 //            String actualPhone = VerifyMobileNumber.getPhoneNumber();
                 //            assertEquals("Phone no don't match ", expectedPhone, actualPhone);
                 log.info("Going to Ignore the Phone verification for now ");

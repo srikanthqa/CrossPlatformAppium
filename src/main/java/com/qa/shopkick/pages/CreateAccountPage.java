@@ -1,6 +1,7 @@
 package com.qa.shopkick.pages;
 
 import com.qa.shopkick.appium.ScreenBaseClass;
+import com.qa.shopkick.overlay.ErrorOverlay;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.apache.log4j.Logger;
@@ -36,18 +37,20 @@ public class CreateAccountPage extends ScreenBaseClass {
 
     public static void typePasswordConfirmANDROID(String passwordLogin) {
         try {
+            waitFor(2);
             MobileElement passwordField = (MobileElement) driver.findElement(By.id("com.shopkick.app:id/password_confirmation"));
             passwordField.click();
             passwordField.clear();
             passwordField.sendKeys(passwordLogin);
             log.info("Type Password: " + passwordLogin);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error(e);
         }
     }
 
     public static void typeFirstAndLastNameANDROID(String fName, String lName) {
         try {
+            waitFor(2);
             MobileElement fname = (MobileElement) driver.findElement(By.id("com.shopkick.app:id/first_name"));
             MobileElement lname = (MobileElement) driver.findElement(By.id("com.shopkick.app:id/last_name"));
             fname.click();
@@ -67,7 +70,7 @@ public class CreateAccountPage extends ScreenBaseClass {
         try {
             MobileElement signUpButton = (MobileElement) driver.findElement(By.id("com.shopkick.app:id/button_text"));
             signUpButton.click();
-            PageFactory.initElements(new AppiumFieldDecorator(driver), new DidYouKnowPage());
+            PageFactory.initElements(new AppiumFieldDecorator(driver), new ErrorOverlay());
             PageFactory.initElements(new AppiumFieldDecorator(driver), new LinkPhonePage());
             PageFactory.initElements(new AppiumFieldDecorator(driver), new LandingPage());
             PageFactory.initElements(new AppiumFieldDecorator(driver), new StoresPage());

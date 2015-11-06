@@ -38,14 +38,14 @@ mvn -DplatformType='Android' -DplatformVersion='5.0.1' -DdeviceName='GalaxyS5' -
 adb uninstall com.shopkick.app
 Echo "Old App Uninstalled"
 
-echo "Update TestLodge"
-if [ -s  testLodge_script/testLodge.json ]
-then
-    mvn -Dtest=QaEmailProcessor test
-    echo "Email Sent"
-else
-    echo "BUILD FAILED"
-fi
+#echo "Update TestLodge"
+#if [ -s  testLodge_script/testLodge.json ]
+#then
+#    mvn -Dtest=QaEmailProcessor test
+#    echo "Email Sent"
+#else
+#    echo "BUILD FAILED"
+#fi
 
 
 

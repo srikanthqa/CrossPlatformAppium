@@ -1,7 +1,7 @@
 package com.qa.shopkick.pages;
 
 import com.qa.shopkick.appium.ScreenBaseClass;
-import com.qa.shopkick.overlay.WalkInBubble;
+import com.qa.shopkick.overlay.WalkInOverlay;
 import com.qa.shopkick.utils.CustomHooks;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -58,9 +58,10 @@ public class FirstUseRegistrationIntroPage extends ScreenBaseClass {
     public static void CreateAccountButton() {
         try {
             createAccountButton.click();
-            PageFactory.initElements(new AppiumFieldDecorator(driver), new WalkInBubble());
+            PageFactory.initElements(new AppiumFieldDecorator(driver), new WalkInOverlay());
+            CustomHooks.dismissPotHoleError();
             //HACK , because we login as Guest by default via automation
-            WalkInBubble.handleWalkBubble();
+            WalkInOverlay.handleWalkBubble();
             CustomHooks.gotoSignInOrSignUp();
             waitFor(4);
             PageFactory.initElements(new AppiumFieldDecorator(driver), new CreateAccountPage());

@@ -40,7 +40,7 @@ public class ScreenBaseClass {
             int count = 0;
             do {
                 Thread.sleep(300);
-            } while (count == 10 || userIcon.isDisplayed());
+            } while (count == 10 || !userIcon.isDisplayed());
             return true;
         } catch (Exception e) {
             log.info(e);

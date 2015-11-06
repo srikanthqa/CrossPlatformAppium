@@ -1,6 +1,7 @@
 package com.qa.shopkick.pages;
 
 import com.qa.shopkick.appium.ScreenBaseClass;
+import com.qa.shopkick.overlay.ErrorOverlay;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
@@ -122,7 +123,7 @@ public class EmailSignInPage extends ScreenBaseClass {
     public static void clickSignInIOS() {
         driver.hideKeyboard();
         signInSignUpIOS.click();
-        PageFactory.initElements(new AppiumFieldDecorator(driver), new DidYouKnowPage());
+        PageFactory.initElements(new AppiumFieldDecorator(driver), new ErrorOverlay());
         PageFactory.initElements(new AppiumFieldDecorator(driver), new LinkPhonePage());
         PageFactory.initElements(new AppiumFieldDecorator(driver), new LandingPage());
         PageFactory.initElements(new AppiumFieldDecorator(driver), new StoresPage());
@@ -131,7 +132,7 @@ public class EmailSignInPage extends ScreenBaseClass {
     public static void clickOnSignUpButton() {
         driver.hideKeyboard();
         emailSignUpButton.click();
-        PageFactory.initElements(new AppiumFieldDecorator(driver), new DidYouKnowPage());
+        PageFactory.initElements(new AppiumFieldDecorator(driver), new ErrorOverlay());
         PageFactory.initElements(new AppiumFieldDecorator(driver), new LinkPhonePage());
         PageFactory.initElements(new AppiumFieldDecorator(driver), new LandingPage());
         PageFactory.initElements(new AppiumFieldDecorator(driver), new StoresPage());
@@ -144,6 +145,7 @@ public class EmailSignInPage extends ScreenBaseClass {
     public static void clickLoginButton() {
         logInEmailButton.click();
         waitFor(5);
+        PageFactory.initElements(new AppiumFieldDecorator(driver), new ErrorOverlay());
         PageFactory.initElements(new AppiumFieldDecorator(driver), new LandingPage());
         PageFactory.initElements(new AppiumFieldDecorator(driver), new StoresPage());
     }

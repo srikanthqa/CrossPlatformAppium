@@ -20,9 +20,31 @@ public class EmailAuthentication extends AbstractTestCase {
     final private static String EXPECTED_ERROR = "Oh no, that email/password isn't right. Try again or tap to reset password.";
 
     @Test
-    public void Test1_LoginWithEmailAccount() {
+    public void Test1_CreateAccountWithEmailAccount() {
         testSectionName = "EmailAuthentication";
-        testName = "EmailAuthentication.Test1_LoginWithEmailAccount";
+        testName = "EmailAuthentication.Test1_CreateAccountWithEmailAccount";
+
+        LoginHooks.GoThroughFirstUse();
+        FirstUseRegistrationIntroPage.CreateAccountButton();
+        String expectedEmail = LoginHooks.CreateAccountWithEmail();
+
+        String actualKicks = LandingPage.getKicksOnLandingPage();
+        log.info("You have " + actualKicks + " kicks");
+
+        CustomHooks.gotoAccountSettings();
+        String actualEmail = AccountSettings.getUserEmail();
+
+        assertEquals("Emails don't match in the Accounts Screen ", expectedEmail, actualEmail);
+        log.info("All is well, going to log out");
+        CustomHooks.logMeOut();
+        assertTrue("Error Some buttons missing", SignInPage.areFacebookGoogleEmailButtonsVisible());
+        runStatus = "passed";
+    }
+
+    @Test
+    public void Test2_LoginWithEmailAccount() {
+        testSectionName = "EmailAuthentication";
+        testName = "EmailAuthentication.Test2_LoginWithEmailAccount";
 
         //Go thorough first use
         LoginHooks.GoThroughFirstUse();
@@ -40,28 +62,6 @@ public class EmailAuthentication extends AbstractTestCase {
         assertEquals("Emails don't match in the Accounts Screen ", expectedEmail, actualEmail);
         log.info("All is well, going to log out");
         TestCase.assertTrue("Logout failed ", CustomHooks.logMeOut());
-        assertTrue("Error Some buttons missing", SignInPage.areFacebookGoogleEmailButtonsVisible());
-        runStatus = "passed";
-    }
-
-    @Test
-    public void Test2_CreateAccountWithEmailAccount() {
-        testSectionName = "EmailAuthentication";
-        testName = "EmailAuthentication.Test2_CreateAccountWithEmailAccount";
-
-        LoginHooks.GoThroughFirstUse();
-        FirstUseRegistrationIntroPage.CreateAccountButton();
-        String expectedEmail = LoginHooks.CreateAccountWithEmail();
-
-        String actualKicks = LandingPage.getKicksOnLandingPage();
-        log.info("You have " + actualKicks + " kicks");
-
-        CustomHooks.gotoAccountSettings();
-        String actualEmail = AccountSettings.getUserEmail();
-
-        assertEquals("Emails don't match in the Accounts Screen ", expectedEmail, actualEmail);
-        log.info("All is well, going to log out");
-        CustomHooks.logMeOut();
         assertTrue("Error Some buttons missing", SignInPage.areFacebookGoogleEmailButtonsVisible());
         runStatus = "passed";
     }
