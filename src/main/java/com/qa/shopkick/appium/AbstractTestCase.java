@@ -3,6 +3,7 @@ package com.qa.shopkick.appium;
 import com.qa.shopkick.pages.FirstUseDealsEducationPage;
 import com.qa.shopkick.utils.QaCalendar;
 import com.qa.shopkick.utils.QaConstants;
+import com.qa.shopkick.utils.QaProperties;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.remote.MobileCapabilityType;
@@ -41,7 +42,7 @@ public class AbstractTestCase {
     private static AppiumManager appiumManager = new AppiumManager();
     private static JSONObject testLodgeJSON = new org.json.simple.JSONObject();
     private static JSONArray resultsList = new JSONArray();
-    private static String buildNo = "4.7.6-1112";
+    private static String buildNo = QaProperties.getVersion() + "-" + "1125";
     @Rule
     public TestName name = new TestName();
     protected String elapsedSec = "";
@@ -60,17 +61,20 @@ public class AbstractTestCase {
             capabilities.setCapability("newCommandTimeout", 7200);
 
             switch (platformType) {
-                case "IOS": {
-                    driver = appiumManager.createAndroidDriver(driver);
-                    break;
-                }
                 case "Android": {
                     driver = appiumManager.createAndroidDriver(driver); //app launched here
+                    break;
+                }
+                case "IOS": {
+                    driver = appiumManager.createIOSDriver(driver);
                     break;
                 }
             }
             driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
             log.info("SessionId: " + driver.getSessionId());
+            driver.closeApp();
+            driver.launchApp();
+            log.info("driver.launchApp()");
             PageFactory.initElements(new AppiumFieldDecorator(driver), new FirstUseDealsEducationPage());
         } catch (UnreachableBrowserException ube) {
             log.info(ube.getMessage());
@@ -90,18 +94,18 @@ public class AbstractTestCase {
             if (driver != null) {
                 log.info("Going to Quit Driver");
                 driver.closeApp();
-                driver.quit();
-                driver = null;
             }
         } catch (Exception e) {
             log.error(e);
         }
     }
 
+    /**
+     * Initializes the testLodgeJSON and creates if not present
+     */
     @BeforeClass
     public static void createEnvironment() {
         try {
-            createAppiumDriver();
             if (!file.exists()) {
                 log.info(fileName + " doesn't exist : So creating it at " + filePath);
                 file.createNewFile();
@@ -119,6 +123,11 @@ public class AbstractTestCase {
         }
     }
 
+
+    /**
+     * The testLodgeJSON is written with the Test Results
+     * to be consumed for the TestLodge Reporting
+     */
     @AfterClass
     public static void tearDownEnvironment() {
         log.info("<--------- Start tearDownEnvironment() Test --------->");
@@ -130,15 +139,25 @@ public class AbstractTestCase {
         } catch (Exception e) {
             log.error(e);
         } finally {
-            closeAppiumDriver();
+            log.info(driver.getSessionId());
+            if (driver != null) {
+                driver.closeApp();
+                driver.quit();
+            }
             log.info("<--------- End tearDownEnvironment() Test --------->");
         }
     }
 
+    /**
+     * Apppium Driver is created on the Before Class,
+     * i.e before each test case
+     * via : createAppiumDriver();
+     */
     @Before
     public void beforeMethod() {
         log.info("<--------- Start beforeMethod() Test ------------------------------------------------------>");
         try {
+            createAppiumDriver();
             runStatus = "failed";
             log.info("SessionID : " + driver.getSessionId());
             testName = "";
@@ -150,6 +169,10 @@ public class AbstractTestCase {
         log.info("<--------- End beforeMethod() Test --------------------------------------------------------->");
     }
 
+    /**
+     * Appium driver is closed after each test case
+     * via : closeAppiumDriver();
+     */
     @After
     public void afterMethod() {
         log.info("<--------- Start afterMethod() Test --------------------------------------------------------->");
@@ -164,6 +187,7 @@ public class AbstractTestCase {
             eachResult.put("testName", testName);
             resultsList.add(eachResult);
             log.info(testName + " : " + runStatus + " : Took " + elapsed + " Seconds ");
+            closeAppiumDriver();
         } catch (Exception e) {
             log.error(e);
         }

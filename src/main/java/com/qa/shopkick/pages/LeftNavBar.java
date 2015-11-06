@@ -2,6 +2,7 @@ package com.qa.shopkick.pages;
 
 
 import com.qa.shopkick.appium.ScreenBaseClass;
+import com.qa.shopkick.overlay.ErrorOverlay;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
@@ -50,6 +51,7 @@ public class LeftNavBar extends ScreenBaseClass {
     private static WebElement myFriendsLeftNav;
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/row_text\").text(\"Questions?\")")
     private static WebElement questionsLeftNav;
+
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/row_text\").text(\"Settings\")")
     @iOSFindBy(uiAutomator = ".tableViews()[0].cells()[\"Settings\"]")
     private static WebElement settingsLeftNav;
@@ -76,7 +78,7 @@ public class LeftNavBar extends ScreenBaseClass {
 
     public static void clickOnFaceBookSignIn() {
         signInWithFacebookLeftNav.click();
-        PageFactory.initElements(new AppiumFieldDecorator(driver), new DidYouKnowPage());
+        PageFactory.initElements(new AppiumFieldDecorator(driver), new ErrorOverlay());
     }
 
     public static void clickOnGooglePlusSignIn() {

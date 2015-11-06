@@ -1,6 +1,7 @@
 package com.qa.shopkick.pages;
 
 import com.qa.shopkick.appium.ScreenBaseClass;
+import com.qa.shopkick.overlay.ErrorOverlay;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
@@ -28,10 +29,15 @@ public class LandingPage extends ScreenBaseClass {
     @iOSFindBy(uiAutomator = ".tabBar().buttons()[\"Deals\"]")
     private static WebElement tabTitleDeals;
 
+
     public static String getKicksOnLandingPage() {
 
+        ErrorOverlay.tapOnDidYouKnow();
         String kicks = "";
         try {
+            while (!topCenterKicks.isDisplayed()) {
+                waitFor(5);
+            }
             kicks = topCenterKicks.getText().toString();
         } catch (Exception e) {
             log.error(e);

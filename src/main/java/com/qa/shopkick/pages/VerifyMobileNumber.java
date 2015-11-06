@@ -13,7 +13,7 @@ public class VerifyMobileNumber extends ScreenBaseClass {
     private static WebElement linkPhoneTitleText;*/
 
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/verify_edit_phone_button\")")
-    private static WebElement verifyPhoneToLink;
+    private static WebElement verifyPhoneNoText;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/verify_not_now_button\").text(\"Not right now\")")
     @iOSFindBy(uiAutomator = ".buttons()[6]")
@@ -23,6 +23,22 @@ public class VerifyMobileNumber extends ScreenBaseClass {
         verifyPhoneNotRightNow.click();
         PageFactory.initElements(new AppiumFieldDecorator(driver), new LandingPage());
         PageFactory.initElements(new AppiumFieldDecorator(driver), new LeftNavSettings());
+    }
+
+    public static String getPhoneNumber() {
+        try {
+            while (!verifyPhoneNoText.isDisplayed()) {
+                waitFor(3);
+            }
+            String ph = verifyPhoneNoText.getText().trim().toString();
+            PageFactory.initElements(new AppiumFieldDecorator(driver), new LandingPage());
+            PageFactory.initElements(new AppiumFieldDecorator(driver), new LeftNavSettings());
+            ph = ph.replace("-", "");
+            return ph;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "";
+        }
     }
 }
 

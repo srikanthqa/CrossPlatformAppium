@@ -49,8 +49,8 @@ public class LaunchTest extends AbstractTestCase {
         EmailSignInPage.enterConfirmPassword();
 
         //Add first and last name
-        EmailSignInPage.clickAndEnterFirstName();
-        EmailSignInPage.clickAndEnterLastName();
+//        EmailSignInPage.clickAndEnterFirstName();
+//        EmailSignInPage.clickAndEnterLastName();
 
         //Hit sign up
         EmailSignInPage.clickOnSignUpButton();
@@ -60,7 +60,7 @@ public class LaunchTest extends AbstractTestCase {
         //Phone number screen
 
         //add phone number
-        LinkPhonePage.clickAndEnterPhoneNumber();
+        LinkPhonePage.clickAndEnterPhoneNumber("123456789");
 
         //Add zipcode
         LinkPhonePage.clickAndEnterZipcode();

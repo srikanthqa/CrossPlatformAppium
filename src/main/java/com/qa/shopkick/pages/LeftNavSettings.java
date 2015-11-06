@@ -12,7 +12,7 @@ public class LeftNavSettings extends ScreenBaseClass {
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/more_login_item\").text(\"Your settings\")")
     private static WebElement settingsPageHeader;
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/app_screen_header\").text(\"Register or sign in\")")
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/more_login_button\")")
     private static WebElement settingsRegisterOrSignIn;
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/more_push_notification_button\").text(\"Push notifications\")")
     private static WebElement settingsPushNotifications;
@@ -94,6 +94,12 @@ public class LeftNavSettings extends ScreenBaseClass {
     public static void clickAboutYouSettings() {
         settingsAboutSettings.click();
         PageFactory.initElements(new AppiumFieldDecorator(driver), new AccountSettings());
+
+    }
+
+    public static void clickRegisterOrSignIn() {
+        settingsRegisterOrSignIn.click();
+        PageFactory.initElements(new AppiumFieldDecorator(driver), new SignInPage());
 
     }
 

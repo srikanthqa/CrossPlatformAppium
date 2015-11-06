@@ -1,11 +1,9 @@
 package com.qa.shopkick.tests.Authentication;
 
 import com.qa.shopkick.appium.AbstractTestCase;
-import com.qa.shopkick.pages.AccountSettings;
-import com.qa.shopkick.pages.EmailSignInPage;
-import com.qa.shopkick.pages.LandingPage;
-import com.qa.shopkick.pages.SignInPage;
+import com.qa.shopkick.pages.*;
 import com.qa.shopkick.utils.CustomHooks;
+import junit.framework.TestCase;
 import org.apache.log4j.Logger;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -22,12 +20,35 @@ public class EmailAuthentication extends AbstractTestCase {
     final private static String EXPECTED_ERROR = "Oh no, that email/password isn't right. Try again or tap to reset password.";
 
     @Test
-    public void Test1_LoginWithEmailAccount() {
+    public void Test1_CreateAccountWithEmailAccount() {
         testSectionName = "EmailAuthentication";
-        testName = "EmailAuthentication.Test1_LoginWithEmailAccount";
+        testName = "EmailAuthentication.Test1_CreateAccountWithEmailAccount";
+
+        LoginHooks.GoThroughFirstUse();
+        FirstUseRegistrationIntroPage.CreateAccountButton();
+        String expectedEmail = LoginHooks.CreateAccountWithEmail();
+
+        String actualKicks = LandingPage.getKicksOnLandingPage();
+        log.info("You have " + actualKicks + " kicks");
+
+        CustomHooks.gotoAccountSettings();
+        String actualEmail = AccountSettings.getUserEmail();
+
+        assertEquals("Emails don't match in the Accounts Screen ", expectedEmail, actualEmail);
+        log.info("All is well, going to log out");
+        CustomHooks.logMeOut();
+        assertTrue("Error Some buttons missing", SignInPage.areFacebookGoogleEmailButtonsVisible());
+        runStatus = "passed";
+    }
+
+    @Test
+    public void Test2_LoginWithEmailAccount() {
+        testSectionName = "EmailAuthentication";
+        testName = "EmailAuthentication.Test2_LoginWithEmailAccount";
 
         //Go thorough first use
         LoginHooks.GoThroughFirstUse();
+        FirstUseRegistrationIntroPage.clickLoginButton();
 
         String expectedEmail = LoginHooks.loginWithEmail();
         String ACTUAL_ERROR = EmailSignInPage.getEmailPasswordError();
@@ -39,46 +60,9 @@ public class EmailAuthentication extends AbstractTestCase {
         String actualEmail = AccountSettings.getUserEmail();
 
         assertEquals("Emails don't match in the Accounts Screen ", expectedEmail, actualEmail);
-        log.info("all is well, going to log out");
-        CustomHooks.LogMeOut();
+        log.info("All is well, going to log out");
+        TestCase.assertTrue("Logout failed ", CustomHooks.logMeOut());
         assertTrue("Error Some buttons missing", SignInPage.areFacebookGoogleEmailButtonsVisible());
         runStatus = "passed";
     }
 }
-
-/*    @Test
-    public void Test3_DeleteEmailAccount() {
-        if (!driver.findElement(By.name("Your settings")).isDisplayed()) {
-            //Go to left nav bar
-            LandingPage.openLeftNavSignedIn();
-
-            //Go to settings
-            LeftNavBar.clickOnSettingsLeftNav();
-
-        }
-
-        //Go to Account settings
-        LeftNavSettings.clicksettingsAccountSettings();
-
-        //Tap on delete account
-        AccountSettings.clickAccountSettingsDeleteAccount();
-
-        //In delete account tap on confirm delete account
-        DeleteAccountPage.clickAndDeleteAccountWithPassword();
-
-        CustomHooks.waitFor(3);
-        //Tap on top left corner to proceed with delete
-        DeleteAccountPage.clickToProceedDelete();
-
-        CustomHooks.waitFor(5);
-
-        //Comfirm delete account
-        ConfirmDeleteAccountPage.clickOnDeleteAccountConfirm();
-    }
-
-    @Test
-    public void Test3_LoginWithEmail() {
-        LoginHooks.loginWithEmail();
-
-    }
-*/
