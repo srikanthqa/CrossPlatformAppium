@@ -99,11 +99,11 @@ public class LoginHooks extends AbstractTestCase {
         }
     }
 
-    public static void GoThroughFirstUse() {
+    public static boolean GoThroughFirstUse() {
         //Go through the first use flow
         try {
             FirstUseDealsEducationPage.clickGetStartedButton();
-            if (platformType.equals("IOS")) {
+            if (CountryPickerPage.isCountryPickerPresent()) {
                 CountryPickerPage.clickCountryUSA();
                 CountryPickerPage.clickNextButton();
             }
@@ -113,10 +113,14 @@ public class LoginHooks extends AbstractTestCase {
             FirstUseRewardsEducationPage.clickPickARewardButton();
             //Pick default reward
             RewardsPickerPage.clickSelectRewardButton();
-            //Click on Login button
-            // FirstUseRegistrationIntroPage.clickLoginButton();
-        } catch (Exception e) {
+            return true;
+        } catch (
+                Exception e
+                )
+
+        {
             e.printStackTrace();
+            return false;
         }
     }
 }

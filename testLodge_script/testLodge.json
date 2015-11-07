@@ -1,1 +1,0 @@
-{"resultsList":[{"elapsed":160,"runStatus":"passed","testSectionName":"EmailAuthentication","testName":"EmailAuthentication.Test1_CreateAccountWithEmailAccount"},{"elapsed":74,"runStatus":"passed","testSectionName":"EmailAuthentication","testName":"EmailAuthentication.Test2_LoginWithEmailAccount"}],"reportName":"Android_11-05-04:14_testLodge.json","buildNo":"4.7.6-1125"}

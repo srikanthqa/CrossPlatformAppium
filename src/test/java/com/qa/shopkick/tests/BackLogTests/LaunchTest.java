@@ -1,4 +1,4 @@
-package com.qa.shopkick.tests;
+package com.qa.shopkick.tests.BackLogTests;
 
 import com.qa.shopkick.appium.AbstractTestCase;
 import com.qa.shopkick.pages.*;

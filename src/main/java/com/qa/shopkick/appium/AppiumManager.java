@@ -1,5 +1,6 @@
 package com.qa.shopkick.appium;
 
+import com.qa.shopkick.utils.QaProperties;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import org.apache.log4j.Logger;
@@ -30,6 +31,9 @@ public class AppiumManager {
     private static int dCount = 0;
     private DesiredCapabilities capabilities = new DesiredCapabilities();
 
+    private String apk = QaProperties.getAndroidAPK();
+//    String apk = "Shopkick_debug_qa_a285e911f3e22385512424eefbcfe7d95a887bd3.apk";
+
     /**
      * Create Android Driver port and APK name
      */
@@ -39,7 +43,6 @@ public class AppiumManager {
             log.info("Going to Create createAppiumDriver() ..." + dCount + " time ");
             File userDir = new File(System.getProperty("user.dir"));
             File appDir = new File(userDir, "APK/");
-            String apk = "Shopkick_debug_qa_70b2e40ff42f020af518358c84000b07f7dbc793.apk";
             log.info("Using: " + apk);
             File app = new File(appDir, apk);
             capabilities.setCapability("platformName", "Android");
