@@ -5,6 +5,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
@@ -14,6 +15,8 @@ import java.util.NoSuchElementException;
  * Created by Srikanth on 12/16/14.
  */
 public class CountryPickerPage extends ScreenBaseClass {
+
+    final private static Logger log = Logger.getLogger((CountryPickerPage.class));
 
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/select_germany\")")
     @iOSFindBy(uiAutomator = ".buttons()[2]")
@@ -35,12 +38,12 @@ public class CountryPickerPage extends ScreenBaseClass {
         try {
             if (countryGermany.isDisplayed() && countryUSA.isDisplayed()) {
                 flag = true;
+                log.info("Country picker found ");
             }
-
         } catch (NoSuchElementException e) {
+            log.info("Country Picker not found Cool");
             return false;
         } catch (Exception e) {
-            System.exit(1);
             return false;
         }
         return flag;

@@ -103,6 +103,7 @@ public class LoginHooks extends AbstractTestCase {
         //Go through the first use flow
         try {
             FirstUseDealsEducationPage.clickGetStartedButton();
+
             if (CountryPickerPage.isCountryPickerPresent()) {
                 CountryPickerPage.clickCountryUSA();
                 CountryPickerPage.clickNextButton();
