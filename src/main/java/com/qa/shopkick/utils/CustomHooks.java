@@ -72,12 +72,9 @@ public class CustomHooks extends ScreenBaseClass {
         // before calling method leave app state in stores screen
         try {
             LandingPage.openLeftNavSignedIn();
-            driver.scrollTo("Settings");
-            //click on settings
             LeftNavBar.clickOnSettingsLeftNav();
             LeftNavSettings.clicksettingsAccountSettings();
             AccountSettings.clickAccountSettingsLogOut();
-            QaScreenshot.getInstance().capture(driver);
             return true;
         } catch (Exception e) {
             log.error(e);
@@ -89,13 +86,11 @@ public class CustomHooks extends ScreenBaseClass {
         // before calling method leave app state in stores screen
         try {
             LandingPage.openLeftNavSignedIn();
-            driver.scrollTo("Settings");
             //click on settings
             LeftNavBar.clickOnSettingsLeftNav();
             LeftNavSettings.clicksettingsAccountSettings();
             AccountSettings.clickAccountSettingsDeleteAccount();
 
-            QaScreenshot.getInstance().capture(driver);
             return true;
         } catch (Exception e) {
             log.error(e);
@@ -103,13 +98,11 @@ public class CustomHooks extends ScreenBaseClass {
         }
     }
 
-    public static void gotoAccountSettings() {
+    public static void  gotoAccountSettings() {
         // before calling method leave app state in stores screen
         try {
             LandingPage.openLeftNavSignedIn();
             waitFor(3);
-            driver.scrollTo("Questions?");
-            driver.scrollTo("Settings");
             //click on settings
             LeftNavBar.clickOnSettingsLeftNav();
             LeftNavSettings.clicksettingsAccountSettings();
@@ -123,7 +116,6 @@ public class CustomHooks extends ScreenBaseClass {
         // before calling method leave app state in stores screen
         try {
             LandingPage.openLeftNavSignedIn();
-            driver.scrollTo("Settings");
             //click on settings
             return LeftNavBar.getUserProfileText();
 
@@ -138,7 +130,6 @@ public class CustomHooks extends ScreenBaseClass {
         // before calling method leave app state in stores screen
         try {
             LandingPage.openLeftNavSignedIn();
-            driver.scrollTo("Settings");
             //click on settings
             LeftNavBar.clickOnSettingsLeftNav();
             LeftNavSettings.clickAboutYouSettings();

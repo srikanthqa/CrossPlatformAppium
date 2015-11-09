@@ -92,6 +92,7 @@ public class TopNavBar extends ScreenBaseClass {
             do {
                 Thread.sleep(300);
             } while (count == 10 || !userIcon.isDisplayed());
+            log.info("userIcon.isDisplayed()");
             return true;
         } catch (Exception e) {
             log.info(e);

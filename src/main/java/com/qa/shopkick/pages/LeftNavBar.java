@@ -35,9 +35,9 @@ public class LeftNavBar extends ScreenBaseClass {
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/row_text\").text(\"'s profile\")")
     private static WebElement signedInProfileLeftNav;
 
-	/*
+    /*
      * modifying left nav
-	 * */
+     * */
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/row_text\").text(\"My saves\")")
     private static WebElement mySavesLeftNav;
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/row_text\").text(\"Rewards\")")
@@ -110,8 +110,13 @@ public class LeftNavBar extends ScreenBaseClass {
     }
 
     public static void clickOnSettingsLeftNav() {
-        settingsLeftNav.click();
-        PageFactory.initElements(new AppiumFieldDecorator(driver), new LeftNavSettings());
+        try {
+            settingsLeftNav.click();
+            log.info("settingsLeftNav.click()");
+            PageFactory.initElements(new AppiumFieldDecorator(driver), new LeftNavSettings());
+        } catch (Exception e) {
+            log.error(e);
+        }
     }
 
     //Method TO read Current Kicks

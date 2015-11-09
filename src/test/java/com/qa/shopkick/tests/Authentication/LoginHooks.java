@@ -9,6 +9,9 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.support.PageFactory;
 
+import static junit.framework.TestCase.assertNotNull;
+import static junit.framework.TestCase.assertTrue;
+
 public class LoginHooks extends AbstractTestCase {
 
     final private static Logger log = Logger.getLogger((LoginHooks.class));
@@ -71,7 +74,6 @@ public class LoginHooks extends AbstractTestCase {
 
                 PageFactory.initElements(new AppiumFieldDecorator(driver), new LinkPhonePage());
                 log.info("Now in LinkPhonePage");
-
                 String expectedPhone = "1847848" + QaRandom.getInstance().getRandomInteger(4);
                 LinkPhonePage.clickAndEnterPhoneNumber(expectedPhone);
                 LinkPhonePage.clickAndEnterZipcode();
@@ -79,8 +81,13 @@ public class LoginHooks extends AbstractTestCase {
                 WalkInBubble.handleWalkBubble();
                 log.info("Going to Ignore the Phone verification for now ");
                 CustomHooks.pressBack();
+
+                PageFactory.initElements(new AppiumFieldDecorator(driver), new TopNavBar());
                 TopNavBar.waitTillUserIconPresent();
+                assertTrue("HeartLess ", TopNavBar.isHeartIconDisplayed());
+                assertTrue("Countless ", TopNavBar.isKicksCounterDisplayed());
                 PageFactory.initElements(new AppiumFieldDecorator(driver), new EmailSignInPage());
+                assertNotNull("Email Null " + email);
                 return email;
             } else {
                 String email = "qa@i.com";
