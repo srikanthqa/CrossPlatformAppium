@@ -1,12 +1,13 @@
 package com.qa.shopkick.utils;
 
 import com.qa.shopkick.appium.ScreenBaseClass;
-import com.qa.shopkick.overlay.ErrorOverlay;
+import com.qa.shopkick.bubble.ErrorBubble;
 import com.qa.shopkick.pages.*;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 public class CustomHooks extends ScreenBaseClass {
@@ -22,7 +23,7 @@ public class CustomHooks extends ScreenBaseClass {
         try {
             waitFor(3);
             if (driver.findElement(By.name("Did you know?")).isDisplayed()) {
-                ErrorOverlay.tapOnDidYouKnow();
+                ErrorBubble.tapOnDidYouKnow();
             }
         } catch (NoSuchElementException nse) {
             log.info("Lucky No MultiLoginMessage");
@@ -54,12 +55,14 @@ public class CustomHooks extends ScreenBaseClass {
     public static void gotoSignInOrSignUp() {
         try {
             waitFor(5);
-            //driver.fi
             PageFactory.initElements(new AppiumFieldDecorator(driver), new LandingPage());
-            waitTillGuestIconPresent();
+            TopNavBar.waitTillGuestIconPresent();
             LandingPage.openLeftNavSignedIn();
-            driver.scrollTo("ENTER MANUALLY").click();
+            WebElement enterManuallyButton = driver.findElementById("com.shopkick.app:id/no_facebook_button");
+            enterManuallyButton.click();
+            log.info("enterManuallyButton clicked ");
             log.info("In gotoSignInOrSignUp");
+            waitFor(3);
         } catch (Exception e) {
             log.error(e);
         }
@@ -104,6 +107,7 @@ public class CustomHooks extends ScreenBaseClass {
         // before calling method leave app state in stores screen
         try {
             LandingPage.openLeftNavSignedIn();
+            waitFor(3);
             driver.scrollTo("Questions?");
             driver.scrollTo("Settings");
             //click on settings

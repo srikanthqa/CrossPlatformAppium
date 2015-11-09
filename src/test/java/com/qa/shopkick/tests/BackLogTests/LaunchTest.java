@@ -40,7 +40,7 @@ public class LaunchTest extends AbstractTestCase {
         CustomHooks.waitFor(3);
 
         //tap on the 'Guest' button to open left nav bar
-        LeftNavBar.clickGuestUserButton();
+        TopNavBar.clickGuestUserButton();
 
         //Read current kicks so you can compare if the username has signed in and the kicks have been updated
 

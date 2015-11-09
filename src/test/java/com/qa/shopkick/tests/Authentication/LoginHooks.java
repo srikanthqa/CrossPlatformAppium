@@ -1,8 +1,7 @@
 package com.qa.shopkick.tests.Authentication;
 
 import com.qa.shopkick.appium.AbstractTestCase;
-import com.qa.shopkick.appium.ScreenBaseClass;
-import com.qa.shopkick.overlay.WalkInOverlay;
+import com.qa.shopkick.bubble.WalkInBubble;
 import com.qa.shopkick.pages.*;
 import com.qa.shopkick.utils.CustomHooks;
 import com.qa.shopkick.utils.QaRandom;
@@ -17,7 +16,6 @@ public class LoginHooks extends AbstractTestCase {
     public static void loginWithFacebook() {
         //from first use flow log into facebook
         SignInPage.clickFacebookSignInButton();
-
         if (platformType.equalsIgnoreCase("IOS")) {
             if (MicrophonePermissionPage.isMicroPhonePermissionRequired()) {
                 //if iOS and if mic permission is asked, give the permission
@@ -60,7 +58,7 @@ public class LoginHooks extends AbstractTestCase {
         try {
             CustomHooks.dismissPotHoleError();
             if ("Android".equalsIgnoreCase(platformType)) {
-                String email = "auto" + QaRandom.getInstance().getRandomInteger(4) + "@and.com";
+                String email = "auto" + QaRandom.getInstance().getRandomInteger(5) + "@and.com";
                 String password = "123456";
                 String fName = QaRandom.getInstance().getRandomInteger(2);
                 String lName = QaRandom.getInstance().getRandomInteger(2);
@@ -78,12 +76,10 @@ public class LoginHooks extends AbstractTestCase {
                 LinkPhonePage.clickAndEnterPhoneNumber(expectedPhone);
                 LinkPhonePage.clickAndEnterZipcode();
                 LinkPhonePage.clickOnCompleteRegistration();
-                WalkInOverlay.handleWalkBubble();
-                //            String actualPhone = VerifyMobileNumber.getPhoneNumber();
-                //            assertEquals("Phone no don't match ", expectedPhone, actualPhone);
+                WalkInBubble.handleWalkBubble();
                 log.info("Going to Ignore the Phone verification for now ");
                 CustomHooks.pressBack();
-                ScreenBaseClass.waitTillUserIconPresent();
+                TopNavBar.waitTillUserIconPresent();
                 PageFactory.initElements(new AppiumFieldDecorator(driver), new EmailSignInPage());
                 return email;
             } else {
@@ -103,7 +99,6 @@ public class LoginHooks extends AbstractTestCase {
         //Go through the first use flow
         try {
             FirstUseDealsEducationPage.clickGetStartedButton();
-
             if (CountryPickerPage.isCountryPickerPresent()) {
                 CountryPickerPage.clickCountryUSA();
                 CountryPickerPage.clickNextButton();
@@ -115,11 +110,7 @@ public class LoginHooks extends AbstractTestCase {
             //Pick default reward
             RewardsPickerPage.clickSelectRewardButton();
             return true;
-        } catch (
-                Exception e
-                )
-
-        {
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }

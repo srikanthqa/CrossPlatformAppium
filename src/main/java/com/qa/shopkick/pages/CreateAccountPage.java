@@ -1,7 +1,7 @@
 package com.qa.shopkick.pages;
 
 import com.qa.shopkick.appium.ScreenBaseClass;
-import com.qa.shopkick.overlay.ErrorOverlay;
+import com.qa.shopkick.bubble.ErrorBubble;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.apache.log4j.Logger;
@@ -70,7 +70,7 @@ public class CreateAccountPage extends ScreenBaseClass {
         try {
             MobileElement signUpButton = (MobileElement) driver.findElement(By.id("com.shopkick.app:id/button_text"));
             signUpButton.click();
-            PageFactory.initElements(new AppiumFieldDecorator(driver), new ErrorOverlay());
+            PageFactory.initElements(new AppiumFieldDecorator(driver), new ErrorBubble());
             PageFactory.initElements(new AppiumFieldDecorator(driver), new LinkPhonePage());
             PageFactory.initElements(new AppiumFieldDecorator(driver), new LandingPage());
             PageFactory.initElements(new AppiumFieldDecorator(driver), new StoresPage());

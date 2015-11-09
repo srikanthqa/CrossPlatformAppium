@@ -31,7 +31,7 @@ public class SmokeOneIphone extends AbstractTestCase {
 
         CustomHooks.waitFor(4);
 
-        LeftNavBar.clickGuestUserButton();
+        TopNavBar.clickGuestUserButton();
 
         LeftNavBar.clickOnFaceBookSignIn();
 
