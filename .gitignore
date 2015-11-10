@@ -21,4 +21,5 @@ local.properties
 .loadpath
 .idea/*
 .idea/workspace.xml
-
+logs/appium.log
+testLodge_script/testLodge.json
