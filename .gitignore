@@ -25,3 +25,4 @@ idea/compiler.xml
 .idea/workspace.xml
 logs/appium.log
 testLodge_script/testLodge.json
+APK/*.apk
