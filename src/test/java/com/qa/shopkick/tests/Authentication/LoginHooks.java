@@ -1,14 +1,16 @@
 package com.qa.shopkick.tests.Authentication;
 
 import com.qa.shopkick.appium.AbstractTestCase;
-import com.qa.shopkick.appium.ScreenBaseClass;
-import com.qa.shopkick.overlay.WalkInOverlay;
+import com.qa.shopkick.bubble.WalkInBubble;
 import com.qa.shopkick.pages.*;
 import com.qa.shopkick.utils.CustomHooks;
 import com.qa.shopkick.utils.QaRandom;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.support.PageFactory;
+
+import static junit.framework.TestCase.assertNotNull;
+import static junit.framework.TestCase.assertTrue;
 
 public class LoginHooks extends AbstractTestCase {
 
@@ -17,7 +19,6 @@ public class LoginHooks extends AbstractTestCase {
     public static void loginWithFacebook() {
         //from first use flow log into facebook
         SignInPage.clickFacebookSignInButton();
-
         if (platformType.equalsIgnoreCase("IOS")) {
             if (MicrophonePermissionPage.isMicroPhonePermissionRequired()) {
                 //if iOS and if mic permission is asked, give the permission
@@ -60,7 +61,7 @@ public class LoginHooks extends AbstractTestCase {
         try {
             CustomHooks.dismissPotHoleError();
             if ("Android".equalsIgnoreCase(platformType)) {
-                String email = "auto" + QaRandom.getInstance().getRandomInteger(4) + "@and.com";
+                String email = "auto" + QaRandom.getInstance().getRandomInteger(5) + "@and.com";
                 String password = "123456";
                 String fName = QaRandom.getInstance().getRandomInteger(2);
                 String lName = QaRandom.getInstance().getRandomInteger(2);
@@ -73,18 +74,20 @@ public class LoginHooks extends AbstractTestCase {
 
                 PageFactory.initElements(new AppiumFieldDecorator(driver), new LinkPhonePage());
                 log.info("Now in LinkPhonePage");
-
                 String expectedPhone = "1847848" + QaRandom.getInstance().getRandomInteger(4);
                 LinkPhonePage.clickAndEnterPhoneNumber(expectedPhone);
                 LinkPhonePage.clickAndEnterZipcode();
                 LinkPhonePage.clickOnCompleteRegistration();
-                WalkInOverlay.handleWalkBubble();
-                //            String actualPhone = VerifyMobileNumber.getPhoneNumber();
-                //            assertEquals("Phone no don't match ", expectedPhone, actualPhone);
+                WalkInBubble.handleWalkBubble();
                 log.info("Going to Ignore the Phone verification for now ");
                 CustomHooks.pressBack();
-                ScreenBaseClass.waitTillUserIconPresent();
+
+                PageFactory.initElements(new AppiumFieldDecorator(driver), new TopNavBar());
+                TopNavBar.waitTillUserIconPresent();
+                assertTrue("HeartLess ", TopNavBar.isHeartIconDisplayed());
+                assertTrue("Countless ", TopNavBar.isKicksCounterDisplayed());
                 PageFactory.initElements(new AppiumFieldDecorator(driver), new EmailSignInPage());
+                assertNotNull("Email Null " + email);
                 return email;
             } else {
                 String email = "qa@i.com";
@@ -99,11 +102,11 @@ public class LoginHooks extends AbstractTestCase {
         }
     }
 
-    public static void GoThroughFirstUse() {
+    public static boolean GoThroughFirstUse() {
         //Go through the first use flow
         try {
             FirstUseDealsEducationPage.clickGetStartedButton();
-            if (platformType.equals("IOS")) {
+            if (CountryPickerPage.isCountryPickerPresent()) {
                 CountryPickerPage.clickCountryUSA();
                 CountryPickerPage.clickNextButton();
             }
@@ -113,10 +116,10 @@ public class LoginHooks extends AbstractTestCase {
             FirstUseRewardsEducationPage.clickPickARewardButton();
             //Pick default reward
             RewardsPickerPage.clickSelectRewardButton();
-            //Click on Login button
-            // FirstUseRegistrationIntroPage.clickLoginButton();
+            return true;
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
     }
 }

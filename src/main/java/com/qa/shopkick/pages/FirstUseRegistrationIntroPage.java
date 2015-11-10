@@ -1,7 +1,7 @@
 package com.qa.shopkick.pages;
 
 import com.qa.shopkick.appium.ScreenBaseClass;
-import com.qa.shopkick.overlay.WalkInOverlay;
+import com.qa.shopkick.bubble.WalkInBubble;
 import com.qa.shopkick.utils.CustomHooks;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -51,23 +51,24 @@ public class FirstUseRegistrationIntroPage extends ScreenBaseClass {
             signUpOrSignInButton.click();
             PageFactory.initElements(new AppiumFieldDecorator(driver), new SignInPage());
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error(e);
         }
     }
 
-    public static void CreateAccountButton() {
+    public static boolean CreateAccountButton() {
         try {
             createAccountButton.click();
-            PageFactory.initElements(new AppiumFieldDecorator(driver), new WalkInOverlay());
+            PageFactory.initElements(new AppiumFieldDecorator(driver), new WalkInBubble());
             CustomHooks.dismissPotHoleError();
             //HACK , because we login as Guest by default via automation
-            WalkInOverlay.handleWalkBubble();
+            WalkInBubble.handleWalkBubble();
             CustomHooks.gotoSignInOrSignUp();
-            waitFor(4);
             PageFactory.initElements(new AppiumFieldDecorator(driver), new CreateAccountPage());
             log.info("Create Account Button clicked ");
+            return true;
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error(e);
+            return false;
         }
     }
 
@@ -76,8 +77,7 @@ public class FirstUseRegistrationIntroPage extends ScreenBaseClass {
             logInButton.click();
             PageFactory.initElements(new AppiumFieldDecorator(driver), new SignInPage());
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error(e);
         }
     }
-
 }

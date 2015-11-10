@@ -1,4 +1,4 @@
-package com.qa.shopkick.tests;
+package com.qa.shopkick.tests.BackLogTests;
 
 import com.qa.shopkick.appium.AbstractTestCase;
 import com.qa.shopkick.pages.*;
@@ -31,7 +31,7 @@ public class SmokeOneIphone extends AbstractTestCase {
 
         CustomHooks.waitFor(4);
 
-        LeftNavBar.clickGuestUserButton();
+        TopNavBar.clickGuestUserButton();
 
         LeftNavBar.clickOnFaceBookSignIn();
 

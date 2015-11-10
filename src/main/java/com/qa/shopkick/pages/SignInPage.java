@@ -1,7 +1,7 @@
 package com.qa.shopkick.pages;
 
 import com.qa.shopkick.appium.ScreenBaseClass;
-import com.qa.shopkick.overlay.ErrorOverlay;
+import com.qa.shopkick.bubble.ErrorBubble;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
@@ -63,7 +63,7 @@ public class SignInPage extends ScreenBaseClass {
             signInGooglePlusSignIn.click();
             log.info("signInGooglePlusSignIn.click()");
             PageFactory.initElements(new AppiumFieldDecorator(driver), new LandingPage());
-            PageFactory.initElements(new AppiumFieldDecorator(driver), new ErrorOverlay());
+            PageFactory.initElements(new AppiumFieldDecorator(driver), new ErrorBubble());
         } catch (Exception e) {
             log.error(e);
         }

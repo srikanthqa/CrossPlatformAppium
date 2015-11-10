@@ -1,4 +1,4 @@
-package com.qa.shopkick.overlay;
+package com.qa.shopkick.bubble;
 
 import com.qa.shopkick.appium.ScreenBaseClass;
 import com.qa.shopkick.pages.LandingPage;
@@ -11,12 +11,15 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-public class ErrorOverlay extends ScreenBaseClass {
+public class ErrorBubble extends ScreenBaseClass {
 
-    final private static Logger log = Logger.getLogger(String.valueOf(ErrorOverlay.class));
+    final private static Logger log = Logger.getLogger(String.valueOf(ErrorBubble.class));
 
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/main_overlay_view\")")
     private static WebElement didYouKnowText;
+
+    //android:id/message
+
 
     public static void tapOnDidYouKnow() {
         try {

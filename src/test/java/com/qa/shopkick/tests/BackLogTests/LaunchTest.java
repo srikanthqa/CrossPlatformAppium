@@ -1,4 +1,4 @@
-package com.qa.shopkick.tests;
+package com.qa.shopkick.tests.BackLogTests;
 
 import com.qa.shopkick.appium.AbstractTestCase;
 import com.qa.shopkick.pages.*;
@@ -40,7 +40,7 @@ public class LaunchTest extends AbstractTestCase {
         CustomHooks.waitFor(3);
 
         //tap on the 'Guest' button to open left nav bar
-        LeftNavBar.clickGuestUserButton();
+        TopNavBar.clickGuestUserButton();
 
         //Read current kicks so you can compare if the username has signed in and the kicks have been updated
 

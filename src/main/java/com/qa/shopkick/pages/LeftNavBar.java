@@ -2,7 +2,7 @@ package com.qa.shopkick.pages;
 
 
 import com.qa.shopkick.appium.ScreenBaseClass;
-import com.qa.shopkick.overlay.ErrorOverlay;
+import com.qa.shopkick.bubble.ErrorBubble;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
@@ -13,9 +13,7 @@ import org.openqa.selenium.support.PageFactory;
 public class LeftNavBar extends ScreenBaseClass {
 
     final private static Logger log = Logger.getLogger((LeftNavBar.class));
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"GUEST\")")
-    @iOSFindBy(uiAutomator = ".buttons()[\"guest username circle\"]")
-    private static WebElement guestLeftNavBar;
+
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/row_text\")")
     @iOSFindBy(uiAutomator = ".buttons()[\"guest username circle\"]")
     private static WebElement userProfileText;
@@ -37,9 +35,9 @@ public class LeftNavBar extends ScreenBaseClass {
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/row_text\").text(\"'s profile\")")
     private static WebElement signedInProfileLeftNav;
 
-	/*
+    /*
      * modifying left nav
-	 * */
+     * */
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/row_text\").text(\"My saves\")")
     private static WebElement mySavesLeftNav;
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/row_text\").text(\"Rewards\")")
@@ -60,12 +58,6 @@ public class LeftNavBar extends ScreenBaseClass {
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/all_time_kicks_count\")")
     private static WebElement allTimeKicksCountLeftNav;
 
-    public static void clickGuestUserButton() {
-
-        guestLeftNavBar.click();
-        PageFactory.initElements(new AppiumFieldDecorator(driver), new LeftNavBar());
-    }
-
     public static String getUserProfileText() {
         String profile = "";
         try {
@@ -78,7 +70,7 @@ public class LeftNavBar extends ScreenBaseClass {
 
     public static void clickOnFaceBookSignIn() {
         signInWithFacebookLeftNav.click();
-        PageFactory.initElements(new AppiumFieldDecorator(driver), new ErrorOverlay());
+        PageFactory.initElements(new AppiumFieldDecorator(driver), new ErrorBubble());
     }
 
     public static void clickOnGooglePlusSignIn() {
@@ -118,8 +110,13 @@ public class LeftNavBar extends ScreenBaseClass {
     }
 
     public static void clickOnSettingsLeftNav() {
-        settingsLeftNav.click();
-        PageFactory.initElements(new AppiumFieldDecorator(driver), new LeftNavSettings());
+        try {
+            settingsLeftNav.click();
+            log.info("settingsLeftNav.click()");
+            PageFactory.initElements(new AppiumFieldDecorator(driver), new LeftNavSettings());
+        } catch (Exception e) {
+            log.error(e);
+        }
     }
 
     //Method TO read Current Kicks

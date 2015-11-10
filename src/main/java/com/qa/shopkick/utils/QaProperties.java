@@ -96,6 +96,18 @@ public class QaProperties { // singleton
         }
     }
 
+
+    //Android.apk
+    public static String getAndroidAPK() throws NullPointerException {
+        String apk = "";
+        try {
+            apk = (props.getProperty("Android.apk").trim());
+        } catch (Exception e) {
+            log.error(e);
+        }
+        return apk;
+    }
+
     public static String getAPKVersion() throws NullPointerException {
         String apkVersion = "";
         try {

@@ -1,7 +1,7 @@
 package com.qa.shopkick.pages;
 
 import com.qa.shopkick.appium.ScreenBaseClass;
-import com.qa.shopkick.overlay.ErrorOverlay;
+import com.qa.shopkick.bubble.ErrorBubble;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
@@ -32,7 +32,7 @@ public class LandingPage extends ScreenBaseClass {
 
     public static String getKicksOnLandingPage() {
 
-        ErrorOverlay.tapOnDidYouKnow();
+        ErrorBubble.tapOnDidYouKnow();
         String kicks = "";
         try {
             while (!topCenterKicks.isDisplayed()) {
