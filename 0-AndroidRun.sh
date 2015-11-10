@@ -19,29 +19,29 @@ mkdir logs
 mkdir reports
 mkdir screenshots
 
-adb uninstall com.shopkick.app
+/Applications/android-sdk-macosx/platform-tools/adb uninstall com.shopkick.app
 Echo "Old App Uninstalled"
 
 Echo "App Installed"
 #adb shell getprop ro.product.model > src/main/resources/local.properties
 ########################## Start Appium #########################
-killall node ; appium > logs/appium.log &
+killall /usr/local/bin/node ; /usr/local/bin/appium > logs/appium.log &
 
 #killall node ; appium
 
-#mvn -Dtest=EmailAuthentication test
-#mvn -Dtest=com.qa.shopkick.tests.Authentication.EmailAuthentication test
-#mvn -Dtest=com.qa.shopkick.tests.Authentication.FacebookAuthentication test
+#/usr/local/bin/mvn -Dtest=EmailAuthentication test
+#/usr/local/bin/mvn -Dtest=com.qa.shopkick.tests.Authentication.EmailAuthentication test
+#/usr/local/bin/mvn -Dtest=com.qa.shopkick.tests.Authentication.FacebookAuthentication test
 
-mvn -DplatformType='Android' -DplatformVersion='5.0.1' -DdeviceName='GalaxyS5' -DdeviceUDID='null' -Dtest=EmailAuthentication test || echo "BUILD FAILED"> logs/build.status
+/usr/local/bin/mvn -DplatformType='Android' -DplatformVersion='5.0.1' -DdeviceName='GalaxyS5' -DdeviceUDID='null' -Dtest=EmailAuthentication test || echo "BUILD FAILED"> logs/build.status
 
-adb uninstall com.shopkick.app
+/Applications/android-sdk-macosx/platform-tools/adb uninstall com.shopkick.app
 Echo "Old App Uninstalled"
 
 echo "Update TestLodge"
 if [ -s  testLodge_script/testLodge.json ]
 then
-    mvn -Dtest=QaEmailProcessor test
+    /usr/local/bin/mvn -Dtest=QaEmailProcessor test
     echo "Email Sent"
 else
     echo "BUILD FAILED"
