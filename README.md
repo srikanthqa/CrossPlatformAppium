@@ -1,6 +1,9 @@
 Cross Platform Appium-JUnit-Project Using Maven
 ---
-# Install Maven (Maven 3.3.3)
+
+#Update to JAVA 8 
+
+# Install Gradle (2.7)
 # Install Homebrew : http://brew.sh/
  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
@@ -15,16 +18,16 @@ Cross Platform Appium-JUnit-Project Using Maven
 
 You will then need to start appium, eg:
 
- ./0-OneStop.sh
+sh 0-AndroidRun.sh
 
 #To compile and run all tests, run:
 
-    mvn clean compile
-    mvn test
+    gradle clean compile
+    gradle test
 
 #To run a single test, run:
 
-   mvn -Dtest=com.qa.shopkick.tests.Authentication.EmailAuthentication test
+gradle -Dtest=EmailAuthentication test
 
 # Good idea to follow
 
@@ -32,4 +35,5 @@ You will then need to start appium, eg:
 https://github.com/nrvivek23/CrossPlatformAppium.git
 
 #Download Android Studio ... It has IDE and Android SDK and Command Prompt
-# Import the code as a Maven project
+
+# Import the code as a Gradle project

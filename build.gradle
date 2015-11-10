@@ -1,0 +1,35 @@
+apply plugin: 'java'
+version = '1.0-FINAL'
+compileJava.options.encoding = 'UTF-8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    compile 'org.seleniumhq.selenium:selenium-java:2.45.0'
+    compile 'org.seleniumhq.selenium:selenium-firefox-driver:2.45.0'
+    compile 'org.seleniumhq.selenium:selenium-chrome-driver:2.45.0'
+    compile 'log4j:log4j:1.2.17'
+    compile 'junit:junit:4.12'
+    compile 'org.json:json:20090211'
+    compile 'com.googlecode.json-simple:json-simple:1.1'
+    compile 'io.appium:java-client:2.1.0'
+    compile 'com.jayway.restassured:rest-assured:2.6.0'
+    compile 'org.codehaus.jackson:jackson-mapper-asl:1.9.0'
+    compile 'org.apache.maven.wagon:wagon-file:1.0-beta-2'
+    compile 'javax.activation:activation:1.1'
+    compile 'javax.mail:mail:1.4.1'
+    compile 'org.apache.commons:commons-lang3:3.0'
+    compile 'org.apache.commons:commons-email:1.2'
+
+}
+
+test {
+    testLogging {
+        events 'started', 'passed'
+    }
+}
+
+println 'A message which is logged at QUIET level'
