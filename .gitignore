@@ -1,0 +1,28 @@
+# Do not need target files
+/target/
+/bin/
+/build/
+*/.DS_Store
+#Do not need jars
+*.jar
+
+src/main/.DS_Store
+src/main/java/.DS_Store
+src/main/java/com/.DS_Store
+src/main/java/com/qa/.DS_Store
+src/main/java/com/qa/shopkick/.DS_Store
+src/test/.DS_Store
+src/test/java/.DS_Store
+
+.classpath
+.settings/
+.loadpath
+idea/compiler.xml
+.idea/.name
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
+logs/appium.log
+testLodge_script/testLodge.json
+APK/*.apk

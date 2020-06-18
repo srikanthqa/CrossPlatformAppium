@@ -1,26 +1,36 @@
 package com.qa.shopkick.pages;
 
-import com.qa.shopkick.utils.AbstractPage;
+import com.qa.shopkick.appium.ScreenBaseClass;
+import com.qa.shopkick.utils.CustomHooks;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-/**
- * Created by Srikanth on 12/16/14.
- */
-public class FirstUseDealsEducationPage extends AbstractPage{
+public class FirstUseDealsEducationPage extends ScreenBaseClass {
 
-    @iOSFindBy(uiAutomator = ".buttons()[\"Next\"]")
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"NEXT\")")
-    private static WebElement nextButton;
+    final private static Logger log = Logger.getLogger(String.valueOf(FirstUseDealsEducationPage.class));
 
-    public static void clickNextButton(){
-        nextButton.click();
-        PageFactory.initElements(new AppiumFieldDecorator(driver),new CountryPickerPage());
-        PageFactory.initElements(new AppiumFieldDecorator(driver),new FirstUseWalkinEducationPage());
+    @iOSFindBy(uiAutomator = ".buttons()[\"Get Started\"]")
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.shopkick.app:id/button_text\").text(\"GET STARTED\")")
+    private static WebElement getStartedFirstUse;
+
+    public FirstUseDealsEducationPage() {
+
     }
 
+    public static void clickGetStartedButton() {
 
+        try {
+            getStartedFirstUse.click();
+            log.info("click() getStartedFirstUse");
+            CustomHooks.waitFor(5);
+            PageFactory.initElements(new AppiumFieldDecorator(driver), new CountryPickerPage());
+            PageFactory.initElements(new AppiumFieldDecorator(driver), new FirstUseWalkinEducationPage());
+        } catch (Exception e) {
+            log.info(e);
+        }
+    }
 }
